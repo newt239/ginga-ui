@@ -31,6 +31,7 @@
     "@storybook/react": "^8.2.9",
     "@storybook/react-vite": "^8.2.9",
     "@storybook/test": "^8.2.9",
+    "@types/css-modules": "^1.0.5",
     "@types/react": "^18.3.3",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
