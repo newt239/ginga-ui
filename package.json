@@ -20,7 +20,6 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.6.1",
     "@eslint/js": "^9.9.0",
     "@rollup/plugin-commonjs": "^26.0.1",
     "@rollup/plugin-typescript": "^11.1.6",
