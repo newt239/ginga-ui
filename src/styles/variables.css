@@ -1,3 +1,11 @@
 :root {
+  --text-color: #ffffff;
+  --button-background: #007bff;
+  --button-background-pressed: #0056b3;
+  --border-color: #007bff;
+  --border-color-pressed: #0056b3;
   --primary-color: #007bff;
+  --field-background: #ffffff;
+  --field-text-color: #000000;
+  --focus-ring-color: #007bff;
 }

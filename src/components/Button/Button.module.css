@@ -1,11 +1,26 @@
 .root {
-  display: inline-block;
-  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  background: var(--button-background);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  appearance: none;
+  vertical-align: middle;
   font-size: 1rem;
-  font-weight: 500;
-  color: #fff;
-  background-color: var(--primary-color);
-  border-radius: 0.25rem;
+  text-align: center;
+  margin: 0;
+  outline: none;
+  padding: 6px 10px;
+  text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
+
+  &[data-pressed] {
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.1);
+    background: var(--button-background-pressed);
+    border-color: var(--border-color-pressed);
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: -1px;
+  }
 }
