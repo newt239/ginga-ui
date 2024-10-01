@@ -9,8 +9,8 @@ const TextInput: React.FC<SwitchProps> = (props) => {
   const { ...rest } = props;
   return (
     <AriaSwitch className={classes.root} {...rest}>
-      <div className="indicator" />
-      aaa
+      <div className={classes.indicator} />
+      Switch
     </AriaSwitch>
   );
 };

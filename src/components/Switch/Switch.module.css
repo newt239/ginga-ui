@@ -3,7 +3,7 @@
   align-items: center;
   gap: 0.571rem;
   font-size: 1.143rem;
-  color: var(--text-color);
+  color: var(--primary-color);
   forced-color-adjust: none;
 
   .indicator {
