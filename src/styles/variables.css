@@ -8,4 +8,10 @@
   --field-background: #ffffff;
   --field-text-color: #000000;
   --focus-ring-color: #007bff;
+  --highlight-background: #007bff;
+  --highlight-background-pressed: #0056b3;
+  --background-color: #ffffff;
+  --field-background: #ffffff;
+  --highlight-background: #007bff;
+  --highlight-background-pressed: #0056b3;
 }
