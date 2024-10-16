@@ -39,6 +39,16 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
-    "vite": "^5.4.8"
+    "vite": "^5.4.8",
+    "@storybook/addon-essentials": "^8.2.9",
+    "@storybook/addon-interactions": "^8.2.9",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-onboarding": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/test": "^8.2.9",
+    "@types/css-modules": "^1.0.5",
+    "storybook": "^8.2.9"
   }
 }
