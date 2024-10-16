@@ -1,6 +1,6 @@
 {
   "name": "ginga-ui",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -9,6 +9,20 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "main": "./dist/ginga-ui.umd.js",
+  "module": "./dist/ginga-ui.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ginga-ui.es.js",
+      "require": "./dist/ginga-ui.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

@@ -5,7 +5,7 @@ import classes from "./Switch.module.css";
 
 export type SwitchProps = ComponentProps<typeof AriaSwitch>;
 
-const TextInput: React.FC<SwitchProps> = (props) => {
+const Switch: React.FC<SwitchProps> = (props) => {
   const { ...rest } = props;
   return (
     <AriaSwitch className={classes.root} {...rest}>
@@ -15,4 +15,4 @@ const TextInput: React.FC<SwitchProps> = (props) => {
   );
 };
 
-export default TextInput;
+export default Switch;
