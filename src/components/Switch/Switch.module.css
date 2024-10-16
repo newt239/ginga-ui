@@ -3,14 +3,14 @@
   align-items: center;
   gap: 0.571rem;
   font-size: 1.143rem;
-  color: var(--primary-color);
+  color: var(--color-primary);
   forced-color-adjust: none;
 
   .indicator {
     width: 2rem;
     height: 1.143rem;
-    border: 2px solid var(--border-color);
-    background: var(--background-color);
+    border: 2px solid var(--color-border);
+    background: var(--color-bg-container);
     border-radius: 1.143rem;
     transition: all 200ms;
 
@@ -20,41 +20,41 @@
       margin: 0.143rem;
       width: 0.857rem;
       height: 0.857rem;
-      background: var(--highlight-background);
+      background: var(--color-primary);
       border-radius: 16px;
       transition: all 200ms;
     }
   }
 
   &[data-pressed] .indicator {
-    border-color: var(--border-color-pressed);
+    border-color: var(--color-primary-border-hover);
 
     &:before {
-      background: var(--highlight-background-pressed);
+      background: var(--color-primary-hover);
     }
   }
 
   &[data-selected] {
     .indicator {
-      border-color: var(--highlight-background);
-      background: var(--highlight-background);
+      border-color: var(--color-primary);
+      background: var(--color-primary);
 
       &:before {
-        background: var(--field-background);
+        background: var(--color-white);
         transform: translateX(100%);
       }
     }
 
     &[data-pressed] {
       .indicator {
-        border-color: var(--highlight-background-pressed);
-        background: var(--highlight-background-pressed);
+        border-color: var(--color-primary-active);
+        background: var(--color-primary-active);
       }
     }
   }
 
   &[data-focus-visible] .indicator {
-    outline: 2px solid var(--focus-ring-color);
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 }

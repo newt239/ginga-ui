@@ -1,14 +1,14 @@
 .root {
-    padding: 0.286rem;
-    margin: 0;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--field-background);
-    font-size: 1.143rem;
-    color: var(--field-text-color);
+  padding: 0.286rem;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-bg-container);
+  font-size: 1.143rem;
+  color: var(--color-text);
 
-    &[data-focused] {
-      outline: 2px solid var(--focus-ring-color);
-      outline-offset: -1px;
-    }
+  &[data-focused] {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -1px;
   }
+}
