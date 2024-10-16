@@ -1,4 +1,4 @@
-.react-aria-Checkbox {
+.root {
   --selected-color: var(--color-primary);
   --selected-color-pressed: var(--color-primary-active);
   --checkmark-color: var(--color-white);
