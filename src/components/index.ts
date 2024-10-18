@@ -1,6 +1,6 @@
 import Button from "./Button/Button";
-import TextInput from "./TextInput/TextInput";
+import { Input } from "./Input/Input";
 import Switch from "./Switch/Switch";
 import Checkbox from "./Checkbox/Checkbox";
 
-export { Button, TextInput, Switch, Checkbox };
+export { Button, Input, Switch, Checkbox };
