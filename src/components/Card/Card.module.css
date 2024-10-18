@@ -1,0 +1,39 @@
+.root {
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01562em;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: var(--color-primary-text);
+}
+
+.content {
+  padding: 1.5rem;
+  padding-top: 0;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  padding-top: 0;
+}
