@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils";
 import React from "react";
-import { cn } from "../../lib/utils";
 import classes from "./Heading.module.css";
 
 export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
