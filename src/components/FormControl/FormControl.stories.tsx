@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof FormControl> = {
   title: "Forms/FormControl",

@@ -1,8 +1,10 @@
 import React, { ComponentProps } from "react";
+
 import { Input as AriaInput } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./Input.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type InputProps = ComponentProps<typeof AriaInput>;
 

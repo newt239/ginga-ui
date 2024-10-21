@@ -1,8 +1,10 @@
 import React, { ComponentProps } from "react";
+
 import { Link as AriaLink } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./Link.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type LinkProps = ComponentProps<typeof AriaLink>;
 

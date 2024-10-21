@@ -1,53 +1,32 @@
-import js from '@eslint/js'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import typeScriptESLint from '@typescript-eslint/eslint-plugin';
+import typeScriptESLintParser from '@typescript-eslint/parser';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+const compat = new FlatCompat();
+
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
+    ignores: ['dist'],
+  },
+  js.configs.recommended,
+  eslintConfigPrettier,
+  ...compat.extends('plugin:@typescript-eslint/eslint-recommended'),
+  {
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      typeScriptESLint,
+    },
+    languageOptions: {
+      parser: typeScriptESLintParser,
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 2020,
+        globals: globals.browser,
+      }
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      "import/order": [
-        "error",
-        {
-          "groups": [
-            "builtin",
-            "external",
-            "parent",
-            "sibling",
-            "index",
-            "object",
-            "type"
-          ],
-          "pathGroups": [
-            {
-              "pattern": "{react,react-dom/**}",
-              "group": "builtin",
-              "position": "before"
-            }
-          ],
-          "pathGroupsExcludedImportTypes": ["builtin"],
-          "alphabetize": {
-            "order": "asc"
-          },
-          "newlines-between": "always"
-        }]
-    },
-  },
-)
+    }
+  }
+];

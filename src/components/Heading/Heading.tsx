@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils";
 import React from "react";
+
 import classes from "./Heading.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
   level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

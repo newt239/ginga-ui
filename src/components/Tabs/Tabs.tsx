@@ -1,4 +1,5 @@
 import React, { ComponentProps } from "react";
+
 import {
   Tab as AriaTab,
   TabList as AriaTabList,
@@ -6,8 +7,9 @@ import {
   Tabs as AriaTabs,
 } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./Tabs.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type TabProps = ComponentProps<typeof AriaTab>;
 

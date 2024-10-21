@@ -1,17 +1,18 @@
 import React, { useEffect, useId, useRef } from "react";
+
 import { Label } from "react-aria-components";
+
 import classes from "./FormControl.module.css";
 
 type Props = {
   title: string;
   htmlFor?: string;
-  labelId?: string;
   className?: string;
   children: React.ReactNode;
 };
 
 const FormControl = React.forwardRef<HTMLDivElement, Props>(
-  ({ title, htmlFor, labelId, className, children, ...props }, ref) => {
+  ({ title, htmlFor, className, children, ...props }, ref) => {
     const defaultHtmlFor = useId();
     const managedHtmlFor = htmlFor || defaultHtmlFor;
     const inputWrapperRef = useRef<HTMLDivElement>(null);

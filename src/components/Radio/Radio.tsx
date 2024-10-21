@@ -1,8 +1,10 @@
 import React, { ComponentProps } from "react";
+
 import { Radio as AriaRadio } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./Radio.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type RadioProps = ComponentProps<typeof AriaRadio>;
 

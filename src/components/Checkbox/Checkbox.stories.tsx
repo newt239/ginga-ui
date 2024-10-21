@@ -1,6 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import CheckboxGroup from "../CheckboxGroup/CheckboxGroup";
+
 import Checkbox from "./Checkbox";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Forms/Checkbox",

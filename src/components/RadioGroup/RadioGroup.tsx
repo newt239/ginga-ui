@@ -1,8 +1,10 @@
 import React, { ComponentProps } from "react";
+
 import { RadioGroup as AriaRadioGroup } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./RadioGroup.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type RadioGroupProps = ComponentProps<typeof AriaRadioGroup>;
 

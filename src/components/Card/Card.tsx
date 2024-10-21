@@ -1,7 +1,8 @@
-import { cn } from "@/lib/utils";
 import React from "react";
 
 import classes from "./Card.module.css";
+
+import { cn } from "@/lib/utils";
 
 const Card = React.forwardRef<
   HTMLDivElement,

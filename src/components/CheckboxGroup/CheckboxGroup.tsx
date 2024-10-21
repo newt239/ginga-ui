@@ -1,8 +1,10 @@
 import React, { ComponentProps } from "react";
+
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
 import classes from "./CheckboxGroup.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type CheckboxGroupProps = ComponentProps<typeof AriaCheckboxGroup>;
 
