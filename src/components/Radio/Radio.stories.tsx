@@ -3,7 +3,7 @@ import RadioGroup from "../RadioGroup/RadioGroup";
 import Radio from "./Radio";
 
 const meta: Meta<typeof Radio> = {
-  title: "Components/Radio",
+  title: "Forms/Radio",
   component: Radio,
   tags: ["autodocs"],
   argTypes: {
