@@ -7,7 +7,6 @@ type Props = {
 
 type Response = {
   type: "success" | "error";
-  message: string;
   variables: { name: string; hex: string }[];
 };
 
@@ -53,18 +52,20 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
     },
   });
   const content = completion.choices[0].message.content;
-  if (!content) {
-    return {
-      type: "error",
-      message: "Failed to generate theme.",
-      variables: [],
-    };
+  if (content) {
+    const variables: { name: string; hex: string }[] =
+      JSON.parse(content).variables;
+
+    // TODO: check the existence of document object
+    const r = document.documentElement;
+    variables.forEach((v: any) => {
+      console.log(v);
+      r.style.setProperty(`${v.name}`, v.rgb);
+    });
+    return { type: "success", variables };
+  } else {
+    return { type: "error", variables: [] };
   }
-  return {
-    type: "success",
-    message: "Successfully generated theme.",
-    variables: JSON.parse(content).variables,
-  };
 };
 
 export { generateTheme };
