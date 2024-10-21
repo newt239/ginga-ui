@@ -25,3 +25,20 @@ function App() {
   return <Button>Button</Button>;
 }
 ```
+
+## Theme Generation
+
+You can generate with your own theme by using `createTheme` function.
+
+```jsx
+import { createTheme } from "ginga-ui";
+
+const handleClick = createTheme({
+  prompt: "the image of you thought",
+  apiKey: "YOUR_OPEN_AI_KEY",
+});
+
+function App() {
+  return <Button onClick={handleClick}>Button</Button>;
+}
+```
