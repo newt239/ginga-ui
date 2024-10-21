@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useId, useRef } from "react";
 import { Label } from "react-aria-components";
-import styles from "./FormControl.module.css";
+import classes from "./FormControl.module.css";
 
 type Props = {
   title: string;
@@ -29,13 +29,13 @@ const FormControl = forwardRef<HTMLDivElement, Props>(
     return (
       <div
         {...props}
-        className={`${styles.formControl} ${className || ""}`}
+        className={`${classes.formControl} ${className || ""}`}
         ref={ref}
       >
-        <Label htmlFor={managedHtmlFor} className={styles.label}>
+        <Label htmlFor={managedHtmlFor} className={classes.label}>
           {title}
         </Label>
-        <div ref={inputWrapperRef} className={styles.inputWrapper}>
+        <div ref={inputWrapperRef} className={classes.inputWrapper}>
           {children}
         </div>
       </div>
