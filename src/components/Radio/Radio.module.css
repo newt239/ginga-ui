@@ -1,0 +1,40 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 0.571rem;
+  font-size: 1.143rem;
+  color: var(--color-primary);
+  forced-color-adjust: none;
+
+  &:before {
+    content: "";
+    display: block;
+    width: 1.286rem;
+    height: 1.286rem;
+    box-sizing: border-box;
+    border: 0.143rem solid var(--color-border);
+    background: var(--color-white);
+    border-radius: 1.286rem;
+    transition: all 200ms;
+  }
+
+  &[data-pressed]:before {
+    border-color: var(--color-primary-border);
+  }
+
+  &[data-selected] {
+    &:before {
+      border-color: var(--color-primary);
+      border-width: 0.429rem;
+    }
+
+    &[data-pressed]:before {
+      border-color: var(--color-primary-border-hover);
+    }
+  }
+
+  &[data-focus-visible]:before {
+    outline: 2px solid var(--color-primary-border);
+    outline-offset: 2px;
+  }
+}
