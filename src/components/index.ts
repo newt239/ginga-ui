@@ -16,6 +16,7 @@ import Link from "@/components/Link/Link";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
 import Switch from "@/components/Switch/Switch";
+import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
 
 export {
   Button,
@@ -34,4 +35,8 @@ export {
   Radio,
   RadioGroup,
   Switch,
+  Tab,
+  TabList,
+  TabPanel,
+  Tabs,
 };
