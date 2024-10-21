@@ -9,18 +9,33 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
   ],
+  core: {
+    builder: "@storybook/builder-vite",
+  },
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  webpackFinal: async (config) => {
-    if (config.resolve) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@": path.resolve(__dirname, "../src"),
-      };
-    }
-    return config;
+  async viteFinal(config) {
+    // Merge custom configuration into the default config
+    const { mergeConfig } = await import("vite");
+
+    return mergeConfig(
+      {
+        ...config,
+        resolve: {
+          alias: {
+            "@": path.resolve(__dirname, "../src"),
+          },
+        },
+      },
+      {
+        // Add dependencies to pre-optimization
+        optimizeDeps: {
+          include: ["storybook-dark-mode"],
+        },
+      }
+    );
   },
 };
 export default config;
