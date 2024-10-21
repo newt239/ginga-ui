@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/Card/Card";
 import Checkbox from "@/components/Checkbox/Checkbox";
+import CheckboxGroup from "@/components/CheckboxGroup/CheckboxGroup";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
 import Input from "@/components/Input/Input";
@@ -25,6 +26,7 @@ export {
   CardHeader,
   CardTitle,
   Checkbox,
+  CheckboxGroup,
   FormControl,
   Heading,
   Input,
