@@ -1,5 +1,7 @@
 # Ginga UI
 
+![version](https://img.shields.io/github/package-json/v/newt239/ginga-ui?style=flat)
+
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
 ## Installation
