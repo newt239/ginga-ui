@@ -11,10 +11,10 @@
   display: flex;
 
   &[data-orientation="horizontal"] {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-primary-border);
 
     .Tab {
-      border-bottom: 3px solid var(--color-border);
+      border-bottom: 3px solid var(--color-primary-border);
     }
   }
 }

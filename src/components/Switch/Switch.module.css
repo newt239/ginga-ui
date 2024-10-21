@@ -10,12 +10,12 @@
     width: 2rem;
     height: 1.143rem;
     border: 2px solid var(--color-border);
-    background: var(--color-bg-container);
+    background: var(--color-primary-bg);
     border-radius: 1.143rem;
     transition: all 200ms;
 
     &:before {
-      content: '';
+      content: "";
       display: block;
       margin: 0.143rem;
       width: 0.857rem;
@@ -27,10 +27,10 @@
   }
 
   &[data-pressed] .indicator {
-    border-color: var(--color-primary-border-hover);
+    border-color: var(--color-primary-border);
 
     &:before {
-      background: var(--color-primary-hover);
+      background: var(--color-primary);
     }
   }
 
@@ -47,8 +47,8 @@
 
     &[data-pressed] {
       .indicator {
-        border-color: var(--color-primary-active);
-        background: var(--color-primary-active);
+        border-color: var(--color-primary);
+        background: var(--color-primary);
       }
     }
   }

@@ -12,7 +12,7 @@
     width: 1.286rem;
     height: 1.286rem;
     box-sizing: border-box;
-    border: 0.143rem solid var(--color-border);
+    border: 0.143rem solid var(--color-primary-border);
     background: var(--color-white);
     border-radius: 1.286rem;
     transition: all 200ms;
@@ -29,7 +29,7 @@
     }
 
     &[data-pressed]:before {
-      border-color: var(--color-primary-border-hover);
+      border-color: var(--color-primary-border);
     }
   }
 

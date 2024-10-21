@@ -1,6 +1,6 @@
 .root {
   --selected-color: var(--color-primary);
-  --selected-color-pressed: var(--color-primary-active);
+  --selected-color-pressed: var(--color-primary);
   --checkmark-color: var(--color-white);
 
   display: flex;
@@ -13,7 +13,7 @@
   .checkbox {
     width: 1.143rem;
     height: 1.143rem;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-primary);
     border-radius: 4px;
     transition: all 200ms;
     display: flex;
@@ -33,7 +33,7 @@
   }
 
   &[data-pressed] .checkbox {
-    border-color: var(--color-border-secondary);
+    border-color: var(--color-primary-border);
   }
 
   &[data-focus-visible] .checkbox {
