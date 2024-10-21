@@ -1,0 +1,68 @@
+.Tabs {
+  display: flex;
+  color: var(--color-text);
+
+  &[data-orientation="horizontal"] {
+    flex-direction: column;
+  }
+}
+
+.TabList {
+  display: flex;
+
+  &[data-orientation="horizontal"] {
+    border-bottom: 1px solid var(--color-border);
+
+    .Tab {
+      border-bottom: 3px solid var(--color-border);
+    }
+  }
+}
+
+.Tab {
+  padding: 10px;
+  cursor: default;
+  outline: none;
+  position: relative;
+  color: var(--color-text);
+  transition: color 200ms;
+  --border-color: transparent;
+  forced-color-adjust: none;
+
+  &[data-hovered],
+  &[data-focused] {
+    color: var(--color-primary);
+  }
+
+  &[data-selected] {
+    --border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  &[data-disabled] {
+    color: var(--color-text-tertiary);
+
+    &[data-selected] {
+      --border-color: var(--color-text-tertiary);
+    }
+  }
+
+  &[data-focus-visible]:after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: 4px;
+    border: 2px solid var(--color-primary);
+  }
+}
+
+.TabPanel {
+  margin-top: 4px;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--color-primary);
+  }
+}
