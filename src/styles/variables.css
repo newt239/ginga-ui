@@ -1,72 +1,28 @@
 :root {
   --color-primary: #1677ff;
   --color-primary-bg: #e6f4ff;
-  --color-primary-bg-hover: #bae0ff;
   --color-primary-border: #91caff;
-  --color-primary-border-hover: #69b1ff;
-  --color-primary-hover: #4096ff;
-  --color-primary: #1677ff;
-  --color-primary-active: #0958d9;
-  --color-primary-text-hover: #4096ff;
-  --color-primary-text: #1677ff;
-  --color-primary-text-active: #0958d9;
 
   --color-success: #52c41a;
   --color-success-bg: #f6ffed;
-  --color-success-bg-hover: #d9f7be;
   --color-success-border: #b7eb8f;
-  --color-success-border-hover: #95de64;
-  --color-success-hover: #95de64;
-  --color-success: #52c41a;
-  --color-success-active: #389e0d;
-  --color-success-text-hover: #73d13d;
-  --color-success-text: #52c41a;
-  --color-success-text-active: #389e0d;
 
   --color-warning: #faad14;
   --color-warning-bg: #fffbe6;
-  --color-warning-bg-hover: #fff1b8;
   --color-warning-border: #ffe58f;
-  --color-warning-border-hover: #ffd666;
-  --color-warning-hover: #ffd666;
-  --color-warning: #faad14;
-  --color-warning-active: #d48806;
-  --color-warning-text-hover: #ffc53d;
-  --color-warning-text: #faad14;
-  --color-warning-text-active: #d48806;
 
   --color-error: #ff4d4f;
   --color-error-bg: #fff2f0;
-  --color-error-bg-hover: #fff1f0;
   --color-error-border: #ffccc7;
-  --color-error-border-hover: #ffa39e;
-  --color-error-hover: #ff7875;
-  --color-error: #ff4d4f;
-  --color-error-active: #d9363e;
-  --color-error-text-hover: #ff7875;
-  --color-error-text: #ff4d4f;
-  --color-error-text-active: #d9363e;
 
   --color-link: #1677ff;
   --color-link-hover: #69b1ff;
-  --color-link-active: #0958d9;
 
   --color-text: rgba(0, 0, 0, 0.88);
   --color-text-secondary: rgba(0, 0, 0, 0.65);
   --color-text-tertiary: rgba(0, 0, 0, 0.45);
   --color-text-quaternary: rgba(0, 0, 0, 0.25);
 
-  --color-border: #d9d9d9;
-  --color-border-secondary: #f0f0f0;
-  --color-fill: rgba(0, 0, 0, 0.15);
-  --color-fill-secondary: rgba(0, 0, 0, 0.06);
-  --color-fill-tertiary: rgba(0, 0, 0, 0.04);
-  --color-fill-quaternary: rgba(0, 0, 0, 0.02);
-  --color-bg-container: #ffffff;
-  --color-bg-elevated: #ffffff;
-  --color-bg-layout: #f5f5f5;
-  --color-bg-spotlight: rgba(0, 0, 0, 0.85);
-  --color-bg-mask: rgba(0, 0, 0, 0.45);
-
   --color-white: #ffffff;
+  --color-black: #000000;
 }
