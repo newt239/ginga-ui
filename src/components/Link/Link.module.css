@@ -1,0 +1,25 @@
+.root {
+  color: var(--color-link);
+  font-size: 18px;
+  transition: all 200ms;
+  text-decoration: underline;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+
+  &[data-hovered] {
+    text-decoration-style: wavy;
+  }
+
+  &[data-pressed] {
+    color: var(--color-link-hover);
+  }
+
+  &[data-focus-visible]:after {
+    content: "";
+    position: absolute;
+    inset: -3px -6px;
+    border-radius: 6px;
+    border: 2px solid var(--color-text);
+  }
+}
