@@ -6,12 +6,29 @@ import classes from "./Button.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type ButtonProps = ComponentProps<typeof AriaButton>;
+export type ButtonProps = ComponentProps<typeof AriaButton> & {
+  variant?: "primary" | "secondary";
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+};
 
-const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  className,
+  variant,
+  leftIcon,
+  rightIcon,
+  ...props
+}) => {
   return (
-    <AriaButton className={cn(classes.root, className)} {...props}>
-      {children}
+    <AriaButton
+      className={cn(classes.root, className)}
+      data-variant={variant}
+      {...props}
+    >
+      {leftIcon && <span className={classes.icon}>{leftIcon}</span>}
+      <>{children}</>
+      {rightIcon && <span className={classes.icon}>{rightIcon}</span>}
     </AriaButton>
   );
 };
