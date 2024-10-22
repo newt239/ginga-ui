@@ -1,7 +1,8 @@
 name: Publish Package to npmjs
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,7 +10,21 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Check tagged branch
+        run: |
+          BRANCHS=$(git branch --contains ${{ github.ref_name }})
+          set -- $BRANCHS
+          for BRANCH in $BRANCHS ; do
+            if [[ "$BRANCH" == "main" ]]; then
+              exit 0
+            fi
+          done
+          exit 1
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
