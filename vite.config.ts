@@ -1,4 +1,5 @@
 /// <reference types="vitest">
+import fs from "fs";
 import path, { resolve } from "path";
 
 import react from "@vitejs/plugin-react";
@@ -16,6 +17,16 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
     }),
+    {
+      name: "copy-css",
+      generateBundle() {
+        this.emitFile({
+          type: "asset",
+          fileName: "variables.css",
+          source: fs.readFileSync("./src/styles/variables.css", "utf-8"),
+        });
+      },
+    },
   ],
   resolve: {
     alias: {
