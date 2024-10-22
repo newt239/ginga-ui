@@ -2,27 +2,21 @@
   --color-primary: #1677ff;
   --color-primary-bg: #e6f4ff;
   --color-primary-border: #91caff;
-
   --color-success: #52c41a;
   --color-success-bg: #f6ffed;
   --color-success-border: #b7eb8f;
-
   --color-warning: #faad14;
   --color-warning-bg: #fffbe6;
   --color-warning-border: #ffe58f;
-
   --color-error: #ff4d4f;
   --color-error-bg: #fff2f0;
   --color-error-border: #ffccc7;
-
   --color-link: #1677ff;
   --color-link-hover: #69b1ff;
-
-  --color-text: rgba(0, 0, 0, 0.88);
-  --color-text-secondary: rgba(0, 0, 0, 0.65);
-  --color-text-tertiary: rgba(0, 0, 0, 0.45);
-  --color-text-quaternary: rgba(0, 0, 0, 0.25);
-
-  --color-white: #ffffff;
-  --color-black: #000000;
+  --color-text: rgb(0 0 0 / 88%);
+  --color-text-secondary: rgb(0 0 0 / 65%);
+  --color-text-tertiary: rgb(0 0 0 / 45%);
+  --color-text-quaternary: rgb(0 0 0 / 25%);
+  --color-white: #fff;
+  --color-black: #000;
 }

@@ -14,7 +14,7 @@
     border-radius: 1.143rem;
     transition: all 200ms;
 
-    &:before {
+    &::before {
       content: "";
       display: block;
       margin: 0.143rem;
@@ -29,7 +29,7 @@
   &[data-pressed] .indicator {
     border-color: var(--color-primary-border);
 
-    &:before {
+    &::before {
       background: var(--color-primary);
     }
   }
@@ -39,7 +39,7 @@
       border-color: var(--color-primary);
       background: var(--color-primary);
 
-      &:before {
+      &::before {
         background: var(--color-white);
         transform: translateX(100%);
       }

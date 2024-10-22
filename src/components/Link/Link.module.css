@@ -15,7 +15,7 @@
     color: var(--color-link-hover);
   }
 
-  &[data-focus-visible]:after {
+  &[data-focus-visible]::after {
     content: "";
     position: absolute;
     inset: -3px -6px;

@@ -6,7 +6,7 @@
   color: var(--color-primary);
   forced-color-adjust: none;
 
-  &:before {
+  &::before {
     content: "";
     display: block;
     width: 1.286rem;
@@ -18,22 +18,22 @@
     transition: all 200ms;
   }
 
-  &[data-pressed]:before {
+  &[data-pressed]::before {
     border-color: var(--color-primary-border);
   }
 
   &[data-selected] {
-    &:before {
+    &::before {
       border-color: var(--color-primary);
       border-width: 0.429rem;
     }
 
-    &[data-pressed]:before {
+    &[data-pressed]::before {
       border-color: var(--color-primary-border);
     }
   }
 
-  &[data-focus-visible]:before {
+  &[data-focus-visible]::before {
     outline: 2px solid var(--color-primary-border);
     outline-offset: 2px;
   }
