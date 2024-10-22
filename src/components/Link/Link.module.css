@@ -1,11 +1,11 @@
 .root {
-  color: var(--color-link);
+  position: relative;
   font-size: 18px;
-  transition: all 200ms;
+  color: var(--color-link);
   text-decoration: underline;
   cursor: pointer;
   outline: none;
-  position: relative;
+  transition: all 200ms;
 
   &[data-hovered] {
     text-decoration-style: wavy;
@@ -16,10 +16,10 @@
   }
 
   &[data-focus-visible]::after {
-    content: "";
     position: absolute;
     inset: -3px -6px;
-    border-radius: 6px;
+    content: "";
     border: 2px solid var(--color-text);
+    border-radius: 6px;
   }
 }

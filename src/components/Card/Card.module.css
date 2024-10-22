@@ -1,9 +1,9 @@
 .root {
-  border-radius: 0.5rem;
-  border-width: 1px;
-  border-style: solid;
-  background-color: var(--color-primary-bg);
   color: var(--color-primary);
+  background-color: var(--color-primary-bg);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.5rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 

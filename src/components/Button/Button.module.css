@@ -1,20 +1,20 @@
 .root {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
+  align-items: center;
+  padding: 6px 10px;
+  margin: 0;
+  font-size: 1rem;
   color: var(--color-white);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  appearance: none;
+  cursor: pointer;
   background: var(--color-primary);
   border: 1px solid var(--color-primary-border);
   border-radius: 4px;
-  appearance: none;
-  vertical-align: middle;
-  font-size: 1rem;
-  text-align: center;
-  margin: 0;
   outline: none;
-  padding: 6px 10px;
-  text-decoration: none;
-  cursor: pointer;
 
   &[data-pressed] {
     background: var(--color-primary-bg);

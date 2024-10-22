@@ -5,8 +5,8 @@
 }
 
 .label {
-  font-weight: bold;
   margin-bottom: 0.5rem;
+  font-weight: bold;
   color: #333;
 }
 
@@ -18,13 +18,13 @@
 .inputWrapper > * {
   width: 100%;
   padding: 0.5rem;
+  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
 }
 
 .inputWrapper > *:focus {
-  outline: none;
   border-color: #007bff;
+  outline: none;
   box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
 }

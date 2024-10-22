@@ -1,7 +1,7 @@
 .root {
   display: flex;
-  align-items: center;
   gap: 0.571rem;
+  align-items: center;
   font-size: 1.143rem;
   color: var(--color-primary);
   forced-color-adjust: none;
@@ -9,17 +9,17 @@
   .indicator {
     width: 2rem;
     height: 1.143rem;
-    border: 2px solid var(--color-border);
     background: var(--color-primary-bg);
+    border: 2px solid var(--color-border);
     border-radius: 1.143rem;
     transition: all 200ms;
 
     &::before {
-      content: "";
       display: block;
-      margin: 0.143rem;
       width: 0.857rem;
       height: 0.857rem;
+      margin: 0.143rem;
+      content: "";
       background: var(--color-primary);
       border-radius: 16px;
       transition: all 200ms;
@@ -36,8 +36,8 @@
 
   &[data-selected] {
     .indicator {
-      border-color: var(--color-primary);
       background: var(--color-primary);
+      border-color: var(--color-primary);
 
       &::before {
         background: var(--color-white);
@@ -47,8 +47,8 @@
 
     &[data-pressed] {
       .indicator {
-        border-color: var(--color-primary);
         background: var(--color-primary);
+        border-color: var(--color-primary);
       }
     }
   }

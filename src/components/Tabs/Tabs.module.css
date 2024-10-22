@@ -20,16 +20,15 @@
 }
 
 .Tab {
+  position: relative;
   padding: 10px;
+  color: var(--color-text);
   cursor: default;
   outline: none;
-  position: relative;
-  color: var(--color-text);
   transition: color 200ms;
+  forced-color-adjust: none;
 
   --border-color: transparent;
-
-  forced-color-adjust: none;
 
   &[data-hovered],
   &[data-focused] {
@@ -51,17 +50,17 @@
   }
 
   &[data-focus-visible]::after {
-    content: "";
     position: absolute;
     inset: 4px;
-    border-radius: 4px;
+    content: "";
     border: 2px solid var(--color-primary);
+    border-radius: 4px;
   }
 }
 
 .TabPanel {
-  margin-top: 4px;
   padding: 10px;
+  margin-top: 4px;
   border-radius: 4px;
   outline: none;
 

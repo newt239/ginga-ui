@@ -1,19 +1,19 @@
 .root {
   display: flex;
-  align-items: center;
   gap: 0.571rem;
+  align-items: center;
   font-size: 1.143rem;
   color: var(--color-primary);
   forced-color-adjust: none;
 
   &::before {
-    content: "";
+    box-sizing: border-box;
     display: block;
     width: 1.286rem;
     height: 1.286rem;
-    box-sizing: border-box;
-    border: 0.143rem solid var(--color-primary-border);
+    content: "";
     background: var(--color-white);
+    border: 0.143rem solid var(--color-primary-border);
     border-radius: 1.286rem;
     transition: all 200ms;
   }

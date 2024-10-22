@@ -4,21 +4,21 @@
   --checkmark-color: var(--color-white);
 
   display: flex;
-  align-items: center;
   gap: 0.571rem;
+  align-items: center;
   font-size: 1.143rem;
   color: var(--color-text);
   forced-color-adjust: none;
 
   .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 1.143rem;
     height: 1.143rem;
     border: 2px solid var(--color-primary);
     border-radius: 4px;
     transition: all 200ms;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   svg {
@@ -26,9 +26,9 @@
     height: 1rem;
     fill: none;
     stroke: var(--checkmark-color);
-    stroke-width: 3px;
     stroke-dasharray: 22px;
     stroke-dashoffset: 66;
+    stroke-width: 3px;
     transition: all 200ms;
   }
 
@@ -44,13 +44,13 @@
   &[data-selected],
   &[data-indeterminate] {
     .checkbox {
-      border-color: var(--selected-color);
       background: var(--selected-color);
+      border-color: var(--selected-color);
     }
 
     &[data-pressed] .checkbox {
-      border-color: var(--selected-color-pressed);
       background: var(--selected-color-pressed);
+      border-color: var(--selected-color-pressed);
     }
 
     svg {
@@ -60,8 +60,8 @@
 
   &[data-indeterminate] {
     & svg {
-      stroke: none;
       fill: var(--checkmark-color);
+      stroke: none;
     }
   }
 }
