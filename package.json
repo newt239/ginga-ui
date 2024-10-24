@@ -3,9 +3,20 @@
   "private": false,
   "version": "0.2.0",
   "type": "module",
+  "description": "brand-new UI component library for web",
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "library"
+  ],
+  "author": "newt239 <ysti2019.win2020.st@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/newt239/ginga-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/newt239/ginga-ui/issues"
   },
   "scripts": {
     "dev": "vite",
