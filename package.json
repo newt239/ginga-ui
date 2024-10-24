@@ -3,6 +3,10 @@
   "private": false,
   "version": "0.2.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newt239/ginga-ui"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
