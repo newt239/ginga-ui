@@ -6,11 +6,13 @@ import classes from "./Button.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type ButtonProps = ComponentProps<typeof AriaButton> & {
-  variant?: "primary" | "secondary";
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-};
+export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> &
+  ComponentProps<typeof AriaButton> & {
+    variant?: "primary" | "secondary";
+    leftIcon?: React.ReactNode;
+    rightIcon?: React.ReactNode;
+    [key: `data-${string}`]: string | number | boolean;
+  };
 
 const Button: React.FC<ButtonProps> = ({
   children,

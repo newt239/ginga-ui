@@ -1,0 +1,30 @@
+.button-group {
+  display: inline-flex;
+}
+
+.button-group__item {
+  position: relative;
+  margin: 0 !important;
+}
+
+.button-group__item:not([data-position="first"]) {
+  margin-left: -1px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.button-group__item:not([data-position="last"]) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Ensure focused/hovered button appears above siblings */
+.button-group__item:hover,
+.button-group__item[data-focus-visible] {
+  z-index: 1;
+}
+
+/* Additional styling for pressed state to maintain visual hierarchy */
+.button-group__item[data-pressed] {
+  z-index: 2;
+}
