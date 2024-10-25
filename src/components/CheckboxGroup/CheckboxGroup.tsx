@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
-import classes from "./CheckboxGroup.module.css";
+import styles from "./CheckboxGroup.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,10 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   ...props
 }) => {
   return (
-    <AriaCheckboxGroup className={cn(classes.root, className)} {...props}>
+    <AriaCheckboxGroup
+      className={cn(styles.CheckboxGroup, className)}
+      {...props}
+    >
       {children}
     </AriaCheckboxGroup>
   );

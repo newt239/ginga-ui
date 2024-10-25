@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { Input as AriaInput } from "react-aria-components";
 
-import classes from "./Input.module.css";
+import styles from "./Input.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <AriaInput
         type={type}
-        className={cn(classes.root, className)}
+        className={cn(styles.Input, className)}
         ref={ref}
         {...props}
       />

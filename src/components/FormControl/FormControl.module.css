@@ -1,21 +1,21 @@
-.formControl {
+.FormControl {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
 
-.label {
+.FormControlLabel {
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: #333;
 }
 
-.inputWrapper {
+.FormControlInner {
   display: flex;
   flex-direction: column;
 }
 
-.inputWrapper > * {
+.FormControlInner > * {
   width: 100%;
   padding: 0.5rem;
   font-size: 1rem;
@@ -23,7 +23,7 @@
   border-radius: 4px;
 }
 
-.inputWrapper > *:focus {
+.FormControlInner > *:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);

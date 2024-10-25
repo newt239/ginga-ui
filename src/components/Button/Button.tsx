@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { Button as AriaButton } from "react-aria-components";
 
-import classes from "./Button.module.css";
+import styles from "./Button.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -24,13 +24,13 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <AriaButton
-      className={cn(classes.root, className)}
+      className={cn(styles.Button, className)}
       data-variant={variant}
       {...props}
     >
-      {leftIcon && <span className={classes.icon}>{leftIcon}</span>}
+      {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
       <>{children}</>
-      {rightIcon && <span className={classes.icon}>{rightIcon}</span>}
+      {rightIcon && <span className={styles.icon}>{rightIcon}</span>}
     </AriaButton>
   );
 };

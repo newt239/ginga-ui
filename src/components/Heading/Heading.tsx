@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "./Heading.module.css";
+import styles from "./Heading.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -13,27 +13,51 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
     switch (level) {
       case "h1":
         return (
-          <h1 className={cn(classes.h1, className)} ref={ref} {...props} />
+          <h1
+            className={cn(styles.HeadingLevel1, className)}
+            ref={ref}
+            {...props}
+          />
         );
       case "h2":
         return (
-          <h2 className={cn(classes.h2, className)} ref={ref} {...props} />
+          <h2
+            className={cn(styles.HeadingLevel2, className)}
+            ref={ref}
+            {...props}
+          />
         );
       case "h3":
         return (
-          <h3 className={cn(classes.h3, className)} ref={ref} {...props} />
+          <h3
+            className={cn(styles.HeadingLevel3, className)}
+            ref={ref}
+            {...props}
+          />
         );
       case "h4":
         return (
-          <h4 className={cn(classes.h4, className)} ref={ref} {...props} />
+          <h4
+            className={cn(styles.HeadingLevel4, className)}
+            ref={ref}
+            {...props}
+          />
         );
       case "h5":
         return (
-          <h5 className={cn(classes.h5, className)} ref={ref} {...props} />
+          <h5
+            className={cn(styles.HeadingLevel5, className)}
+            ref={ref}
+            {...props}
+          />
         );
       case "h6":
         return (
-          <h6 className={cn(classes.h6, className)} ref={ref} {...props} />
+          <h6
+            className={cn(styles.HeadingLevel6, className)}
+            ref={ref}
+            {...props}
+          />
         );
       default:
         return null;
