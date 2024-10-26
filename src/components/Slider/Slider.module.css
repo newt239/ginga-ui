@@ -1,0 +1,67 @@
+.Slider {
+  display: grid;
+  grid-template-areas:
+    "label output"
+    "track track";
+  grid-template-columns: 1fr auto;
+  max-width: 300px;
+  color: var(--color-primary);
+
+  .SliderLabel {
+    grid-area: label;
+  }
+
+  .SliderOutput {
+    grid-area: output;
+  }
+
+  .SliderTrack {
+    position: relative;
+    grid-area: track;
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: "";
+      background: var(--color-primary-bg);
+    }
+  }
+
+  .SliderThumb {
+    width: 1.429rem;
+    height: 1.429rem;
+    background: var(--color-primary);
+    border: 2px solid var(--color-primary-bg);
+    border-radius: 50%;
+    forced-color-adjust: none;
+
+    &[data-dragging] {
+      background: var(--color-primary-border);
+    }
+
+    &[data-focus-visible] {
+      outline: 2px solid var(--color-primary);
+    }
+  }
+
+  &[data-orientation="horizontal"] {
+    flex-direction: column;
+    width: 300px;
+
+    .SliderTrack {
+      width: 100%;
+      height: 30px;
+
+      &::before {
+        top: 50%;
+        width: 100%;
+        height: 3px;
+        transform: translateY(-50%);
+      }
+    }
+
+    .SliderThumb {
+      top: 50%;
+    }
+  }
+}

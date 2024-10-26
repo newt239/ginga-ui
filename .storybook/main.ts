@@ -10,7 +10,6 @@ const config: StorybookConfig = {
     options: {},
   },
   async viteFinal(config) {
-    // Merge custom configuration into the default config
     const { mergeConfig } = await import("vite");
 
     return mergeConfig(
@@ -23,7 +22,6 @@ const config: StorybookConfig = {
         },
       },
       {
-        // Add dependencies to pre-optimization
         optimizeDeps: {
           include: ["storybook-dark-mode"],
         },
