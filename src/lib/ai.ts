@@ -37,9 +37,9 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
                 type: "object",
                 properties: {
                   name: { type: "string" },
-                  hex: { type: "string" },
+                  color: { type: "string" },
                 },
-                required: ["name", "rgb"],
+                required: ["name", "color"],
                 additionalProperties: false,
               },
             },
@@ -60,7 +60,7 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
     const r = document.documentElement;
     variables.forEach((v: any) => {
       console.log(v);
-      r.style.setProperty(`${v.name}`, v.rgb);
+      r.style.setProperty(`${v.name}`, v.color);
     });
     return { type: "success", variables };
   } else {
