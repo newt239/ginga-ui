@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      chroma-js:
+        specifier: ^3.1.2
+        version: 3.1.2
       openai:
         specifier: ^4.68.1
         version: 4.68.4
@@ -1895,6 +1898,9 @@ packages:
   chokidar@4.0.1:
     resolution: {integrity: sha512-n8enUVCED/KVRQlab1hr3MVpcVMvxtZjmEa956u+4YijlmQED223XMSYj2tLuKvr4jcCTzNNMpQDUer72MMmzA==}
     engines: {node: '>= 14.16.0'}
+
+  chroma-js@3.1.2:
+    resolution: {integrity: sha512-IJnETTalXbsLx1eKEgx19d5L6SRM7cH4vINw/99p/M11HCuXGRWL+6YmCm7FWFGIo6dtWuQoQi1dc5yQ7ESIHg==}
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -5792,6 +5798,8 @@ snapshots:
     dependencies:
       readdirp: 4.0.2
     optional: true
+
+  chroma-js@3.1.2: {}
 
   client-only@0.0.1: {}
 
