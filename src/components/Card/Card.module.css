@@ -1,4 +1,4 @@
-.root {
+.Card {
   color: var(--color-primary);
   background-color: var(--color-primary-bg);
   border-style: solid;
@@ -7,31 +7,31 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 
-.header {
+.CardHeader {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
   padding: 1.5rem;
 }
 
-.title {
+.CardTitle {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.0156em;
 }
 
-.description {
+.CardDescription {
   font-size: 0.875rem;
   color: var(--color-primary-text);
 }
 
-.content {
+.CardContent {
   padding: 1.5rem;
   padding-top: 0;
 }
 
-.footer {
+.CardFooter {
   display: flex;
   align-items: center;
   padding: 1.5rem;

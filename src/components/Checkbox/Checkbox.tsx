@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { Checkbox as AriaCheckbox } from "react-aria-components";
 
-import classes from "./Checkbox.module.css";
+import styles from "./Checkbox.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -14,9 +14,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
   return (
-    <AriaCheckbox className={cn(classes.root, className)} {...props}>
+    <AriaCheckbox className={cn(styles.Checkbox, className)} {...props}>
       <>
-        <div className={classes.checkbox}>
+        <div className={styles.CheckboxInput}>
           <svg viewBox="0 0 18 18" aria-hidden="true">
             <polyline points="1 9 7 14 15 4" />
           </svg>

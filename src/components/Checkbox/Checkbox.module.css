@@ -1,4 +1,4 @@
-.root {
+.Checkbox {
   --selected-color: var(--color-primary);
   --selected-color-pressed: var(--color-primary);
   --checkmark-color: var(--color-white);
@@ -10,7 +10,7 @@
   color: var(--color-text);
   forced-color-adjust: none;
 
-  .checkbox {
+  .CheckboxInput {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,23 +32,23 @@
     transition: all 200ms;
   }
 
-  &[data-pressed] .checkbox {
+  &[data-pressed] .CheckboxInput {
     border-color: var(--color-primary-border);
   }
 
-  &[data-focus-visible] .checkbox {
+  &[data-focus-visible] .CheckboxInput {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
   &[data-selected],
   &[data-indeterminate] {
-    .checkbox {
+    .CheckboxInput {
       background: var(--selected-color);
       border-color: var(--selected-color);
     }
 
-    &[data-pressed] .checkbox {
+    &[data-pressed] .CheckboxInput {
       background: var(--selected-color-pressed);
       border-color: var(--selected-color-pressed);
     }

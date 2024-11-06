@@ -2,7 +2,7 @@ import React, { useEffect, useId, useRef } from "react";
 
 import { Label } from "react-aria-components";
 
-import classes from "./FormControl.module.css";
+import styles from "./FormControl.module.css";
 
 type Props = {
   title: string;
@@ -30,13 +30,13 @@ const FormControl = React.forwardRef<HTMLDivElement, Props>(
     return (
       <div
         {...props}
-        className={`${classes.formControl} ${className || ""}`}
+        className={`${styles.FormControl} ${className || ""}`}
         ref={ref}
       >
-        <Label htmlFor={managedHtmlFor} className={classes.label}>
+        <Label htmlFor={managedHtmlFor} className={styles.FormControlLabel}>
           {title}
         </Label>
-        <div ref={inputWrapperRef} className={classes.inputWrapper}>
+        <div ref={inputWrapperRef} className={styles.FormControlInner}>
           {children}
         </div>
       </div>

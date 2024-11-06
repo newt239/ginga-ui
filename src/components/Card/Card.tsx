@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "./Card.module.css";
+import styles from "./Card.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -8,7 +8,7 @@ const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(classes.root, className)} {...props} />
+  <div ref={ref} className={cn(styles.Card, className)} {...props} />
 ));
 Card.displayName = "Card";
 
@@ -16,7 +16,7 @@ const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(classes.header, className)} {...props} />
+  <div ref={ref} className={cn(styles.CardHeader, className)} {...props} />
 ));
 CardHeader.displayName = "CardHeader";
 
@@ -24,7 +24,7 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLHeadingElement>
 >(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn(classes.title, className)} {...props} />
+  <h3 ref={ref} className={cn(styles.CardTitle, className)} {...props} />
 ));
 CardTitle.displayName = "CardTitle";
 
@@ -32,11 +32,7 @@ const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
+  <p ref={ref} className={cn(styles.CardDescription, className)} {...props} />
 ));
 CardDescription.displayName = "CardDescription";
 
@@ -44,7 +40,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(classes.content, className)} {...props} />
+  <div ref={ref} className={cn(styles.CardContent, className)} {...props} />
 ));
 CardContent.displayName = "CardContent";
 
@@ -52,7 +48,7 @@ const CardFooter = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(classes.footer, className)} {...props} />
+  <div ref={ref} className={cn(styles.CardFooter, className)} {...props} />
 ));
 CardFooter.displayName = "CardFooter";
 

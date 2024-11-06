@@ -1,3 +1,9 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/Accordion/Accordion";
 import Button from "@/components/Button/Button";
 import {
   Card,
@@ -15,10 +21,15 @@ import Input from "@/components/Input/Input";
 import Link from "@/components/Link/Link";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
+import Slider from "@/components/Slider/Slider";
 import Switch from "@/components/Switch/Switch";
 import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
 
 export {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
   Button,
   Card,
   CardContent,
@@ -34,6 +45,7 @@ export {
   Link,
   Radio,
   RadioGroup,
+  Slider,
   Switch,
   Tab,
   TabList,

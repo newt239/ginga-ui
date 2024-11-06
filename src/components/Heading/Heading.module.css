@@ -1,29 +1,29 @@
-.h1 {
+.HeadingLevel1 {
   font-size: 2rem;
   color: #333;
 }
 
-.h2 {
+.HeadingLevel2 {
   font-size: 1.5rem;
   color: #333;
 }
 
-.h3 {
+.HeadingLevel3 {
   font-size: 1.25rem;
   color: #333;
 }
 
-.h4 {
+.HeadingLevel4 {
   font-size: 1rem;
   color: #333;
 }
 
-.h5 {
+.HeadingLevel5 {
   font-size: 0.875rem;
   color: #333;
 }
 
-.h6 {
+.HeadingLevel6 {
   font-size: 0.75rem;
   color: #333;
 }

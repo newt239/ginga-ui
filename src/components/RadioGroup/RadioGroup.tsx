@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { RadioGroup as AriaRadioGroup } from "react-aria-components";
 
-import classes from "./RadioGroup.module.css";
+import styles from "./RadioGroup.module.css";
 
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   ...props
 }) => {
   return (
-    <AriaRadioGroup className={cn(classes.root, className)} {...props}>
+    <AriaRadioGroup className={cn(styles.RadioGroup, className)} {...props}>
       {children}
     </AriaRadioGroup>
   );
