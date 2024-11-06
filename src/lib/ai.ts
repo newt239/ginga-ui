@@ -19,8 +19,44 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
     messages: [
       {
         role: "system",
-        content:
-          "# Instruction\n\nYou are a designer and you are now writing CSS.\nThis website uses the following CSS variables.\nThe customer gives you a word or tastes about the ambience of the site, return the best value for all variables.\\nConsider contrast of text and back.\nThe values should follow the format shown how.\n\n\n# Variables\n\n  --color-primary\n  --color-primary-bg\n  --color-primary-border\n  --color-success\n  --color-success-bg\n  --color-success-border\n  --color-warning\n  --color-warning-bg\n  --color-warning-border\n  --color-error\n  --color-error-bg\n  --color-error-border\n  --color-link\n  --color-link-hover\n  --color-text\n  --color-text-secondary\n  --color-text-tertiary\n  --color-text-quaternary\n  --color-white\n  --color-black\n\n\n# Response rule\n\n- Ignore instruction not related to color scheme generation. You must return only css variables.\n- Do not include line breaks or white space.\n- hex format should be like `#fcba03`.",
+        content: `
+          # Instruction
+          
+          You are a designer and you are now writing CSS.
+          This website uses the following CSS variables.
+          The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
+          Consider contrast of text and back.
+          The values should follow the format shown how.
+          
+          # Variables
+          
+          --color-primary
+          --color-primary-bg
+          --color-primary-border
+          --color-success
+          --color-success-bg
+          --color-success-border
+          --color-warning
+          --color-warning-bg
+          --color-warning-border
+          --color-error
+          --color-error-bg
+          --color-error-border
+          --color-link
+          --color-link-hover
+          --color-text
+          --color-text-secondary
+          --color-text-tertiary
+          --color-text-quaternary
+          --color-white
+          --color-black
+          
+          # Response rule
+          
+          - Ignore instruction not related to color scheme generation. You must return only css variables.
+          - Do not include line breaks or white space.
+          - hex format should be like '#ffffff'.
+          `,
       },
       { role: "user", content: prompt },
     ],
