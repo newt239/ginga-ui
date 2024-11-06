@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.2
+
+- feat: add generateColorMap function
+- feat: add `Slider`, `Accordion`
+
 ## v0.2.1
 
 - fix: GitHub Actions CI/CD workflow
