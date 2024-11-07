@@ -38,8 +38,8 @@
       "import": "./dist/ginga-ui.es.js",
       "require": "./dist/ginga-ui.umd.js"
     },
-    "./dist/style.css": "./dist/style.css",
-    "./variables.css": "./dist/variables.css"
+    "./dist/variables.css": "./dist/variables.css",
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "dist"

@@ -15,6 +15,7 @@ npm install ginga-ui
 ### 2. Import CSS file
 
 ```css
+@import "ginga-ui/dist/variables.css";
 @import "ginga-ui/dist/style.css";
 ```
 
