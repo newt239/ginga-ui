@@ -16,7 +16,7 @@ export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
 
 const Slider: React.FC<SliderProps> = ({ children, className, ...props }) => {
   return (
-    <AriaSlider className={cn(styles.Slider, className)} {...props}>
+    <AriaSlider className={cn(styles["slider"], className)} {...props}>
       {children}
     </AriaSlider>
   );
@@ -31,7 +31,10 @@ export const SliderOutput: React.FC<SliderOutputProps> = ({
   ...props
 }) => {
   return (
-    <AriaSliderOutput className={cn(styles.SliderOutput, className)} {...props}>
+    <AriaSliderOutput
+      className={cn(styles["slider-output"], className)}
+      {...props}
+    >
       {children}
     </AriaSliderOutput>
   );
@@ -46,7 +49,10 @@ export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
   ...props
 }) => {
   return (
-    <AriaSliderTrack className={cn(styles.SliderTrack, className)} {...props}>
+    <AriaSliderTrack
+      className={cn(styles["slider-track"], className)}
+      {...props}
+    >
       {children}
     </AriaSliderTrack>
   );
@@ -61,7 +67,10 @@ export const SliderThumb: React.FC<SliderThumbProps> = ({
   ...props
 }) => {
   return (
-    <AriaSliderThumb className={cn(styles.SliderThumb, className)} {...props}>
+    <AriaSliderThumb
+      className={cn(styles["slider-thumb"], className)}
+      {...props}
+    >
       {children}
     </AriaSliderThumb>
   );

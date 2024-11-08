@@ -1,4 +1,4 @@
-.Tabs {
+.tabs {
   display: flex;
   color: var(--color-text);
 
@@ -7,19 +7,19 @@
   }
 }
 
-.TabList {
+.tab-list {
   display: flex;
 
   &[data-orientation="horizontal"] {
     border-bottom: 1px solid var(--color-primary-border);
 
-    .Tab {
+    .tab {
       border-bottom: 3px solid var(--color-primary-border);
     }
   }
 }
 
-.Tab {
+.tab {
   position: relative;
   padding: 10px;
   color: var(--color-text);
@@ -58,7 +58,7 @@
   }
 }
 
-.TabPanel {
+.tab-panel {
   padding: 10px;
   margin-top: 4px;
   border-radius: 4px;

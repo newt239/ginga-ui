@@ -1,4 +1,4 @@
-.Switch {
+.switch {
   display: flex;
   gap: 0.571rem;
   align-items: center;
@@ -6,7 +6,7 @@
   color: var(--color-primary);
   forced-color-adjust: none;
 
-  .SwitchIndicator {
+  .switch-indicator {
     width: 2rem;
     height: 1.143rem;
     background: var(--color-primary-bg);
@@ -26,7 +26,7 @@
     }
   }
 
-  &[data-pressed] .SwitchIndicator {
+  &[data-pressed] .switch-indicator {
     border-color: var(--color-primary-border);
 
     &::before {
@@ -35,7 +35,7 @@
   }
 
   &[data-selected] {
-    .SwitchIndicator {
+    .switch-indicator {
       background: var(--color-primary);
       border-color: var(--color-primary);
 
@@ -46,14 +46,14 @@
     }
 
     &[data-pressed] {
-      .SwitchIndicator {
+      .switch-indicator {
         background: var(--color-primary);
         border-color: var(--color-primary);
       }
     }
   }
 
-  &[data-focus-visible] .SwitchIndicator {
+  &[data-focus-visible] .switch-indicator {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }

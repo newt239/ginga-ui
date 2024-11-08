@@ -14,9 +14,9 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
   return (
-    <AriaCheckbox className={cn(styles.Checkbox, className)} {...props}>
+    <AriaCheckbox className={cn(styles["checkbox"], className)} {...props}>
       <>
-        <div className={styles.CheckboxInput}>
+        <div className={styles["checkbox-input"]}>
           <svg viewBox="0 0 18 18" aria-hidden="true">
             <polyline points="1 9 7 14 15 4" />
           </svg>

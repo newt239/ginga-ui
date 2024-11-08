@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 export type LinkProps = ComponentProps<typeof AriaLink>;
 
 const Link: React.FC<LinkProps> = ({ className, ...props }) => {
-  return <AriaLink className={cn(styles.Link, className)} {...props} />;
+  return <AriaLink className={cn(styles["link"], className)} {...props} />;
 };
 
 export default Link;

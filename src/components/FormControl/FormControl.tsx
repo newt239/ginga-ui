@@ -30,13 +30,16 @@ const FormControl = React.forwardRef<HTMLDivElement, Props>(
     return (
       <div
         {...props}
-        className={`${styles.FormControl} ${className || ""}`}
+        className={`${styles["form-control"]} ${className || ""}`}
         ref={ref}
       >
-        <Label htmlFor={managedHtmlFor} className={styles.FormControlLabel}>
+        <Label
+          htmlFor={managedHtmlFor}
+          className={styles["form-control-label"]}
+        >
           {title}
         </Label>
-        <div ref={inputWrapperRef} className={styles.FormControlInner}>
+        <div ref={inputWrapperRef} className={styles["form-control-inner"]}>
           {children}
         </div>
       </div>

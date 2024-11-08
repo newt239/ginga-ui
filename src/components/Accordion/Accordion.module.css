@@ -1,14 +1,14 @@
-.Accordion {
+.accordion {
   width: 100%;
 }
 
-.AccordionItem {
+.accordion-item {
   margin-bottom: 0.25rem;
   border: 1px solid #e2e8f0;
   border-radius: 0.5rem;
 }
 
-.AccordionTrigger {
+.accordion-trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,11 +20,11 @@
   border: none;
 }
 
-.AccordionTrigger:hover {
+.accordion-trigger:hover {
   background-color: #f8fafc;
 }
 
-.AccordionIcon {
+.accordion-icon {
   position: relative;
   flex-shrink: 0;
   width: 1rem;
@@ -32,8 +32,7 @@
   transition: transform 0.2s ease;
 }
 
-/* デフォルトの矢印アイコン */
-.AccordionIcon::before {
+.accordion-icon::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -47,23 +46,23 @@
   transform-origin: center;
 }
 
-.AccordionIconExpanded::before {
+.accordion-icon-expanded::before {
   transform: translate(-50%, -25%) rotate(-135deg);
 }
 
-.AccordionContent {
+.accordion-content {
   overflow: hidden;
   transition:
     height 0.2s ease,
     padding 0.2s ease;
 }
 
-.AccordionContentExpanded {
+.accordion-content-expanded {
   height: auto;
   padding: 1rem;
 }
 
-.AccordionContentCollapsed {
+.accordion-content-collapsed {
   height: 0;
   padding: 0;
 }

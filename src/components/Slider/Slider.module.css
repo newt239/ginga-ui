@@ -1,4 +1,4 @@
-.Slider {
+.slider {
   display: grid;
   grid-template-areas:
     "label output"
@@ -7,15 +7,15 @@
   max-width: 300px;
   color: var(--color-primary);
 
-  .SliderLabel {
+  .slider-label {
     grid-area: label;
   }
 
-  .SliderOutput {
+  .slider-output {
     grid-area: output;
   }
 
-  .SliderTrack {
+  .slider-track {
     position: relative;
     grid-area: track;
 
@@ -27,7 +27,7 @@
     }
   }
 
-  .SliderThumb {
+  .slider-thumb {
     width: 1.429rem;
     height: 1.429rem;
     background: var(--color-primary);
@@ -48,7 +48,7 @@
     flex-direction: column;
     width: 300px;
 
-    .SliderTrack {
+    .slider-track {
       width: 100%;
       height: 30px;
 
@@ -60,7 +60,7 @@
       }
     }
 
-    .SliderThumb {
+    .slider-thumb {
       top: 50%;
     }
   }

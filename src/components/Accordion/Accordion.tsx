@@ -45,7 +45,11 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 
     return (
       <AccordionContext.Provider value={{ expanded, toggleItem }}>
-        <div ref={ref} className={cn(styles.Accordion, className)} {...props}>
+        <div
+          ref={ref}
+          className={cn(styles["accordion"], className)}
+          {...props}
+        >
           {children}
         </div>
       </AccordionContext.Provider>
@@ -59,7 +63,11 @@ const AccordionItem = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & { value: string }
 >(({ className, children, ...props }, ref) => {
   return (
-    <div ref={ref} className={cn(styles.AccordionItem, className)} {...props}>
+    <div
+      ref={ref}
+      className={cn(styles["accordion-item"], className)}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -80,7 +88,7 @@ const AccordionTrigger = React.forwardRef<
   return (
     <button
       ref={ref}
-      className={cn(styles.AccordionTrigger, className)}
+      className={cn(styles["accordion-trigger"], className)}
       onClick={() => toggleItem(value)}
       aria-expanded={isExpanded}
       {...props}
@@ -114,10 +122,10 @@ const AccordionContent = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        styles.AccordionContent,
+        styles["accordion-content"],
         isExpanded
-          ? styles.AccordionContentExpanded
-          : styles.AccordionContentCollapsed,
+          ? styles["accordion-content-expanded"]
+          : styles["accordion-content-collapsed"],
         className
       )}
       {...props}

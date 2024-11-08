@@ -15,7 +15,7 @@ export type TabProps = ComponentProps<typeof AriaTab>;
 
 const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
   return (
-    <AriaTab className={cn(styles.Tab, className)} {...props}>
+    <AriaTab className={cn(styles["tab"], className)} {...props}>
       {children}
     </AriaTab>
   );
@@ -25,7 +25,7 @@ export type TabsProps = ComponentProps<typeof AriaTabs>;
 
 const Tabs: React.FC<TabsProps> = ({ children, className, ...props }) => {
   return (
-    <AriaTabs className={cn(styles.Tabs, className)} {...props}>
+    <AriaTabs className={cn(styles["tabs"], className)} {...props}>
       {children}
     </AriaTabs>
   );
@@ -35,7 +35,7 @@ export type TabListProps = ComponentProps<typeof AriaTabList>;
 
 const TabList: React.FC<TabListProps> = ({ children, className, ...props }) => {
   return (
-    <AriaTabList className={cn(styles.TabList, className)} {...props}>
+    <AriaTabList className={cn(styles["tab-list"], className)} {...props}>
       {children}
     </AriaTabList>
   );
@@ -49,7 +49,7 @@ const TabPanel: React.FC<TabPanelProps> = ({
   ...props
 }) => {
   return (
-    <AriaTabPanel className={cn(styles.TabPanel, className)} {...props}>
+    <AriaTabPanel className={cn(styles["tab-panel"], className)} {...props}>
       {children}
     </AriaTabPanel>
   );

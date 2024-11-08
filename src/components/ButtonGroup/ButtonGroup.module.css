@@ -1,29 +1,29 @@
-.ButtonGroup {
+.button-group {
   display: inline-flex;
 }
 
-.ButtonGroupItem {
+.button-group-item {
   position: relative;
   margin: 0 !important;
 }
 
-.ButtonGroupItem:not([data-position="first"]) {
+.button-group-item:not([data-position="first"]) {
   margin-left: -1px !important;
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
 }
 
-.ButtonGroupItem:not([data-position="last"]) {
+.button-group-item:not([data-position="last"]) {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
 
 /* フォーカスされたボタン/ホバーされたボタンが兄弟ボタンの上に表示されるようにする */
-.ButtonGroupItem:hover,
-.ButtonGroupItem[data-focus-visible] {
+.button-group-item:hover,
+.button-group-item[data-focus-visible] {
   z-index: 1;
 }
 
-.ButtonGroupItem[data-pressed] {
+.button-group-item[data-pressed] {
   z-index: 2;
 }
