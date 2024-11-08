@@ -6,10 +6,10 @@ import styles from "./Link.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type LinkProps = ComponentProps<typeof AriaLink>;
+export type AnchorProps = ComponentProps<typeof AriaLink>;
 
-const Link: React.FC<LinkProps> = ({ className, ...props }) => {
+const Anchor: React.FC<AnchorProps> = ({ className, ...props }) => {
   return <AriaLink className={cn(styles["link"], className)} {...props} />;
 };
 
-export default Link;
+export default Anchor;
