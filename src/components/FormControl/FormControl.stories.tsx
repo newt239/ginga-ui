@@ -29,38 +29,9 @@ export const WithCustomId: Story = {
   },
 };
 
-export const WithLongLabel: Story = {
-  args: {
-    title: "Very Long Label That Might Wrap to Multiple Lines",
-    children: <Input placeholder="Enter value" />,
-  },
-};
-
 export const WithTextarea: Story = {
   args: {
-    title: "Description",
+    title: "Description // wip",
     children: <textarea placeholder="Enter a detailed description" rows={4} />,
-  },
-};
-
-export const WithCustomClassName: Story = {
-  args: {
-    title: "Custom Styled",
-    className: "custom-form-control",
-    children: <Input placeholder="Custom styled input" />,
-  },
-};
-
-export const InteractiveExample: Story = {
-  args: {
-    title: "Interactive Input",
-    children: <Input placeholder="Type something..." />,
-  },
-  play: async ({ canvasElement }) => {
-    const input = canvasElement.querySelector("input");
-    if (input) {
-      input.focus();
-      input.value = "Hello, Storybook!";
-    }
   },
 };
