@@ -1,17 +1,15 @@
 .card {
-  color: var(--color-primary-5);
-  background-color: var(--color-primary-5);
-  border-style: solid;
-  border-width: 1px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-2);
   border-radius: 0.5rem;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
 }
 
 .card-header {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .card-title {
@@ -22,18 +20,21 @@
 }
 
 .card-description {
+  padding: 0;
+  margin: 0;
   font-size: 0.875rem;
-  color: var(--color-primary-7);
+  color: var(--color-gray-6);
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 1rem;
   padding-top: 0;
 }
 
 .card-footer {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem;
   padding-top: 0;
 }

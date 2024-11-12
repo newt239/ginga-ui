@@ -1,11 +1,9 @@
 .anchor {
   position: relative;
-  font-size: 18px;
   color: var(--color-primary-5);
   text-decoration: underline;
   cursor: pointer;
   outline: none;
-  transition: all 200ms;
 
   &[data-hovered] {
     text-decoration-style: wavy;

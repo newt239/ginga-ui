@@ -23,6 +23,7 @@
   &[data-disabled] {
     color: var(--color-gray-6);
     pointer-events: none;
+    cursor: not-allowed;
     background-color: var(--color-gray-1);
     border-color: var(--color-gray-1);
   }

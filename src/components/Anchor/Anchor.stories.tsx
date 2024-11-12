@@ -41,23 +41,3 @@ export const DisabledAnchor: Story = {
     isDisabled: true,
   },
 };
-
-export const CustomClassAnchor: Story = {
-  args: {
-    children: "Custom Class Link",
-    href: "https://example.com",
-    className: "custom-link-class",
-  },
-};
-
-export const AnchorWithIcon: Story = {
-  args: {
-    children: (
-      <>
-        <span style={{ marginRight: "0.5em" }}>📎</span>
-        Link with Icon
-      </>
-    ),
-    href: "https://example.com",
-  },
-};
