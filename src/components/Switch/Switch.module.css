@@ -3,13 +3,13 @@
   gap: 0.571rem;
   align-items: center;
   font-size: 1.143rem;
-  color: var(--color-primary-5);
+  color: var(--color-black);
   forced-color-adjust: none;
 
   .switch-indicator {
     width: 2rem;
     height: 1.143rem;
-    background: var(--color-primary-5);
+    background: var(--color-white);
     border: 2px solid var(--color-primary-5);
     border-radius: 1.143rem;
     transition: all 200ms;
@@ -56,5 +56,20 @@
   &[data-focus-visible] .switch-indicator {
     outline: 2px solid var(--color-primary-5);
     outline-offset: 2px;
+  }
+
+  &[data-disabled] {
+    color: var(--color-gray-6);
+    pointer-events: none;
+    cursor: not-allowed;
+
+    .switch-indicator {
+      background: var(--color-gray-1);
+      border-color: var(--color-gray-1);
+
+      &::before {
+        background: var(--color-gray-6);
+      }
+    }
   }
 }

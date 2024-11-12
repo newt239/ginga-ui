@@ -14,13 +14,6 @@ const meta: Meta<typeof Slider> = {
       },
     },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "2rem", maxWidth: "300px" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
