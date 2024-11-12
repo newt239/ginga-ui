@@ -11,6 +11,27 @@ import styles from "./Tabs.module.css";
 
 import { cn } from "@/lib/utils";
 
+export type TabsProps = ComponentProps<typeof AriaTabs> & {
+  orientation?: "horizontal" | "vertical";
+};
+
+const Tabs: React.FC<TabsProps> = ({
+  children,
+  className,
+  orientation = "horizontal",
+  ...props
+}) => {
+  return (
+    <AriaTabs
+      className={cn(styles["tabs"], className)}
+      orientation={orientation}
+      {...props}
+    >
+      {children}
+    </AriaTabs>
+  );
+};
+
 export type TabProps = ComponentProps<typeof AriaTab>;
 
 const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
@@ -18,16 +39,6 @@ const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
     <AriaTab className={cn(styles["tab"], className)} {...props}>
       {children}
     </AriaTab>
-  );
-};
-
-export type TabsProps = ComponentProps<typeof AriaTabs>;
-
-const Tabs: React.FC<TabsProps> = ({ children, className, ...props }) => {
-  return (
-    <AriaTabs className={cn(styles["tabs"], className)} {...props}>
-      {children}
-    </AriaTabs>
   );
 };
 
