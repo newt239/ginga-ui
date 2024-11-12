@@ -1,10 +1,10 @@
-import Link from "./Link";
+import Anchor from "./Anchor";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
-const meta: Meta<typeof Link> = {
-  title: "Display/Link",
-  component: Link,
+const meta: Meta<typeof Anchor> = {
+  title: "Display/Anchor",
+  component: Anchor,
   tags: ["autodocs"],
   argTypes: {
     href: { control: "text" },
@@ -17,7 +17,7 @@ const meta: Meta<typeof Link> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Link>;
+type Story = StoryObj<typeof Anchor>;
 
 export const Default: Story = {
   args: {
@@ -26,7 +26,7 @@ export const Default: Story = {
   },
 };
 
-export const ExternalLink: Story = {
+export const ExternalAnchor: Story = {
   args: {
     children: "External Link",
     href: "https://example.com",
@@ -34,30 +34,10 @@ export const ExternalLink: Story = {
   },
 };
 
-export const DisabledLink: Story = {
+export const DisabledAnchor: Story = {
   args: {
     children: "Disabled Link",
     href: "https://example.com",
     isDisabled: true,
-  },
-};
-
-export const CustomClassLink: Story = {
-  args: {
-    children: "Custom Class Link",
-    href: "https://example.com",
-    className: "custom-link-class",
-  },
-};
-
-export const LinkWithIcon: Story = {
-  args: {
-    children: (
-      <>
-        <span style={{ marginRight: "0.5em" }}>📎</span>
-        Link with Icon
-      </>
-    ),
-    href: "https://example.com",
   },
 };

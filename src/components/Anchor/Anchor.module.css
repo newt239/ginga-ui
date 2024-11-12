@@ -1,25 +1,23 @@
-.Link {
+.anchor {
   position: relative;
-  font-size: 18px;
-  color: var(--color-link);
+  color: var(--color-primary-5);
   text-decoration: underline;
   cursor: pointer;
   outline: none;
-  transition: all 200ms;
 
   &[data-hovered] {
     text-decoration-style: wavy;
   }
 
   &[data-pressed] {
-    color: var(--color-link-hover);
+    color: var(--color-primary-6);
   }
 
   &[data-focus-visible]::after {
     position: absolute;
     inset: -3px -6px;
     content: "";
-    border: 2px solid var(--color-text);
+    border: 2px solid var(--color-primary-5);
     border-radius: 6px;
   }
 }

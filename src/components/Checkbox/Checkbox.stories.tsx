@@ -12,13 +12,6 @@ const meta: Meta<typeof Checkbox> = {
     isDisabled: { control: "boolean" },
     isSelected: { control: "boolean" },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "1rem", fontFamily: "Arial, sans-serif" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;

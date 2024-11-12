@@ -32,7 +32,7 @@ export function generateColorsMap(color: string) {
   return { baseColorIndex, colors };
 }
 
-export type MantineColorsTuple = readonly [
+export type ColorsTuple = readonly [
   string,
   string,
   string,
@@ -49,5 +49,5 @@ export type MantineColorsTuple = readonly [
 export function generateColors(color: string) {
   return generateColorsMap(color).colors.map((c) =>
     c.hex()
-  ) as unknown as MantineColorsTuple;
+  ) as unknown as ColorsTuple;
 }

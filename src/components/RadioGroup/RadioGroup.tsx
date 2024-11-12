@@ -14,7 +14,7 @@ const RadioGroup: React.FC<RadioGroupProps> = ({
   ...props
 }) => {
   return (
-    <AriaRadioGroup className={cn(styles.RadioGroup, className)} {...props}>
+    <AriaRadioGroup className={cn(styles["radio-group"], className)} {...props}>
       {children}
     </AriaRadioGroup>
   );

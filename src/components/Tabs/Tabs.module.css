@@ -1,70 +1,73 @@
-.Tabs {
+.tabs {
   display: flex;
-  color: var(--color-text);
+  flex-direction: column;
+  color: var(--color-black);
 
-  &[data-orientation="horizontal"] {
-    flex-direction: column;
-  }
-}
+  &[data-orientation="vertical"] {
+    flex-direction: row;
 
-.TabList {
-  display: flex;
+    .tab-list {
+      flex-direction: column;
+    }
 
-  &[data-orientation="horizontal"] {
-    border-bottom: 1px solid var(--color-primary-border);
-
-    .Tab {
-      border-bottom: 3px solid var(--color-primary-border);
+    .tab {
+      &[data-selected] {
+        color: var(--color-primary-5);
+        border: none;
+        border-right: 2px solid var(--color-primary-5);
+      }
     }
   }
 }
 
-.Tab {
+.tab-list {
+  display: flex;
+  border: none;
+  border-bottom: 2px solid var(--color-gray-2);
+}
+
+.tab {
   position: relative;
-  padding: 10px;
-  color: var(--color-text);
-  cursor: default;
+  padding: 0.5rem 1rem;
+  color: var(--color-black);
+  cursor: pointer;
   outline: none;
   transition: color 200ms;
   forced-color-adjust: none;
 
-  --border-color: transparent;
-
   &[data-hovered],
   &[data-focused] {
-    color: var(--color-primary);
+    color: var(--color-primary-5);
   }
 
   &[data-selected] {
-    --border-color: var(--color-primary);
-
-    color: var(--color-primary);
+    color: var(--color-primary-5);
+    border: none;
+    border-bottom: 2px solid var(--color-primary-5);
   }
 
   &[data-disabled] {
-    color: var(--color-text-tertiary);
-
-    &[data-selected] {
-      --border-color: var(--color-text-tertiary);
-    }
+    color: var(--color-gray-5);
+    pointer-events: none;
+    cursor: not-allowed;
   }
 
   &[data-focus-visible]::after {
     position: absolute;
     inset: 4px;
     content: "";
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-primary-5);
     border-radius: 4px;
   }
 }
 
-.TabPanel {
+.tab-panel {
   padding: 10px;
   margin-top: 4px;
   border-radius: 4px;
   outline: none;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-primary-5);
   }
 }

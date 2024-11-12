@@ -13,12 +13,12 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   ...props
 }) => {
   return (
-    <div className={cn(styles.ButtonGroup, className)} {...props}>
+    <div className={cn(styles["button-group"], className)} {...props}>
       {React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) return null;
 
         return React.cloneElement<ButtonProps>(child, {
-          className: cn(styles.ButtonGroupItem, child.props.className),
+          className: cn(styles["button-group-item"], child.props.className),
           "data-position":
             index === 0
               ? "first"

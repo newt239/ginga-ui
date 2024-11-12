@@ -15,7 +15,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 }) => {
   return (
     <AriaCheckboxGroup
-      className={cn(styles.CheckboxGroup, className)}
+      className={cn(styles["checkbox-group"], className)}
       {...props}
     >
       {children}

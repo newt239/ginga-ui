@@ -6,25 +6,6 @@ const meta: Meta<typeof Tabs> = {
   title: "Display/Tabs",
   component: Tabs,
   tags: ["autodocs"],
-  argTypes: {
-    orientation: {
-      control: "select",
-      options: ["horizontal", "vertical"],
-    },
-  },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          padding: "1rem",
-          fontFamily: "Arial, sans-serif",
-          maxWidth: "600px",
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
@@ -59,7 +40,7 @@ export const Default: Story = {
 
 export const VerticalTabs: Story = {
   render: (args) => (
-    <Tabs {...args} orientation="vertical">
+    <Tabs orientation="vertical" {...args}>
       <TabList aria-label="Ancient Civilizations">
         <Tab id="egypt">Egypt</Tab>
         <Tab id="greece">Greece</Tab>
