@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import { generateColorsMap } from "./color";
 
 type Props = {
   apiKey: string;
@@ -31,23 +32,7 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
           # Variables
           
           --color-primary
-          --color-primary-bg
-          --color-primary-border
-          --color-success
-          --color-success-bg
-          --color-success-border
-          --color-warning
-          --color-warning-bg
-          --color-warning-border
-          --color-error
-          --color-error-bg
-          --color-error-border
-          --color-link
-          --color-link-hover
-          --color-text
-          --color-text-secondary
-          --color-text-tertiary
-          --color-text-quaternary
+          --color-secondary
           --color-white
           --color-black
           
@@ -97,6 +82,13 @@ const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
     variables.forEach((v: any) => {
       console.log(v);
       r.style.setProperty(`${v.name}`, v.color);
+      if (v.name === "--color-primary" || v.name === "--color-secondary") {
+        const colors = generateColorsMap(v.color).colors;
+        colors.forEach((c, i) => {
+          console.log(`--color-primary-${i}`, c.hex());
+          r.style.setProperty(`--color-primary-${i}`, c.hex());
+        });
+      }
     });
     return { type: "success", variables };
   } else {
