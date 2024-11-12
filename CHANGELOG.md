@@ -1,11 +1,9 @@
 # Changelog
 
-- feat: generate a color map from the generated primary color and secondary color
-- style: improve all components design
-
 ## v0.3.0
 
-- feat:
+- feat: generate a color map from the generated primary color and secondary color
+- style: improve all components design
 
 ## v0.2.2
 
