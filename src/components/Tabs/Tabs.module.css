@@ -22,6 +22,8 @@
 
 .tab-list {
   display: flex;
+  border: none;
+  border-bottom: 2px solid var(--color-gray-2);
 }
 
 .tab {

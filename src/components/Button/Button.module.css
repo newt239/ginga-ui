@@ -2,7 +2,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding: 6px 10px;
+  padding: 0.5rem 1rem;
   margin: 0;
   font-size: 1rem;
   color: var(--color-white);
@@ -13,7 +13,7 @@
   cursor: pointer;
   background: var(--color-primary-5);
   border: 1px solid var(--color-primary-5);
-  border-radius: 4px;
+  border-radius: 0.5rem;
   outline: none;
 
   &[data-pressed] {
