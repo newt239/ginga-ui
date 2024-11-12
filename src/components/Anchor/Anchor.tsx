@@ -2,7 +2,7 @@ import React, { ComponentProps } from "react";
 
 import { Link as AriaLink } from "react-aria-components";
 
-import styles from "./Link.module.css";
+import styles from "./Anchor.module.css";
 
 import { cn } from "@/lib/utils";
 

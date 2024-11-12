@@ -1,6 +1,6 @@
 .tabs {
   display: flex;
-  color: var(--color-text);
+  color: var(--color-black);
 
   &[data-orientation="horizontal"] {
     flex-direction: column;
@@ -11,10 +11,10 @@
   display: flex;
 
   &[data-orientation="horizontal"] {
-    border-bottom: 1px solid var(--color-primary-border);
+    border-bottom: 1px solid var(--color-primary-5);
 
     .tab {
-      border-bottom: 3px solid var(--color-primary-border);
+      border-bottom: 3px solid var(--color-primary-5);
     }
   }
 }
@@ -22,38 +22,30 @@
 .tab {
   position: relative;
   padding: 10px;
-  color: var(--color-text);
+  color: var(--color-black);
   cursor: default;
   outline: none;
   transition: color 200ms;
   forced-color-adjust: none;
 
-  --border-color: transparent;
-
   &[data-hovered],
   &[data-focused] {
-    color: var(--color-primary);
+    color: var(--color-primary-5);
   }
 
   &[data-selected] {
-    --border-color: var(--color-primary);
-
-    color: var(--color-primary);
+    color: var(--color-primary-5);
   }
 
   &[data-disabled] {
-    color: var(--color-text-tertiary);
-
-    &[data-selected] {
-      --border-color: var(--color-text-tertiary);
-    }
+    color: var(--color-gray-5);
   }
 
   &[data-focus-visible]::after {
     position: absolute;
     inset: 4px;
     content: "";
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-primary-5);
     border-radius: 4px;
   }
 }
@@ -65,6 +57,6 @@
   outline: none;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-primary-5);
   }
 }

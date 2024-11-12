@@ -3,14 +3,14 @@
   gap: 0.571rem;
   align-items: center;
   font-size: 1.143rem;
-  color: var(--color-primary);
+  color: var(--color-primary-5);
   forced-color-adjust: none;
 
   .switch-indicator {
     width: 2rem;
     height: 1.143rem;
-    background: var(--color-primary-bg);
-    border: 2px solid var(--color-border);
+    background: var(--color-primary-5);
+    border: 2px solid var(--color-primary-5);
     border-radius: 1.143rem;
     transition: all 200ms;
 
@@ -20,24 +20,24 @@
       height: 0.857rem;
       margin: 0.143rem;
       content: "";
-      background: var(--color-primary);
+      background: var(--color-primary-5);
       border-radius: 16px;
       transition: all 200ms;
     }
   }
 
   &[data-pressed] .switch-indicator {
-    border-color: var(--color-primary-border);
+    border-color: var(--color-primary-6);
 
     &::before {
-      background: var(--color-primary);
+      background: var(--color-primary-6);
     }
   }
 
   &[data-selected] {
     .switch-indicator {
-      background: var(--color-primary);
-      border-color: var(--color-primary);
+      background: var(--color-primary-5);
+      border-color: var(--color-primary-5);
 
       &::before {
         background: var(--color-white);
@@ -47,14 +47,14 @@
 
     &[data-pressed] {
       .switch-indicator {
-        background: var(--color-primary);
-        border-color: var(--color-primary);
+        background: var(--color-primary-6);
+        border-color: var(--color-primary-6);
       }
     }
   }
 
   &[data-focus-visible] .switch-indicator {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--color-primary-5);
     outline-offset: 2px;
   }
 }

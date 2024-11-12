@@ -1,6 +1,6 @@
 .card {
-  color: var(--color-primary);
-  background-color: var(--color-primary-bg);
+  color: var(--color-primary-5);
+  background-color: var(--color-primary-5);
   border-style: solid;
   border-width: 1px;
   border-radius: 0.5rem;
@@ -23,7 +23,7 @@
 
 .card-description {
   font-size: 0.875rem;
-  color: var(--color-primary-text);
+  color: var(--color-primary-7);
 }
 
 .card-content {

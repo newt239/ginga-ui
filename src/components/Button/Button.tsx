@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> &
   ComponentProps<typeof AriaButton> & {
-    variant?: "primary" | "secondary";
+    variant?: "filled" | "light" | "outline";
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     [key: `data-${string}`]: string | number | boolean;

@@ -5,7 +5,7 @@
     "track track";
   grid-template-columns: 1fr auto;
   max-width: 300px;
-  color: var(--color-primary);
+  color: var(--color-primary-5);
 
   .slider-label {
     grid-area: label;
@@ -23,24 +23,24 @@
       position: absolute;
       display: block;
       content: "";
-      background: var(--color-primary-bg);
+      background: var(--color-primary-5);
     }
   }
 
   .slider-thumb {
     width: 1.429rem;
     height: 1.429rem;
-    background: var(--color-primary);
-    border: 2px solid var(--color-primary-bg);
+    background: var(--color-primary-5);
+    border: 2px solid var(--color-primary-5);
     border-radius: 50%;
     forced-color-adjust: none;
 
     &[data-dragging] {
-      background: var(--color-primary-border);
+      background: var(--color-primary-6);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--color-primary);
+      outline: 2px solid var(--color-primary-5);
     }
   }
 
