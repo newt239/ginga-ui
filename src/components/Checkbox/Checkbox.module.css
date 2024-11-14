@@ -13,6 +13,7 @@
     justify-content: center;
     width: 1.2rem;
     height: 1.2rem;
+    cursor: pointer;
     border: 2px solid var(--color-primary-5);
     border-radius: calc(var(--radius-size) * 0.5);
     transition: all 200ms;

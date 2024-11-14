@@ -16,6 +16,7 @@
   border: none;
   border-radius: calc(var(--radius-size) * 0.5);
   outline: none;
+  transition: all 0.2s;
 
   &[data-hovered] {
     background-color: var(--color-primary-6);
