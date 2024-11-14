@@ -14,6 +14,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
+  font-size: 1rem;
   color: var(--color-primary-9);
   text-align: left;
   cursor: pointer;
@@ -49,6 +50,7 @@
 .accordion-content {
   padding: 0 1rem;
   overflow: hidden;
+  font-size: 1rem;
   transition: all 0.2s ease;
 }
 

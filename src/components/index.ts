@@ -20,6 +20,7 @@ import Container from "@/components/Container/Container";
 import Flex from "@/components/Flex/Flex";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
+import Image from "@/components/Image/Image";
 import Input from "@/components/Input/Input";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
@@ -45,6 +46,7 @@ export {
   Flex,
   FormControl,
   Heading,
+  Image,
   Input,
   Link,
   Radio,
