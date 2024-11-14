@@ -36,7 +36,3 @@
   --radius-size: 1rem;
   --font-family: sans-serif;
 }
-
-* {
-  font-family: var(--font-family);
-}

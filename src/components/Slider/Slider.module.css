@@ -5,6 +5,7 @@
     "track track";
   grid-template-columns: 1fr auto;
   max-width: 300px;
+  font-family: var(--font-family);
   color: var(--color-black);
 
   .slider-label {
