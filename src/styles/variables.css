@@ -33,4 +33,6 @@
   --color-gray-8: #656565;
   --color-gray-9: #575757;
   --color-white: #fff;
+  --radius-size: 1rem;
+  --font-family: sans-serif;
 }

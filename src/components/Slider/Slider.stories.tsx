@@ -23,10 +23,10 @@ type Story = StoryObj<typeof Slider>;
 export const Default: Story = {
   render: () => (
     <Slider defaultValue={50}>
-      <div className="SliderLabel">音量</div>
-      <SliderOutput className="SliderOutput" />
-      <SliderTrack className="SliderTrack">
-        <SliderThumb className="SliderThumb" />
+      <div>音量</div>
+      <SliderOutput />
+      <SliderTrack>
+        <SliderThumb />
       </SliderTrack>
     </Slider>
   ),
@@ -44,10 +44,10 @@ export const Default: Story = {
 export const CustomRange: Story = {
   render: () => (
     <Slider defaultValue={0} minValue={-50} maxValue={50}>
-      <div className="SliderLabel">バランス</div>
-      <SliderOutput className="SliderOutput" />
-      <SliderTrack className="SliderTrack">
-        <SliderThumb className="SliderThumb" />
+      <div>バランス</div>
+      <SliderOutput />
+      <SliderTrack>
+        <SliderThumb />
       </SliderTrack>
     </Slider>
   ),
@@ -64,10 +64,10 @@ export const CustomRange: Story = {
 export const Disabled: Story = {
   render: () => (
     <Slider defaultValue={50} isDisabled>
-      <div className="SliderLabel">音量</div>
-      <SliderOutput className="SliderOutput" />
-      <SliderTrack className="SliderTrack">
-        <SliderThumb className="SliderThumb" />
+      <div>音量</div>
+      <SliderOutput />
+      <SliderTrack>
+        <SliderThumb />
       </SliderTrack>
     </Slider>
   ),
@@ -84,10 +84,10 @@ export const Disabled: Story = {
 export const WithSteps: Story = {
   render: () => (
     <Slider defaultValue={50} step={10}>
-      <div className="SliderLabel">音量レベル</div>
-      <SliderOutput className="SliderOutput" />
-      <SliderTrack className="SliderTrack">
-        <SliderThumb className="SliderThumb" />
+      <div>音量レベル</div>
+      <SliderOutput />
+      <SliderTrack>
+        <SliderThumb />
       </SliderTrack>
     </Slider>
   ),

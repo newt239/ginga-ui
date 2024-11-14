@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.4.1
+
+- feat: add Paragraph and Image components
+- fix: won't set CSS variables correctly
+- style: improve all components design
+
 ## v0.4.0
 
 - feat: add Container and Flex components
