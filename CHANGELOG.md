@@ -1,11 +1,14 @@
 # Changelog
 
-- feat: generate a color map from the generated primary color and secondary color
-- style: improve all components design
+## v0.4.0
+
+- feat: add Container and Flex components
+- feat: receive options of OpenAI client on createTheme function
 
 ## v0.3.0
 
-- feat:
+- feat: generate a color map from the generated primary color and secondary color
+- style: improve all components design
 
 ## v0.2.2
 

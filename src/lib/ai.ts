@@ -1,9 +1,10 @@
-import OpenAI from "openai";
+import OpenAI, { type ClientOptions } from "openai";
 import { generateColorsMap } from "./color";
 
 type Props = {
   apiKey: string;
   prompt: string;
+  options: Omit<ClientOptions, "apiKey">;
 };
 
 type Response = {
@@ -11,9 +12,14 @@ type Response = {
   variables: { name: string; hex: string }[];
 };
 
-const generateTheme = async ({ apiKey, prompt }: Props): Promise<Response> => {
+const generateTheme = async ({
+  apiKey,
+  prompt,
+  options,
+}: Props): Promise<Response> => {
   const openai = new OpenAI({
     apiKey,
+    ...options,
   });
   const completion = await openai.chat.completions.create({
     model: "gpt-4o-mini",

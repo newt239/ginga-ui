@@ -16,6 +16,8 @@ import {
 } from "@/components/Card/Card";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import CheckboxGroup from "@/components/CheckboxGroup/CheckboxGroup";
+import Container from "@/components/Container/Container";
+import Flex from "@/components/Flex/Flex";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
 import Input from "@/components/Input/Input";
@@ -39,6 +41,8 @@ export {
   CardTitle,
   Checkbox,
   CheckboxGroup,
+  Container,
+  Flex,
   FormControl,
   Heading,
   Input,

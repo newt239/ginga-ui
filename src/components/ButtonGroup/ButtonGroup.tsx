@@ -1,4 +1,4 @@
-import { type ButtonProps } from "@/components/Button/Button";
+import type { ButtonProps } from "@/components/Button/Button";
 import { cn } from "@/lib/utils";
 import React, { ComponentProps } from "react";
 import styles from "./ButtonGroup.module.css";
