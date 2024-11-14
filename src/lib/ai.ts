@@ -95,8 +95,8 @@ const generateTheme = async ({
       if (v.name === "--color-primary" || v.name === "--color-secondary") {
         const colors = generateColorsMap(v.color).colors;
         colors.forEach((c, i) => {
-          console.log(`--color-primary-${i}`, c.hex());
-          r.style.setProperty(`--color-primary-${i}`, c.hex());
+          console.log(`${v.name}-${i}`, c.hex());
+          r.style.setProperty(`${v.name}-${i}`, c.hex());
         });
       }
     });
