@@ -4,7 +4,7 @@ import { generateColorsMap } from "./color";
 type Props = {
   apiKey: string;
   prompt: string;
-  options: Omit<ClientOptions, "apiKey">;
+  options?: Omit<ClientOptions, "apiKey">;
 };
 
 type Response = {
