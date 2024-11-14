@@ -1,4 +1,4 @@
-import OpenAI, { ClientOptions } from "openai";
+import OpenAI, { type ClientOptions } from "openai";
 import { generateColorsMap } from "./color";
 
 type Props = {

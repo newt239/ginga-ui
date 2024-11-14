@@ -45,3 +45,15 @@ function App() {
   return <Button onClick={handleClick}>Button</Button>;
 }
 ```
+
+If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
+
+```jsx
+const handleClick = createTheme({
+  prompt: "the image of you thought",
+  apiKey: "YOUR_OPEN_AI_KEY",
+  options: {
+    dangerouslyAllowBrowser: true,
+  },
+});
+```
