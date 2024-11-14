@@ -23,7 +23,7 @@
       position: absolute;
       display: block;
       content: "";
-      background: var(--color-primary-5);
+      background-color: var(--color-primary-5);
     }
   }
 
@@ -33,7 +33,7 @@
     cursor: pointer;
     background: var(--color-primary-5);
     border: 2px solid var(--color-primary-5);
-    border-radius: 50%;
+    border-radius: calc(var(--radius-size) * 0.5);
     forced-color-adjust: none;
 
     &[data-dragging] {

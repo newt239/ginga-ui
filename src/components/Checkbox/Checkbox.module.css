@@ -13,7 +13,7 @@
     width: 1.143rem;
     height: 1.143rem;
     border: 2px solid var(--color-primary-5);
-    border-radius: 4px;
+    border-radius: calc(var(--radius-size) * 0.5);
     transition: all 200ms;
   }
 

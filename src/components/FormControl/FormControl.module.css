@@ -14,17 +14,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.form-control-inner > * {
-  width: 100%;
-  padding: 0.5rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.form-control-inner > *:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 0 2px rgb(0 123 255 / 25%);
-}

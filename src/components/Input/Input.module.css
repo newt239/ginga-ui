@@ -5,7 +5,7 @@
   color: var(--color-black);
   background: var(--color-white);
   border: 2px solid var(--color-gray-2);
-  border-radius: 6px;
+  border-radius: calc(var(--radius-size) * 0.5);
 
   &[data-focused] {
     border-color: var(--color-primary-5);
