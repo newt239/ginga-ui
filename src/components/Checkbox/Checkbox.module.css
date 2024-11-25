@@ -4,7 +4,7 @@
   align-items: center;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-black);
+  color: var(--color-text);
   forced-color-adjust: none;
 
   .checkbox-input {
@@ -50,7 +50,7 @@
     }
 
     svg {
-      stroke: var(--color-white);
+      stroke: var(--color-background);
       stroke-dashoffset: 0;
     }
   }
@@ -63,17 +63,17 @@
   }
 
   &[data-disabled] {
-    color: var(--color-gray-6);
+    color: var(--color-background-6);
     pointer-events: none;
     cursor: not-allowed;
 
     .checkbox-input {
-      background-color: var(--color-gray-1);
-      border-color: var(--color-gray-3);
+      background-color: var(--color-background-1);
+      border-color: var(--color-background-3);
     }
 
     svg {
-      stroke: var(--color-gray-3);
+      stroke: var(--color-background-3);
     }
   }
 }

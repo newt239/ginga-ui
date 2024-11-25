@@ -4,13 +4,13 @@
   align-items: center;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-black);
+  color: var(--color-text);
   cursor: pointer;
 
   .switch-indicator {
     width: 2rem;
     height: 1rem;
-    background: var(--color-white);
+    background: var(--color-background);
     border: var(--width-border) solid var(--color-primary-5);
     border-radius: calc(var(--size-radius) * 0.5);
     transition: all 200ms;
@@ -41,7 +41,7 @@
       border-color: var(--color-primary-5);
 
       &::before {
-        background: var(--color-white);
+        background: var(--color-background);
         transform: translateX(100%);
       }
     }
@@ -60,16 +60,16 @@
   }
 
   &[data-disabled] {
-    color: var(--color-gray-6);
+    color: var(--color-background-6);
     pointer-events: none;
     cursor: not-allowed;
 
     .switch-indicator {
-      background: var(--color-gray-1);
-      border-color: var(--color-gray-1);
+      background: var(--color-background-1);
+      border-color: var(--color-background-1);
 
       &::before {
-        background: var(--color-gray-6);
+        background: var(--color-background-6);
       }
     }
   }

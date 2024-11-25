@@ -6,7 +6,7 @@
   margin: 0;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-white);
+  color: var(--color-text);
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -27,11 +27,11 @@
   }
 
   &[data-disabled] {
-    color: var(--color-gray-6);
+    color: var(--color-background-6);
     pointer-events: none;
     cursor: not-allowed;
-    background-color: var(--color-gray-1);
-    border-color: var(--color-gray-1);
+    background-color: var(--color-background-1);
+    border-color: var(--color-background-1);
   }
 
   &[data-focus-visible] {
@@ -54,7 +54,7 @@
 
   &[data-variant="outline"] {
     color: var(--color-primary-5);
-    background: var(--color-white);
+    background: var(--color-background);
     border: 1px solid var(--color-primary-5);
 
     &[data-hovered] {

@@ -36,17 +36,17 @@ const generateTheme = async ({
           The values should follow the format shown how.
           Value should follow the format shown below.
           
-          - color-*: \`#\${string}\`;
-          - width-*, height-*: 0 | 1px | 2px | 1rem | 50% | 100%;
-          - size-*: 0 | 0.5rem |  1rem | 2rem | 9999px;
-          - font-family: serif | sans-serif;
+          --color-*: \`#\${string}\`;
+          --width-*, height-*: 0 | 1px | 2px | 1rem | 50% | 100%;
+          --size-*: 0 | 0.5rem |  1rem | 2rem | 9999px;
+          --font-family: serif | sans-serif;
 
           # Variables
           
           --color-primary
           --color-secondary
-          --color-white
-          --color-black
+          --color-text
+          --color-background
           --width-border
           --size-radius
           --font-family
@@ -91,7 +91,12 @@ const generateTheme = async ({
     variables.forEach((v: any) => {
       console.log(v);
       r.style.setProperty(`${v.key}`, v.value);
-      if (v.key === "--color-primary" || v.key === "--color-secondary") {
+      if (
+        v.key === "--color-primary" ||
+        v.key === "--color-secondary" ||
+        v.key === "--color-text" ||
+        v.key === "--color-background"
+      ) {
         const colors = generateColorsMap(v.value).colors;
         colors.forEach((c, i) => {
           console.log(`${v.key}-${i}`, c.hex());

@@ -6,7 +6,7 @@
   grid-template-columns: 1fr auto;
   max-width: 300px;
   font-family: var(--font-family);
-  color: var(--color-black);
+  color: var(--color-text);
 
   .slider-label {
     grid-area: label;
@@ -68,17 +68,17 @@
   }
 
   &[data-disabled] {
-    color: var(--color-gray-6);
+    color: var(--color-background-6);
     pointer-events: none;
     cursor: not-allowed;
 
     .slider-track::before {
-      background-color: var(--color-gray-1);
+      background-color: var(--color-background-1);
     }
 
     .slider-thumb {
-      background-color: var(--color-gray-1);
-      border-color: var(--color-gray-1);
+      background-color: var(--color-background-1);
+      border-color: var(--color-background-1);
     }
   }
 }

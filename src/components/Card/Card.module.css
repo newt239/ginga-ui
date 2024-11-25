@@ -1,7 +1,7 @@
 .card {
   font-family: var(--font-family);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-gray-2);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-background-2);
   border-radius: calc(var(--size-radius) * 0.5);
   box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
 }
@@ -21,7 +21,7 @@
   padding: 0;
   margin: 0;
   font-size: 0.7rem;
-  color: var(--color-gray-6);
+  color: var(--color-background-6);
 }
 
 .card-content {
