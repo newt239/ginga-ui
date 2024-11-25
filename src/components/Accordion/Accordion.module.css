@@ -48,17 +48,14 @@
 }
 
 .accordion-content {
+  height: 0;
   padding: 0 1rem;
   overflow: hidden;
   font-size: 1rem;
   transition: all 0.2s ease;
-}
 
-.accordion-content-expanded {
-  height: auto;
-  padding: 1rem;
-}
-
-.accordion-content-collapsed {
-  height: 0;
+  &[aria-hidden="false"] {
+    height: auto;
+    padding: 1rem;
+  }
 }
