@@ -12,8 +12,8 @@ export default meta;
 type Story = StoryObj<typeof Tabs>;
 
 export const Default: Story = {
-  render: (args) => (
-    <Tabs {...args}>
+  render: () => (
+    <Tabs>
       <TabList aria-label="History of Ancient Rome">
         <Tab id="republic">Republic</Tab>
         <Tab id="empire">Empire</Tab>
@@ -39,8 +39,8 @@ export const Default: Story = {
 };
 
 export const VerticalTabs: Story = {
-  render: (args) => (
-    <Tabs orientation="vertical" {...args}>
+  render: () => (
+    <Tabs orientation="vertical">
       <TabList aria-label="Ancient Civilizations">
         <Tab id="egypt">Egypt</Tab>
         <Tab id="greece">Greece</Tab>
@@ -66,8 +66,8 @@ export const VerticalTabs: Story = {
 };
 
 export const DisabledTab: Story = {
-  render: (args) => (
-    <Tabs {...args}>
+  render: () => (
+    <Tabs>
       <TabList aria-label="Planets">
         <Tab id="mercury">Mercury</Tab>
         <Tab id="venus">Venus</Tab>

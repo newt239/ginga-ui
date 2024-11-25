@@ -11,30 +11,23 @@ const meta: Meta<typeof Radio> = {
   argTypes: {
     isDisabled: { control: "boolean" },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "1rem", fontFamily: "Arial, sans-serif" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
 export const Default: Story = {
-  render: (args) => (
+  render: () => (
     <RadioGroup>
-      <Radio {...args}>Option 1</Radio>
+      <Radio value="one">Option 1</Radio>
     </RadioGroup>
   ),
 };
 
 export const DisabledRadio: Story = {
-  render: (args) => (
+  render: () => (
     <RadioGroup>
-      <Radio {...args} isDisabled>
+      <Radio value="one" isDisabled>
         Disabled Option
       </Radio>
     </RadioGroup>
