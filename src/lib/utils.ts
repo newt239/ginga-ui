@@ -1,5 +1,3 @@
-import { ClassValue, clsx } from "clsx";
-
-export function cn(...inputs: ClassValue[]) {
-  return clsx(inputs);
+export function cn(...inputs: string[]) {
+  return inputs.filter(Boolean).join(" ");
 }
