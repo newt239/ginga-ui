@@ -4,8 +4,8 @@
 
 .accordion-item {
   margin-bottom: 0.25rem;
-  border: 2px solid var(--color-primary-2);
-  border-radius: calc(var(--radius-size) * 0.5);
+  border: var(--width-border) solid var(--color-primary-2);
+  border-radius: calc(var(--size-radius) * 0.5);
 }
 
 .accordion-trigger {
@@ -24,7 +24,7 @@
 
 .accordion-trigger:hover {
   background-color: var(--color-primary-0);
-  border-radius: calc(var(--radius-size) * 0.5);
+  border-radius: calc(var(--size-radius) * 0.5);
 }
 
 .accordion-icon {
@@ -42,8 +42,8 @@
   width: 0.5rem;
   height: 0.5rem;
   content: "";
-  border-right: 2px solid currentcolor;
-  border-bottom: 2px solid currentcolor;
+  border-right: var(--width-border) solid currentcolor;
+  border-bottom: var(--width-border) solid currentcolor;
   transition: transform 0.2s ease;
 }
 

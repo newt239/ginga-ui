@@ -18,7 +18,7 @@
     position: absolute;
     inset: -0.3rem;
     content: "";
-    border: 2px solid var(--color-primary-5);
-    border-radius: calc(var(--radius-size) * 0.3);
+    border: var(--width-border) solid var(--color-primary-5);
+    border-radius: calc(var(--size-radius) * 0.3);
   }
 }

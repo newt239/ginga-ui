@@ -5,8 +5,8 @@
   font-size: 1rem;
   color: var(--color-black);
   background: var(--color-white);
-  border: 2px solid var(--color-gray-2);
-  border-radius: calc(var(--radius-size) * 0.5);
+  border: var(--width-border) solid var(--color-gray-2);
+  border-radius: calc(var(--size-radius) * 0.5);
   outline: none;
   transition: all 0.2s;
 

@@ -12,9 +12,9 @@
   vertical-align: middle;
   appearance: none;
   cursor: pointer;
-  background: var(--color-primary-5);
+  background-color: var(--color-primary-5);
   border: none;
-  border-radius: calc(var(--radius-size) * 0.5);
+  border-radius: calc(var(--size-radius) * 0.5);
   outline: none;
   transition: all 0.2s;
 

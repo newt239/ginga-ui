@@ -9,7 +9,7 @@ type Props = {
 
 type Response = {
   type: "success" | "error";
-  variables: { name: string; hex: string }[];
+  variables: { key: string; value: string }[];
 };
 
 const generateTheme = async ({
@@ -37,7 +37,8 @@ const generateTheme = async ({
           Value should follow the format shown below.
           
           - color-*: \`#\${string}\`;
-          - radius-size: 0 | 1rem | 2rem | 9999px;
+          - width-*, height-*: 0 | 1px | 2px | 1rem | 50% | 100%;
+          - size-*: 0 | 0.5rem |  1rem | 2rem | 9999px;
           - font-family: serif | sans-serif;
 
           # Variables
@@ -46,7 +47,8 @@ const generateTheme = async ({
           --color-secondary
           --color-white
           --color-black
-          --radius-size
+          --width-border
+          --size-radius
           --font-family
           `,
       },
@@ -64,10 +66,10 @@ const generateTheme = async ({
               items: {
                 type: "object",
                 properties: {
-                  name: { type: "string" },
-                  color: { type: "string" },
+                  key: { type: "string" },
+                  value: { type: "string" },
                 },
-                required: ["name", "color"],
+                required: ["key", "value"],
                 additionalProperties: false,
               },
             },
@@ -81,19 +83,19 @@ const generateTheme = async ({
   });
   const content = completion.choices[0].message.content;
   if (content) {
-    const variables: { name: string; hex: string }[] =
+    const variables: { key: string; value: string }[] =
       JSON.parse(content).variables;
 
     // TODO: check the existence of document object
     const r = document.documentElement;
     variables.forEach((v: any) => {
       console.log(v);
-      r.style.setProperty(`${v.name}`, v.color);
-      if (v.name === "--color-primary" || v.name === "--color-secondary") {
-        const colors = generateColorsMap(v.color).colors;
+      r.style.setProperty(`${v.key}`, v.value);
+      if (v.key === "--color-primary" || v.key === "--color-secondary") {
+        const colors = generateColorsMap(v.value).colors;
         colors.forEach((c, i) => {
-          console.log(`${v.name}-${i}`, c.hex());
-          r.style.setProperty(`${v.name}-${i}`, c.hex());
+          console.log(`${v.key}-${i}`, c.hex());
+          r.style.setProperty(`${v.key}-${i}`, c.hex());
         });
       }
     });

@@ -33,6 +33,9 @@
   --color-gray-8: #656565;
   --color-gray-9: #575757;
   --color-white: #fff;
-  --radius-size: 1rem;
+  --color-background: #000;
+  --color-text: #fff;
+  --size-radius: 1rem;
+  --width-border: 2px;
   --font-family: sans-serif;
 }
