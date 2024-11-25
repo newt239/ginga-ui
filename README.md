@@ -4,6 +4,21 @@
 
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
+## Recommended Environment
+
+### Frameworks
+
+- React 18 or later
+- Next.js 13 or later with App Router
+- React with Vite
+
+### Browsers
+
+- Chrome on macOS, Windows, and Android
+- Firefox on macOS and Windows
+- Safari on macOS, iOS, and iPadOS
+- Edge (chromium) on Windows
+
 ## Installation
 
 ### 1. Install the package
