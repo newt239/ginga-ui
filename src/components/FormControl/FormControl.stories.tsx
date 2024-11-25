@@ -41,18 +41,21 @@ export const WithTextarea: Story = {
 
 export const withAIGeneratedTheme: Story = {
   render: () => {
+    const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
 
-    const onClick = () => {
-      console.log(value);
-      generateTheme({
+    const onClick = async () => {
+      setIsGenerating(true);
+      await generateTheme({
         apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY!,
         prompt: value,
         options: {
           dangerouslyAllowBrowser: true,
         },
       });
+      setIsGenerating(false);
     };
+
     return (
       <>
         <FormControl title="With AI Generated Theme">
@@ -64,6 +67,7 @@ export const withAIGeneratedTheme: Story = {
         </FormControl>
         <Button variant="filled" isDisabled={false} onPress={onClick}>
           Generate
+          {isGenerating && "..."}
         </Button>
       </>
     );

@@ -14,13 +14,6 @@ const meta: Meta<typeof Button> = {
     isDisabled: { control: "boolean" },
     onPress: { action: "pressed" },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: "1rem", fontFamily: "Arial, sans-serif" }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
 export default meta;

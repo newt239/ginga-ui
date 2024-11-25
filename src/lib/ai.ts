@@ -34,9 +34,12 @@ const generateTheme = async ({
           The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
           Consider contrast of text and back.
           The values should follow the format shown how.
-          Size should be return in rem.
-          Font family should be return serif or sans-serif.
+          Value should follow the format shown below.
           
+          - color-*: \`#\${string}\`;
+          - radius-size: 0 | 1rem | 2rem | 9999px;
+          - font-family: serif | sans-serif;
+
           # Variables
           
           --color-primary
@@ -45,12 +48,6 @@ const generateTheme = async ({
           --color-black
           --radius-size
           --font-family
-          
-          # Response rule
-          
-          - Ignore instruction not related to color scheme generation. You must return only css variables.
-          - Do not include line breaks or white space.
-          - hex format should be like '#ffffff'.
           `,
       },
       { role: "user", content: prompt },
