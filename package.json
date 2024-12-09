@@ -10,10 +10,13 @@
     "component",
     "library"
   ],
-  "author": "newt239 <ysti2019.win2020.st@gmail.com>",
+  "author": {
+    "name": "newt239",
+    "email": "ysti2019.win2020.st@gmail.com"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/newt239/ginga-ui"
+    "url": "git+https://github.com/newt239/ginga-ui.git"
   },
   "bugs": {
     "url": "https://github.com/newt239/ginga-ui/issues"
@@ -27,7 +30,8 @@
     "hoge": "hcm src/**/*.module.css --watch",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_ca50ec43eb2bc55"
   },
   "main": "./dist/ginga-ui.umd.js",
   "module": "./dist/ginga-ui.es.js",
@@ -65,6 +69,7 @@
     "@types/react": "^18.3.14",
     "@types/react-dom": "^18.3.2",
     "@vitejs/plugin-react": "^4.3.4",
+    "chromatic": "^11.20.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-node": "^11.1.0",
@@ -78,5 +83,6 @@
     "typescript-eslint": "^8.17.0",
     "vite": "^5.4.11",
     "vite-plugin-dts": "^4.3.0"
-  }
+  },
+  "homepage": "https://github.com/newt239/ginga-ui#readme"
 }
