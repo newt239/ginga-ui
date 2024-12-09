@@ -63,17 +63,17 @@
   }
 
   &[data-disabled] {
-    color: var(--color-background-6);
+    color: var(--color-secondary-6);
     pointer-events: none;
     cursor: not-allowed;
 
     .checkbox-input {
-      background-color: var(--color-background-1);
-      border-color: var(--color-background-3);
+      background-color: var(--color-secondary-1);
+      border-color: var(--color-secondary-3);
     }
 
     svg {
-      stroke: var(--color-background-3);
+      stroke: var(--color-secondary-3);
     }
   }
 }

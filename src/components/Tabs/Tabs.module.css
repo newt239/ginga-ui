@@ -24,7 +24,7 @@
 .tab-list {
   display: flex;
   border: none;
-  border-bottom: var(--width-border) solid var(--color-background-2);
+  border-bottom: var(--width-border) solid var(--color-secondary-2);
 }
 
 .tab {
@@ -48,7 +48,7 @@
   }
 
   &[data-disabled] {
-    color: var(--color-background-5);
+    color: var(--color-secondary-5);
     pointer-events: none;
     cursor: not-allowed;
   }

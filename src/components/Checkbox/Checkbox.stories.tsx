@@ -49,17 +49,6 @@ export const WithoutLabel: Story = {
   args: {},
 };
 
-export const WithCustomLabel: Story = {
-  args: {
-    children: (
-      <span style={{ display: "flex", alignItems: "center" }}>
-        Custom Label{" "}
-        <span style={{ marginLeft: "0.5em", color: "red" }}>*</span>
-      </span>
-    ),
-  },
-};
-
 // TODO: must specify the value prop for each Checkbox
 export const CheckboxGroupExample: Story = {
   render: () => (

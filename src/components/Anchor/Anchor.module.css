@@ -15,7 +15,7 @@
   }
 
   &[data-disabled] {
-    color: var(--color-background-5);
+    color: var(--color-secondary-5);
     cursor: not-allowed;
   }
 

@@ -40,13 +40,13 @@
   }
 
   &[data-disabled] {
-    color: var(--color-background-6);
+    color: var(--color-secondary-6);
     pointer-events: none;
     cursor: not-allowed;
 
     &::before {
-      background: var(--color-background-1);
-      border-color: var(--color-background-1);
+      background: var(--color-secondary-1);
+      border-color: var(--color-secondary-1);
     }
   }
 }

@@ -27,11 +27,11 @@
   }
 
   &[data-disabled] {
-    color: var(--color-background-6);
+    color: var(--color-secondary-6);
     pointer-events: none;
     cursor: not-allowed;
-    background-color: var(--color-background-1);
-    border-color: var(--color-background-1);
+    background-color: var(--color-secondary-1);
+    border-color: var(--color-secondary-1);
   }
 
   &[data-focus-visible] {
