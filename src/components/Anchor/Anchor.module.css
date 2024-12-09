@@ -1,24 +1,29 @@
 .anchor {
   position: relative;
   font-family: var(--font-family);
-  color: var(--color-primary-6);
+  color: var(--color-primary-5);
   text-decoration: underline;
   cursor: pointer;
   outline: none;
 
   &[data-hovered] {
-    text-decoration-style: wavy;
+    color: var(--color-primary-6);
   }
 
   &[data-pressed] {
     color: var(--color-primary-7);
   }
 
+  &[data-disabled] {
+    color: var(--color-secondary-5);
+    cursor: not-allowed;
+  }
+
   &[data-focus-visible]::after {
     position: absolute;
     inset: -0.3rem;
     content: "";
-    border: 2px solid var(--color-primary-5);
-    border-radius: calc(var(--radius-size) * 0.3);
+    border: var(--width-border) solid var(--color-primary-5);
+    border-radius: calc(var(--size-radius) * 0.3);
   }
 }

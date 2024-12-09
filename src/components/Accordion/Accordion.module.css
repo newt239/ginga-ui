@@ -4,8 +4,8 @@
 
 .accordion-item {
   margin-bottom: 0.25rem;
-  border: 2px solid var(--color-primary-2);
-  border-radius: calc(var(--radius-size) * 0.5);
+  border: var(--width-border) solid var(--color-primary-5);
+  border-radius: calc(var(--size-radius) * 0.5);
 }
 
 .accordion-trigger {
@@ -14,17 +14,14 @@
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
+  font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-primary-9);
+  font-weight: 800;
+  color: var(--color-primary-5);
   text-align: left;
   cursor: pointer;
   background: none;
   border: none;
-}
-
-.accordion-trigger:hover {
-  background-color: var(--color-primary-0);
-  border-radius: calc(var(--radius-size) * 0.5);
 }
 
 .accordion-icon {
@@ -42,23 +39,21 @@
   width: 0.5rem;
   height: 0.5rem;
   content: "";
-  border-right: 2px solid currentcolor;
-  border-bottom: 2px solid currentcolor;
+  border-right: var(--width-border) solid currentcolor;
+  border-bottom: var(--width-border) solid currentcolor;
   transition: transform 0.2s ease;
 }
 
 .accordion-content {
+  height: 0;
   padding: 0 1rem;
   overflow: hidden;
+  font-family: var(--font-family);
   font-size: 1rem;
   transition: all 0.2s ease;
-}
 
-.accordion-content-expanded {
-  height: auto;
-  padding: 1rem;
-}
-
-.accordion-content-collapsed {
-  height: 0;
+  &[aria-hidden="false"] {
+    height: auto;
+    padding: 1rem;
+  }
 }

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.2
+
+- change: use different css variables for each component
+- improve: ally of Accordion component
+
 ## v0.4.1
 
 - feat: add Paragraph and Image components

@@ -1,137 +1,80 @@
 import { cn } from "@/lib/utils";
-import React, { createContext, useContext, useState } from "react";
+import React, { type ComponentProps } from "react";
+import {
+  Button as AriaButton,
+  Disclosure,
+  DisclosureGroup,
+  DisclosurePanel,
+} from "react-aria-components";
 import styles from "./Accordion.module.css";
 
-type AccordionContextType = {
-  expanded: string[];
-  // eslint-disable-next-line no-unused-vars
-  toggleItem: (value: string) => void;
-};
-
-const AccordionContext = createContext<AccordionContextType | undefined>(
-  undefined
-);
-
-// Accordionコンポーネントのプロパティ型
-type AccordionProps = React.HTMLAttributes<HTMLDivElement> & {
-  type?: "single" | "multiple";
-  defaultValue?: string[];
-};
-
-// AccordionTriggerのプロパティ型
-type AccordionTriggerProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  value: string;
-  icon?: React.ReactNode; // カスタムアイコンのための新しいプロップ
-};
+export type AccordionProps = ComponentProps<typeof DisclosureGroup>;
 
 const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
-  (
-    { className, type = "single", defaultValue = [], children, ...props },
-    ref
-  ) => {
-    const [expanded, setExpanded] = useState<string[]>(defaultValue);
-
-    const toggleItem = (value: string) => {
-      if (type === "single") {
-        setExpanded(expanded.includes(value) ? [] : [value]);
-      } else {
-        setExpanded(
-          expanded.includes(value)
-            ? expanded.filter((item) => item !== value)
-            : [...expanded, value]
-        );
-      }
-    };
-
+  ({ children, className, ...props }, ref) => {
     return (
-      <AccordionContext.Provider value={{ expanded, toggleItem }}>
-        <div
-          ref={ref}
-          className={cn(styles["accordion"], className)}
-          {...props}
-        >
-          {children}
-        </div>
-      </AccordionContext.Provider>
+      <DisclosureGroup
+        className={cn(styles["accordion"], className)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </DisclosureGroup>
     );
   }
 );
 Accordion.displayName = "Accordion";
 
-const AccordionItem = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { value: string }
->(({ className, children, ...props }, ref) => {
-  return (
-    <div
-      ref={ref}
-      className={cn(styles["accordion-item"], className)}
-      {...props}
-    >
-      {children}
-    </div>
-  );
-});
+export type AccordionItemProps = ComponentProps<typeof Disclosure>;
+
+const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <Disclosure
+        className={cn(styles["accordion-item"], className)}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </Disclosure>
+    );
+  }
+);
 AccordionItem.displayName = "AccordionItem";
+
+export type AccordionTriggerProps = ComponentProps<typeof AriaButton>;
 
 const AccordionTrigger = React.forwardRef<
   HTMLButtonElement,
   AccordionTriggerProps
->(({ className, children, value, icon, ...props }, ref) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionTrigger must be used within Accordion");
-
-  const { expanded, toggleItem } = context;
-  const isExpanded = expanded.includes(value);
-
+>(({ children, className, ...props }, ref) => {
   return (
-    <button
-      ref={ref}
+    <AriaButton
+      slot="trigger"
       className={cn(styles["accordion-trigger"], className)}
-      onClick={() => toggleItem(value)}
-      aria-expanded={isExpanded}
+      ref={ref}
       {...props}
     >
       {children}
-      {icon || (
-        <span
-          className={cn(
-            styles.AccordionIcon,
-            isExpanded && styles.AccordionIconExpanded
-          )}
-        />
-      )}
-    </button>
+    </AriaButton>
   );
 });
 AccordionTrigger.displayName = "AccordionTrigger";
 
+export type AccordionContentProps = ComponentProps<typeof DisclosurePanel>;
+
 const AccordionContent = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { value: string }
->(({ className, value, children, ...props }, ref) => {
-  const context = useContext(AccordionContext);
-  if (!context)
-    throw new Error("AccordionContent must be used within Accordion");
-
-  const { expanded } = context;
-  const isExpanded = expanded.includes(value);
-
+  AccordionContentProps
+>(({ children, className, ...props }, ref) => {
   return (
-    <div
+    <DisclosurePanel
+      className={cn(styles["accordion-content"], className)}
       ref={ref}
-      className={cn(
-        styles["accordion-content"],
-        isExpanded
-          ? styles["accordion-content-expanded"]
-          : styles["accordion-content-collapsed"],
-        className
-      )}
       {...props}
     >
       {children}
-    </div>
+    </DisclosurePanel>
   );
 });
 AccordionContent.displayName = "AccordionContent";

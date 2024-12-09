@@ -3,7 +3,7 @@
   gap: 0.5rem;
   align-items: center;
   font-family: var(--font-family);
-  color: var(--color-black);
+  color: var(--color-secondary);
   forced-color-adjust: none;
 
   &::before {
@@ -13,7 +13,7 @@
     height: 1.2rem;
     cursor: pointer;
     content: "";
-    background: var(--color-white);
+    background: var(--color-background);
     border: 0.143rem solid var(--color-primary-5);
     border-radius: 50%;
     transition: all 200ms;
@@ -40,13 +40,13 @@
   }
 
   &[data-disabled] {
-    color: var(--color-gray-6);
+    color: var(--color-secondary-6);
     pointer-events: none;
     cursor: not-allowed;
 
     &::before {
-      background: var(--color-gray-1);
-      border-color: var(--color-gray-1);
+      background: var(--color-secondary-1);
+      border-color: var(--color-secondary-1);
     }
   }
 }

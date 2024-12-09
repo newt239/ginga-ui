@@ -1,5 +1,5 @@
 import OpenAI, { type ClientOptions } from "openai";
-import { generateColorsMap } from "./color";
+import { generateIntermediateColors } from "./color";
 
 type Props = {
   apiKey: string;
@@ -9,7 +9,7 @@ type Props = {
 
 type Response = {
   type: "success" | "error";
-  variables: { name: string; hex: string }[];
+  variables: { key: string; value: string }[];
 };
 
 const generateTheme = async ({
@@ -32,25 +32,25 @@ const generateTheme = async ({
           You are a designer and you are now writing CSS.
           This website uses the following CSS variables.
           The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
-          Consider contrast of text and back.
+          Consider sufficient contrast with the background color.
           The values should follow the format shown how.
-          Size should be return in rem.
-          Font family should be return serif or sans-serif.
+          Value should follow the format shown below.
           
+          --color-*: \`#\${string}\`;
+          --width-*, height-*: 0 | 1px | 2px | 1rem | 50% | 100%;
+          --size-*: 0 | 0.5rem |  1rem | 2rem | 9999px;
+          --font-family: serif | sans-serif;
+
           # Variables
           
-          --color-primary
-          --color-secondary
-          --color-white
-          --color-black
-          --radius-size
-          --font-family
-          
-          # Response rule
-          
-          - Ignore instruction not related to color scheme generation. You must return only css variables.
-          - Do not include line breaks or white space.
-          - hex format should be like '#ffffff'.
+          | Name               | Description      | Default Value |
+          | ------------------ | ---------------- | ------------- |
+          | --color-primary    | Accent color     | #1677ff       |
+          | --color-secondary  | Main text color  | #000          |
+          | --color-background | Background color | #fff          |
+          | --width-border     | Border width     | 2px           |
+          | --size-radius      | Border radius    | 1rem          |
+          | --font-family      | Font family      | sans-serif    |
           `,
       },
       { role: "user", content: prompt },
@@ -67,10 +67,10 @@ const generateTheme = async ({
               items: {
                 type: "object",
                 properties: {
-                  name: { type: "string" },
-                  color: { type: "string" },
+                  key: { type: "string" },
+                  value: { type: "string" },
                 },
-                required: ["name", "color"],
+                required: ["key", "value"],
                 additionalProperties: false,
               },
             },
@@ -84,19 +84,27 @@ const generateTheme = async ({
   });
   const content = completion.choices[0].message.content;
   if (content) {
-    const variables: { name: string; hex: string }[] =
+    const variables: { key: string; value: string }[] =
       JSON.parse(content).variables;
+    const colorBackground = variables.find(
+      (v) => v.key === "--color-background"
+    );
+    if (!colorBackground) {
+      return { type: "error", variables: [] };
+    }
 
-    // TODO: check the existence of document object
     const r = document.documentElement;
     variables.forEach((v: any) => {
       console.log(v);
-      r.style.setProperty(`${v.name}`, v.color);
-      if (v.name === "--color-primary" || v.name === "--color-secondary") {
-        const colors = generateColorsMap(v.color).colors;
+      r.style.setProperty(`${v.key}`, v.value);
+      if (v.key === "--color-primary" || v.key === "--color-secondary") {
+        const colors = generateIntermediateColors(
+          colorBackground.value,
+          v.value
+        );
         colors.forEach((c, i) => {
-          console.log(`${v.name}-${i}`, c.hex());
-          r.style.setProperty(`${v.name}-${i}`, c.hex());
+          console.log(`${v.key}-${i}`, c);
+          r.style.setProperty(`${v.key}-${i}`, c);
         });
       }
     });

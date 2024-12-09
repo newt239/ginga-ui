@@ -32,6 +32,22 @@ export function generateColorsMap(color: string) {
   return { baseColorIndex, colors };
 }
 
+/**
+ * Generates 10 colors between two given colors.
+ * @param {string} start - The first color in any Chroma.js compatible format.
+ * @param {string} end - The second color in any Chroma.js compatible format.
+ * @returns {string[]} An array of 10 color strings in hexadecimal format.
+ */
+export function generateIntermediateColors(start: string, end: string) {
+  // Create a scale using Chroma.js
+  const scale = chroma.scale([start, end]).mode("lab");
+
+  // Generate 10 intermediate colors
+  const colors = scale.colors(10);
+
+  return colors;
+}
+
 export type ColorsTuple = readonly [
   string,
   string,
