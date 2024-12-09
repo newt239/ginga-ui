@@ -4,7 +4,7 @@
   align-items: center;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-text);
+  color: var(--color-secondary);
   cursor: pointer;
 
   .switch-indicator {

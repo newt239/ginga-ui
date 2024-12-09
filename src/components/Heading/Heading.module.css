@@ -1,6 +1,6 @@
 .heading {
   font-family: var(--font-family);
-  color: var(--color-text);
+  color: var(--color-secondary);
 }
 
 .heading-level-1 {

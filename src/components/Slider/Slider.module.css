@@ -6,7 +6,7 @@
   grid-template-columns: 1fr auto;
   max-width: 300px;
   font-family: var(--font-family);
-  color: var(--color-text);
+  color: var(--color-secondary);
 
   .slider-label {
     grid-area: label;

@@ -8,6 +8,7 @@
   margin-bottom: 0.5rem;
   font-family: var(--font-family);
   font-weight: bold;
+  color: var(--color-primary);
 }
 
 .form-control-inner {

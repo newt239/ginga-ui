@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
-  color: var(--color-text);
+  color: var(--color-secondary);
 
   &[data-orientation="vertical"] {
     flex-direction: row;
@@ -30,7 +30,7 @@
 .tab {
   position: relative;
   padding: 0.5rem 1rem;
-  color: var(--color-text);
+  color: var(--color-secondary);
   cursor: pointer;
   outline: none;
   transition: color 200ms;

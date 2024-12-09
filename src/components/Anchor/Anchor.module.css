@@ -1,17 +1,22 @@
 .anchor {
   position: relative;
   font-family: var(--font-family);
-  color: var(--color-primary-6);
+  color: var(--color-primary-5);
   text-decoration: underline;
   cursor: pointer;
   outline: none;
 
   &[data-hovered] {
-    text-decoration-style: wavy;
+    color: var(--color-primary-6);
   }
 
   &[data-pressed] {
     color: var(--color-primary-7);
+  }
+
+  &[data-disabled] {
+    color: var(--color-background-5);
+    cursor: not-allowed;
   }
 
   &[data-focus-visible]::after {

@@ -4,7 +4,7 @@
 
 .accordion-item {
   margin-bottom: 0.25rem;
-  border: var(--width-border) solid var(--color-primary-2);
+  border: var(--width-border) solid var(--color-primary-5);
   border-radius: calc(var(--size-radius) * 0.5);
 }
 
@@ -15,16 +15,12 @@
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
-  color: var(--color-primary-9);
+  font-weight: 800;
+  color: var(--color-primary-5);
   text-align: left;
   cursor: pointer;
   background: none;
   border: none;
-}
-
-.accordion-trigger:hover {
-  background-color: var(--color-primary-0);
-  border-radius: calc(var(--size-radius) * 0.5);
 }
 
 .accordion-icon {

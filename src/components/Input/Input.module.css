@@ -3,22 +3,22 @@
   margin: 0;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-text);
+  color: var(--color-secondary);
   background: var(--color-background);
-  border: var(--width-border) solid var(--color-background-2);
+  border: var(--width-border) solid var(--color-secondary-5);
   border-radius: calc(var(--size-radius) * 0.5);
   outline: none;
   transition: all 0.2s;
 
   &[data-focused] {
-    border-color: var(--color-primary-5);
+    border-color: var(--color-primary);
   }
 
   &[data-disabled] {
-    color: var(--color-background-6);
+    color: var(--color-secondary-6);
     pointer-events: none;
     cursor: not-allowed;
-    background-color: var(--color-background-1);
-    border-color: var(--color-background-1);
+    background-color: var(--color-secondary-1);
+    border-color: var(--color-secondary-1);
   }
 }

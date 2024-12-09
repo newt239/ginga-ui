@@ -1,5 +1,5 @@
 import OpenAI, { type ClientOptions } from "openai";
-import { generateColorsMap } from "./color";
+import { generateIntermediateColors } from "./color";
 
 type Props = {
   apiKey: string;
@@ -45,7 +45,6 @@ const generateTheme = async ({
           
           --color-primary
           --color-secondary
-          --color-text
           --color-background
           --width-border
           --size-radius
@@ -85,22 +84,25 @@ const generateTheme = async ({
   if (content) {
     const variables: { key: string; value: string }[] =
       JSON.parse(content).variables;
+    const colorBackground = variables.find(
+      (v) => v.key === "--color-background"
+    );
+    if (!colorBackground) {
+      return { type: "error", variables: [] };
+    }
 
-    // TODO: check the existence of document object
     const r = document.documentElement;
     variables.forEach((v: any) => {
       console.log(v);
       r.style.setProperty(`${v.key}`, v.value);
-      if (
-        v.key === "--color-primary" ||
-        v.key === "--color-secondary" ||
-        v.key === "--color-text" ||
-        v.key === "--color-background"
-      ) {
-        const colors = generateColorsMap(v.value).colors;
+      if (v.key === "--color-primary" || v.key === "--color-secondary") {
+        const colors = generateIntermediateColors(
+          colorBackground.value,
+          v.value
+        );
         colors.forEach((c, i) => {
-          console.log(`${v.key}-${i}`, c.hex());
-          r.style.setProperty(`${v.key}-${i}`, c.hex());
+          console.log(`${v.key}-${i}`, c);
+          r.style.setProperty(`${v.key}-${i}`, c);
         });
       }
     });
