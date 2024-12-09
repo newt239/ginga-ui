@@ -32,7 +32,7 @@ const generateTheme = async ({
           You are a designer and you are now writing CSS.
           This website uses the following CSS variables.
           The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
-          Consider contrast of text and back.
+          Consider sufficient contrast with the background color.
           The values should follow the format shown how.
           Value should follow the format shown below.
           
@@ -43,12 +43,14 @@ const generateTheme = async ({
 
           # Variables
           
-          --color-primary
-          --color-secondary
-          --color-background
-          --width-border
-          --size-radius
-          --font-family
+          | Name               | Description      | Default Value |
+          | ------------------ | ---------------- | ------------- |
+          | --color-primary    | Accent color     | #1677ff       |
+          | --color-secondary  | Main text color  | #000          |
+          | --color-background | Background color | #fff          |
+          | --width-border     | Border width     | 2px           |
+          | --size-radius      | Border radius    | 1rem          |
+          | --font-family      | Font family      | sans-serif    |
           `,
       },
       { role: "user", content: prompt },

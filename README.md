@@ -72,3 +72,14 @@ const handleClick = createTheme({
   },
 });
 ```
+
+## Variables
+
+| Name                 | Description      | Default Value |
+| -------------------- | ---------------- | ------------- |
+| `--color-primary`    | Accent color     | #1677ff       |
+| `--color-secondary`  | Main text color  | #000          |
+| `--color-background` | Background color | #fff          |
+| `--width-border`     | Border width     | 2px           |
+| `--size-radius`      | Border radius    | 1rem          |
+| `--font-family`      | Font family      | sans-serif    |

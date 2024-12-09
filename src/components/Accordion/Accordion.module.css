@@ -14,6 +14,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 1rem;
+  font-family: var(--font-family);
   font-size: 1rem;
   font-weight: 800;
   color: var(--color-primary-5);
@@ -47,6 +48,7 @@
   height: 0;
   padding: 0 1rem;
   overflow: hidden;
+  font-family: var(--font-family);
   font-size: 1rem;
   transition: all 0.2s ease;
 

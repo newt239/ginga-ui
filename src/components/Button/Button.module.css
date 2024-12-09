@@ -12,18 +12,18 @@
   vertical-align: middle;
   appearance: none;
   cursor: pointer;
-  background-color: var(--color-primary-5);
+  background-color: var(--color-primary);
   border: none;
   border-radius: calc(var(--size-radius) * 0.5);
   outline: none;
   transition: all 0.2s;
 
   &[data-hovered] {
-    background-color: var(--color-primary-6);
+    background-color: var(--color-primary-9);
   }
 
   &[data-pressed] {
-    background-color: var(--color-primary-7);
+    background-color: var(--color-primary-8);
   }
 
   &[data-disabled] {
