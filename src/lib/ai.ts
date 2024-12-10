@@ -32,7 +32,7 @@ const generateTheme = async ({
           You are a designer and you are now writing CSS.
           This website uses the following CSS variables.
           The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
-          Consider sufficient contrast with the background color.
+          Consider sufficient contrast with the accent color / main text color and background color.
           The values should follow the format shown how.
 
           # Variables

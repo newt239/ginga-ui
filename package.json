@@ -31,7 +31,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_ca50ec43eb2bc55"
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "main": "./dist/ginga-ui.umd.js",
   "module": "./dist/ginga-ui.es.js",
