@@ -34,12 +34,6 @@ const generateTheme = async ({
           The customer gives you a word or tastes about the ambience of the site, return the best value for all variables.
           Consider sufficient contrast with the background color.
           The values should follow the format shown how.
-          Value should follow the format shown below.
-          
-          --color-*: \`#\${string}\`;
-          --width-*, height-*: 0 | 1px | 2px | 1rem | 50% | 100%;
-          --size-*: 0 | 0.5rem |  1rem | 2rem | 9999px;
-          --font-family: serif | sans-serif;
 
           # Variables
           
