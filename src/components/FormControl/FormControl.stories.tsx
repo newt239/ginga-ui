@@ -32,13 +32,6 @@ export const WithCustomId: Story = {
   },
 };
 
-export const WithTextarea: Story = {
-  args: {
-    title: "Description // wip",
-    children: <textarea placeholder="Enter a detailed description" rows={4} />,
-  },
-};
-
 export const withAIGeneratedTheme: Story = {
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
