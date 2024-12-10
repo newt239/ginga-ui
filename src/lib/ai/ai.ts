@@ -1,5 +1,5 @@
 import OpenAI, { type ClientOptions } from "openai";
-import { generateIntermediateColors } from "./color";
+import { generateIntermediateColors } from "../color";
 
 type Props = {
   apiKey: string;
@@ -87,25 +87,31 @@ const generateTheme = async ({
       return { type: "error", variables: [] };
     }
 
-    const r = document.documentElement;
-    variables.forEach((v: any) => {
+    variables.forEach((v) => {
       console.log(v);
-      r.style.setProperty(`${v.key}`, v.value);
       if (v.key === "--color-primary" || v.key === "--color-secondary") {
         const colors = generateIntermediateColors(
           colorBackground.value,
           v.value
-        );
-        colors.forEach((c, i) => {
-          console.log(`${v.key}-${i}`, c);
-          r.style.setProperty(`${v.key}-${i}`, c);
-        });
+        ).map((c, i) => ({
+          key: `--color-${v.key}-${i}`,
+          value: c,
+        }));
+        variables.push(...colors);
       }
     });
+    adaptNewTheme(variables);
     return { type: "success", variables };
   } else {
     return { type: "error", variables: [] };
   }
+};
+
+export const adaptNewTheme = (variables: { key: string; value: string }[]) => {
+  const r = document.documentElement;
+  variables.forEach((v) => {
+    r.style.setProperty(`${v.key}`, v.value);
+  });
 };
 
 export { generateTheme };
