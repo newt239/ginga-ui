@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import * as v from "valibot";
 
+import chroma from "chroma-js";
 import { generateIntermediateColors } from "../color";
 import { RESPONSE_FORMAT, SYSTEM_PROMPT } from "./const";
 import { Props, Response, Variables } from "./types";
@@ -15,9 +16,9 @@ const generateTheme = async ({
     apiKey,
     ...options,
   });
-  let i;
+  let i: number;
   for (i = 0; i < maxRetries; i++) {
-    try {
+    generateCSSVariables: try {
       const completion = await openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
@@ -33,12 +34,20 @@ const generateTheme = async ({
         Variables,
         JSON.parse(completion.choices[0].message.content!)
       );
+      console.log(variables);
       const colorBackground = variables["--color-background"];
-      Object.entries(variables).forEach(([key, value]) => {
+      for (const [key, value] of Object.entries(variables)) {
         if (
           key.startsWith("--color-primary") ||
           key.startsWith("--color-secondary")
         ) {
+          const contrast = chroma.contrast(value, colorBackground);
+          console.log(contrast);
+          // コントラストを計算して、3未満の場合は再生成
+          if (contrast < 3) {
+            console.log("Contrast is too low, retrying...");
+            break generateCSSVariables;
+          }
           const colors = generateIntermediateColors(colorBackground, value).map(
             (c, i) => ({
               key: `${key}-${i}`,
@@ -49,7 +58,7 @@ const generateTheme = async ({
             variables[color.key] = color.value;
           });
         }
-      });
+      }
       adaptNewTheme(variables);
       return { type: "success", variables, retry: i };
     } catch (e) {
@@ -62,7 +71,6 @@ const generateTheme = async ({
 export const adaptNewTheme = (variables: { [key: string]: string }) => {
   const r = document.documentElement;
   Object.entries(variables).forEach(([key, value]) => {
-    console.log(key, value);
     r.style.setProperty(key, value);
   });
 };
