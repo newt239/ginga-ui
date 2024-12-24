@@ -1,4 +1,5 @@
 import OpenAI, { type ClientOptions } from "openai";
+import * as v from "valibot";
 import { generateIntermediateColors } from "../color";
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 
 type Response = {
   type: "success" | "error";
-  variables: { key: string; value: string }[];
+  variables: { [key: string]: string };
 };
 
 const SYSTEM_PROMPT = `
@@ -32,6 +33,18 @@ The values should follow the format shown how.
 | --font-family      | Font family      | sans-serif    |
 `;
 
+const Variables = v.record(
+  v.union([
+    v.string("--color-primary"),
+    v.string("--color-secondary"),
+    v.string("--color-background"),
+    v.string("--width-border"),
+    v.string("--size-radius"),
+    v.string("--font-family"),
+  ]),
+  v.string()
+);
+
 const RESPONSE_FORMAT = {
   type: "json_schema",
   json_schema: {
@@ -39,20 +52,21 @@ const RESPONSE_FORMAT = {
     schema: {
       type: "object",
       properties: {
-        variables: {
-          type: "array",
-          items: {
-            type: "object",
-            properties: {
-              key: { type: "string" },
-              value: { type: "string" },
-            },
-            required: ["key", "value"],
-            additionalProperties: false,
-          },
-        },
+        "--color-primary": { type: "string" },
+        "--color-secondary": { type: "string" },
+        "--color-background": { type: "string" },
+        "--width-border": { type: "string" },
+        "--size-radius": { type: "string" },
+        "--font-family": { type: "string" },
       },
-      required: ["variables"],
+      required: [
+        "--color-primary",
+        "--color-secondary",
+        "--color-background",
+        "--width-border",
+        "--size-radius",
+        "--font-family",
+      ],
       additionalProperties: false,
     },
     strict: true,
@@ -80,41 +94,40 @@ const generateTheme = async ({
       ],
       response_format: RESPONSE_FORMAT,
     });
-    const content = completion.choices[0].message.content;
-    if (content) {
-      const variables: { key: string; value: string }[] =
-        JSON.parse(content).variables;
-      const colorBackground = variables.find(
-        (v) => v.key === "--color-background"
-      );
-      if (!colorBackground) {
-        return { type: "error", variables: [] };
+    console.log(completion.choices[0].message.content);
+    const variables = v.parse(
+      Variables,
+      JSON.parse(completion.choices[0].message.content!)
+    );
+    const colorBackground = variables["--color-background"];
+    Object.keys(variables).forEach((variable_name) => {
+      if (
+        variable_name.startsWith("--color-primary") ||
+        variable_name.startsWith("--color-secondary")
+      ) {
+        const colors = generateIntermediateColors(
+          colorBackground,
+          variables[variable_name]
+        ).map((c, i) => ({
+          key: `${variable_name}-${i}`,
+          value: c,
+        }));
+        colors.forEach((color) => {
+          variables[color.key] = color.value;
+        });
       }
-
-      variables.forEach((v) => {
-        console.log(v);
-        if (v.key === "--color-primary" || v.key === "--color-secondary") {
-          const colors = generateIntermediateColors(
-            colorBackground.value,
-            v.value
-          ).map((c, i) => ({
-            key: `--color-${v.key}-${i}`,
-            value: c,
-          }));
-          variables.push(...colors);
-        }
-      });
-      adaptNewTheme(variables);
-      return { type: "success", variables };
-    }
+    });
+    adaptNewTheme(variables);
+    return { type: "success", variables };
   }
-  return { type: "error", variables: [] };
+  return { type: "error", variables: {} };
 };
 
-export const adaptNewTheme = (variables: { key: string; value: string }[]) => {
+export const adaptNewTheme = (variables: { [key: string]: string }) => {
   const r = document.documentElement;
-  variables.forEach((v) => {
-    r.style.setProperty(`${v.key}`, v.value);
+  Object.entries(variables).forEach(([key, value]) => {
+    console.log(key, value);
+    r.style.setProperty(key, value);
   });
 };
 
