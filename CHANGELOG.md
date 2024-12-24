@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.0
+
+- feat: regenerature theme when the contrast ratio is less than 3.0
+- feat: add validation for the OpenAI response
+- feat: publish Storybook on Chromatic
+
 ## v0.4.2
 
 - change: use different css variables for each component
