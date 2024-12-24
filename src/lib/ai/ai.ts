@@ -6,12 +6,52 @@ type Props = {
   apiKey: string;
   prompt: string;
   options?: Omit<ClientOptions, "apiKey">;
+  maxRetries?: number;
 };
 
-type Response = {
-  type: "success" | "error";
-  variables: { [key: string]: string };
-};
+type Response =
+  | {
+      type: "error";
+      retry: number;
+    }
+  | {
+      type: "success";
+      variables: { [key: string]: string };
+      retry: number;
+    };
+
+const requiredVariables = [
+  {
+    name: "--color-primary",
+    description: "Accent color",
+    defaultValue: "#1677ff",
+  },
+  {
+    name: "--color-secondary",
+    description: "Main text color",
+    defaultValue: "#000000",
+  },
+  {
+    name: "--color-background",
+    description: "Background color",
+    defaultValue: "#ffffff",
+  },
+  {
+    name: "--width-border",
+    description: "Border width",
+    defaultValue: "2px",
+  },
+  {
+    name: "--size-radius",
+    description: "Border radius",
+    defaultValue: "1rem",
+  },
+  {
+    name: "--font-family",
+    description: "Font family",
+    defaultValue: "sans-serif",
+  },
+];
 
 const SYSTEM_PROMPT = `
 # Instruction
@@ -23,25 +63,18 @@ The values should follow the format shown how.
 
 # Variables
 
-| Name               | Description      | Default Value |
-| ------------------ | ---------------- | ------------- |
-| --color-primary    | Accent color     | #1677ff     |
-| --color-secondary  | Main text color  | #000000     |
-| --color-background | Background color | #ffffff     |
-| --width-border     | Border width     | 2px           |
-| --size-radius      | Border radius    | 1rem          |
-| --font-family      | Font family      | sans-serif    |
+| Name | Description | Default Value |
+| ---- | ----------- | ------------- |
+${requiredVariables
+  .map(
+    ({ name, description, defaultValue }) => `
+| ${name} | ${description} | ${defaultValue} |`
+  )
+  .join("\n")}
 `;
 
 const Variables = v.record(
-  v.union([
-    v.string("--color-primary"),
-    v.string("--color-secondary"),
-    v.string("--color-background"),
-    v.string("--width-border"),
-    v.string("--size-radius"),
-    v.string("--font-family"),
-  ]),
+  v.union(requiredVariables.map((variable) => v.string(variable.name))),
   v.string()
 );
 
@@ -51,22 +84,10 @@ const RESPONSE_FORMAT = {
     name: "css_variables",
     schema: {
       type: "object",
-      properties: {
-        "--color-primary": { type: "string" },
-        "--color-secondary": { type: "string" },
-        "--color-background": { type: "string" },
-        "--width-border": { type: "string" },
-        "--size-radius": { type: "string" },
-        "--font-family": { type: "string" },
-      },
-      required: [
-        "--color-primary",
-        "--color-secondary",
-        "--color-background",
-        "--width-border",
-        "--size-radius",
-        "--font-family",
-      ],
+      properties: Object.fromEntries(
+        requiredVariables.map((variable) => [variable.name, { type: "string" }])
+      ),
+      required: requiredVariables.map((variable) => variable.name),
       additionalProperties: false,
     },
     strict: true,
@@ -77,50 +98,54 @@ const generateTheme = async ({
   apiKey,
   prompt,
   options,
+  maxRetries = 5,
 }: Props): Promise<Response> => {
   const openai = new OpenAI({
     apiKey,
     ...options,
   });
-  for (let i = 0; i < 5; i++) {
-    const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: SYSTEM_PROMPT,
-        },
-        { role: "user", content: prompt },
-      ],
-      response_format: RESPONSE_FORMAT,
-    });
-    console.log(completion.choices[0].message.content);
-    const variables = v.parse(
-      Variables,
-      JSON.parse(completion.choices[0].message.content!)
-    );
-    const colorBackground = variables["--color-background"];
-    Object.keys(variables).forEach((variable_name) => {
-      if (
-        variable_name.startsWith("--color-primary") ||
-        variable_name.startsWith("--color-secondary")
-      ) {
-        const colors = generateIntermediateColors(
-          colorBackground,
-          variables[variable_name]
-        ).map((c, i) => ({
-          key: `${variable_name}-${i}`,
-          value: c,
-        }));
-        colors.forEach((color) => {
-          variables[color.key] = color.value;
-        });
-      }
-    });
-    adaptNewTheme(variables);
-    return { type: "success", variables };
+  let i;
+  for (i = 0; i < maxRetries; i++) {
+    try {
+      const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content: SYSTEM_PROMPT,
+          },
+          { role: "user", content: prompt },
+        ],
+        response_format: RESPONSE_FORMAT,
+      });
+      const variables = v.parse(
+        Variables,
+        JSON.parse(completion.choices[0].message.content!)
+      );
+      const colorBackground = variables["--color-background"];
+      Object.entries(variables).forEach(([key, value]) => {
+        if (
+          key.startsWith("--color-primary") ||
+          key.startsWith("--color-secondary")
+        ) {
+          const colors = generateIntermediateColors(colorBackground, value).map(
+            (c, i) => ({
+              key: `${key}-${i}`,
+              value: c,
+            })
+          );
+          colors.forEach((color) => {
+            variables[color.key] = color.value;
+          });
+        }
+      });
+      adaptNewTheme(variables);
+      return { type: "success", variables, retry: i };
+    } catch (e) {
+      console.error(e);
+    }
   }
-  return { type: "error", variables: {} };
+  return { type: "error", retry: i };
 };
 
 export const adaptNewTheme = (variables: { [key: string]: string }) => {
