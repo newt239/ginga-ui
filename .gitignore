@@ -30,3 +30,6 @@ vite.config.d.ts
 # environment
 .env
 .env.local
+
+# Storybook
+storybook-static/

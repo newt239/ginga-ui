@@ -1,4 +1,4 @@
-import { generateTheme } from "@/lib/ai";
+import { generateTheme } from "@/lib/ai/ai";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
 
@@ -29,13 +29,6 @@ export const WithCustomId: Story = {
     children: (
       <Input id="custom-email-id" type="email" placeholder="Enter your email" />
     ),
-  },
-};
-
-export const WithTextarea: Story = {
-  args: {
-    title: "Description // wip",
-    children: <textarea placeholder="Enter a detailed description" rows={4} />,
   },
 };
 

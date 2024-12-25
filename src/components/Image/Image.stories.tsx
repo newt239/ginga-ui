@@ -13,15 +13,15 @@ type Story = StoryObj<typeof Image>;
 
 export const FirstStory: Story = {
   args: {
-    src: "https://newt239.dev/images/roomkeeper.webp",
-    alt: "Roomkeeperを利用しているシーン",
+    src: "https://images.unsplash.com/photo-1512389142860-9c449e58a543",
+    alt: "白い背景の上に、クリスマスや冬を連想させる緑の枝や葉、赤い実などの植物が四隅に配置されているフラットレイデザイン。",
   },
 };
 
 export const Avator: Story = {
   args: {
-    src: "https://newt239.dev/images/roomkeeper.webp",
-    alt: "Roomkeeperを利用しているシーン",
+    src: "https://images.unsplash.com/photo-1512389142860-9c449e58a543",
+    alt: "白い背景の上に、クリスマスや冬を連想させる緑の枝や葉、赤い実などの植物が四隅に配置されているフラットレイデザイン。",
     variant: "avatar",
   },
 };

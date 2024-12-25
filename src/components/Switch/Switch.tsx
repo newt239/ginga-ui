@@ -6,15 +6,15 @@ import styles from "./Switch.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type SwitchProps = ComponentProps<typeof AriaSwitch>;
+export type SwitchProps = ComponentProps<typeof AriaSwitch> & {
+  children: React.ReactNode;
+};
 
 const Switch: React.FC<SwitchProps> = ({ children, className, ...props }) => {
   return (
     <AriaSwitch className={cn(styles["switch"], className)} {...props}>
-      <>
-        <div className={styles["switch-indicator"]} />
-        {children}
-      </>
+      <div className={styles["switch-indicator"]} />
+      {children}
     </AriaSwitch>
   );
 };

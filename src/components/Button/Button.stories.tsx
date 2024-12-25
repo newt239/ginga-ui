@@ -1,4 +1,4 @@
-import { generateTheme } from "@/lib/ai";
+import { generateTheme } from "@/lib/ai/ai";
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./Button";
 
