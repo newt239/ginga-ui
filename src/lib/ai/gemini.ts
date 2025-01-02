@@ -1,6 +1,5 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
-
-const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 class GeminiClient {
   private genAI: any;

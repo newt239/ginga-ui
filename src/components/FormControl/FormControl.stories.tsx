@@ -32,7 +32,40 @@ export const WithCustomId: Story = {
   },
 };
 
-export const withAIGeneratedTheme: Story = {
+export const withGeminiTheme: Story = {
+  render: () => {
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [value, setValue] = useState("");
+    const themeClient = new ThemeClient(
+      "gemini",
+      import.meta.env.STORYBOOK_GEMINI_API_KEY
+    );
+
+    const onClick = async () => {
+      setIsGenerating(true);
+      await themeClient.generateTheme(value);
+      setIsGenerating(false);
+    };
+
+    return (
+      <>
+        <FormControl title="With Gemini Generated Theme">
+          <Input
+            placeholder="fairy tale"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+        </FormControl>
+        <Button variant="filled" isDisabled={false} onPress={onClick}>
+          Generate
+          {isGenerating && "..."}
+        </Button>
+      </>
+    );
+  },
+};
+
+export const withOpenAITheme: Story = {
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
@@ -52,9 +85,9 @@ export const withAIGeneratedTheme: Story = {
 
     return (
       <>
-        <FormControl title="With AI Generated Theme">
+        <FormControl title="With OpenAI Generated Theme">
           <Input
-            placeholder="fairy tale"
+            placeholder="fantasy theme"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
