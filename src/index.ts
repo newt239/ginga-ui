@@ -1,4 +1,4 @@
-import { generateTheme } from "./lib/ai/openai";
+import ThemeClient from "./lib/ai/themeClient";
 
 export * from "./components/";
-export { generateTheme };
+export { ThemeClient };

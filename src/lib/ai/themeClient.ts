@@ -3,7 +3,7 @@ import OpenAIClient from "./openai";
 
 type ClientType = "gemini" | "openai";
 
-class ThemeGenerator {
+class ThemeClient {
   private client: any;
   private maxRetries: number;
 
@@ -47,4 +47,4 @@ class ThemeGenerator {
   }
 }
 
-export default ThemeGenerator;
+export default ThemeClient;
