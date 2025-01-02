@@ -14,7 +14,7 @@ const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   ({ children, className, ...props }, ref) => {
     return (
       <DisclosureGroup
-        className={cn(styles["accordion"], className)}
+        className={cn(styles.accordion, className)}
         ref={ref}
         {...props}
       >

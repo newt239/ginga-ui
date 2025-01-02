@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <AriaButton
-      className={cn(styles["button"], className)}
+      className={cn(styles.button, className)}
       data-variant={variant}
       {...props}
     >

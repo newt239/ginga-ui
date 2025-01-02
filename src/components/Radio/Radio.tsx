@@ -10,7 +10,7 @@ export type RadioProps = ComponentProps<typeof AriaRadio>;
 
 const Radio: React.FC<RadioProps> = ({ children, className, ...props }) => {
   return (
-    <AriaRadio className={cn(styles["radio"], className)} {...props}>
+    <AriaRadio className={cn(styles.radio, className)} {...props}>
       {children}
     </AriaRadio>
   );

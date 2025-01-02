@@ -1,32 +1,30 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import js from '@eslint/js';
-import typeScriptESLint from '@typescript-eslint/eslint-plugin';
-import typeScriptESLintParser from '@typescript-eslint/parser';
+import eslint from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
-const compat = new FlatCompat();
-
-export default [
+export default tseslint.config(
   {
-    ignores: ['dist'],
-  },
-  js.configs.recommended,
-  eslintConfigPrettier,
-  ...compat.extends('plugin:@typescript-eslint/eslint-recommended'),
-  {
-    plugins: {
-      typeScriptESLint,
-    },
+    ignores: [
+      'dist/**/*.ts',
+      'dist/**',
+      "**/*.mjs",
+      "eslint.config.mjs",
+      "**/*.js"
+    ],
     languageOptions: {
-      parser: typeScriptESLintParser,
       parserOptions: {
-        sourceType: 'module',
-        ecmaVersion: 2020,
-        globals: globals.browser,
-      }
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
+  },
+  eslint.configs.recommended,
+  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.stylisticTypeChecked,
+  eslintConfigPrettier,
+  {
     rules: {
+      "@typescript-eslint/no-misused-promises": "off"
     }
-  }
-];
+  },
+);

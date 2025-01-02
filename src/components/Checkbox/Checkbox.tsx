@@ -12,7 +12,7 @@ export type CheckboxProps = ComponentProps<typeof AriaCheckbox> & {
 
 const Checkbox: React.FC<CheckboxProps> = ({ label, className, ...props }) => {
   return (
-    <AriaCheckbox className={cn(styles["checkbox"], className)} {...props}>
+    <AriaCheckbox className={cn(styles.checkbox, className)} {...props}>
       <div className={styles["checkbox-input"]}>
         <svg viewBox="0 0 18 18" aria-hidden="true">
           <polyline points="1 9 7 14 15 4" />

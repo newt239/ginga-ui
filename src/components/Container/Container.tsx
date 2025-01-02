@@ -11,7 +11,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, size = "md", ...props }, ref) => {
     return (
       <div
-        className={cn(styles["container"], className)}
+        className={cn(styles.container, className)}
         data-size={size}
         ref={ref}
         {...props}

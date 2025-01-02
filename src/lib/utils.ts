@@ -3,8 +3,7 @@ type ClassName =
   | undefined
   | null
   | false
-  // eslint-disable-next-line no-unused-vars
-  | ((...args: any[]) => string);
+  | ((...args: never[]) => string);
 
 export function cn(...args: ClassName[]): string {
   return args

@@ -1,4 +1,4 @@
-import { generateTheme } from "@/lib/ai/ai";
+import ThemeClient from "@/lib/ai/themeClient";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
 
@@ -32,28 +32,66 @@ export const WithCustomId: Story = {
   },
 };
 
-export const withAIGeneratedTheme: Story = {
+export const withGeminiTheme: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
+    const themeClient = new ThemeClient({
+      clientType: "gemini",
+      apiKey: import.meta.env.STORYBOOK_GEMINI_API_KEY as string,
+    });
 
     const onClick = async () => {
       setIsGenerating(true);
-      await generateTheme({
-        apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY!,
-        prompt: value,
-        options: {
-          dangerouslyAllowBrowser: true,
-        },
-      });
+      await themeClient.generateTheme(value);
       setIsGenerating(false);
     };
 
     return (
       <>
-        <FormControl title="With AI Generated Theme">
+        <FormControl title="With Gemini Generated Theme">
           <Input
             placeholder="fairy tale"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+        </FormControl>
+        <Button variant="filled" isDisabled={false} onPress={onClick}>
+          Generate
+          {isGenerating && "..."}
+        </Button>
+      </>
+    );
+  },
+};
+
+export const withOpenAITheme: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  render: () => {
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [value, setValue] = useState("");
+    const themeClient = new ThemeClient({
+      clientType: "openai",
+      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
+      dangerouslyAllowBrowser: true,
+    });
+
+    const onClick = async () => {
+      setIsGenerating(true);
+      await themeClient.generateTheme(value);
+      setIsGenerating(false);
+    };
+
+    return (
+      <>
+        <FormControl title="With OpenAI Generated Theme">
+          <Input
+            placeholder="fantasy theme"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />

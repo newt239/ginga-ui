@@ -1,3 +1,5 @@
+import { SchemaType } from "@google/generative-ai";
+
 export const requiredVariables = [
   {
     name: "--color-primary",
@@ -31,6 +33,13 @@ export const requiredVariables = [
   },
 ];
 
+export const properties = Object.fromEntries(
+  requiredVariables.map((variable) => [
+    variable.name,
+    { type: "string" as SchemaType },
+  ])
+);
+
 export const SYSTEM_PROMPT = `
 # Instruction
 
@@ -50,19 +59,3 @@ ${requiredVariables
   )
   .join("\n")}
 `;
-
-export const RESPONSE_FORMAT = {
-  type: "json_schema",
-  json_schema: {
-    name: "css_variables",
-    schema: {
-      type: "object",
-      properties: Object.fromEntries(
-        requiredVariables.map((variable) => [variable.name, { type: "string" }])
-      ),
-      required: requiredVariables.map((variable) => variable.name),
-      additionalProperties: false,
-    },
-    strict: true,
-  },
-} as const;

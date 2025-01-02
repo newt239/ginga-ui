@@ -1,0 +1,27 @@
+name: Lint Code Base
+on:
+  pull_request:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - name: Install dependencies
+        run: pnpm install
+      - name: TypeScript Compile Check
+        run: pnpm tsc --noEmit
+      - name: Run ESLint
+        run: pnpm lint
+      - name: Run Prettier
+        run: pnpm format --check
+      - name: Run Stylelint
+        run: pnpm stylelint

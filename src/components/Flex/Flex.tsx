@@ -32,7 +32,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
   ) => {
     return (
       <div
-        className={cn(styles["flex"], className)}
+        className={cn(styles.flex, className)}
         data-direction={direction}
         data-justify={justify}
         data-align={align}
