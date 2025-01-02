@@ -46,15 +46,16 @@ function App() {
 
 ## Theme Generation
 
-You can generate with your own theme by using `createTheme` function.
+You can generate with your own theme by using `ThemeClient` class.
 
 ```jsx
-import { createTheme } from "ginga-ui";
+import ThemeClient from "ginga-ui";
 
-const handleClick = createTheme({
-  prompt: "the image of you thought",
-  apiKey: "YOUR_OPEN_AI_KEY",
-});
+const themeClient = new ThemeClient("openai", "YOUR_OPEN_AI_KEY");
+
+const handleClick = async () => {
+  await themeClient.generateTheme("the image of you thought");
+};
 
 function App() {
   return <Button onClick={handleClick}>Button</Button>;
@@ -64,13 +65,49 @@ function App() {
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
 
 ```jsx
-const handleClick = createTheme({
-  prompt: "the image of you thought",
-  apiKey: "YOUR_OPEN_AI_KEY",
-  options: {
-    dangerouslyAllowBrowser: true,
-  },
+const themeClient = new ThemeClient("openai", "YOUR_OPEN_AI_KEY", {
+  dangerouslyAllowBrowser: true,
 });
+
+const handleClick = async () => {
+  await themeClient.generateTheme("the image of you thought");
+};
+```
+
+### Client Types
+
+`ThemeClient` supports two client types: `gemini` and `openai`. You can specify the client type when creating an instance of `ThemeClient`.
+
+#### Gemini Client
+
+```jsx
+import ThemeClient from "ginga-ui";
+
+const themeClient = new ThemeClient("gemini", "YOUR_GEMINI_API_KEY");
+
+const handleClick = async () => {
+  await themeClient.generateTheme("the image of you thought");
+};
+
+function App() {
+  return <Button onClick={handleClick}>Button</Button>;
+}
+```
+
+#### OpenAI Client
+
+```jsx
+import ThemeClient from "ginga-ui";
+
+const themeClient = new ThemeClient("openai", "YOUR_OPEN_AI_KEY");
+
+const handleClick = async () => {
+  await themeClient.generateTheme("the image of you thought");
+};
+
+function App() {
+  return <Button onClick={handleClick}>Button</Button>;
+}
 ```
 
 ## Variables
