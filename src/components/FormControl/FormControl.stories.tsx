@@ -38,7 +38,7 @@ export const withGeminiTheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient(
       "gemini",
-      import.meta.env.STORYBOOK_GEMINI_API_KEY
+      import.meta.env.STORYBOOK_GEMINI_API_KEY as string
     );
 
     const onClick = async () => {
@@ -71,7 +71,7 @@ export const withOpenAITheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient(
       "openai",
-      import.meta.env.STORYBOOK_OPENAI_API_KEY,
+      import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
       {
         dangerouslyAllowBrowser: true,
       }

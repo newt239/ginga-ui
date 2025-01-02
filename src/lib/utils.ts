@@ -3,8 +3,7 @@ type ClassName =
   | undefined
   | null
   | false
-   
-  | ((...args: any[]) => string);
+  | ((...args: unknown[]) => string);
 
 export function cn(...args: ClassName[]): string {
   return args

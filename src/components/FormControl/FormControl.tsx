@@ -14,7 +14,7 @@ interface Props {
 const FormControl = React.forwardRef<HTMLDivElement, Props>(
   ({ title, htmlFor, className, children, ...props }, ref) => {
     const defaultHtmlFor = useId();
-    const managedHtmlFor = htmlFor || defaultHtmlFor;
+    const managedHtmlFor = htmlFor ?? defaultHtmlFor;
     const inputWrapperRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const FormControl = React.forwardRef<HTMLDivElement, Props>(
     return (
       <div
         {...props}
-        className={`${styles["form-control"]} ${className || ""}`}
+        className={`${styles["form-control"]} ${className ?? ""}`}
         ref={ref}
       >
         <Label

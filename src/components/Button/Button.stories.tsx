@@ -51,7 +51,7 @@ export const withAIGeneratedTheme: Story = {
   render: () => {
     const themeClient = new ThemeClient(
       "openai",
-      import.meta.env.STORYBOOK_OPENAI_API_KEY,
+      import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
       {
         dangerouslyAllowBrowser: true,
       }
