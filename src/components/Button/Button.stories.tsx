@@ -1,4 +1,3 @@
-import ThemeClient from "@/lib/ai/themeClient";
 import type { Meta, StoryObj } from "@storybook/react";
 import Button from "./Button";
 
@@ -44,25 +43,5 @@ export const Disabled: Story = {
   args: {
     children: "Disabled Button",
     isDisabled: true,
-  },
-};
-
-export const withAIGeneratedTheme: Story = {
-  render: () => {
-    const themeClient = new ThemeClient(
-      "openai",
-      import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
-      {
-        dangerouslyAllowBrowser: true,
-      }
-    );
-    const onClick = async () => {
-      await themeClient.generateTheme("fairy tale");
-    };
-    return (
-      <Button variant="filled" isDisabled={false} onPress={onClick}>
-        AI Generated Theme
-      </Button>
-    );
   },
 };

@@ -33,6 +33,9 @@ export const WithCustomId: Story = {
 };
 
 export const withGeminiTheme: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
@@ -66,6 +69,9 @@ export const withGeminiTheme: Story = {
 };
 
 export const withOpenAITheme: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
