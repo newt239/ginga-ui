@@ -1,25 +1,37 @@
+import chroma from "chroma-js";
 import OpenAI from "openai";
 import * as v from "valibot";
-
-import chroma from "chroma-js";
 import { generateIntermediateColors } from "../color";
-import { RESPONSE_FORMAT, SYSTEM_PROMPT } from "./const";
-import { Props, Response, Variables } from "./types";
+import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
+import { Variables } from "./types";
 
-const generateTheme = async ({
-  apiKey,
-  prompt,
-  options,
-  maxRetries = 5,
-}: Props): Promise<Response> => {
-  const openai = new OpenAI({
-    apiKey,
-    ...options,
-  });
-  let i: number;
-  for (i = 0; i < maxRetries; i++) {
+const RESPONSE_FORMAT = {
+  type: "json_schema",
+  json_schema: {
+    name: "css_variables",
+    schema: {
+      type: "object",
+      properties,
+      required: requiredVariables.map((variable) => variable.name),
+      additionalProperties: false,
+    },
+    strict: true,
+  },
+} as const;
+
+class OpenAIClient {
+  private openai: OpenAI;
+
+  constructor(apiKey: string, options: any) {
+    this.openai = new OpenAI({
+      apiKey,
+      ...options,
+    });
+  }
+
+  async generateTheme(prompt: string) {
     generateCSSVariables: try {
-      const completion = await openai.chat.completions.create({
+      const completion = await this.openai.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [
           {
@@ -59,20 +71,12 @@ const generateTheme = async ({
           });
         }
       }
-      adaptNewTheme(variables);
-      return { type: "success", variables, retry: i };
+      return { type: "success", variables };
     } catch (e) {
       console.error(e);
+      return { type: "error" };
     }
   }
-  return { type: "error", retry: i };
-};
+}
 
-export const adaptNewTheme = (variables: { [key: string]: string }) => {
-  const r = document.documentElement;
-  Object.entries(variables).forEach(([key, value]) => {
-    r.style.setProperty(key, value);
-  });
-};
-
-export { generateTheme };
+export default OpenAIClient;
