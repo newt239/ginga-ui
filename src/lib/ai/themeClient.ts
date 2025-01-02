@@ -8,19 +8,19 @@ import { Variables } from "./types";
 type ClientType = "gemini" | "openai";
 
 class ThemeClient {
-  private client: any;
+  private client: OpenAIClient | GeminiClient;
   private maxRetries: number;
 
   constructor(
     clientType: ClientType,
     apiKey: string,
-    options?: any,
+    dangerouslyAllowBrowser: boolean,
     maxRetries = 5
   ) {
     if (clientType === "gemini") {
       this.client = new GeminiClient(apiKey);
     } else if (clientType === "openai") {
-      this.client = new OpenAIClient(apiKey, options);
+      this.client = new OpenAIClient(apiKey, dangerouslyAllowBrowser);
     } else {
       throw new Error("Invalid client type");
     }
@@ -33,7 +33,8 @@ class ThemeClient {
       try {
         const result = await this.client.generateTheme(prompt);
         if (result.type === "success") {
-          const variables = v.parse(Variables, result.variables);
+          console.log(result.value);
+          const variables = v.parse(Variables, result.value);
           const colorBackground = variables["--color-background"];
           let valid = true;
 
@@ -74,7 +75,7 @@ class ThemeClient {
     return { type: "error", retry: i };
   }
 
-  adaptNewTheme(variables: { [key: string]: string }) {
+  adaptNewTheme(variables: Record<string, string>) {
     const r = document.documentElement;
     Object.entries(variables).forEach(([key, value]) => {
       r.style.setProperty(key, value);

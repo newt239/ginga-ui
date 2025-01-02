@@ -1,7 +1,5 @@
 import OpenAI from "openai";
-import * as v from "valibot";
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
-import { Variables } from "./types";
 
 const RESPONSE_FORMAT = {
   type: "json_schema",
@@ -20,10 +18,10 @@ const RESPONSE_FORMAT = {
 class OpenAIClient {
   private openai: OpenAI;
 
-  constructor(apiKey: string, options: any) {
+  constructor(apiKey: string, dangerouslyAllowBrowser: boolean) {
     this.openai = new OpenAI({
       apiKey,
-      ...options,
+      dangerouslyAllowBrowser,
     });
   }
 
@@ -40,12 +38,7 @@ class OpenAIClient {
         ],
         response_format: RESPONSE_FORMAT,
       });
-      const variables = v.parse(
-        Variables,
-        JSON.parse(completion.choices[0].message.content!)
-      );
-      console.log(variables);
-      return { type: "success", variables };
+      return { type: "success", value: completion.choices[0].message.content };
     } catch (e) {
       console.error(e);
       return { type: "error" };

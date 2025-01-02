@@ -1,10 +1,15 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {
+  GenerationConfig,
+  GenerativeModel,
+  GoogleGenerativeAI,
+  SchemaType,
+} from "@google/generative-ai";
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
 
 class GeminiClient {
-  private genAI: any;
-  private model: any;
-  private generationConfig: any;
+  private genAI: GoogleGenerativeAI;
+  private model: GenerativeModel;
+  private generationConfig: GenerationConfig;
 
   constructor(apiKey: string) {
     this.genAI = new GoogleGenerativeAI(apiKey);
@@ -19,7 +24,7 @@ class GeminiClient {
       maxOutputTokens: 8192,
       responseMimeType: "application/json",
       responseSchema: {
-        type: "object",
+        type: "object" as SchemaType,
         properties,
         required: requiredVariables.map((variable) => variable.name),
       },
@@ -39,9 +44,7 @@ class GeminiClient {
       });
 
       const result = await chatSession.sendMessage(prompt);
-      console.log(result.response.text());
-      const variables = JSON.parse(result.response.text());
-      return { type: "success", variables };
+      return { type: "success", value: result.response.text() };
     } catch (e) {
       console.error(e);
       return { type: "error" };

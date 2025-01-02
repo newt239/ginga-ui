@@ -1,3 +1,5 @@
+import { SchemaType } from "@google/generative-ai";
+
 export const requiredVariables = [
   {
     name: "--color-primary",
@@ -32,7 +34,10 @@ export const requiredVariables = [
 ];
 
 export const properties = Object.fromEntries(
-  requiredVariables.map((variable) => [variable.name, { type: "string" }])
+  requiredVariables.map((variable) => [
+    variable.name,
+    { type: "string" as SchemaType },
+  ])
 );
 
 export const SYSTEM_PROMPT = `
