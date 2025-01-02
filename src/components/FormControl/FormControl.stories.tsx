@@ -71,7 +71,7 @@ export const withOpenAITheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient(
       "openai",
-      import.meta.env.STORYBOOK_OPENAI_API_KEY!,
+      import.meta.env.STORYBOOK_OPENAI_API_KEY,
       {
         dangerouslyAllowBrowser: true,
       }

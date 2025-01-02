@@ -12,7 +12,7 @@ export type SwitchProps = ComponentProps<typeof AriaSwitch> & {
 
 const Switch: React.FC<SwitchProps> = ({ children, className, ...props }) => {
   return (
-    <AriaSwitch className={cn(styles["switch"], className)} {...props}>
+    <AriaSwitch className={cn(styles.switch, className)} {...props}>
       <div className={styles["switch-indicator"]} />
       {children}
     </AriaSwitch>

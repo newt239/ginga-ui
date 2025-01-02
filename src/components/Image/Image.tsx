@@ -11,7 +11,7 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
   ({ className, variant = "default", ...props }, ref) => {
     return (
       <img
-        className={cn(styles["image"], className)}
+        className={cn(styles.image, className)}
         ref={ref}
         data-variant={variant}
         {...props}

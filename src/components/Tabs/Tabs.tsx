@@ -23,7 +23,7 @@ const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <AriaTabs
-      className={cn(styles["tabs"], className)}
+      className={cn(styles.tabs, className)}
       orientation={orientation}
       {...props}
     >
@@ -36,7 +36,7 @@ export type TabProps = ComponentProps<typeof AriaTab>;
 
 const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
   return (
-    <AriaTab className={cn(styles["tab"], className)} {...props}>
+    <AriaTab className={cn(styles.tab, className)} {...props}>
       {children}
     </AriaTab>
   );

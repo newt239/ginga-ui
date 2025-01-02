@@ -74,7 +74,6 @@
     "chromatic": "^11.20.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-node": "^11.1.0",
     "globals": "^15.13.0",
     "prettier": "^3.4.2",
     "storybook": "^8.4.7",

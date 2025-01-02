@@ -9,7 +9,7 @@ const Paragraph = React.forwardRef<HTMLDivElement, ParagraphProps>(
   ({ className, ...props }, ref) => {
     return (
       <div
-        className={cn(styles["paragraph"], className)}
+        className={cn(styles.paragraph, className)}
         ref={ref}
         {...props}
       />

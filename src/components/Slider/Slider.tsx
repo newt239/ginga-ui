@@ -16,7 +16,7 @@ export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
 
 const Slider: React.FC<SliderProps> = ({ children, className, ...props }) => {
   return (
-    <AriaSlider className={cn(styles["slider"], className)} {...props}>
+    <AriaSlider className={cn(styles.slider, className)} {...props}>
       {children}
     </AriaSlider>
   );

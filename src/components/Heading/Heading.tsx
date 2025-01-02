@@ -15,7 +15,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h1
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-1"],
               className
             )}
@@ -27,7 +27,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h2
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-2"],
               className
             )}
@@ -39,7 +39,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h3
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-3"],
               className
             )}
@@ -51,7 +51,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h4
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-4"],
               className
             )}
@@ -63,7 +63,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h5
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-5"],
               className
             )}
@@ -75,7 +75,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         return (
           <h6
             className={cn(
-              styles["heading"],
+              styles.heading,
               styles["heading-level-6"],
               className
             )}
