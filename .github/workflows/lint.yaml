@@ -17,6 +17,8 @@ jobs:
           version: 9
       - name: Install dependencies
         run: pnpm install
+      - name: TypeScript Compile Check
+        run: pnpm tsc --noEmit
       - name: Run ESLint
         run: pnpm lint
       - name: Run Prettier

@@ -3,7 +3,7 @@ type ClassName =
   | undefined
   | null
   | false
-  | ((...args: unknown[]) => string);
+  | ((...args: never[]) => string);
 
 export function cn(...args: ClassName[]): string {
   return args
