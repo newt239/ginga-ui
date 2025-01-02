@@ -1,4 +1,4 @@
-import { generateTheme } from "@/lib/ai/openai";
+import ThemeClient from "@/lib/ai/themeClient";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
 
@@ -36,16 +36,17 @@ export const withAIGeneratedTheme: Story = {
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
+    const themeClient = new ThemeClient(
+      "openai",
+      import.meta.env.STORYBOOK_OPENAI_API_KEY!,
+      {
+        dangerouslyAllowBrowser: true,
+      }
+    );
 
     const onClick = async () => {
       setIsGenerating(true);
-      await generateTheme({
-        apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY!,
-        prompt: value,
-        options: {
-          dangerouslyAllowBrowser: true,
-        },
-      });
+      await themeClient.generateTheme(value);
       setIsGenerating(false);
     };
 
