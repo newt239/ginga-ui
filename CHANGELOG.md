@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.0
+
+- feat: add new provider: Gemini
+- change: introduce `ThemeClient` class
+
 ## v0.5.0
 
 - feat: regenerature theme when the contrast ratio is less than 3.0
