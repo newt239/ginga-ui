@@ -39,10 +39,10 @@ export const withGeminiTheme: Story = {
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
-    const themeClient = new ThemeClient(
-      "gemini",
-      import.meta.env.STORYBOOK_GEMINI_API_KEY as string
-    );
+    const themeClient = new ThemeClient({
+      clientType: "gemini",
+      apiKey: import.meta.env.STORYBOOK_GEMINI_API_KEY as string,
+    });
 
     const onClick = async () => {
       setIsGenerating(true);
@@ -75,13 +75,11 @@ export const withOpenAITheme: Story = {
   render: () => {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
-    const themeClient = new ThemeClient(
-      "openai",
-      import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
-      {
-        dangerouslyAllowBrowser: true,
-      }
-    );
+    const themeClient = new ThemeClient({
+      clientType: "openai",
+      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
+      dangerouslyAllowBrowser: true,
+    });
 
     const onClick = async () => {
       setIsGenerating(true);

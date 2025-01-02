@@ -11,12 +11,17 @@ class ThemeClient {
   private client: OpenAIClient | GeminiClient;
   private maxRetries: number;
 
-  constructor(
-    clientType: ClientType,
-    apiKey: string,
-    dangerouslyAllowBrowser: boolean,
-    maxRetries = 5
-  ) {
+  constructor({
+    clientType = "openai",
+    apiKey,
+    dangerouslyAllowBrowser = false,
+    maxRetries = 5,
+  }: {
+    clientType: ClientType;
+    apiKey: string;
+    dangerouslyAllowBrowser?: boolean;
+    maxRetries?: number;
+  }) {
     if (clientType === "gemini") {
       this.client = new GeminiClient(apiKey);
     } else if (clientType === "openai") {
