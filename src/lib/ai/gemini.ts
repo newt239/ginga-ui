@@ -48,7 +48,7 @@ const generationConfig = {
   },
 };
 
-async function run() {
+const generateThemeWithGemini = async () => {
   const chatSession = model.startChat({
     generationConfig,
     history: [
@@ -56,21 +56,11 @@ async function run() {
         role: "user",
         parts: [{ text: "fairy tale" }],
       },
-      {
-        role: "model",
-        parts: [
-          { text: "```json\n" },
-          {
-            text: '{\n"--color-primary": "#ff729f",\n"--color-secondary": "#000000",\n"--color-background": "#fff5f7",\n"--width-border": "1px",\n"--size-radius": "2rem",\n"--font-family": "fantasy"\n}',
-          },
-          { text: "\n```" },
-        ],
-      },
     ],
   });
 
   const result = await chatSession.sendMessage("INSERT_INPUT_HERE");
   console.log(result.response.text());
-}
+};
 
-run();
+export default generateThemeWithGemini;

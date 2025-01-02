@@ -1,4 +1,4 @@
-import { generateTheme } from "@/lib/ai/ai";
+import { generateTheme } from "@/lib/ai/openai";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
 
