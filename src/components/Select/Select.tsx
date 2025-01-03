@@ -3,6 +3,7 @@ import {
   Label as AriaLabel,
   Select as AriaSelect,
   Button,
+  Label,
   ListBox,
   ListBoxItem,
   Popover,
@@ -13,69 +14,29 @@ import { cn } from "@/lib/utils";
 
 import styles from "./Select.module.css";
 
-export type SelectProps = ComponentProps<typeof AriaSelect>;
+export type SelectProps = ComponentProps<typeof AriaSelect> & {
+  label: string;
+};
 
 const Select = React.forwardRef<HTMLDivElement, SelectProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, label, ...props }, ref) => {
     return (
       <AriaSelect className={cn(styles.select, className)} ref={ref} {...props}>
-        {children}
+        <AriaLabel className={cn(styles.label, className)}>{label}</AriaLabel>
+        <Button className={cn(styles["select-button"], className)}>
+          <SelectValue />
+          <span aria-hidden="true">▼</span>
+        </Button>
+        <Popover className={cn(styles["select-popover"], className)}>
+          <ListBox className={cn(styles["select-listbox"], className)}>
+            {children}
+          </ListBox>
+        </Popover>
       </AriaSelect>
     );
   }
 );
 Select.displayName = "Select";
-
-export type ButtonProps = ComponentProps<typeof Button>;
-
-const SelectButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <Button
-        className={cn(styles["select-button"], className)}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </Button>
-    );
-  }
-);
-SelectButton.displayName = "SelectButton";
-
-export type PopoverProps = ComponentProps<typeof Popover>;
-
-const SelectPopover = React.forwardRef<HTMLDivElement, PopoverProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <Popover
-        className={cn(styles["select-popover"], className)}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </Popover>
-    );
-  }
-);
-SelectPopover.displayName = "SelectPopover";
-
-export type ListBoxProps = ComponentProps<typeof ListBox>;
-
-const SelectListBox = React.forwardRef<HTMLDivElement, ListBoxProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <ListBox
-        className={cn(styles["select-listbox"], className)}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </ListBox>
-    );
-  }
-);
-SelectListBox.displayName = "SelectListBox";
 
 export type ListBoxItemProps = ComponentProps<typeof ListBoxItem>;
 
@@ -94,17 +55,4 @@ const SelectItem = React.forwardRef<HTMLDivElement, ListBoxItemProps>(
 );
 SelectItem.displayName = "SelectItem";
 
-export type LabelProps = ComponentProps<typeof AriaLabel>;
-
-const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <AriaLabel className={cn(styles.label, className)} ref={ref} {...props}>
-        {children}
-      </AriaLabel>
-    );
-  }
-);
-Label.displayName = "Label";
-
-export { Button, Label, ListBox, ListBoxItem, Popover, Select, SelectValue };
+export { Button, Label, ListBox, ListBoxItem, Select };
