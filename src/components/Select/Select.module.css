@@ -1,6 +1,5 @@
 .select {
   position: relative;
-  width: 100%;
 }
 
 .label {
@@ -15,9 +14,9 @@
 .select button {
   position: relative;
   display: flex;
+  gap: 0.5rem;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
   min-height: 2.5rem;
   padding: 0.5rem 0.75rem;
   font-family: var(--font-family);
@@ -27,30 +26,32 @@
   border: var(--width-border) solid var(--color-primary-5);
   border-radius: calc(var(--size-radius) * 0.5);
   transition: all 0.2s ease;
-}
 
-.select button:hover {
-  background-color: var(--color-primary-1);
-}
+  span[aria-hidden] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+    transition: transform 0.2s ease;
+  }
 
-.select button:focus {
-  border-color: var(--color-primary-6);
-  outline: none;
-  box-shadow: 0 0 0 2px var(--color-primary-2);
-}
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-0);
+  }
 
-.select button span[aria-hidden] {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.5;
-  transition: transform 0.2s ease;
-}
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary-2);
+  }
 
-.select[data-open] button span[aria-hidden] {
-  transform: rotate(180deg);
+  &[data-open] {
+    button span[aria-hidden] {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .select-popover {
@@ -68,8 +69,6 @@
 }
 
 .select-listbox {
-  max-height: var(--radix-select-content-available-height);
-  padding: 0.25rem;
   overflow-y: auto;
 }
 
@@ -85,18 +84,18 @@
   cursor: pointer;
   user-select: none;
   border-radius: calc(var(--size-radius) * 0.25);
-}
 
-[role="option"]:hover {
-  background-color: var(--color-primary-1);
-}
+  &:hover {
+    background-color: var(--color-primary-1);
+  }
 
-[role="option"][data-selected] {
-  font-weight: 500;
-  background-color: var(--color-primary-2);
-}
+  &[data-selected] {
+    font-weight: 500;
+    background-color: var(--color-primary-2);
+  }
 
-[role="option"][data-disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
