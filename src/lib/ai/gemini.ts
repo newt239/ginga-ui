@@ -44,10 +44,10 @@ class GeminiClient {
       });
 
       const result = await chatSession.sendMessage(prompt);
-      return { type: "success", value: result.response.text() };
+      return { type: "success", value: result.response.text() } as const;
     } catch (e) {
       console.error(e);
-      return { type: "error" };
+      return { type: "error" } as const;
     }
   }
 }

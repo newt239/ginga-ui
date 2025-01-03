@@ -39,7 +39,7 @@ class ThemeClient {
         const result = await this.client.generateTheme(prompt);
         if (result.type === "success") {
           console.log(result.value);
-          const variables = v.parse(Variables, result.value);
+          const variables = v.parse(Variables, JSON.parse(result.value));
           const colorBackground = variables["--color-background"];
           let valid = true;
 
