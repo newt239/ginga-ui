@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog";
 
 const meta: Meta<typeof Dialog> = {
-  title: "Overlay/Dialog",
+  title: "Display/Dialog",
   component: Dialog,
   tags: ["autodocs"],
 };
@@ -13,7 +13,6 @@ const meta: Meta<typeof Dialog> = {
 export default meta;
 type Story = StoryObj<typeof Dialog>;
 
-// 基本的なダイアログ
 export const Basic: Story = {
   render: () => (
     <DialogTrigger>
@@ -22,16 +21,13 @@ export const Basic: Story = {
         <Dialog>
           <DialogTitle>Welcome</DialogTitle>
           <p>This is a basic dialog with just some text content.</p>
-          <Button slot="close" className="mt-4">
-            Close
-          </Button>
+          <Button slot="close">Close</Button>
         </Dialog>
       </Modal>
     </DialogTrigger>
   ),
 };
 
-// サインアップフォーム付きダイアログ
 export const SignUpForm: Story = {
   render: () => (
     <DialogTrigger>
@@ -56,7 +52,7 @@ export const SignUpForm: Story = {
               <Label>Password</Label>
               <Input type="password" />
             </TextField>
-            <div className="flex justify-end gap-3 mt-6">
+            <div>
               <Button slot="close" variant="outline">
                 Cancel
               </Button>
@@ -69,41 +65,6 @@ export const SignUpForm: Story = {
   ),
 };
 
-// カスタムスタイル付きダイアログ
-export const CustomStyled: Story = {
-  render: () => (
-    <DialogTrigger>
-      <Button variant="outline">Custom Dialog</Button>
-      <Modal>
-        <Dialog className="max-w-md bg-primary-50 border-primary-200">
-          <DialogTitle className="text-2xl text-primary-900">
-            Custom Styled Dialog
-          </DialogTitle>
-          <div className="space-y-4">
-            <p className="text-primary-800">
-              This dialog uses custom styling to demonstrate the flexibility of
-              the component.
-            </p>
-            <div className="bg-primary-100 p-4 rounded-lg">
-              <h3 className="font-bold text-primary-900">Key Features:</h3>
-              <ul className="list-disc list-inside text-primary-800 mt-2">
-                <li>Custom background colors</li>
-                <li>Custom border styles</li>
-                <li>Custom typography</li>
-                <li>Custom layout</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-6 flex justify-end">
-            <Button slot="close">Got it</Button>
-          </div>
-        </Dialog>
-      </Modal>
-    </DialogTrigger>
-  ),
-};
-
-// 確認ダイアログ
 export const Confirmation: Story = {
   render: () => (
     <DialogTrigger>
@@ -111,11 +72,11 @@ export const Confirmation: Story = {
       <Modal>
         <Dialog>
           <DialogTitle>Confirm Deletion</DialogTitle>
-          <p className="text-gray-600">
+          <p>
             Are you sure you want to delete your account? This action cannot be
             undone.
           </p>
-          <div className="flex justify-end gap-3 mt-6">
+          <div>
             <Button slot="close" variant="outline">
               Cancel
             </Button>

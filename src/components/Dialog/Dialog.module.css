@@ -36,10 +36,3 @@
   font-weight: 800;
   color: var(--color-primary-5);
 }
-
-/* フォーム要素のスタイリング */
-.dialog form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
