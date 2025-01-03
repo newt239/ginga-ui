@@ -38,10 +38,16 @@ class OpenAIClient {
         ],
         response_format: RESPONSE_FORMAT,
       });
-      return { type: "success", value: completion.choices[0].message.content };
+      if (!completion.choices[0].message.content) {
+        return { type: "error" } as const;
+      }
+      return {
+        type: "success",
+        value: completion.choices[0].message.content,
+      } as const;
     } catch (e) {
       console.error(e);
-      return { type: "error" };
+      return { type: "error" } as const;
     }
   }
 }

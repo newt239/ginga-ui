@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.0
+
+- feat: ensure the contrast ratio is greater than 3.0
+- feat: add new components: Dialog, Select
+
 ## v0.6.0
 
 - feat: add new provider: Gemini

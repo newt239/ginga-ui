@@ -15,7 +15,7 @@ class ThemeClient {
     clientType = "openai",
     apiKey,
     dangerouslyAllowBrowser = false,
-    maxRetries = 5,
+    maxRetries = 3,
   }: {
     clientType: ClientType;
     apiKey: string;
@@ -39,7 +39,7 @@ class ThemeClient {
         const result = await this.client.generateTheme(prompt);
         if (result.type === "success") {
           console.log(result.value);
-          const variables = v.parse(Variables, result.value);
+          const variables = v.parse(Variables, JSON.parse(result.value));
           const colorBackground = variables["--color-background"];
           let valid = true;
 
@@ -69,6 +69,34 @@ class ThemeClient {
           }
 
           if (valid) {
+            this.adaptNewTheme(variables);
+            return result;
+          } else if (i === this.maxRetries - 1) {
+            console.log("Max retries reached, forcing contrast...");
+            const isBackgroundLight = chroma(colorBackground).luminance() > 0.5;
+            for (const key of Object.keys(variables)) {
+              if (
+                key.startsWith("--color-primary") ||
+                key.startsWith("--color-secondary")
+              ) {
+                let color = chroma(variables[key]);
+                let contrast = chroma.contrast(color, colorBackground);
+                while (
+                  contrast < 3 &&
+                  color.luminance() > 0.1 &&
+                  color.luminance() < 0.9
+                ) {
+                  if (isBackgroundLight) {
+                    color = color.darken(0.1);
+                  } else {
+                    color = color.brighten(0.1);
+                  }
+                  contrast = chroma.contrast(color, colorBackground);
+                  console.log(color.hex(), contrast);
+                }
+                variables[key] = color.hex();
+              }
+            }
             this.adaptNewTheme(variables);
             return result;
           }
