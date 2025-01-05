@@ -3,7 +3,6 @@ import {
   Label as AriaLabel,
   Select as AriaSelect,
   Button,
-  Label,
   ListBox,
   ListBoxItem,
   Popover,
@@ -55,4 +54,4 @@ const SelectItem = React.forwardRef<HTMLDivElement, ListBoxItemProps>(
 );
 SelectItem.displayName = "SelectItem";
 
-export { Button, Label, ListBox, ListBoxItem, Select };
+export default Select;

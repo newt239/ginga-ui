@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ListBoxItem, Select } from "./Select";
+import { ListBoxItem } from "react-aria-components";
+import Select from "./Select";
 
 const meta: Meta<typeof Select> = {
   title: "Forms/Select",
