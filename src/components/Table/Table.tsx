@@ -91,6 +91,8 @@ export function Table<T extends object>({
           {selectionMode !== "none" && (
             <AriaColumn className={styles.column}>
               <Checkbox
+                label="Select all rows"
+                hideLabel
                 isSelected={selectedRows.size === data.length}
                 isIndeterminate={
                   selectedRows.size > 0 && selectedRows.size < data.length
@@ -120,6 +122,8 @@ export function Table<T extends object>({
             {selectionMode !== "none" && (
               <AriaCell className={styles.cell}>
                 <Checkbox
+                  label={`Select row ${rowIndex + 1}`}
+                  hideLabel
                   isSelected={selectedRows.has(rowIndex)}
                   onChange={() => handleSelectionChange(rowIndex)}
                 />
