@@ -60,44 +60,40 @@ class ThemeClient {
 
         if (i === this.maxRetries - 1) {
           console.log("Max retries reached, forcing contrast...");
-          const isBackgroundLight =
-            chroma(variables["--color-background"]).luminance() > 0.5;
-          for (const key of Object.keys(variables)) {
-            console.log(key);
-            if (
-              key.startsWith("--color-primary") ||
-              key.startsWith("--color-secondary")
-            ) {
-              let color = chroma(variables[key]);
-              let contrast = chroma.contrast(
-                color,
-                variables["--color-background"]
-              );
-              while (
-                contrast < 3 &&
-                color.luminance() > 0.1 &&
-                color.luminance() < 0.9
-              ) {
-                if (isBackgroundLight) {
-                  color = color.darken(0.1);
-                } else {
-                  color = color.brighten(0.1);
-                }
-                contrast = chroma.contrast(
-                  color,
-                  variables["--color-background"]
-                );
-                console.log(key, color.hex(), contrast);
-              }
-              variables[key] = color.hex();
-            }
-          }
+
+          const enforcedPrimaryColor = this.enforceContrast(
+            variables["--color-background"],
+            variables["--color-primary"]
+          );
+          variables["--color-primary"] = enforcedPrimaryColor;
+
+          const enforcedSecondaryColor = this.enforceContrast(
+            variables["--color-background"],
+            variables["--color-secondary"]
+          );
+          variables["--color-secondary"] = enforcedSecondaryColor;
+
+          this.adaptNewTheme(variables);
         }
       } catch (e) {
         console.error(e);
       }
     }
     return { type: "error", retry: i };
+  }
+
+  enforceContrast(baseColor: string, targetColor: string) {
+    let color = chroma(targetColor);
+    let contrast = chroma.contrast(color, baseColor);
+    while (contrast < 3 && color.luminance() > 0.1 && color.luminance() < 0.9) {
+      if (chroma(baseColor).luminance() > 0.5) {
+        color = color.darken(0.1);
+      } else {
+        color = color.brighten(0.1);
+      }
+      contrast = chroma.contrast(color, baseColor);
+    }
+    return color.hex();
   }
 
   adaptNewTheme(variables: Record<string, string>) {
@@ -122,6 +118,7 @@ class ThemeClient {
     secondaryColors.forEach((color) => {
       variables[color.key] = color.value;
     });
+
     const r = document.documentElement;
     Object.entries(variables).forEach(([key, value]) => {
       r.style.setProperty(key, value);
