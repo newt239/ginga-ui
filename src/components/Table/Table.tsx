@@ -96,6 +96,7 @@ const Table = <T extends object>({
                 label="Select all rows"
                 hideLabel
                 isSelected={selectedRows.size === data.length}
+                slot="selection"
                 isIndeterminate={
                   selectedRows.size > 0 && selectedRows.size < data.length
                 }
@@ -127,6 +128,7 @@ const Table = <T extends object>({
                   label={`Select row ${rowIndex + 1}`}
                   hideLabel
                   isSelected={selectedRows.has(rowIndex)}
+                  slot="selection"
                   onChange={() => handleSelectionChange(rowIndex)}
                 />
               </AriaCell>
