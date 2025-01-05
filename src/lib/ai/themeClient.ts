@@ -37,68 +37,60 @@ class ThemeClient {
     for (i = 0; i < this.maxRetries; i++) {
       try {
         const result = await this.client.generateTheme(prompt);
-        if (result.type === "success") {
-          console.log(result.value);
-          const variables = v.parse(Variables, JSON.parse(result.value));
-          const colorBackground = variables["--color-background"];
-          let valid = true;
+        if (result.type === "error") {
+          throw new Error(result.message);
+        }
+        console.log(result.value);
+        const variables = v.parse(Variables, JSON.parse(result.value));
+        const isPrimaryColorValid =
+          chroma.contrast(
+            variables["--color-background"],
+            variables["--color-primary"]
+          ) > 3;
+        const isSecondaryColorValid =
+          chroma.contrast(
+            variables["--color-background"],
+            variables["--color-secondary"]
+          ) > 3;
 
-          for (const [key, value] of Object.entries(variables)) {
+        if (isPrimaryColorValid && isSecondaryColorValid) {
+          this.adaptNewTheme(variables);
+          return result;
+        }
+
+        if (i === this.maxRetries - 1) {
+          console.log("Max retries reached, forcing contrast...");
+          const isBackgroundLight =
+            chroma(variables["--color-background"]).luminance() > 0.5;
+          for (const key of Object.keys(variables)) {
+            console.log(key);
             if (
               key.startsWith("--color-primary") ||
               key.startsWith("--color-secondary")
             ) {
-              const contrast = chroma.contrast(value, colorBackground);
-              console.log(contrast);
-              if (contrast < 3) {
-                console.log("Contrast is too low, retrying...");
-                valid = false;
-                break;
-              }
-              const colors = generateIntermediateColors(
-                colorBackground,
-                value
-              ).map((c, i) => ({
-                key: `${key}-${i}`,
-                value: c,
-              }));
-              colors.forEach((color) => {
-                variables[color.key] = color.value;
-              });
-            }
-          }
-
-          if (valid) {
-            this.adaptNewTheme(variables);
-            return result;
-          } else if (i === this.maxRetries - 1) {
-            console.log("Max retries reached, forcing contrast...");
-            const isBackgroundLight = chroma(colorBackground).luminance() > 0.5;
-            for (const key of Object.keys(variables)) {
-              if (
-                key.startsWith("--color-primary") ||
-                key.startsWith("--color-secondary")
+              let color = chroma(variables[key]);
+              let contrast = chroma.contrast(
+                color,
+                variables["--color-background"]
+              );
+              while (
+                contrast < 3 &&
+                color.luminance() > 0.1 &&
+                color.luminance() < 0.9
               ) {
-                let color = chroma(variables[key]);
-                let contrast = chroma.contrast(color, colorBackground);
-                while (
-                  contrast < 3 &&
-                  color.luminance() > 0.1 &&
-                  color.luminance() < 0.9
-                ) {
-                  if (isBackgroundLight) {
-                    color = color.darken(0.1);
-                  } else {
-                    color = color.brighten(0.1);
-                  }
-                  contrast = chroma.contrast(color, colorBackground);
-                  console.log(color.hex(), contrast);
+                if (isBackgroundLight) {
+                  color = color.darken(0.1);
+                } else {
+                  color = color.brighten(0.1);
                 }
-                variables[key] = color.hex();
+                contrast = chroma.contrast(
+                  color,
+                  variables["--color-background"]
+                );
+                console.log(key, color.hex(), contrast);
               }
+              variables[key] = color.hex();
             }
-            this.adaptNewTheme(variables);
-            return result;
           }
         }
       } catch (e) {
@@ -109,6 +101,27 @@ class ThemeClient {
   }
 
   adaptNewTheme(variables: Record<string, string>) {
+    const primaryColors = generateIntermediateColors(
+      variables["--color-background"],
+      variables["--color-primary"]
+    ).map((c, i) => ({
+      key: `--color-primary-${i}`,
+      value: c,
+    }));
+    primaryColors.forEach((color) => {
+      variables[color.key] = color.value;
+    });
+
+    const secondaryColors = generateIntermediateColors(
+      variables["--color-background"],
+      variables["--color-secondary"]
+    ).map((c, i) => ({
+      key: `--color-secondary-${i}`,
+      value: c,
+    }));
+    secondaryColors.forEach((color) => {
+      variables[color.key] = color.value;
+    });
     const r = document.documentElement;
     Object.entries(variables).forEach(([key, value]) => {
       r.style.setProperty(key, value);

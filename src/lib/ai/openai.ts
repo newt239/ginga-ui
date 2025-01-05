@@ -39,7 +39,7 @@ class OpenAIClient {
         response_format: RESPONSE_FORMAT,
       });
       if (!completion.choices[0].message.content) {
-        return { type: "error" } as const;
+        return { type: "error", message: "No response from OpenAI" } as const;
       }
       return {
         type: "success",
@@ -47,7 +47,7 @@ class OpenAIClient {
       } as const;
     } catch (e) {
       console.error(e);
-      return { type: "error" } as const;
+      return { type: "error", message: "Error from OpenAI" } as const;
     }
   }
 }

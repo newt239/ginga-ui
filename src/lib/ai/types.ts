@@ -7,12 +7,12 @@ export const Variables = v.record(
   v.string()
 );
 
-export type Props = {
+export interface Props {
   apiKey: string;
   prompt: string;
   options?: Omit<ClientOptions, "apiKey">;
   maxRetries?: number;
-};
+}
 
 export type Response =
   | {
@@ -21,6 +21,6 @@ export type Response =
     }
   | {
       type: "success";
-      variables: { [key: string]: string };
+      variables: Record<string, string>;
       retry: number;
     };

@@ -47,7 +47,10 @@ class GeminiClient {
       return { type: "success", value: result.response.text() } as const;
     } catch (e) {
       console.error(e);
-      return { type: "error" } as const;
+      return {
+        type: "error",
+        message: "Error from Gemini",
+      } as const;
     }
   }
 }
