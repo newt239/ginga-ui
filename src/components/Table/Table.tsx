@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Cell as AriaCell,
   Column as AriaColumn,

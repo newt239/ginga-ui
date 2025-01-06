@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import React from "react";
 
@@ -8,11 +10,7 @@ export type ParagraphProps = React.HTMLAttributes<HTMLDivElement>;
 const Paragraph = React.forwardRef<HTMLDivElement, ParagraphProps>(
   ({ className, ...props }, ref) => {
     return (
-      <div
-        className={cn(styles.paragraph, className)}
-        ref={ref}
-        {...props}
-      />
+      <div className={cn(styles.paragraph, className)} ref={ref} {...props} />
     );
   }
 );
