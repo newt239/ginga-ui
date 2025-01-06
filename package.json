@@ -27,7 +27,6 @@
     "lint": "eslint --fix ./src/**/*.{ts,tsx}",
     "stylelint": "stylelint \"./src/**/*.css\" --fix",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
-    "hoge": "hcm src/**/*.module.css --watch",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",

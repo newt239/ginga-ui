@@ -37,7 +37,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: formattedName,
-      formats: ["es", "umd"],
+      formats: ["es"],
       fileName: (format) => `${formattedName}.${format}.js`,
     },
     rollupOptions: {
@@ -46,6 +46,7 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: "src",
         entryFileNames: "[name].js",
+        inlineDynamicImports: false,
       },
     },
   },
