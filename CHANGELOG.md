@@ -1,6 +1,10 @@
 # Changelog
 
-## v9.7.4
+## v0.7.5
+
+- fix: error caused by React
+
+## v0.7.4
 
 - feat: import a component peer file
 
