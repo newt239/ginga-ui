@@ -7,17 +7,14 @@ export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   variant?: "default" | "avatar";
 };
 
-const Image = React.forwardRef<HTMLImageElement, ImageProps>(
-  ({ className, variant = "default", ...props }, ref) => {
-    return (
-      <img
-        className={cn(styles.image, className)}
-        ref={ref}
-        data-variant={variant}
-        {...props}
-      />
-    );
-  }
-);
+const Image = ({ className, variant = "default", ...props }: ImageProps) => {
+  return (
+    <img
+      className={cn(styles.image, className)}
+      data-variant={variant}
+      {...props}
+    />
+  );
+};
 
 export default Image;

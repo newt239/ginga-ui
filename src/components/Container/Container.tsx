@@ -9,17 +9,14 @@ export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   size?: "sm" | "md" | "lg";
 };
 
-const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, size = "md", ...props }, ref) => {
-    return (
-      <div
-        className={cn(styles.container, className)}
-        data-size={size}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
+const Container = ({ className, size = "md", ...props }: ContainerProps) => {
+  return (
+    <div
+      className={cn(styles.container, className)}
+      data-size={size}
+      {...props}
+    />
+  );
+};
 
 export default Container;
