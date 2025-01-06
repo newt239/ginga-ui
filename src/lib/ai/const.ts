@@ -31,7 +31,7 @@ export const requiredVariables = [
     description: "Font family",
     defaultValue: "sans-serif",
   },
-];
+] as const;
 
 export const properties = Object.fromEntries(
   requiredVariables.map((variable) => [

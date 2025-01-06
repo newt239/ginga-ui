@@ -28,6 +28,9 @@ import RadioGroup from "@/components/RadioGroup/RadioGroup";
 import Slider from "@/components/Slider/Slider";
 import Switch from "@/components/Switch/Switch";
 import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
+import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog/Dialog";
+import Select from "./Select/Select";
+import Table from "./Table/Table";
 
 export {
   Accordion,
@@ -44,18 +47,24 @@ export {
   Checkbox,
   CheckboxGroup,
   Container,
+  Dialog,
+  DialogTitle,
+  DialogTrigger,
   Flex,
   FormControl,
   Heading,
   Image,
   Input,
   Link,
+  Modal,
   Paragraph,
   Radio,
   RadioGroup,
+  Select,
   Slider,
   Switch,
   Tab,
+  Table,
   TabList,
   TabPanel,
   Tabs,

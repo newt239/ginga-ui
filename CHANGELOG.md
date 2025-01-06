@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.1
+
+- feat: add new component: table
+- fix: improve the contrast ratio validation
+
 ## v0.7.0
 
 - feat: ensure the contrast ratio is greater than 3.0

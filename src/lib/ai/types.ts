@@ -2,17 +2,21 @@ import { ClientOptions } from "openai";
 import * as v from "valibot";
 import { requiredVariables } from "./const";
 
-export const Variables = v.record(
-  v.union(requiredVariables.map((variable) => v.string(variable.name))),
-  v.string()
-);
+const variableStringRecord = Object.fromEntries(
+  requiredVariables.map((variable) => [variable.name, v.string()])
+) as Record<
+  (typeof requiredVariables)[number]["name"],
+  ReturnType<typeof v.string>
+>;
 
-export type Props = {
+export const Variables = v.strictObject(variableStringRecord);
+
+export interface Props {
   apiKey: string;
   prompt: string;
   options?: Omit<ClientOptions, "apiKey">;
   maxRetries?: number;
-};
+}
 
 export type Response =
   | {
@@ -21,6 +25,6 @@ export type Response =
     }
   | {
       type: "success";
-      variables: { [key: string]: string };
+      variables: Record<string, string>;
       retry: number;
     };
