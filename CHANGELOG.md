@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.2
+
+- improve: add `use client` directive to all components
+- fix: ButtonGroup component
+
 ## v0.7.1
 
 - feat: add new component: table
