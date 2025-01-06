@@ -1,5 +1,9 @@
 # Changelog
 
+## v9.7.4
+
+- feat: import a component peer file
+
 ## v0.7.3
 
 - fix: improve remove `React.forwardRef` from all components
