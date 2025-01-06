@@ -6,16 +6,13 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-import { name } from "./package.json";
-
-const formattedName = /[^/]+$/.exec(name)?.[0] ?? name;
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
+      outDir: "dist",
     }),
     {
       name: "copy-css",
@@ -36,17 +33,16 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: formattedName,
+      name: "ginga-ui",
       formats: ["es"],
-      fileName: (format) => `${formattedName}.${format}.js`,
+      fileName: (format) => `ginga-ui.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
         preserveModules: true,
         preserveModulesRoot: "src",
-        entryFileNames: "[name].js",
-        inlineDynamicImports: false,
+        entryFileNames: "[name].es.js",
       },
     },
   },

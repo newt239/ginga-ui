@@ -21,7 +21,7 @@
     "noFallthroughCasesInSwitch": true,
 
     "allowJs": false,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "moduleResolution": "Node",
     "baseUrl": "./",
     "paths": {

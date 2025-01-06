@@ -32,7 +32,6 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
-  "main": "./dist/ginga-ui.umd.js",
   "module": "./dist/ginga-ui.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -41,7 +40,7 @@
       "import": "./dist/ginga-ui.es.js"
     },
     "./components/*": {
-      "import": "./dist/components/*.js"
+      "import": "./dist/components/*.es.js"
     },
     "./dist/variables.css": "./dist/variables.css",
     "./dist/style.css": "./dist/style.css"
