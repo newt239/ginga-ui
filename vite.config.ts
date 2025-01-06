@@ -8,7 +8,7 @@ import dts from "vite-plugin-dts";
 
 import { name } from "./package.json";
 
-const formattedName = name.match(/[^/]+$/)?.[0] ?? name;
+const formattedName = /[^/]+$/.exec(name)?.[0] ?? name;
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -42,6 +42,11 @@ export default defineConfig({
     },
     rollupOptions: {
       external: ["react", "react-dom"],
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: "src",
+        entryFileNames: "[name].js",
+      },
     },
   },
 });
