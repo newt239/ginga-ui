@@ -38,8 +38,10 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/ginga-ui.es.js",
-      "require": "./dist/ginga-ui.umd.js"
+      "import": "./dist/ginga-ui.es.js"
+    },
+    "./components/*": {
+      "import": "./dist/components/*.js"
     },
     "./dist/variables.css": "./dist/variables.css",
     "./dist/style.css": "./dist/style.css"
