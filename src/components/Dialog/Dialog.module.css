@@ -21,8 +21,8 @@
   width: 100%;
   max-width: 32rem;
   padding: 1.5rem;
+  color: var(--color-secondary-9);
   background-color: var(--color-background);
-  border: var(--width-border) solid var(--color-primary-5);
   border-radius: calc(var(--size-radius) * 0.5);
   box-shadow:
     0 4px 6px -1px rgb(0 0 0 / 10%),
@@ -34,5 +34,4 @@
   font-family: var(--font-family);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--color-primary-5);
 }

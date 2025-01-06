@@ -3,7 +3,7 @@
   gap: 0.5rem;
   align-items: center;
   font-family: var(--font-family);
-  color: var(--color-secondary);
+  color: var(--color-secondary-9);
   forced-color-adjust: none;
 
   &::before {
@@ -14,28 +14,28 @@
     cursor: pointer;
     content: "";
     background: var(--color-background);
-    border: 0.143rem solid var(--color-primary-5);
+    border: 0.143rem solid var(--color-primary-9);
     border-radius: 50%;
     transition: all 200ms;
   }
 
   &[data-pressed]::before {
-    border-color: var(--color-primary-6);
+    border-color: var(--color-primary-8);
   }
 
   &[data-selected] {
     &::before {
-      border-color: var(--color-primary-5);
+      border-color: var(--color-primary-9);
       border-width: 0.5rem;
     }
 
     &[data-pressed]::before {
-      border-color: var(--color-primary-6);
+      border-color: var(--color-primary-8);
     }
   }
 
   &[data-focus-visible]::before {
-    outline: 2px solid var(--color-primary-5);
+    outline: 2px solid var(--color-primary-9);
     outline-offset: 2px;
   }
 
