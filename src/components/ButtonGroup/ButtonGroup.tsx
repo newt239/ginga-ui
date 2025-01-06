@@ -1,11 +1,13 @@
-import type { ButtonProps } from "@/components/Button/Button";
-import { cn } from "@/lib/utils";
+"use client";
+
 import React, { ComponentProps } from "react";
+import { Group } from "react-aria-components";
+
+import { cn } from "@/lib/utils";
+
 import styles from "./ButtonGroup.module.css";
 
-export type ButtonGroupProps = ComponentProps<"div"> & {
-  children: React.ReactElement<ButtonProps>[];
-};
+export type ButtonGroupProps = ComponentProps<typeof Group>;
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
@@ -13,21 +15,9 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   ...props
 }) => {
   return (
-    <div className={cn(styles["button-group"], className)} {...props}>
-      {React.Children.map(children, (child, index) => {
-        if (!React.isValidElement(child)) return null;
-
-        return React.cloneElement<ButtonProps>(child, {
-          className: cn(styles["button-group-item"], child.props.className),
-          "data-position":
-            index === 0
-              ? "first"
-              : index === React.Children.count(children) - 1
-                ? "last"
-                : "middle",
-        });
-      })}
-    </div>
+    <Group className={cn(styles["button-group"], className)} {...props}>
+      {children}
+    </Group>
   );
 };
 
