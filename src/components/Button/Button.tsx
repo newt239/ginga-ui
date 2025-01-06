@@ -6,32 +6,25 @@ import styles from "./Button.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type ButtonProps = React.HTMLAttributes<HTMLButtonElement> &
-  ComponentProps<typeof AriaButton> & {
-    variant?: "filled" | "light" | "outline";
-    leftIcon?: React.ReactNode;
-    rightIcon?: React.ReactNode;
-    [key: `data-${string}`]: string | number | boolean;
-  };
+export type ButtonProps = ComponentProps<typeof AriaButton> & {
+  variant?: "filled" | "light" | "outline";
+  [key: `data-${string}`]: string | number | boolean;
+};
 
 const Button: React.FC<ButtonProps> = ({
   children,
   className,
   variant,
-  leftIcon,
-  rightIcon,
   ...props
 }) => {
   return (
-    <AriaButton
+    <button
       className={cn(styles.button, className)}
       data-variant={variant}
       {...props}
     >
-      {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
-      <>{children}</>
-      {rightIcon && <span className={styles.icon}>{rightIcon}</span>}
-    </AriaButton>
+      {children}
+    </button>
   );
 };
 
