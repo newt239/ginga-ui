@@ -34,16 +34,22 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "ginga-ui",
-      formats: ["es"],
       fileName: (format) => `ginga-ui.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
-      output: {
-        preserveModules: true,
-        preserveModulesRoot: "src",
-        entryFileNames: "[name].es.js",
-      },
+      output: [
+        {
+          format: "es",
+          dir: "dist",
+          entryFileNames: "ginga-ui.es.js",
+        },
+        {
+          preserveModules: true,
+          preserveModulesRoot: "src",
+          entryFileNames: "[name].es.js",
+        },
+      ],
     },
   },
 });

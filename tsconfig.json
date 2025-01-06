@@ -25,8 +25,10 @@
     "moduleResolution": "Node",
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*"],
+      "ginga-ui/*": ["dist/*"]
+    },
+    "declaration": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
