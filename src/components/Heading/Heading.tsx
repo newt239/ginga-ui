@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 import styles from "./Heading.module.css";
@@ -14,11 +16,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h1":
         return (
           <h1
-            className={cn(
-              styles.heading,
-              styles["heading-level-1"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-1"], className)}
             ref={ref}
             {...props}
           />
@@ -26,11 +24,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h2":
         return (
           <h2
-            className={cn(
-              styles.heading,
-              styles["heading-level-2"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-2"], className)}
             ref={ref}
             {...props}
           />
@@ -38,11 +32,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h3":
         return (
           <h3
-            className={cn(
-              styles.heading,
-              styles["heading-level-3"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-3"], className)}
             ref={ref}
             {...props}
           />
@@ -50,11 +40,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h4":
         return (
           <h4
-            className={cn(
-              styles.heading,
-              styles["heading-level-4"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-4"], className)}
             ref={ref}
             {...props}
           />
@@ -62,11 +48,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h5":
         return (
           <h5
-            className={cn(
-              styles.heading,
-              styles["heading-level-5"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-5"], className)}
             ref={ref}
             {...props}
           />
@@ -74,11 +56,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
       case "h6":
         return (
           <h6
-            className={cn(
-              styles.heading,
-              styles["heading-level-6"],
-              className
-            )}
+            className={cn(styles.heading, styles["heading-level-6"], className)}
             ref={ref}
             {...props}
           />

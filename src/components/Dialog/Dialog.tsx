@@ -1,3 +1,5 @@
+"use client";
+
 import React, { type ComponentProps } from "react";
 import {
   Dialog as AriaDialog,

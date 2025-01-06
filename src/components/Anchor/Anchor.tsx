@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ComponentProps } from "react";
 
 import { Link as AriaLink } from "react-aria-components";
