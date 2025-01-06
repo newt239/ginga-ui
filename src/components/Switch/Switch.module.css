@@ -11,7 +11,7 @@
     width: 2rem;
     height: 1rem;
     background: var(--color-background);
-    border: var(--width-border) solid var(--color-primary-5);
+    border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
     transition: all 200ms;
 
@@ -21,24 +21,24 @@
       height: 0.9rem;
       margin: 0.05rem 0.1rem;
       content: "";
-      background: var(--color-primary-5);
+      background: var(--color-primary-9);
       border-radius: calc(var(--size-radius) * 0.5 - 0.1rem);
       transition: all 0.2s;
     }
   }
 
   &[data-pressed] .switch-indicator {
-    border-color: var(--color-primary-6);
+    border-color: var(--color-primary-8);
 
     &::before {
-      background: var(--color-primary-6);
+      background: var(--color-primary-8);
     }
   }
 
   &[data-selected] {
     .switch-indicator {
-      background: var(--color-primary-5);
-      border-color: var(--color-primary-5);
+      background: var(--color-primary-9);
+      border-color: var(--color-primary-9);
 
       &::before {
         background: var(--color-background);
@@ -48,28 +48,28 @@
 
     &[data-pressed] {
       .switch-indicator {
-        background: var(--color-primary-6);
-        border-color: var(--color-primary-6);
+        background: var(--color-primary-8);
+        border-color: var(--color-primary-8);
       }
     }
   }
 
   &[data-focus-visible] .switch-indicator {
-    outline: 2px solid var(--color-primary-5);
+    outline: 2px solid var(--color-primary-9);
     outline-offset: 2px;
   }
 
   &[data-disabled] {
-    color: var(--color-secondary-6);
+    color: var(--color-secondary-5);
     pointer-events: none;
     cursor: not-allowed;
 
     .switch-indicator {
       background: var(--color-secondary-1);
-      border-color: var(--color-secondary-1);
+      border-color: var(--color-secondary-5);
 
       &::before {
-        background: var(--color-secondary-6);
+        background: var(--color-secondary-5);
       }
     }
   }

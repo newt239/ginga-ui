@@ -7,12 +7,8 @@ import styles from "./Paragraph.module.css";
 
 export type ParagraphProps = React.HTMLAttributes<HTMLDivElement>;
 
-const Paragraph = React.forwardRef<HTMLDivElement, ParagraphProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <div className={cn(styles.paragraph, className)} ref={ref} {...props} />
-    );
-  }
-);
+const Paragraph = ({ className, ...props }: ParagraphProps) => {
+  return <div className={cn(styles.paragraph, className)} {...props} />;
+};
 
 export default Paragraph;

@@ -85,7 +85,7 @@ class ThemeClient {
   enforceContrast(baseColor: string, targetColor: string) {
     let color = chroma(targetColor);
     let contrast = chroma.contrast(color, baseColor);
-    while (contrast < 3 && color.luminance() > 0.1 && color.luminance() < 0.9) {
+    while (contrast < 3) {
       if (chroma(baseColor).luminance() > 0.5) {
         color = color.darken(0.1);
       } else {

@@ -16,38 +16,32 @@ export type FlexProps = React.HTMLAttributes<HTMLDivElement> & {
   basis?: string;
 };
 
-const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
-  (
-    {
-      className,
-      direction = "row",
-      justify = "start",
-      align = "stretch",
-      wrap = "nowrap",
-      gap = 0,
-      grow = 0,
-      shrink = 1,
-      basis = "auto",
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <div
-        className={cn(styles.flex, className)}
-        data-direction={direction}
-        data-justify={justify}
-        data-align={align}
-        data-wrap={wrap}
-        data-gap={gap}
-        data-grow={grow}
-        data-shrink={shrink}
-        data-basis={basis}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
+const Flex = ({
+  className,
+  direction = "row",
+  justify = "start",
+  align = "stretch",
+  wrap = "nowrap",
+  gap = 0,
+  grow = 0,
+  shrink = 1,
+  basis = "auto",
+  ...props
+}: FlexProps) => {
+  return (
+    <div
+      className={cn(styles.flex, className)}
+      data-direction={direction}
+      data-justify={justify}
+      data-align={align}
+      data-wrap={wrap}
+      data-gap={gap}
+      data-grow={grow}
+      data-shrink={shrink}
+      data-basis={basis}
+      {...props}
+    />
+  );
+};
 
 export default Flex;

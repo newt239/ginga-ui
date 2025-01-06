@@ -1,6 +1,6 @@
 "use client";
 
-import React, { type ComponentProps } from "react";
+import { type ComponentProps } from "react";
 import {
   Dialog as AriaDialog,
   DialogTrigger as AriaDialogTrigger,
@@ -14,55 +14,42 @@ import styles from "./Dialog.module.css";
 
 export type DialogTriggerProps = ComponentProps<typeof AriaDialogTrigger>;
 
-const DialogTrigger = React.forwardRef<HTMLDivElement, DialogTriggerProps>(
-  ({ children, ...props }) => {
-    return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
-  }
-);
-DialogTrigger.displayName = "DialogTrigger";
+const DialogTrigger = ({ children, ...props }: DialogTriggerProps) => {
+  return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
+};
 
 export type ModalProps = ComponentProps<typeof AriaModal>;
 
-const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <AriaModal className={cn(styles.modal, className)} ref={ref} {...props}>
-        {children}
-      </AriaModal>
-    );
-  }
-);
-Modal.displayName = "Modal";
+const Modal = ({ children, className, ...props }: ModalProps) => {
+  return (
+    <AriaModal className={cn(styles.modal, className)} {...props}>
+      {children}
+    </AriaModal>
+  );
+};
 
 export type DialogProps = ComponentProps<typeof AriaDialog>;
 
-const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <AriaDialog className={cn(styles.dialog, className)} ref={ref} {...props}>
-        {children}
-      </AriaDialog>
-    );
-  }
-);
-Dialog.displayName = "Dialog";
+const Dialog = ({ children, className, ...props }: DialogProps) => {
+  return (
+    <AriaDialog className={cn(styles.dialog, className)} {...props}>
+      {children}
+    </AriaDialog>
+  );
+};
 
 export type DialogTitleProps = ComponentProps<typeof AriaHeading>;
 
-const DialogTitle = React.forwardRef<HTMLHeadingElement, DialogTitleProps>(
-  ({ children, className, ...props }, ref) => {
-    return (
-      <AriaHeading
-        slot="title"
-        className={cn(styles["dialog-title"], className)}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </AriaHeading>
-    );
-  }
-);
-DialogTitle.displayName = "DialogTitle";
+const DialogTitle = ({ children, className, ...props }: DialogTitleProps) => {
+  return (
+    <AriaHeading
+      slot="title"
+      className={cn(styles["dialog-title"], className)}
+      {...props}
+    >
+      {children}
+    </AriaHeading>
+  );
+};
 
 export { Dialog, DialogTitle, DialogTrigger, Modal };

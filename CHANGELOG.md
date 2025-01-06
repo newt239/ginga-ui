@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.3
+
+- fix: improve remove `React.forwardRef` from all components
+- style: improve text color
+
 ## v0.7.2
 
 - improve: add `use client` directive to all components

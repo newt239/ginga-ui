@@ -4,7 +4,7 @@
   align-items: center;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-secondary);
+  color: var(--color-secondary-9);
   forced-color-adjust: none;
 
   .checkbox-input {
@@ -14,7 +14,7 @@
     width: 1.2rem;
     height: 1.2rem;
     cursor: pointer;
-    border: var(--width-border) solid var(--color-primary-5);
+    border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
     transition: all 200ms;
   }
@@ -23,7 +23,7 @@
     width: 1rem;
     height: 1rem;
     fill: none;
-    stroke: var(--color-primary-5);
+    stroke: var(--color-primary-9);
     stroke-dasharray: 22px;
     stroke-dashoffset: 66;
     stroke-width: 3px;
@@ -31,22 +31,22 @@
   }
 
   &[data-pressed] .checkbox-input {
-    border-color: var(--color-primary-6);
+    border-color: var(--color-primary-8);
   }
 
   &[data-focus-visible] .checkbox-input {
-    outline: 2px solid var(--color-primary-5);
+    outline: 2px solid var(--color-primary-8);
     outline-offset: 2px;
   }
 
   &[data-selected],
   &[data-indeterminate] {
     .checkbox-input {
-      background-color: var(--color-primary-5);
+      background-color: var(--color-primary-9);
     }
 
     &[data-pressed] .checkbox-input {
-      background-color: var(--color-primary-6);
+      background-color: var(--color-primary-8);
     }
 
     svg {
@@ -57,7 +57,7 @@
 
   &[data-indeterminate] {
     & svg {
-      fill: var(--color-primary-5);
+      fill: var(--color-primary-9);
       stroke: none;
     }
   }
