@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.6
+
+- feat: add List component
+- fix: update peer dependencies
+
 ## v0.7.5
 
 - fix: error caused by React
