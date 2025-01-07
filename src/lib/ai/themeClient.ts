@@ -56,8 +56,8 @@ class ThemeClient {
           ) > 3;
 
         if (isPrimaryColorValid && isSecondaryColorValid) {
-          this.adaptNewTheme(variables);
-          return result;
+          const CSSCode = this.adaptNewTheme(variables);
+          return CSSCode;
         }
 
         if (i === this.maxRetries - 1) {
@@ -75,7 +75,8 @@ class ThemeClient {
           );
           variables["--color-secondary"] = enforcedSecondaryColor;
 
-          this.adaptNewTheme(variables);
+          const CSSCode = this.adaptNewTheme(variables);
+          return CSSCode;
         }
       } catch (e) {
         console.error(e);
@@ -121,10 +122,18 @@ class ThemeClient {
       variables[color.key] = color.value;
     });
 
-    const r = document.documentElement;
+    if (typeof window !== "undefined") {
+      const r = window.document.documentElement;
+      Object.entries(variables).forEach(([key, value]) => {
+        r.style.setProperty(key, value);
+      });
+    }
+    let CSSCode = ":root {\n";
     Object.entries(variables).forEach(([key, value]) => {
-      r.style.setProperty(key, value);
+      CSSCode += `  ${key}: ${value};\n`;
     });
+    CSSCode += "}";
+    return CSSCode;
   }
 }
 

@@ -31,6 +31,7 @@ export default defineConfig({
     },
   },
   build: {
+    target: "esnext",
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "ginga-ui",
@@ -43,11 +44,13 @@ export default defineConfig({
           format: "es",
           dir: "dist",
           entryFileNames: "ginga-ui.es.js",
+          banner: '"use client"',
         },
         {
           preserveModules: true,
           preserveModulesRoot: "src",
           entryFileNames: "[name].es.js",
+          banner: '"use client"',
         },
       ],
     },

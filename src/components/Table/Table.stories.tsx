@@ -79,12 +79,3 @@ export const WithSelection: Story = {
     "aria-label": "Files with selection",
   },
 };
-
-export const WithoutHeader: Story = {
-  args: {
-    data: sampleData,
-    columns: columns,
-    showHeader: false,
-    "aria-label": "Files without header",
-  },
-};
