@@ -1,14 +1,12 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import { Switch as AriaSwitch } from "react-aria-components";
 
 import styles from "./Switch.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type SwitchProps = ComponentProps<typeof AriaSwitch> & {
+export type SwitchProps = React.ComponentProps<typeof AriaSwitch> & {
   children: React.ReactNode;
 };
 

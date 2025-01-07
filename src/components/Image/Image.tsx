@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 import styles from "./Image.module.css";
 

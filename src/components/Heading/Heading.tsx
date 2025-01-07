@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import styles from "./Heading.module.css";
 
 import { cn } from "@/lib/utils";

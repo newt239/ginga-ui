@@ -1,7 +1,5 @@
 "use client";
 
-import { type ComponentProps } from "react";
-
 import {
   Dialog as AriaDialog,
   DialogTrigger as AriaDialogTrigger,
@@ -13,14 +11,13 @@ import styles from "./Dialog.module.css";
 
 import { cn } from "@/lib/utils";
 
-
-export type DialogTriggerProps = ComponentProps<typeof AriaDialogTrigger>;
+export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 
 const DialogTrigger = ({ children, ...props }: DialogTriggerProps) => {
   return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
 };
 
-export type ModalProps = ComponentProps<typeof AriaModal>;
+export type ModalProps = React.ComponentProps<typeof AriaModal>;
 
 const Modal = ({ children, className, ...props }: ModalProps) => {
   return (
@@ -30,7 +27,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => {
   );
 };
 
-export type DialogProps = ComponentProps<typeof AriaDialog>;
+export type DialogProps = React.ComponentProps<typeof AriaDialog>;
 
 const Dialog = ({ children, className, ...props }: DialogProps) => {
   return (
@@ -40,7 +37,7 @@ const Dialog = ({ children, className, ...props }: DialogProps) => {
   );
 };
 
-export type DialogTitleProps = ComponentProps<typeof AriaHeading>;
+export type DialogTitleProps = React.ComponentProps<typeof AriaHeading>;
 
 const DialogTitle = ({ children, className, ...props }: DialogTitleProps) => {
   return (

@@ -1,14 +1,12 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import { Checkbox as AriaCheckbox } from "react-aria-components";
 
 import styles from "./Checkbox.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type CheckboxProps = ComponentProps<typeof AriaCheckbox> & {
+export type CheckboxProps = React.ComponentProps<typeof AriaCheckbox> & {
   label: string;
   hideLabel?: boolean;
 };

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import styles from "./List.module.css";
 
 import { cn } from "@/lib/utils";

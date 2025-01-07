@@ -1,8 +1,6 @@
 "use client";
 
-
-
-import React from "react";
+import { useState } from "react";
 
 import {
   Cell as AriaCell,
@@ -45,9 +43,7 @@ const Table = <T extends object>({
   onSelectionChange,
   "aria-label": ariaLabel,
 }: TableProps<T>) => {
-  const [selectedRows, setSelectedRows] = React.useState<Set<number>>(
-    new Set()
-  );
+  const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
 
   const handleSelectionChange = (index: number) => {
     const newSelection = new Set(selectedRows);

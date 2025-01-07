@@ -1,14 +1,12 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
 import styles from "./CheckboxGroup.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type CheckboxGroupProps = ComponentProps<typeof AriaCheckboxGroup>;
+export type CheckboxGroupProps = React.ComponentProps<typeof AriaCheckboxGroup>;
 
 const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   children,

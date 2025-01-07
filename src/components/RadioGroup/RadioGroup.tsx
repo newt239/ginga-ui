@@ -1,14 +1,12 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import { RadioGroup as AriaRadioGroup } from "react-aria-components";
 
 import styles from "./RadioGroup.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type RadioGroupProps = ComponentProps<typeof AriaRadioGroup>;
+export type RadioGroupProps = React.ComponentProps<typeof AriaRadioGroup>;
 
 const RadioGroup: React.FC<RadioGroupProps> = ({
   children,

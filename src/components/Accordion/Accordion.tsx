@@ -1,7 +1,5 @@
 "use client";
 
-import { type ComponentProps } from "react";
-
 import {
   Button as AriaButton,
   Disclosure,
@@ -13,7 +11,7 @@ import styles from "./Accordion.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type AccordionProps = ComponentProps<typeof DisclosureGroup>;
+export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 
 const Accordion = ({ children, className, ...props }: AccordionProps) => {
   return (
@@ -23,7 +21,7 @@ const Accordion = ({ children, className, ...props }: AccordionProps) => {
   );
 };
 
-export type AccordionItemProps = ComponentProps<typeof Disclosure>;
+export type AccordionItemProps = React.ComponentProps<typeof Disclosure>;
 
 const AccordionItem = ({
   children,
@@ -37,7 +35,7 @@ const AccordionItem = ({
   );
 };
 
-export type AccordionTriggerProps = ComponentProps<typeof AriaButton>;
+export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton>;
 
 const AccordionTrigger = ({
   children,
@@ -55,7 +53,9 @@ const AccordionTrigger = ({
   );
 };
 
-export type AccordionContentProps = ComponentProps<typeof DisclosurePanel>;
+export type AccordionContentProps = React.ComponentProps<
+  typeof DisclosurePanel
+>;
 
 const AccordionContent = ({
   children,
