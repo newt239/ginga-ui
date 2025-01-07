@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.7
+
+- feat: add new option of ssr mode
+- chore: upgrade Vite to v6
+
 ## v0.7.6
 
 - feat: add List component
