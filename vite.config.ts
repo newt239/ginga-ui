@@ -1,6 +1,5 @@
 /// <reference types="vitest">
-import fs from "fs";
-import path, { resolve } from "path";
+import path from "path";
 
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
@@ -14,16 +13,6 @@ export default defineConfig({
       insertTypesEntry: true,
       outDir: "dist",
     }),
-    {
-      name: "copy-css",
-      generateBundle() {
-        this.emitFile({
-          type: "asset",
-          fileName: "variables.css",
-          source: fs.readFileSync("./src/styles/variables.css", "utf-8"),
-        });
-      },
-    },
   ],
   resolve: {
     alias: {
@@ -33,7 +22,7 @@ export default defineConfig({
   build: {
     target: "esnext",
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
+      entry: path.resolve(__dirname, "src/index.ts"),
       name: "ginga-ui",
       fileName: (format) => `ginga-ui.${format}.js`,
     },
