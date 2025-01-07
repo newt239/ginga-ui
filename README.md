@@ -89,7 +89,7 @@ const handleClick = async () => {
 import ThemeClient from "ginga-ui";
 
 const themeClient = new ThemeClient({
-  clientType: "openai",
+  clientType: "gemini",
   apiKey: "YOUR_GEMINI_API_KEY",
 });
 
