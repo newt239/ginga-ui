@@ -1,30 +1,47 @@
-import eslint from '@eslint/js';
+import { FlatCompat } from '@eslint/eslintrc';
 import eslintConfigPrettier from 'eslint-config-prettier';
-import tseslint from 'typescript-eslint';
 
-export default tseslint.config(
+const compat = new FlatCompat({
+  // import.meta.dirname is available after Node.js v20.11.0
+  baseDirectory: import.meta.dirname,
+})
+
+const eslintConfig = [
   {
-    ignores: [
-      'dist/**/*.ts',
-      'dist/**',
-      "**/*.mjs",
-      "eslint.config.mjs",
-      "**/*.js"
-    ],
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
+    ignores: ["node_modules/", ".next/"],
   },
-  eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
   eslintConfigPrettier,
   {
     rules: {
-      "@typescript-eslint/no-misused-promises": "off"
-    }
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type"
+          ],
+          "pathGroups": [
+            {
+              "pattern": "{react,react-dom/**,react-router-dom,next,next/**}",
+              "group": "builtin",
+              "position": "before"
+            },
+          ],
+          "pathGroupsExcludedImportTypes": ["builtin"],
+          "alphabetize": {
+            "order": "asc"
+          },
+          "newlines-between": "always"
+        }
+      ]
+    },
   },
-);
+];
+
+export default eslintConfig;
