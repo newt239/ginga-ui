@@ -1,9 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import React from "react";
 
 import styles from "./Paragraph.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type ParagraphProps = React.HTMLAttributes<HTMLDivElement>;
 

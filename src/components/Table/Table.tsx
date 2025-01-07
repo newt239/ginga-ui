@@ -1,5 +1,9 @@
 "use client";
 
+
+
+import React from "react";
+
 import {
   Cell as AriaCell,
   Column as AriaColumn,
@@ -9,11 +13,11 @@ import {
   TableHeader as AriaTableHeader,
 } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
-
-import React from "react";
 import Checkbox from "../Checkbox/Checkbox";
+
 import styles from "./Table.module.css";
+
+import { cn } from "@/lib/utils";
 
 export interface TableColumn<T> {
   key: string;

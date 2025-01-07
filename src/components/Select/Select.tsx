@@ -1,6 +1,7 @@
 "use client";
 
 import { type ComponentProps } from "react";
+
 import {
   Label as AriaLabel,
   Select as AriaSelect,
@@ -11,9 +12,10 @@ import {
   SelectValue,
 } from "react-aria-components";
 
+import styles from "./Select.module.css";
+
 import { cn } from "@/lib/utils";
 
-import styles from "./Select.module.css";
 
 export type SelectProps = ComponentProps<typeof AriaSelect> & {
   label: string;

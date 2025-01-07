@@ -1,6 +1,7 @@
 "use client";
 
 import { type ComponentProps } from "react";
+
 import {
   Dialog as AriaDialog,
   DialogTrigger as AriaDialogTrigger,
@@ -8,9 +9,10 @@ import {
   Modal as AriaModal,
 } from "react-aria-components";
 
+import styles from "./Dialog.module.css";
+
 import { cn } from "@/lib/utils";
 
-import styles from "./Dialog.module.css";
 
 export type DialogTriggerProps = ComponentProps<typeof AriaDialogTrigger>;
 

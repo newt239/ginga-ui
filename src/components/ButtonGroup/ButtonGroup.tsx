@@ -1,11 +1,13 @@
 "use client";
 
 import React, { ComponentProps } from "react";
+
 import { Group } from "react-aria-components";
+
+import styles from "./ButtonGroup.module.css";
 
 import { cn } from "@/lib/utils";
 
-import styles from "./ButtonGroup.module.css";
 
 export type ButtonGroupProps = ComponentProps<typeof Group>;
 

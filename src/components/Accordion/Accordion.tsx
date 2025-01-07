@@ -1,14 +1,17 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { type ComponentProps } from "react";
+
 import {
   Button as AriaButton,
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
 } from "react-aria-components";
+
 import styles from "./Accordion.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type AccordionProps = ComponentProps<typeof DisclosureGroup>;
 

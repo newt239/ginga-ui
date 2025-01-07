@@ -1,5 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import Table from "./Table";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 interface FileData {
   name: string;
