@@ -43,8 +43,8 @@
       "types": "./dist/components/*.d.ts",
       "import": "./dist/components/*.es.js"
     },
-    "./dist/variables.css": "./dist/variables.css",
-    "./dist/ginga-ui.css": "./dist/ginga-ui.css"
+    "./variables.css": "./dist/variables.css",
+    "./style.css": "./dist/ginga-ui.css"
   },
   "files": [
     "dist"
