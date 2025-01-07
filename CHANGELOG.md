@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.7.8
+
+- fix: Vite config
+
 ## v0.7.7
 
 - feat: add new option of ssr mode
