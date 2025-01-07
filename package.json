@@ -40,8 +40,8 @@
       "import": "./dist/ginga-ui.es.js"
     },
     "./components/*": {
-      "types": "./dist/components/*.d.ts",
-      "import": "./dist/components/*.es.js"
+      "types": "./dist/components/*/*.d.ts",
+      "import": "./dist/components/*/*.es.js"
     },
     "./variables.css": "./dist/variables.css",
     "./style.css": "./dist/ginga-ui.css"

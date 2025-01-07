@@ -32,8 +32,8 @@ npm install ginga-ui
 If you are using Next.js App Router, you can import CSS files in the `layout.tsx` file.
 
 ```jsx
-import "ginga-ui/dist/variables.css";
-import "ginga-ui/dist/style.css";
+import "ginga-ui/style.css";
+import "ginga-ui/variables.css";
 ```
 
 ### 3. Import components
