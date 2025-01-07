@@ -1,14 +1,12 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import { Button as AriaButton } from "react-aria-components";
 
 import styles from "./Button.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type ButtonProps = ComponentProps<typeof AriaButton> & {
+export type ButtonProps = React.ComponentProps<typeof AriaButton> & {
   variant?: "filled" | "light" | "outline";
 };
 

@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
 
 const RESPONSE_FORMAT = {

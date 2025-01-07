@@ -1,9 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import React from "react";
-
 import styles from "./Flex.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type FlexProps = React.HTMLAttributes<HTMLDivElement> & {
   direction?: "row" | "column";

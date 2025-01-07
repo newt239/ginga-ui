@@ -1,6 +1,5 @@
 "use client";
 
-import { type ComponentProps } from "react";
 import {
   Label as AriaLabel,
   Select as AriaSelect,
@@ -11,11 +10,11 @@ import {
   SelectValue,
 } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
-
 import styles from "./Select.module.css";
 
-export type SelectProps = ComponentProps<typeof AriaSelect> & {
+import { cn } from "@/lib/utils";
+
+export type SelectProps = React.ComponentProps<typeof AriaSelect> & {
   label: string;
 };
 
@@ -38,7 +37,7 @@ const Select = ({ children, className, label, ...props }: SelectProps) => {
 
 Select.displayName = "Select";
 
-export type ListBoxItemProps = ComponentProps<typeof ListBoxItem>;
+export type ListBoxItemProps = React.ComponentProps<typeof ListBoxItem>;
 
 const SelectItem = ({ children, className, ...props }: ListBoxItemProps) => {
   return (

@@ -1,7 +1,5 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import {
   Tab as AriaTab,
   TabList as AriaTabList,
@@ -13,7 +11,7 @@ import styles from "./Tabs.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type TabsProps = ComponentProps<typeof AriaTabs> & {
+export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
   orientation?: "horizontal" | "vertical";
 };
 
@@ -34,7 +32,7 @@ const Tabs: React.FC<TabsProps> = ({
   );
 };
 
-export type TabProps = ComponentProps<typeof AriaTab>;
+export type TabProps = React.ComponentProps<typeof AriaTab>;
 
 const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
   return (
@@ -44,7 +42,7 @@ const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
   );
 };
 
-export type TabListProps = ComponentProps<typeof AriaTabList>;
+export type TabListProps = React.ComponentProps<typeof AriaTabList>;
 
 const TabList: React.FC<TabListProps> = ({ children, className, ...props }) => {
   return (
@@ -54,7 +52,7 @@ const TabList: React.FC<TabListProps> = ({ children, className, ...props }) => {
   );
 };
 
-export type TabPanelProps = ComponentProps<typeof AriaTabPanel>;
+export type TabPanelProps = React.ComponentProps<typeof AriaTabPanel>;
 
 const TabPanel: React.FC<TabPanelProps> = ({
   children,

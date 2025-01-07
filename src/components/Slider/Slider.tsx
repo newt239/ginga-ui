@@ -1,7 +1,5 @@
 "use client";
 
-import React, { ComponentProps } from "react";
-
 import {
   Slider as AriaSlider,
   SliderOutput as AriaSliderOutput,
@@ -14,7 +12,7 @@ import styles from "./Slider.module.css";
 import { cn } from "@/lib/utils";
 
 export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
-  ComponentProps<typeof AriaSlider>;
+  React.ComponentProps<typeof AriaSlider>;
 
 const Slider: React.FC<SliderProps> = ({ children, className, ...props }) => {
   return (
@@ -25,7 +23,7 @@ const Slider: React.FC<SliderProps> = ({ children, className, ...props }) => {
 };
 
 export type SliderOutputProps = React.HTMLAttributes<HTMLDivElement> &
-  ComponentProps<typeof AriaSliderOutput>;
+  React.ComponentProps<typeof AriaSliderOutput>;
 
 export const SliderOutput: React.FC<SliderOutputProps> = ({
   children,
@@ -43,7 +41,7 @@ export const SliderOutput: React.FC<SliderOutputProps> = ({
 };
 
 export type AriaSliderTrackProps = React.HTMLAttributes<HTMLDivElement> &
-  ComponentProps<typeof AriaSliderTrack>;
+  React.ComponentProps<typeof AriaSliderTrack>;
 
 export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
   children,
@@ -61,7 +59,7 @@ export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
 };
 
 export type SliderThumbProps = React.HTMLAttributes<HTMLDivElement> &
-  ComponentProps<typeof AriaSliderThumb>;
+  React.ComponentProps<typeof AriaSliderThumb>;
 
 export const SliderThumb: React.FC<SliderThumbProps> = ({
   children,

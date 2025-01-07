@@ -1,9 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import React from "react";
-
 import styles from "./Container.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   size?: "sm" | "md" | "lg";

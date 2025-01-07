@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import { Input, Label, TextField } from "react-aria-components";
 
 import Button from "../Button/Button";
+
 import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Dialog> = {
   title: "Display/Dialog",

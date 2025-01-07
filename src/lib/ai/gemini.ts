@@ -1,9 +1,10 @@
 import {
-  GenerationConfig,
+  type GenerationConfig,
   GenerativeModel,
   GoogleGenerativeAI,
   SchemaType,
 } from "@google/generative-ai";
+
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
 
 class GeminiClient {

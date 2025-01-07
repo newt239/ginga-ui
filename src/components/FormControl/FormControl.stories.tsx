@@ -1,10 +1,12 @@
-import ThemeClient from "@/lib/ai/themeClient";
+import { useState } from "react";
+
+import Button from "../Button/Button";
 import FormControl from "../FormControl/FormControl";
 import Input from "../Input/Input";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
-import Button from "../Button/Button";
+
+import ThemeClient from "@/lib/ai/themeClient";
 
 const meta: Meta<typeof FormControl> = {
   title: "Forms/FormControl",

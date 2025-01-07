@@ -1,6 +1,8 @@
 import chroma from "chroma-js";
 import * as v from "valibot";
+
 import { generateIntermediateColors } from "../color";
+
 import GeminiClient from "./gemini";
 import OpenAIClient from "./openai";
 import { Variables } from "./types";

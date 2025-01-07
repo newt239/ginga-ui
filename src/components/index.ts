@@ -1,3 +1,7 @@
+import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog/Dialog";
+import Select from "./Select/Select";
+import Table from "./Table/Table";
+
 import {
   Accordion,
   AccordionContent,
@@ -28,9 +32,6 @@ import RadioGroup from "@/components/RadioGroup/RadioGroup";
 import Slider from "@/components/Slider/Slider";
 import Switch from "@/components/Switch/Switch";
 import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
-import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog/Dialog";
-import Select from "./Select/Select";
-import Table from "./Table/Table";
 
 export {
   Accordion,

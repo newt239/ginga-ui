@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import {
   Cell as AriaCell,
   Column as AriaColumn,
@@ -9,11 +11,11 @@ import {
   TableHeader as AriaTableHeader,
 } from "react-aria-components";
 
-import { cn } from "@/lib/utils";
-
-import React from "react";
 import Checkbox from "../Checkbox/Checkbox";
+
 import styles from "./Table.module.css";
+
+import { cn } from "@/lib/utils";
 
 export interface TableColumn<T> {
   key: string;
@@ -41,9 +43,7 @@ const Table = <T extends object>({
   onSelectionChange,
   "aria-label": ariaLabel,
 }: TableProps<T>) => {
-  const [selectedRows, setSelectedRows] = React.useState<Set<number>>(
-    new Set()
-  );
+  const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
 
   const handleSelectionChange = (index: number) => {
     const newSelection = new Set(selectedRows);

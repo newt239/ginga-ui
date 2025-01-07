@@ -1,5 +1,6 @@
 import { ClientOptions } from "openai";
 import * as v from "valibot";
+
 import { requiredVariables } from "./const";
 
 const variableStringRecord = Object.fromEntries(

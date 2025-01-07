@@ -1,7 +1,8 @@
-import { cn } from "@/lib/utils";
-import React from "react";
+"use client";
 
 import styles from "./Image.module.css";
+
+import { cn } from "@/lib/utils";
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   variant?: "default" | "avatar";

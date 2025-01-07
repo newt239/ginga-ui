@@ -1,14 +1,12 @@
 "use client";
 
-import { ComponentProps } from "react";
-
 import { Input as AriaInput } from "react-aria-components";
 
 import styles from "./Input.module.css";
 
 import { cn } from "@/lib/utils";
 
-export type InputProps = ComponentProps<typeof AriaInput>;
+export type InputProps = React.ComponentProps<typeof AriaInput>;
 
 const Input = ({ className, type, ...props }: InputProps) => {
   return (
