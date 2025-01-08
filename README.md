@@ -41,9 +41,11 @@ import "ginga-ui/variables.css";
 ```jsx
 import { Button } from "ginga-ui";
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 ## Theme Generation
@@ -62,9 +64,11 @@ const handleClick = async () => {
   await themeClient.generateTheme("the image of you thought");
 };
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
@@ -99,9 +103,11 @@ const handleClick = async () => {
   await themeClient.generateTheme("the image of you thought");
 };
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 ## Variables
