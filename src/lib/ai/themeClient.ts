@@ -138,3 +138,6 @@ class ThemeClient {
 }
 
 export default ThemeClient;
+
+// for CommonJS compatibility
+module.exports = ThemeClient;

@@ -25,6 +25,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "ginga-ui",
       fileName: (format) => `ginga-ui.${format}.js`,
+      formats: ["es", "cjs"],
     },
     rollupOptions: {
       external: ["react", "react-dom"],
@@ -36,9 +37,23 @@ export default defineConfig({
           banner: '"use client"',
         },
         {
+          format: "es",
           preserveModules: true,
           preserveModulesRoot: "src",
           entryFileNames: "[name].es.js",
+          banner: '"use client"',
+        },
+        {
+          format: "cjs",
+          dir: "dist",
+          entryFileNames: "ginga-ui.cjs.js",
+          banner: '"use client"',
+        },
+        {
+          format: "cjs",
+          preserveModules: true,
+          preserveModulesRoot: "src",
+          entryFileNames: "[name].cjs.js",
           banner: '"use client"',
         },
       ],
