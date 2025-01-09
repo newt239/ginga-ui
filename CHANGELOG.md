@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.7.9
+
+- feat: support cjs format
+- feat: import components from `ginga-ui/core`
+- fix: can't import ThemeClient on Next.js
+
 ## v0.7.8
 
 - fix: Vite config
