@@ -8,8 +8,8 @@
 
 ### Frameworks
 
-- React 18 or later
-- Next.js 13 or later with App Router
+- React 18
+- Next.js 13 or Next.js 14 with App Router (not supported with Next.js 15)
 - React with Vite
 
 ### Browsers
@@ -83,6 +83,31 @@ const themeClient = new ThemeClient({
 const handleClick = async () => {
   await themeClient.generateTheme("the image of you thought");
 };
+```
+
+### SSR Mode
+
+If you want to generate theme on server side, you can write like this. Recommended to use with Next.js App Router and write this on page component.
+
+```jsx
+import { Button } from "ginga-ui/core";
+import ThemeClient from "ginga-ui/ai";
+
+export default async function Home() {
+  const themeClient = new ThemeClient({
+    clientType: "openai",
+    apiKey: process.env.OPENAI_API_KEY!,
+  });
+
+  const { CSSCode } = await themeClient.generateTheme("fairy tale");
+
+  return (
+    <div>
+      <style>{CSSCode}</style>
+      <Button>aaas</Button>
+    </div>
+  );
+}
 ```
 
 ### Client Types
