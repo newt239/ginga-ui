@@ -57,7 +57,10 @@ class ThemeClient {
 
         if (isPrimaryColorValid && isSecondaryColorValid) {
           const CSSCode = this.adaptNewTheme(variables);
-          return CSSCode;
+          return {
+            type: "success",
+            CSSCode,
+          } as const;
         }
 
         if (i === this.maxRetries - 1) {
