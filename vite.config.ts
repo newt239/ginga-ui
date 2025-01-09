@@ -11,7 +11,7 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-      outDir: "dist/types",
+      outDir: "dist",
     }),
   ],
   resolve: {
@@ -26,16 +26,17 @@ export default defineConfig({
         main: path.resolve(__dirname, "src/index.ts"),
       },
       formats: ["es", "cjs"],
-      fileName: "[format]/[name]",
+      fileName: (format) => `ginga-ui.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       input: {
-        components: "src/components/index.ts",
-        ai: "src/lib/ai/themeClient.ts",
+        "components/index": "src/components/index.ts",
+        "ai/index": "src/lib/ai/index.ts",
       },
       output: {
         preserveModules: true,
+        preserveModulesRoot: "src",
         exports: "named",
         banner: (chunk) => {
           if (chunk.facadeModuleId?.includes("components")) {
@@ -43,6 +44,7 @@ export default defineConfig({
           }
           return undefined;
         },
+        entryFileNames: "[name].[format].js",
         assetFileNames: "ginga-ui[extname]",
       },
     },

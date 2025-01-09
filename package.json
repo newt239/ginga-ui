@@ -31,28 +31,29 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
-  "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
+  "module": "./dist/components/index.es.js",
+  "require": "./dist/components/index.cjs.js",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/es/index.js",
-      "require": "./dist/cjs/index.cjs"
+      "import": "./dist/components/index.es.js",
+      "require": "./dist/components/index.cjs.js"
     },
     "./core": {
-      "types": "./dist/types/components/index.d.ts",
-      "import": "./dist/es/components.js",
-      "require": "./dist/cjs/components.cjs"
+      "types": "./dist/components/index/index.d.ts",
+      "import": "./dist/components/index.es.js",
+      "require": "./dist/components/index.cjs.js"
     },
     "./core/*": {
-      "types": "./dist/types/components/*/*.d.ts",
-      "import": "./dist/es/src/components/*/*.js",
-      "require": "./dist/cjs/src/components/*/*.cjs"
+      "types": "./dist/components/index/*/*.d.ts",
+      "import": "./dist/components/index/*/*.es.js",
+      "require": "./dist/components/index/*/*.cjs.js"
     },
     "./ai": {
-      "types": "./dist/types/lib/ai/themeClient.d.ts",
-      "import": "./dist/es/ai.js",
-      "require": "./dist/cjs/ai.cjs"
+      "types": "./dist/lib/ai/index.d.ts",
+      "import": "./dist/ai/index.es.js",
+      "require": "./dist/ai/index.cjs.js"
     },
     "./variables.css": "./dist/variables.css",
     "./style.css": "./dist/ginga-ui.css"
