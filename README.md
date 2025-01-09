@@ -39,11 +39,13 @@ import "ginga-ui/variables.css";
 ### 3. Import components
 
 ```jsx
-import { Button } from "ginga-ui";
+import { Button } from "ginga-ui/core";
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 ## Theme Generation
@@ -51,7 +53,7 @@ function App() {
 You can generate with your own theme by using `ThemeClient` class.
 
 ```jsx
-import ThemeClient from "ginga-ui";
+import ThemeClient from "ginga-ui/ai";
 
 const themeClient = new ThemeClient({
   clientType: "openai",
@@ -62,9 +64,11 @@ const handleClick = async () => {
   await themeClient.generateTheme("the image of you thought");
 };
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
@@ -88,7 +92,7 @@ const handleClick = async () => {
 #### Gemini Client
 
 ```jsx
-import ThemeClient from "ginga-ui";
+import ThemeClient from "ginga-ui/ai";
 
 const themeClient = new ThemeClient({
   clientType: "gemini",
@@ -99,9 +103,11 @@ const handleClick = async () => {
   await themeClient.generateTheme("the image of you thought");
 };
 
-function App() {
+const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
-}
+};
+
+export default ThemeGenerationButton;
 ```
 
 ## Variables

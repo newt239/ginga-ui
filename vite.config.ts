@@ -22,26 +22,31 @@ export default defineConfig({
   build: {
     target: "esnext",
     lib: {
-      entry: path.resolve(__dirname, "src/index.ts"),
-      name: "ginga-ui",
+      entry: {
+        main: path.resolve(__dirname, "src/index.ts"),
+      },
+      formats: ["es", "cjs"],
       fileName: (format) => `ginga-ui.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],
-      output: [
-        {
-          format: "es",
-          dir: "dist",
-          entryFileNames: "ginga-ui.es.js",
-          banner: '"use client"',
+      input: {
+        "components/index": "src/components/index.ts",
+        "ai/index": "src/ai/index.ts",
+      },
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: "src",
+        exports: "named",
+        banner: (chunk) => {
+          if (chunk.facadeModuleId?.includes("components")) {
+            return `"use client";`;
+          }
+          return undefined;
         },
-        {
-          preserveModules: true,
-          preserveModulesRoot: "src",
-          entryFileNames: "[name].es.js",
-          banner: '"use client"',
-        },
-      ],
+        entryFileNames: "[name].[format].js",
+        assetFileNames: "style[extname]",
+      },
     },
   },
 });

@@ -1,4 +1,3 @@
-import ThemeClient from "./lib/ai/themeClient";
-
+export { default as ThemeClient } from "./ai";
 export * from "./components/";
-export { ThemeClient };
+export * from "./lib/color";

@@ -1,7 +1,7 @@
 {
   "name": "ginga-ui",
   "private": false,
-  "version": "0.7.8",
+  "version": "0.7.9",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -31,16 +31,29 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
-  "module": "./dist/ginga-ui.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
+  "module": "./dist/components/index.es.js",
+  "require": "./dist/components/index.cjs.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/ginga-ui.es.js"
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/components/index.es.js",
+      "require": "./dist/components/index.cjs.js"
     },
-    "./components/*": {
-      "types": "./dist/components/*/*.d.ts",
-      "import": "./dist/components/*/*.es.js"
+    "./core": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.es.js",
+      "require": "./dist/components/index.cjs.js"
+    },
+    "./core/*": {
+      "types": "./dist/components/index/*/*.d.ts",
+      "import": "./dist/components/index/*/*.es.js",
+      "require": "./dist/components/index/*/*.cjs.js"
+    },
+    "./ai": {
+      "types": "./dist/ai/index.d.ts",
+      "import": "./dist/ai/index.es.js",
+      "require": "./dist/ai/index.cjs.js"
     },
     "./variables.css": "./dist/variables.css",
     "./style.css": "./dist/ginga-ui.css"

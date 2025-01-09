@@ -1,11 +1,11 @@
 import chroma from "chroma-js";
 import * as v from "valibot";
 
-import { generateIntermediateColors } from "../color";
-
 import GeminiClient from "./gemini";
 import OpenAIClient from "./openai";
 import { Variables } from "./types";
+
+import { generateIntermediateColors } from "@/lib/color";
 
 type ClientType = "gemini" | "openai";
 
@@ -57,7 +57,10 @@ class ThemeClient {
 
         if (isPrimaryColorValid && isSecondaryColorValid) {
           const CSSCode = this.adaptNewTheme(variables);
-          return CSSCode;
+          return {
+            type: "success",
+            CSSCode,
+          } as const;
         }
 
         if (i === this.maxRetries - 1) {
@@ -76,13 +79,16 @@ class ThemeClient {
           variables["--color-secondary"] = enforcedSecondaryColor;
 
           const CSSCode = this.adaptNewTheme(variables);
-          return CSSCode;
+          return {
+            type: "success",
+            CSSCode,
+          } as const;
         }
       } catch (e) {
         console.error(e);
       }
     }
-    return { type: "error", retry: i };
+    return { type: "error", CSSCode: "Failed to generate theme" } as const;
   }
 
   enforceContrast(baseColor: string, targetColor: string) {
