@@ -76,13 +76,16 @@ class ThemeClient {
           variables["--color-secondary"] = enforcedSecondaryColor;
 
           const CSSCode = this.adaptNewTheme(variables);
-          return CSSCode;
+          return {
+            type: "success",
+            CSSCode,
+          } as const;
         }
       } catch (e) {
         console.error(e);
       }
     }
-    return { type: "error", retry: i };
+    return { type: "error", CSSCode: "Failed to generate theme" } as const;
   }
 
   enforceContrast(baseColor: string, targetColor: string) {
