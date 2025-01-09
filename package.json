@@ -41,7 +41,7 @@
       "require": "./dist/components/index.cjs.js"
     },
     "./core": {
-      "types": "./dist/components/index/index.d.ts",
+      "types": "./dist/components/index.d.ts",
       "import": "./dist/components/index.es.js",
       "require": "./dist/components/index.cjs.js"
     },
@@ -51,7 +51,7 @@
       "require": "./dist/components/index/*/*.cjs.js"
     },
     "./ai": {
-      "types": "./dist/lib/ai/index.d.ts",
+      "types": "./dist/ai/index.d.ts",
       "import": "./dist/ai/index.es.js",
       "require": "./dist/ai/index.cjs.js"
     },

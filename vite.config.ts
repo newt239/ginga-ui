@@ -32,7 +32,7 @@ export default defineConfig({
       external: ["react", "react-dom"],
       input: {
         "components/index": "src/components/index.ts",
-        "ai/index": "src/lib/ai/index.ts",
+        "ai/index": "src/ai/index.ts",
       },
       output: {
         preserveModules: true,
