@@ -45,7 +45,7 @@ export default defineConfig({
           return undefined;
         },
         entryFileNames: "[name].[format].js",
-        assetFileNames: "ginga-ui[extname]",
+        assetFileNames: "style[extname]",
       },
     },
   },
