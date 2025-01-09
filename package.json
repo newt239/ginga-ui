@@ -56,7 +56,7 @@
       "require": "./dist/ai/index.cjs.js"
     },
     "./variables.css": "./dist/variables.css",
-    "./style.css": "./dist/ginga-ui.css"
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"
