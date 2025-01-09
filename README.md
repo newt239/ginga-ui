@@ -39,7 +39,7 @@ import "ginga-ui/variables.css";
 ### 3. Import components
 
 ```jsx
-import { Button } from "ginga-ui";
+import { Button } from "ginga-ui/core";
 
 const ThemeGenerationButton = () => {
   return <Button>Button</Button>;
@@ -53,7 +53,7 @@ export default ThemeGenerationButton;
 You can generate with your own theme by using `ThemeClient` class.
 
 ```jsx
-import ThemeClient from "ginga-ui";
+import ThemeClient from "ginga-ui/ai";
 
 const themeClient = new ThemeClient({
   clientType: "openai",
@@ -92,7 +92,7 @@ const handleClick = async () => {
 #### Gemini Client
 
 ```jsx
-import ThemeClient from "ginga-ui";
+import ThemeClient from "ginga-ui/ai";
 
 const themeClient = new ThemeClient({
   clientType: "gemini",
