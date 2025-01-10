@@ -1,6 +1,7 @@
 .table {
   width: 100%;
   font-family: var(--font-family);
+  color: var(--color-secondary-9);
   border-collapse: collapse;
   background-color: var(--color-background);
   border: 1px solid var(--color-secondary-2);
