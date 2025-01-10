@@ -13,7 +13,11 @@ import { cn } from "@/lib/utils";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 
-const Accordion = ({ children, className, ...props }: AccordionProps) => {
+const Accordion: React.FC<AccordionProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <DisclosureGroup className={cn(styles.accordion, className)} {...props}>
       {children}
@@ -23,11 +27,11 @@ const Accordion = ({ children, className, ...props }: AccordionProps) => {
 
 export type AccordionItemProps = React.ComponentProps<typeof Disclosure>;
 
-const AccordionItem = ({
+const AccordionItem: React.FC<AccordionItemProps> = ({
   children,
   className,
   ...props
-}: AccordionItemProps) => {
+}) => {
   return (
     <Disclosure className={cn(styles["accordion-item"], className)} {...props}>
       {children}
@@ -37,11 +41,11 @@ const AccordionItem = ({
 
 export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton>;
 
-const AccordionTrigger = ({
+const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   children,
   className,
   ...props
-}: AccordionTriggerProps) => {
+}) => {
   return (
     <AriaButton
       slot="trigger"
@@ -57,11 +61,11 @@ export type AccordionContentProps = React.ComponentProps<
   typeof DisclosurePanel
 >;
 
-const AccordionContent = ({
+const AccordionContent: React.FC<AccordionContentProps> = ({
   children,
   className,
   ...props
-}: AccordionContentProps) => {
+}) => {
   return (
     <DisclosurePanel
       className={cn(styles["accordion-content"], className)}

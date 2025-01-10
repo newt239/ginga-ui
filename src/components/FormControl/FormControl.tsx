@@ -6,20 +6,20 @@ import { Label } from "react-aria-components";
 
 import styles from "./FormControl.module.css";
 
-interface Props {
+export type FormControlProps = React.HTMLAttributes<HTMLDivElement> & {
   title: string;
   htmlFor?: string;
   className?: string;
   children: React.ReactNode;
-}
+};
 
-const FormControl = ({
+const FormControl: React.FC<FormControlProps> = ({
   title,
   htmlFor,
   className,
   children,
   ...props
-}: Props) => {
+}) => {
   const defaultHtmlFor = useId();
   const managedHtmlFor = htmlFor ?? defaultHtmlFor;
   const inputWrapperRef = useRef<HTMLDivElement>(null);

@@ -8,7 +8,7 @@ export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
   level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 };
 
-const Heading = ({ className, level, ...props }: HeadingProps) => {
+const Heading: React.FC<HeadingProps> = ({ className, level, ...props }) => {
   switch (level) {
     case "h1":
       return (
