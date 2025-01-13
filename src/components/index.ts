@@ -1,7 +1,3 @@
-import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog/Dialog";
-import Select from "./Select/Select";
-import Table from "./Table/Table";
-
 import {
   Accordion,
   AccordionContent,
@@ -21,6 +17,12 @@ import {
 import Checkbox from "@/components/Checkbox/Checkbox";
 import CheckboxGroup from "@/components/CheckboxGroup/CheckboxGroup";
 import Container from "@/components/Container/Container";
+import {
+  Dialog,
+  DialogTitle,
+  DialogTrigger,
+  Modal,
+} from "@/components/Dialog/Dialog";
 import Flex from "@/components/Flex/Flex";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
@@ -29,8 +31,10 @@ import Input from "@/components/Input/Input";
 import Paragraph from "@/components/Paragraph/Paragraph";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
+import Select from "@/components/Select/Select";
 import Slider from "@/components/Slider/Slider";
 import Switch from "@/components/Switch/Switch";
+import Table from "@/components/Table/Table";
 import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
 
 export {
