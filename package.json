@@ -1,7 +1,7 @@
 {
   "name": "ginga-ui",
   "private": false,
-  "version": "0.7.9",
+  "version": "0.7.10",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -46,9 +46,9 @@
       "require": "./dist/components/index.cjs.js"
     },
     "./core/*": {
-      "types": "./dist/components/index/*/*.d.ts",
-      "import": "./dist/components/index/*/*.es.js",
-      "require": "./dist/components/index/*/*.cjs.js"
+      "types": "./dist/components/*/*.d.ts",
+      "import": "./dist/components/*/*.es.js",
+      "require": "./dist/components/*/*.cjs.js"
     },
     "./ai": {
       "types": "./dist/ai/index.d.ts",
@@ -56,7 +56,7 @@
       "require": "./dist/ai/index.cjs.js"
     },
     "./variables.css": "./dist/variables.css",
-    "./style.css": "./dist/ginga-ui.css"
+    "./style.css": "./dist/style.css"
   },
   "files": [
     "dist"

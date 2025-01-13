@@ -18,7 +18,12 @@ export type SelectProps = React.ComponentProps<typeof AriaSelect> & {
   label: string;
 };
 
-const Select = ({ children, className, label, ...props }: SelectProps) => {
+const Select: React.FC<SelectProps> = ({
+  children,
+  className,
+  label,
+  ...props
+}) => {
   return (
     <AriaSelect className={cn(styles.select, className)} {...props}>
       <AriaLabel className={cn(styles.label, className)}>{label}</AriaLabel>
@@ -39,7 +44,11 @@ Select.displayName = "Select";
 
 export type ListBoxItemProps = React.ComponentProps<typeof ListBoxItem>;
 
-const SelectItem = ({ children, className, ...props }: ListBoxItemProps) => {
+const SelectItem: React.FC<ListBoxItemProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <ListBoxItem className={cn(styles["select-item"], className)} {...props}>
       {children}

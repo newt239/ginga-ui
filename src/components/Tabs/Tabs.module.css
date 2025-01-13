@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
-  color: var(--color-secondary);
+  color: var(--color-secondary-9);
 
   &[data-orientation="vertical"] {
     flex-direction: row;
@@ -13,9 +13,9 @@
 
     .tab {
       &[data-selected] {
-        color: var(--color-primary-5);
+        color: var(--color-primary-9);
         border: none;
-        border-right: var(--width-border) solid var(--color-primary-5);
+        border-right: var(--width-border) solid var(--color-primary-9);
       }
     }
   }
@@ -24,7 +24,7 @@
 .tab-list {
   display: flex;
   border: none;
-  border-bottom: var(--width-border) solid var(--color-secondary-2);
+  border-bottom: var(--width-border) solid var(--color-secondary-5);
 }
 
 .tab {
@@ -38,13 +38,13 @@
 
   &[data-hovered],
   &[data-focused] {
-    color: var(--color-primary-5);
+    color: var(--color-primary-9);
   }
 
   &[data-selected] {
-    color: var(--color-primary-5);
+    color: var(--color-primary-9);
     border: none;
-    border-bottom: var(--width-border) solid var(--color-primary-5);
+    border-bottom: var(--width-border) solid var(--color-primary-9);
   }
 
   &[data-disabled] {
@@ -57,7 +57,7 @@
     position: absolute;
     inset: 4px;
     content: "";
-    border: var(--width-border) solid var(--color-primary-5);
+    border: var(--width-border) solid var(--color-primary-9);
     border-radius: 4px;
   }
 }
@@ -69,6 +69,6 @@
   outline: none;
 
   &[data-focus-visible] {
-    outline: 2px solid var(--color-primary-5);
+    outline: 2px solid var(--color-primary-9);
   }
 }

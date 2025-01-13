@@ -8,7 +8,11 @@ export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   variant?: "default" | "avatar";
 };
 
-const Image = ({ className, variant = "default", ...props }: ImageProps) => {
+const Image: React.FC<ImageProps> = ({
+  className,
+  variant = "default",
+  ...props
+}) => {
   return (
     <img
       className={cn(styles.image, className)}

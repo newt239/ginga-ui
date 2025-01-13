@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export type InputProps = React.ComponentProps<typeof AriaInput>;
 
-const Input = ({ className, type, ...props }: InputProps) => {
+const Input: React.FC<InputProps> = ({ className, type, ...props }) => {
   return (
     <AriaInput type={type} className={cn(styles.input, className)} {...props} />
   );

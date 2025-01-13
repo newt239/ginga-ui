@@ -13,13 +13,16 @@ import { cn } from "@/lib/utils";
 
 export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 
-const DialogTrigger = ({ children, ...props }: DialogTriggerProps) => {
+const DialogTrigger: React.FC<DialogTriggerProps> = ({
+  children,
+  ...props
+}) => {
   return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
 };
 
 export type ModalProps = React.ComponentProps<typeof AriaModal>;
 
-const Modal = ({ children, className, ...props }: ModalProps) => {
+const Modal: React.FC<ModalProps> = ({ children, className, ...props }) => {
   return (
     <AriaModal className={cn(styles.modal, className)} {...props}>
       {children}
@@ -29,7 +32,7 @@ const Modal = ({ children, className, ...props }: ModalProps) => {
 
 export type DialogProps = React.ComponentProps<typeof AriaDialog>;
 
-const Dialog = ({ children, className, ...props }: DialogProps) => {
+const Dialog: React.FC<DialogProps> = ({ children, className, ...props }) => {
   return (
     <AriaDialog className={cn(styles.dialog, className)} {...props}>
       {children}
@@ -39,7 +42,11 @@ const Dialog = ({ children, className, ...props }: DialogProps) => {
 
 export type DialogTitleProps = React.ComponentProps<typeof AriaHeading>;
 
-const DialogTitle = ({ children, className, ...props }: DialogTitleProps) => {
+const DialogTitle: React.FC<DialogTitleProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <AriaHeading
       slot="title"

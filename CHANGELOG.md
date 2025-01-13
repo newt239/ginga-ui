@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.10
+
+- improve: update Button props
+- fix: CSS file name
+
 ## v0.7.9
 
 - feat: support cjs format

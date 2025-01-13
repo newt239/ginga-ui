@@ -15,7 +15,7 @@ export type FlexProps = React.HTMLAttributes<HTMLDivElement> & {
   basis?: string;
 };
 
-const Flex = ({
+const Flex: React.FC<FlexProps> = ({
   className,
   direction = "row",
   justify = "start",
@@ -26,7 +26,7 @@ const Flex = ({
   shrink = 1,
   basis = "auto",
   ...props
-}: FlexProps) => {
+}) => {
   return (
     <div
       className={cn(styles.flex, className)}

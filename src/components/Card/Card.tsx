@@ -4,45 +4,40 @@ import styles from "./Card.module.css";
 
 import { cn } from "@/lib/utils";
 
-const Card = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+export type CardProps = React.HTMLAttributes<HTMLDivElement>;
+
+const Card: React.FC<CardProps> = ({ className, ...props }) => (
   <div className={cn(styles.card, className)} {...props} />
 );
 
-const CardHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+export type CardHeaderProps = React.HTMLAttributes<HTMLDivElement>;
+
+const CardHeader: React.FC<CardHeaderProps> = ({ className, ...props }) => (
   <div className={cn(styles["card-header"], className)} {...props} />
 );
 
-const CardTitle = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLHeadingElement>) => (
+export type CardTitleProps = React.HTMLAttributes<HTMLDivElement>;
+
+const CardTitle: React.FC<CardTitleProps> = ({ className, ...props }) => (
   <div className={cn(styles["card-title"], className)} {...props} />
 );
 
-const CardDescription = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLParagraphElement>) => (
-  <p className={cn(styles["card-description"], className)} {...props} />
-);
+export type CardDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
-const CardContent = ({
+const CardDescription: React.FC<CardDescriptionProps> = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}) => <p className={cn(styles["card-description"], className)} {...props} />;
+
+export type CardContentProps = React.HTMLAttributes<HTMLDivElement>;
+
+const CardContent: React.FC<CardContentProps> = ({ className, ...props }) => (
   <div className={cn(styles["card-content"], className)} {...props} />
 );
 
-const CardFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+export type CardFooterProps = React.HTMLAttributes<HTMLDivElement>;
+
+const CardFooter: React.FC<CardFooterProps> = ({ className, ...props }) => (
   <div className={cn(styles["card-footer"], className)} {...props} />
 );
 
