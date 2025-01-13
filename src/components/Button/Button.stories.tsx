@@ -11,7 +11,7 @@ const meta: Meta<typeof Button> = {
       control: "select",
       options: ["filled", "light", "outline"],
     },
-    isDisabled: { control: "boolean" },
+    disabled: { control: "boolean" },
     onPress: { action: "pressed" },
   },
 };
@@ -43,6 +43,6 @@ export const Outline: Story = {
 export const Disabled: Story = {
   args: {
     children: "Disabled Button",
-    isDisabled: true,
+    disabled: true,
   },
 };
