@@ -28,6 +28,7 @@ import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
 import Image from "@/components/Image/Image";
 import Input from "@/components/Input/Input";
+import List from "@/components/List/List";
 import Paragraph from "@/components/Paragraph/Paragraph";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
@@ -61,6 +62,7 @@ export {
   Image,
   Input,
   Link,
+  List,
   Modal,
   Paragraph,
   Radio,
