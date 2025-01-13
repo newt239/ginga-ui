@@ -41,11 +41,11 @@ import "ginga-ui/variables.css";
 ```jsx
 import { Button } from "ginga-ui/core";
 
-const ThemeGenerationButton = () => {
+const CustomButton = () => {
   return <Button>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CustomButton;
 ```
 
 ## Theme Generation
@@ -60,15 +60,15 @@ const themeClient = new ThemeClient({
   apiKey: "YOUR_OPENAI_API_KEY",
 });
 
-const handleClick = async () => {
-  await themeClient.generateTheme("the image of you thought");
-};
+const CUstomButton = () => {
+  const handleClick = async () => {
+    await themeClient.generateTheme("the image of you thought");
+  };
 
-const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CUstomButton;
 ```
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
@@ -124,15 +124,15 @@ const themeClient = new ThemeClient({
   apiKey: "YOUR_GEMINI_API_KEY",
 });
 
-const handleClick = async () => {
-  await themeClient.generateTheme("the image of you thought");
-};
+const CustomButton = () => {
+  const handleClick = async () => {
+    await themeClient.generateTheme("the image of you thought");
+  };
 
-const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CustomButton;
 ```
 
 ## Variables
@@ -140,8 +140,8 @@ export default ThemeGenerationButton;
 | Name                 | Description      | Default Value |
 | -------------------- | ---------------- | ------------- |
 | `--color-primary`    | Accent color     | #1677ff       |
-| `--color-secondary`  | Main text color  | #000          |
-| `--color-background` | Background color | #fff          |
+| `--color-secondary`  | Main text color  | #000000       |
+| `--color-background` | Background color | #ffffff       |
 | `--width-border`     | Border width     | 2px           |
 | `--size-radius`      | Border radius    | 1rem          |
 | `--font-family`      | Font family      | sans-serif    |
