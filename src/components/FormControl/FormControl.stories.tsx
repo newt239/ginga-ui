@@ -61,7 +61,7 @@ export const withGeminiTheme: Story = {
             onChange={(e) => setValue(e.target.value)}
           />
         </FormControl>
-        <Button variant="filled" isDisabled={false} onPress={onClick}>
+        <Button variant="filled" disabled={false} onPress={onClick}>
           Generate
           {isGenerating && "..."}
         </Button>
@@ -98,7 +98,7 @@ export const withOpenAITheme: Story = {
             onChange={(e) => setValue(e.target.value)}
           />
         </FormControl>
-        <Button variant="filled" isDisabled={false} onPress={onClick}>
+        <Button variant="filled" disabled={false} onPress={onClick}>
           Generate
           {isGenerating && "..."}
         </Button>
