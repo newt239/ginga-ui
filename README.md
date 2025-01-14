@@ -73,6 +73,9 @@ export default CUstomButton;
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
 
+> [!CAUTION]
+> This is extremely dangerous because it allows users to access the API key. Use this option only when you are developing locally.
+
 ```jsx
 const themeClient = new ThemeClient({
   clientType: "openai",
@@ -145,3 +148,30 @@ export default CustomButton;
 | `--width-border`     | Border width     | 2px           |
 | `--size-radius`      | Border radius    | 1rem          |
 | `--font-family`      | Font family      | sans-serif    |
+
+## Components
+
+Usage of components can be found in the [Storybook](https://6756fb8efde357469ac062e5-tlboxkojjq.chromatic.com/).
+
+- Accordion
+- Button
+- Card
+- Checkbox
+- Container
+- Dialog
+- Flex
+- FormControl
+- Heading
+- Image
+- Input
+- Link
+- List
+- Modal
+- Paragraph
+- Radio
+- Select
+- Slider
+- Switch
+- Tab
+- Table
+- tab
