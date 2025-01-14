@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.7.11
+
+- feat: add new component: Box
+- remove: remove components: Container, Flex
+
 ## v0.7.10
 
 - improve: update Button props
