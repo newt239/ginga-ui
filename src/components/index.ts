@@ -1,7 +1,3 @@
-import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog/Dialog";
-import Select from "./Select/Select";
-import Table from "./Table/Table";
-
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/Accordion/Accordion";
 import Link from "@/components/Anchor/Anchor";
+import Box from "@/components/Box/Box";
 import Button from "@/components/Button/Button";
 import {
   Card,
@@ -20,17 +17,24 @@ import {
 } from "@/components/Card/Card";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import CheckboxGroup from "@/components/CheckboxGroup/CheckboxGroup";
-import Container from "@/components/Container/Container";
-import Flex from "@/components/Flex/Flex";
+import {
+  Dialog,
+  DialogTitle,
+  DialogTrigger,
+  Modal,
+} from "@/components/Dialog/Dialog";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
 import Image from "@/components/Image/Image";
 import Input from "@/components/Input/Input";
+import List from "@/components/List/List";
 import Paragraph from "@/components/Paragraph/Paragraph";
 import Radio from "@/components/Radio/Radio";
 import RadioGroup from "@/components/RadioGroup/RadioGroup";
+import Select from "@/components/Select/Select";
 import Slider from "@/components/Slider/Slider";
 import Switch from "@/components/Switch/Switch";
+import Table from "@/components/Table/Table";
 import { Tab, TabList, TabPanel, Tabs } from "@/components/Tabs/Tabs";
 
 export {
@@ -38,6 +42,7 @@ export {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Box,
   Button,
   Card,
   CardContent,
@@ -47,16 +52,15 @@ export {
   CardTitle,
   Checkbox,
   CheckboxGroup,
-  Container,
   Dialog,
   DialogTitle,
   DialogTrigger,
-  Flex,
   FormControl,
   Heading,
   Image,
   Input,
   Link,
+  List,
   Modal,
   Paragraph,
   Radio,

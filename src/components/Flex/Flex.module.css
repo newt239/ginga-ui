@@ -1,8 +1,0 @@
-.flex {
-  display: flex;
-  flex: attr(data-grow, 0) attr(data-shrink, 1) attr(data-basis, auto);
-  flex-flow: attr(data-direction, row) attr(data-wrap, nowrap);
-  gap: attr(data-gap, 0);
-  align-items: attr(data-align, stretch);
-  justify-content: attr(data-justify, flex-start);
-}

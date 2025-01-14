@@ -41,11 +41,11 @@ import "ginga-ui/variables.css";
 ```jsx
 import { Button } from "ginga-ui/core";
 
-const ThemeGenerationButton = () => {
+const CustomButton = () => {
   return <Button>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CustomButton;
 ```
 
 ## Theme Generation
@@ -60,18 +60,21 @@ const themeClient = new ThemeClient({
   apiKey: "YOUR_OPENAI_API_KEY",
 });
 
-const handleClick = async () => {
-  await themeClient.generateTheme("the image of you thought");
-};
+const CUstomButton = () => {
+  const handleClick = async () => {
+    await themeClient.generateTheme("the image of you thought");
+  };
 
-const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CUstomButton;
 ```
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
+
+> [!CAUTION]
+> This is extremely dangerous because it allows users to access the API key. Use this option only when you are developing locally.
 
 ```jsx
 const themeClient = new ThemeClient({
@@ -124,15 +127,15 @@ const themeClient = new ThemeClient({
   apiKey: "YOUR_GEMINI_API_KEY",
 });
 
-const handleClick = async () => {
-  await themeClient.generateTheme("the image of you thought");
-};
+const CustomButton = () => {
+  const handleClick = async () => {
+    await themeClient.generateTheme("the image of you thought");
+  };
 
-const ThemeGenerationButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
 };
 
-export default ThemeGenerationButton;
+export default CustomButton;
 ```
 
 ## Variables
@@ -140,8 +143,34 @@ export default ThemeGenerationButton;
 | Name                 | Description      | Default Value |
 | -------------------- | ---------------- | ------------- |
 | `--color-primary`    | Accent color     | #1677ff       |
-| `--color-secondary`  | Main text color  | #000          |
-| `--color-background` | Background color | #fff          |
+| `--color-secondary`  | Main text color  | #000000       |
+| `--color-background` | Background color | #ffffff       |
 | `--width-border`     | Border width     | 2px           |
 | `--size-radius`      | Border radius    | 1rem          |
 | `--font-family`      | Font family      | sans-serif    |
+
+## Components
+
+Usage of components can be found in the [Storybook](https://6756fb8efde357469ac062e5-tlboxkojjq.chromatic.com/).
+
+- Accordion
+- Box
+- Button
+- Card
+- Checkbox
+- Dialog
+- FormControl
+- Heading
+- Image
+- Input
+- Link
+- List
+- Modal
+- Paragraph
+- Radio
+- Select
+- Slider
+- Switch
+- Tab
+- Table
+- tab
