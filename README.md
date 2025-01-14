@@ -154,12 +154,11 @@ export default CustomButton;
 Usage of components can be found in the [Storybook](https://6756fb8efde357469ac062e5-tlboxkojjq.chromatic.com/).
 
 - Accordion
+- Box
 - Button
 - Card
 - Checkbox
-- Container
 - Dialog
-- Flex
 - FormControl
 - Heading
 - Image

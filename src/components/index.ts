@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/Accordion/Accordion";
 import Link from "@/components/Anchor/Anchor";
+import Box from "@/components/Box/Box";
 import Button from "@/components/Button/Button";
 import {
   Card,
@@ -16,14 +17,12 @@ import {
 } from "@/components/Card/Card";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import CheckboxGroup from "@/components/CheckboxGroup/CheckboxGroup";
-import Container from "@/components/Container/Container";
 import {
   Dialog,
   DialogTitle,
   DialogTrigger,
   Modal,
 } from "@/components/Dialog/Dialog";
-import Flex from "@/components/Flex/Flex";
 import FormControl from "@/components/FormControl/FormControl";
 import Heading from "@/components/Heading/Heading";
 import Image from "@/components/Image/Image";
@@ -43,6 +42,7 @@ export {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  Box,
   Button,
   Card,
   CardContent,
@@ -52,11 +52,9 @@ export {
   CardTitle,
   Checkbox,
   CheckboxGroup,
-  Container,
   Dialog,
   DialogTitle,
   DialogTrigger,
-  Flex,
   FormControl,
   Heading,
   Image,
