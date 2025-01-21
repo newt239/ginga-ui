@@ -42,8 +42,8 @@ class ThemeClient {
         if (result.type === "error") {
           throw new Error(result.message);
         }
-        console.log(result.value);
         const variables = v.parse(Variables, JSON.parse(result.value));
+        console.log(JSON.parse(result.value));
         const isPrimaryColorValid =
           chroma.contrast(
             variables["--color-background"],
