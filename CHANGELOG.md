@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.8.0
+
+- docs: add MIT license
+- fix: Heading and Paragraph components color
+
 ## v0.7.11
 
 - feat: add new component: Box
