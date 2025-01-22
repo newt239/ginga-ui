@@ -4,6 +4,8 @@
 
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
+> **Ginga** (/ɡiɴɡa/) is a Japanese word meaning "galaxy".
+
 ## Recommended Environment
 
 ### Frameworks
@@ -60,7 +62,7 @@ const themeClient = new ThemeClient({
   apiKey: "YOUR_OPENAI_API_KEY",
 });
 
-const CUstomButton = () => {
+const CustomButton = () => {
   const handleClick = async () => {
     await themeClient.generateTheme("the image of you thought");
   };
@@ -68,7 +70,7 @@ const CUstomButton = () => {
   return <Button onClick={handleClick}>Button</Button>;
 };
 
-export default CUstomButton;
+export default CustomButton;
 ```
 
 If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
@@ -173,4 +175,3 @@ Usage of components can be found in the [Storybook](https://6756fb8efde357469ac0
 - Switch
 - Tab
 - Table
-- tab
