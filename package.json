@@ -88,7 +88,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "prettier": "^3.4.2",
-    "storybook": "^8.4.7",
+    "storybook": "^8.5.1",
     "stylelint": "^16.12.0",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard": "^36.0.1",
