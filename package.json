@@ -94,7 +94,7 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.19.1",
-    "vite": "^6.0.7",
+    "vite": "^6.0.11",
     "vite-plugin-dts": "^4.4.0"
   },
   "peerDependencies": {
