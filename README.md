@@ -1,6 +1,10 @@
 # Ginga UI
 
 ![version](https://img.shields.io/github/package-json/v/newt239/ginga-ui?style=flat)
+[![npm version](https://badge.fury.io/js/ginga-ui.svg?icon=si%3Anpm)](https://badge.fury.io/js/ginga-ui)
+![GitHub License](https://img.shields.io/github/license/newt239/ginga-ui)
+[![Lint Code Base](https://github.com/newt239/ginga-ui/actions/workflows/lint.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/lint.yaml)
+[![Publish Package to npmjs](https://github.com/newt239/ginga-ui/actions/workflows/publish.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/publish.yaml)
 
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
