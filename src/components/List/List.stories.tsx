@@ -47,7 +47,6 @@ export const OrderedList: Story = {
 export const WithCustomClassName: Story = {
   args: {
     type: "unordered",
-    className: "custom-list-class",
     children: [
       <ListItem className="custom-item-class">Item with custom class</ListItem>,
       <ListItem className="custom-item-class">

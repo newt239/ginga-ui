@@ -4,7 +4,8 @@ import { Button as AriaButton } from "react-aria-components";
 
 import styles from "./Button.module.css";
 
-import { OmitStrict } from "@/lib/types";
+import type { OmitStrict } from "@/lib/types";
+
 import { cn } from "@/lib/utils";
 
 export type ButtonProps = OmitStrict<

@@ -7,16 +7,10 @@ import styles from "./Checkbox.module.css";
 import { cn } from "@/lib/utils";
 
 export type CheckboxProps = React.ComponentProps<typeof AriaCheckbox> & {
-  label: string;
-  hideLabel?: boolean;
+  label?: string;
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  hideLabel = false,
-  className,
-  ...props
-}) => {
+const Checkbox: React.FC<CheckboxProps> = ({ label, className, ...props }) => {
   return (
     <AriaCheckbox
       className={cn(styles.checkbox, className)}
@@ -28,7 +22,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
           <polyline points="1 9 7 14 15 4" />
         </svg>
       </div>
-      {!hideLabel && label}
+      {label}
     </AriaCheckbox>
   );
 };

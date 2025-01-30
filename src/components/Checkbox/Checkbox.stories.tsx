@@ -46,9 +46,7 @@ export const DisabledSelected: Story = {
 };
 
 export const WithoutLabel: Story = {
-  args: {
-    label: "",
-  },
+  args: {},
 };
 
 // TODO: must specify the value prop for each Checkbox
