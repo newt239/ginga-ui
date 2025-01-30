@@ -113,7 +113,7 @@ export default async function Home() {
   return (
     <div>
       <style>{CSSCode}</style>
-      <Button>aaas</Button>
+      <Button>Button</Button>
     </div>
   );
 }
