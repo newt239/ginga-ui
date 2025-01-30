@@ -13,7 +13,7 @@ export type ButtonProps = OmitStrict<
   "isDisabled"
 > & {
   disabled?: boolean;
-  variant?: "filled" | "light" | "outline";
+  variant?: "filled" | "light" | "outline" | "reverse";
 };
 
 const Button: React.FC<ButtonProps> = ({

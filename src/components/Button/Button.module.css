@@ -65,4 +65,17 @@
       background-color: var(--color-primary-2);
     }
   }
+
+  &[data-variant="reverse"] {
+    color: var(--color-primary-9);
+    background-color: var(--color-background);
+
+    &[data-hovered] {
+      background-color: var(--color-primary-0);
+    }
+
+    &[data-pressed] {
+      background-color: var(--color-primary-1);
+    }
+  }
 }
