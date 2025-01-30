@@ -9,8 +9,8 @@ const meta: Meta<typeof Checkbox> = {
   component: Checkbox,
   tags: ["autodocs"],
   argTypes: {
-    isDisabled: { control: "boolean" },
-    isSelected: { control: "boolean" },
+    disabled: { control: "boolean" },
+    selected: { control: "boolean" },
   },
 };
 
@@ -26,29 +26,27 @@ export const Default: Story = {
 export const Selected: Story = {
   args: {
     label: "Selected Checkbox",
-    isSelected: true,
+    selected: true,
   },
 };
 
 export const Disabled: Story = {
   args: {
     label: "Disabled Checkbox",
-    isDisabled: true,
+    disabled: true,
   },
 };
 
 export const DisabledSelected: Story = {
   args: {
     label: "Disabled Selected Checkbox",
-    isDisabled: true,
-    isSelected: true,
+    disabled: true,
+    selected: true,
   },
 };
 
 export const WithoutLabel: Story = {
-  args: {
-    label: "",
-  },
+  args: {},
 };
 
 // TODO: must specify the value prop for each Checkbox

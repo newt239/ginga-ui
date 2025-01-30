@@ -12,20 +12,34 @@ import {
 
 import styles from "./Select.module.css";
 
+import type { OmitStrict } from "@/lib/types";
+
 import { cn } from "@/lib/utils";
 
-export type SelectProps = React.ComponentProps<typeof AriaSelect> & {
+export type SelectProps = OmitStrict<
+  React.ComponentProps<typeof AriaSelect>,
+  "isDisabled" | "isRequired"
+> & {
   label: string;
+  disabled?: boolean;
+  required?: boolean;
 };
 
 const Select: React.FC<SelectProps> = ({
   children,
   className,
   label,
+  disabled,
+  required,
   ...props
 }) => {
   return (
-    <AriaSelect className={cn(styles.select, className)} {...props}>
+    <AriaSelect
+      isDisabled={disabled}
+      isRequired={required}
+      className={cn(styles.select, className)}
+      {...props}
+    >
       <AriaLabel className={cn(styles.label, className)}>{label}</AriaLabel>
       <Button className={cn(styles["select-button"], className)}>
         <SelectValue />

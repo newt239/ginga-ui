@@ -9,7 +9,7 @@ const meta: Meta<typeof Radio> = {
   component: Radio,
   tags: ["autodocs"],
   argTypes: {
-    isDisabled: { control: "boolean" },
+    disabled: { control: "boolean" },
   },
 };
 
@@ -27,7 +27,7 @@ export const Default: Story = {
 export const DisabledRadio: Story = {
   render: () => (
     <RadioGroup>
-      <Radio value="one" isDisabled>
+      <Radio value="one" disabled>
         Disabled Option
       </Radio>
     </RadioGroup>
@@ -48,7 +48,7 @@ export const RadioGroupWithDisabledOption: Story = {
   render: () => (
     <RadioGroup>
       <Radio value="option1">Option 1</Radio>
-      <Radio value="option2" isDisabled>
+      <Radio value="option2" disabled>
         Option 2 (Disabled)
       </Radio>
       <Radio value="option3">Option 3</Radio>

@@ -66,7 +66,7 @@ export const WithDescriptions: Story = {
 // 無効化されたセレクト
 export const Disabled: Story = {
   render: () => (
-    <Select isDisabled defaultSelectedKey="cat" label="Favorite Animal">
+    <Select disabled defaultSelectedKey="cat" label="Favorite Animal">
       <ListBoxItem id="cat">Cat</ListBoxItem>
       <ListBoxItem id="dog">Dog</ListBoxItem>
       <ListBoxItem id="bird">Bird</ListBoxItem>
