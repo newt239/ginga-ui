@@ -9,6 +9,8 @@ import {
 
 import styles from "./Tabs.module.css";
 
+import type { OmitStrict } from "@/lib/types";
+
 import { cn } from "@/lib/utils";
 
 export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
@@ -32,11 +34,25 @@ const Tabs: React.FC<TabsProps> = ({
   );
 };
 
-export type TabProps = React.ComponentProps<typeof AriaTab>;
+export type TabProps = OmitStrict<
+  React.ComponentProps<typeof AriaTab>,
+  "isDisabled"
+> & {
+  disabled?: boolean;
+};
 
-const Tab: React.FC<TabProps> = ({ children, className, ...props }) => {
+const Tab: React.FC<TabProps> = ({
+  children,
+  disabled,
+  className,
+  ...props
+}) => {
   return (
-    <AriaTab className={cn(styles.tab, className)} {...props}>
+    <AriaTab
+      isDisabled={disabled}
+      className={cn(styles.tab, className)}
+      {...props}
+    >
       {children}
     </AriaTab>
   );

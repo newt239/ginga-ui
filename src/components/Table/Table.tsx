@@ -95,8 +95,7 @@ const Table = <T extends object>({
           {selectionMode !== "none" && (
             <AriaColumn className={styles.column}>
               <Checkbox
-                label="Select all rows"
-                hideLabel
+                aria-label="Select all rows"
                 isSelected={selectedRows.size === data.length}
                 slot="selection"
                 isIndeterminate={
@@ -127,8 +126,7 @@ const Table = <T extends object>({
             {selectionMode !== "none" && (
               <AriaCell className={styles.cell}>
                 <Checkbox
-                  label={`Select row ${rowIndex + 1}`}
-                  hideLabel
+                  aria-label={`Select row ${rowIndex + 1}`}
                   isSelected={selectedRows.has(rowIndex)}
                   slot="selection"
                   onChange={() => handleSelectionChange(rowIndex)}

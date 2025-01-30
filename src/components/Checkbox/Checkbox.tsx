@@ -15,7 +15,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ label, className, ...props }) => {
     <AriaCheckbox
       className={cn(styles.checkbox, className)}
       {...props}
-      aria-label={label}
+      aria-label={label || props["aria-label"]}
     >
       <div className={styles["checkbox-input"]}>
         <svg viewBox="0 0 18 18" aria-hidden="true">
