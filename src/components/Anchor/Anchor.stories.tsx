@@ -12,7 +12,7 @@ const meta: Meta<typeof Anchor> = {
       control: "select",
       options: ["_self", "_blank", "_parent", "_top"],
     },
-    isDisabled: { control: "boolean" },
+    disabled: { control: "boolean" },
   },
 };
 
@@ -38,6 +38,6 @@ export const DisabledAnchor: Story = {
   args: {
     children: "Disabled Link",
     href: "https://example.com",
-    isDisabled: true,
+    disabled: true,
   },
 };
