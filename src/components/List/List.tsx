@@ -9,14 +9,7 @@ export interface ListProps
   type?: "ordered" | "unordered";
 }
 
-export type ListItemProps = React.HTMLAttributes<HTMLLIElement>;
-
-const ListItem: React.FC<ListItemProps> = ({ className, ...props }) => {
-  return <li className={cn(styles.listItem, className)} {...props} />;
-};
-ListItem.displayName = "ListItem";
-
-const List: React.FC<ListProps> & { Item: React.FC<ListItemProps> } = ({
+const List: React.FC<ListProps> = ({
   type = "unordered",
   className,
   ...props
@@ -34,8 +27,12 @@ const List: React.FC<ListProps> & { Item: React.FC<ListItemProps> } = ({
     />
   );
 };
-List.displayName = "List";
 
-List.Item = ListItem;
+export type ListItemProps = React.HTMLAttributes<HTMLLIElement>;
 
-export default List;
+const ListItem: React.FC<ListItemProps> = ({ className, ...props }) => {
+  return <li className={cn(styles.listItem, className)} {...props} />;
+};
+ListItem.displayName = "ListItem";
+
+export { List, ListItem };
