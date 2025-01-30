@@ -72,7 +72,7 @@ export const DisabledTab: Story = {
         <Tab id="mercury">Mercury</Tab>
         <Tab id="venus">Venus</Tab>
         <Tab id="earth">Earth</Tab>
-        <Tab id="mars" isDisabled>
+        <Tab id="mars" disabled>
           Mars
         </Tab>
       </TabList>

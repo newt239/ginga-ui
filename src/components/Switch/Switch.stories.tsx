@@ -36,7 +36,7 @@ export const Default: Story = {
 export const DefaultChecked: Story = {
   args: {
     children: "通知を許可",
-    isSelected: true,
+    selected: true,
   },
   parameters: {
     docs: {
@@ -50,7 +50,7 @@ export const DefaultChecked: Story = {
 export const Disabled: Story = {
   args: {
     children: "通知を許可",
-    isDisabled: true,
+    disabled: true,
   },
   parameters: {
     docs: {
