@@ -43,7 +43,6 @@ class ThemeClient {
           throw new Error(result.message);
         }
         const variables = v.parse(Variables, JSON.parse(result.value));
-        console.log(JSON.parse(result.value));
         const isPrimaryColorValid =
           chroma.contrast(
             variables["--color-background"],
@@ -64,8 +63,6 @@ class ThemeClient {
         }
 
         if (i === this.maxRetries - 1) {
-          console.log("Max retries reached, forcing contrast...");
-
           const enforcedPrimaryColor = this.enforceContrast(
             variables["--color-background"],
             variables["--color-primary"]
