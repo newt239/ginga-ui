@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.8.1
+
+- feat: add `reverse` variant option to the Button component
+- imporve: export ListItem component
+- improive: use generic prop name related `isDisabled`, `isSelected`, `isRequired`, and so on
+- fix: use p tag on Paragraph component
+
 ## v0.8.0
 
 - docs: add MIT license
