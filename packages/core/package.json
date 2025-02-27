@@ -62,7 +62,8 @@
   ],
   "sideEffects": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "homepage": "https://github.com/newt239/ginga-ui#readme",
   "tsup": {

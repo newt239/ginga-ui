@@ -3,7 +3,7 @@ name: chromatic
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   chromatic-deployment:
