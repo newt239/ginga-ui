@@ -1,32 +1,11 @@
 {
   "name": "@ginga-ui/stories",
-  "private": false,
+  "private": true,
   "version": "0.8.1",
   "type": "module",
-  "description": "brand-new UI component library for web",
-  "keywords": [
-    "react",
-    "ui",
-    "component",
-    "library"
-  ],
-  "author": {
-    "name": "newt239",
-    "email": "ysti2019.win2020.st@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/newt239/ginga-ui.git"
-  },
-  "bugs": {
-    "url": "https://github.com/newt239/ginga-ui/issues"
-  },
-  "workspaces": [],
   "main": "src/index.ts",
   "scripts": {
     "dev": "pnpm build:fast -- --watch",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
     "lint": "eslint --fix ./src/**/*.{ts,tsx}",
     "stylelint": "stylelint \"./src/**/*.css\" --fix",
     "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
@@ -42,25 +21,5 @@
   },
   "peerDependencies": {
     "react": ">=18"
-  },
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "banner": {
-      "js": "\"use client\""
-    },
-    "sourcemap": true
   }
 }
