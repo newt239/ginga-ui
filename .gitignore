@@ -33,3 +33,5 @@ vite.config.d.ts
 
 # Storybook
 storybook-static/
+
+*.tgz
