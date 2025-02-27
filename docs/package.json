@@ -1,6 +1,6 @@
 {
   "name": "@ginga-ui/docs",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "dependencies": {
     "@ginga-ui/core": "workspace:*"
   }
