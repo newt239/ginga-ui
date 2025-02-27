@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.9.5
+
+### Patch Changes
+
+- f762b56: fix: publish config
+
 ## 0.9.4
 
 ### Patch Changes

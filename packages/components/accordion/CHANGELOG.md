@@ -1,5 +1,13 @@
 # @ginga-ui/accordion
 
+## 0.9.5
+
+### Patch Changes
+
+- f762b56: fix: publish config
+- Updated dependencies [f762b56]
+  - @ginga-ui/utils@0.9.5
+
 ## 0.9.4
 
 ### Patch Changes

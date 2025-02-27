@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.5
+
+### Patch Changes
+
+- f762b56: fix: publish config
+- Updated dependencies [f762b56]
+  - @ginga-ui/form-control@0.9.5
+  - @ginga-ui/accordion@0.9.5
+  - @ginga-ui/paragraph@0.9.5
+  - @ginga-ui/checkbox@0.9.5
+  - @ginga-ui/heading@0.9.5
+  - @ginga-ui/anchor@0.9.5
+  - @ginga-ui/button@0.9.5
+  - @ginga-ui/dialog@0.9.5
+  - @ginga-ui/select@0.9.5
+  - @ginga-ui/slider@0.9.5
+  - @ginga-ui/switch@0.9.5
+  - @ginga-ui/image@0.9.5
+  - @ginga-ui/input@0.9.5
+  - @ginga-ui/radio@0.9.5
+  - @ginga-ui/table@0.9.5
+  - @ginga-ui/card@0.9.5
+  - @ginga-ui/list@0.9.5
+  - @ginga-ui/box@0.9.5
+  - @ginga-ui/tab@0.9.5
+  - @ginga-ui/utils@0.9.5
+
 ## 0.9.4
 
 ### Patch Changes
