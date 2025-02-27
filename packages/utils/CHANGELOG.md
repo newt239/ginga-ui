@@ -1,12 +1,12 @@
 # @ginga-ui/utils
 
-## 0.9.3
+## 0.9.2
 
 ### Patch Changes
 
 - 96cb780: remove group components
 
-## 0.10.0
+## 0.9.1
 
 ### Minor Changes
 

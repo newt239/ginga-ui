@@ -1,7 +1,7 @@
 {
   "name": "@ginga-ui/table",
   "private": false,
-  "version": "0.9.3",
+  "version": "0.9.2",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -44,8 +44,7 @@
   ],
   "sideEffects": false,
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   },
   "homepage": "https://github.com/newt239/ginga-ui#readme",
   "tsup": {
