@@ -21,6 +21,7 @@
   "bugs": {
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
+  "workspaces": [],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
