@@ -1,6 +1,6 @@
 {
   "name": "ginga-ui",
-  "private": false,
+  "private": true,
   "version": "0.9.2",
   "type": "module",
   "description": "brand-new UI component library for web",
@@ -21,6 +21,7 @@
   "bugs": {
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
+  "homepage": "https://github.com/newt239/ginga-ui#readme",
   "packageManager": "pnpm@10.5.2",
   "scripts": {
     "changeset-version": "changeset version",
@@ -82,10 +83,5 @@
       "react": "^18.0.0",
       "react-dom": "^18.0.0"
     }
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  },
-  "homepage": "https://github.com/newt239/ginga-ui#readme"
+  }
 }
