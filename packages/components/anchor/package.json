@@ -21,7 +21,6 @@
   "bugs": {
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
-  "main": "src/index.ts",
   "scripts": {
     "dev": "pnpm build:fast -- --watch",
     "build": "tsup",
@@ -41,6 +40,17 @@
   "files": [
     "dist"
   ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "sideEffects": false,
   "publishConfig": {
     "access": "public",
