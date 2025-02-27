@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
+
 import styles from "./List.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export interface ListProps
   extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {

@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
+
 import styles from "./Image.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   variant?: "default" | "avatar";

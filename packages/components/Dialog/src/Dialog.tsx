@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import {
   Dialog as AriaDialog,
   DialogTrigger as AriaDialogTrigger,
@@ -9,7 +10,6 @@ import {
 
 import styles from "./Dialog.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import {
   Slider as AriaSlider,
   SliderOutput as AriaSliderOutput,
@@ -9,7 +10,6 @@ import {
 
 import styles from "./Slider.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
   React.ComponentProps<typeof AriaSlider>;

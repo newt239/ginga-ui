@@ -1,10 +1,10 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import { Input as AriaInput } from "react-aria-components";
 
 import styles from "./Input.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type InputProps = React.ComponentProps<typeof AriaInput>;
 

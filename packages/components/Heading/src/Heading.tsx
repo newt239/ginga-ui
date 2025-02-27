@@ -1,8 +1,9 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
+
 import styles from "./Heading.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
   level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";

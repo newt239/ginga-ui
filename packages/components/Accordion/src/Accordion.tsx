@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import {
   Button as AriaButton,
   Disclosure,
@@ -9,7 +10,6 @@ import {
 
 import styles from "./Accordion.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 

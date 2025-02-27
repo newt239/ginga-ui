@@ -1,12 +1,12 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import { Switch as AriaSwitch } from "react-aria-components";
 
 import styles from "./Switch.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-import { cn } from "@ginga-ui/utils";
 
 export type SwitchProps = OmitStrict<
   React.ComponentProps<typeof AriaSwitch>,

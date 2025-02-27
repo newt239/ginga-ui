@@ -1,6 +1,7 @@
+import { cn } from "@ginga-ui/utils";
+
 import styles from "./Box.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type BoxProps = React.HTMLAttributes<HTMLDivElement>;
 

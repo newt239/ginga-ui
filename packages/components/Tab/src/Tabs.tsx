@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import {
   Tab as AriaTab,
   TabList as AriaTabList,
@@ -11,7 +12,6 @@ import styles from "./Tabs.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-import { cn } from "@ginga-ui/utils";
 
 export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
   orientation?: "horizontal" | "vertical";

@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import {
   Label as AriaLabel,
   Select as AriaSelect,
@@ -14,7 +15,6 @@ import styles from "./Select.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-import { cn } from "@ginga-ui/utils";
 
 export type SelectProps = OmitStrict<
   React.ComponentProps<typeof AriaSelect>,

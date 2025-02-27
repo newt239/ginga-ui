@@ -8,7 +8,7 @@ import { cn } from "@ginga-ui/utils";
 
 export type ButtonGroupProps = React.ComponentProps<typeof Group>;
 
-export const const ButtonGroup: React.FC<ButtonGroupProps> = ({
+export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   children,
   className,
   ...props

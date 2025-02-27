@@ -1,10 +1,10 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
 import styles from "./CheckboxGroup.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export type CheckboxGroupProps = React.ComponentProps<typeof AriaCheckboxGroup>;
 

@@ -27,9 +27,9 @@
     "dev": "pnpm build:fast -- --watch",
     "build": "tsup src --dts",
     "build:fast": "tsup src",
-    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
-    "stylelint": "stylelint \"./src/**/*.css\" --fix",
-    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "lint": "eslint --fix ./**/*.{ts,tsx}",
+    "stylelint": "stylelint \"./**/*.css\" --fix",
+    "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "tsup": "^8.4.0",
+    "@eslint/js": "^9.21.0",
     "@eslint/eslintrc": "^3.2.0",
     "@storybook/addon-essentials": "^8.5.1",
     "@storybook/addon-links": "^8.5.1",
@@ -69,7 +70,7 @@
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.1",
+    "typescript-eslint": "^8.19.1"
   },
   "pnpm": {
     "overrides": {

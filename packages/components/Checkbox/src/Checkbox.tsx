@@ -1,12 +1,12 @@
 "use client";
 
+import { cn } from "@ginga-ui/utils";
 import { Checkbox as AriaCheckbox } from "react-aria-components";
 
 import styles from "./Checkbox.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-import { cn } from "@ginga-ui/utils";
 
 export type CheckboxProps = OmitStrict<
   React.ComponentProps<typeof AriaCheckbox>,

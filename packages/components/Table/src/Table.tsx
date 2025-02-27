@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { Checkbox } from "@ginga-ui/checkbox";
+import { cn } from "@ginga-ui/utils";
 import {
   Cell as AriaCell,
   Column as AriaColumn,
@@ -11,11 +13,9 @@ import {
   TableHeader as AriaTableHeader,
 } from "react-aria-components";
 
-import { Checkbox } from "@ginga-ui/checkbox";
 
 import styles from "./Table.module.css";
 
-import { cn } from "@ginga-ui/utils";
 
 export interface TableColumn<T> {
   key: string;
