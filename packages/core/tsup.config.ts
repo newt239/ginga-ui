@@ -1,7 +1,7 @@
-import cssModulesPlugin from "esbuild-css-modules-plugin";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
+  entry: ["src/index.ts"],
   clean: true,
   target: "es2019",
   format: ["cjs", "esm"],
@@ -10,5 +10,4 @@ export default defineConfig({
   },
   sourcemap: true,
   dts: true,
-  esbuildPlugins: [cssModulesPlugin()],
 });

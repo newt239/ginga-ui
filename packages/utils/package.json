@@ -24,8 +24,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "pnpm build:fast -- --watch",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src"
+    "build": "tsup",
+    "build:fast": "tsup"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
