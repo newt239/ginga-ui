@@ -1,13 +1,12 @@
-import { Button } from "@ginga-ui/core";
-
 import {
+  Button,
   Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../packages/components/Card/src/Card";
+} from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

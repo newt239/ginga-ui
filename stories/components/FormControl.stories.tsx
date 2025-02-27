@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Button, FormControl, Input, ThemeClient } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import process from "process";
 
 const meta: Meta<typeof FormControl> = {
   title: "Forms/FormControl",
