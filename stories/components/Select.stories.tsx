@@ -1,6 +1,5 @@
-import { ListBoxItem } from "react-aria-components";
-
 import { Select } from "@ginga-ui/core";
+import { ListBoxItem } from "react-aria-components";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
