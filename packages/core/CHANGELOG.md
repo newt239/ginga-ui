@@ -2,6 +2,33 @@
 
 ## 0.9.2
 
+### Patch Changes
+
+- 96cb780: remove group components
+- Updated dependencies [96cb780]
+  - @ginga-ui/form-control@0.9.3
+  - @ginga-ui/accordion@0.9.3
+  - @ginga-ui/paragraph@0.9.3
+  - @ginga-ui/checkbox@0.9.3
+  - @ginga-ui/heading@0.9.3
+  - @ginga-ui/anchor@0.9.3
+  - @ginga-ui/button@0.9.3
+  - @ginga-ui/dialog@0.9.3
+  - @ginga-ui/select@0.9.3
+  - @ginga-ui/slider@0.9.3
+  - @ginga-ui/switch@0.9.3
+  - @ginga-ui/image@0.9.3
+  - @ginga-ui/input@0.9.3
+  - @ginga-ui/radio@0.9.3
+  - @ginga-ui/table@0.9.3
+  - @ginga-ui/card@0.9.3
+  - @ginga-ui/list@0.9.3
+  - @ginga-ui/box@0.9.3
+  - @ginga-ui/tab@0.9.3
+  - @ginga-ui/utils@0.9.3
+
+## 0.9.1
+
 ### Minor Changes
 
 - 1235000: change: Introducing monorepo and splitting the package
