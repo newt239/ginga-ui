@@ -1,5 +1,13 @@
 # @ginga-ui/tab
 
+## 0.9.6
+
+### Patch Changes
+
+- 58e00e3: fix: export dist fir
+- Updated dependencies [58e00e3]
+  - @ginga-ui/utils@0.9.6
+
 ## 0.9.5
 
 ### Patch Changes
