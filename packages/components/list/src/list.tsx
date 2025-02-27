@@ -2,7 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 
-import styles from "./List.module.css";
+import styles from "./list.module.css";
 
 export interface ListProps
   extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {

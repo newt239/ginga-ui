@@ -3,7 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import { RadioGroup as AriaRadioGroup } from "react-aria-components";
 
-import styles from "./RadioGroup.module.css";
+import styles from "./radio-group.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 

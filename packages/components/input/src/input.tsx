@@ -3,7 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import { Input as AriaInput } from "react-aria-components";
 
-import styles from "./Input.module.css";
+import styles from "./input.module.css";
 
 export type InputProps = React.ComponentProps<typeof AriaInput>;
 
