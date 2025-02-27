@@ -1,4 +1,4 @@
-# @ginga-ui/checkbox-group
+# @ginga-ui/utils
 
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
