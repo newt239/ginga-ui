@@ -1,0 +1,25 @@
+{
+  "name": "@ginga-ui/stories",
+  "private": true,
+  "version": "0.9.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "pnpm build:fast -- --watch",
+    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
+    "stylelint": "stylelint \"./src/**/*.css\" --fix",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
+  },
+  "dependencies": {
+    "@ginga-ui/core": "workspace:*"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  }
+}
