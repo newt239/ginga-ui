@@ -21,12 +21,13 @@
   "bugs": {
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
+  "packageManager": "pnpm@10.5.2",
   "workspaces": [],
   "scripts": {
-    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf {} +",
-    "dev": "pnpm build:fast -- --watch",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src",
+    "clean": "find . -type d \\( -name 'node_modules' -o -name '.turbo' -o -name 'dist' \\) -prune -exec rm -rf {} +",
+    "dev": "turbo run dev --filter=./packages/**",
+    "build": "turbo run build --filter=./packages/**",
+    "build:fast": "turbo run build:fast --filter=./packages/**",
     "lint": "eslint --fix ./**/*.{ts,tsx}",
     "stylelint": "stylelint \"./**/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
@@ -46,6 +47,8 @@
     "valibot": "1.0.0-beta.11"
   },
   "devDependencies": {
+    "vite": "^6.1.1",
+    "turbo": "^2.4.2",
     "tsup": "^8.4.0",
     "@eslint/js": "^9.21.0",
     "@eslint/eslintrc": "^3.2.0",

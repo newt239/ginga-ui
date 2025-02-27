@@ -1,4 +1,4 @@
-import Slider, { SliderOutput, SliderThumb, SliderTrack } from "./Slider";
+import { Slider, SliderOutput, SliderThumb, SliderTrack } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

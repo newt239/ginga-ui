@@ -1,4 +1,4 @@
-import Switch from "./Switch";
+import { Switch } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

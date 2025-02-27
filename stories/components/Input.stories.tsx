@@ -1,4 +1,4 @@
-import Input from "./Input";
+import { Input } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

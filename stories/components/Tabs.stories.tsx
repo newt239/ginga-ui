@@ -1,4 +1,4 @@
-import { Tab, TabList, TabPanel, Tabs } from "./Tabs";
+import { Tab, TabList, TabPanel, Tabs } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

@@ -1,4 +1,4 @@
-import Anchor from "./Anchor";
+import { Anchor } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

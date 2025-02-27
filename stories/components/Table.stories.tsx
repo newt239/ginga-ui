@@ -1,4 +1,4 @@
-import Table from "./Table";
+import { Table } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

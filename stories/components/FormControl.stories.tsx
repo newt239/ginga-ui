@@ -1,12 +1,9 @@
 import { useState } from "react";
 
-import FormControl from "./FormControl";
+import { Button, FormControl, Input, ThemeClient } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
-
-import ThemeClient from "@/ai";
-import Button from "@/components/Button/Button";
-import Input from "@/components/Input/Input";
+import process from "process";
 
 const meta: Meta<typeof FormControl> = {
   title: "Forms/FormControl",
@@ -43,7 +40,7 @@ export const withGeminiTheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
       clientType: "gemini",
-      apiKey: import.meta.env.STORYBOOK_GEMINI_API_KEY as string,
+      apiKey: process.env.STORYBOOK_GEMINI_API_KEY as string,
     });
 
     const onClick = async () => {
@@ -79,7 +76,8 @@ export const withOpenAITheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
       clientType: "openai",
-      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
+      // TODO: dotenvをインストールする
+      apiKey: process.env.STORYBOOK_OPENAI_API_KEY as string,
       dangerouslyAllowBrowser: true,
     });
 

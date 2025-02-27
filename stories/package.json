@@ -1,5 +1,5 @@
 {
-  "name": "@ginga-ui/core",
+  "name": "@ginga-ui/stories",
   "private": false,
   "version": "0.8.1",
   "type": "module",
@@ -35,31 +35,7 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@ginga-ui/accordion": "workspace:*",
-    "@ginga-ui/anchor": "workspace:*",
-    "@ginga-ui/box": "workspace:*",
-    "@ginga-ui/button": "workspace:*",
-    "@ginga-ui/button-group": "workspace:*",
-    "@ginga-ui/card": "workspace:*",
-    "@ginga-ui/checkbox": "workspace:*",
-    "@ginga-ui/checkbox-group": "workspace:*",
-    "@ginga-ui/dialog": "workspace:*",
-    "@ginga-ui/form-control": "workspace:*",
-    "@ginga-ui/heading": "workspace:*",
-    "@ginga-ui/image": "workspace:*",
-    "@ginga-ui/input": "workspace:*",
-    "@ginga-ui/list": "workspace:*",
-    "@ginga-ui/paragraph": "workspace:*",
-    "@ginga-ui/radio": "workspace:*",
-    "@ginga-ui/radio-group": "workspace:*",
-    "@ginga-ui/select": "workspace:*",
-    "@ginga-ui/slider": "workspace:*",
-    "@ginga-ui/switch": "workspace:*",
-    "@ginga-ui/tab": "workspace:*",
-    "@ginga-ui/table": "workspace:*",
-    "@ginga-ui/utils": "workspace:*",
-    "react-aria": "^3.36.0",
-    "react-aria-components": "^1.5.0"
+    "@ginga-ui/core": "workspace:*"
   },
   "devDependencies": {
     "react": "^18.3.1"

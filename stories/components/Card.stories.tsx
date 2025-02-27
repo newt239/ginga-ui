@@ -1,4 +1,4 @@
-import Button from "../../Button/src/Button";
+import { Button } from "@ginga-ui/core";
 
 import {
   Card,
@@ -7,7 +7,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./Card";
+} from "../../packages/components/Card/src/Card";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

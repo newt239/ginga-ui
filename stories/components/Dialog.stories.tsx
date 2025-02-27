@@ -1,8 +1,6 @@
 import { Input, Label, TextField } from "react-aria-components";
 
-import Button from "../Button/Button";
-
-import { Dialog, DialogTitle, DialogTrigger, Modal } from "./Dialog";
+import { Button, Dialog, DialogTitle, DialogTrigger, Modal } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

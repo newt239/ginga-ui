@@ -10,7 +10,7 @@ import { Variables } from "./types";
 
 type ClientType = "gemini" | "openai";
 
-class ThemeClient {
+export class ThemeClient {
   private client: OpenAIClient | GeminiClient;
   private maxRetries: number;
 
@@ -140,5 +140,3 @@ class ThemeClient {
     return CSSCode;
   }
 }
-
-export default ThemeClient;

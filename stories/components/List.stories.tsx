@@ -1,4 +1,4 @@
-import { List, ListItem } from "./List";
+import { List, ListItem } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

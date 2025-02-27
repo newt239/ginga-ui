@@ -1,6 +1,4 @@
-import RadioGroup from "../RadioGroup/RadioGroup";
-
-import Radio from "./Radio";
+import { Radio, RadioGroup } from "@ginga-ui/core";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
