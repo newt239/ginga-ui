@@ -1,5 +1,14 @@
 # @ginga-ui/table
 
+## 0.9.3
+
+### Patch Changes
+
+- 767f955: change filename case
+- Updated dependencies [767f955]
+  - @ginga-ui/checkbox@0.9.3
+  - @ginga-ui/utils@0.9.3
+
 ## 0.9.2
 
 ### Patch Changes
