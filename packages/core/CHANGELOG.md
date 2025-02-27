@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.6
+
+### Patch Changes
+
+- 58e00e3: fix: export dist fir
+- Updated dependencies [58e00e3]
+  - @ginga-ui/form-control@0.9.6
+  - @ginga-ui/accordion@0.9.6
+  - @ginga-ui/paragraph@0.9.6
+  - @ginga-ui/checkbox@0.9.6
+  - @ginga-ui/heading@0.9.6
+  - @ginga-ui/anchor@0.9.6
+  - @ginga-ui/button@0.9.6
+  - @ginga-ui/dialog@0.9.6
+  - @ginga-ui/select@0.9.6
+  - @ginga-ui/slider@0.9.6
+  - @ginga-ui/switch@0.9.6
+  - @ginga-ui/image@0.9.6
+  - @ginga-ui/input@0.9.6
+  - @ginga-ui/radio@0.9.6
+  - @ginga-ui/table@0.9.6
+  - @ginga-ui/card@0.9.6
+  - @ginga-ui/list@0.9.6
+  - @ginga-ui/box@0.9.6
+  - @ginga-ui/tab@0.9.6
+  - @ginga-ui/utils@0.9.6
+
 ## 0.9.5
 
 ### Patch Changes
