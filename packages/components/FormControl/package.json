@@ -1,0 +1,56 @@
+{
+  "name": "@ginga-ui/form-control",
+  "private": false,
+  "version": "0.8.1",
+  "type": "module",
+  "description": "brand-new UI component library for web",
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "library"
+  ],
+  "author": {
+    "name": "newt239",
+    "email": "ysti2019.win2020.st@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newt239/ginga-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/newt239/ginga-ui/issues"
+  },
+  "workspaces": [],
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "pnpm build:fast -- --watch",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
+    "stylelint": "stylelint \"./src/**/*.css\" --fix",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
+  },
+  "dependencies": {
+    "@ginga-ui/utils": "workspace:*",
+    "react-aria": "^3.36.0",
+    "react-aria-components": "^1.5.0"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/newt239/ginga-ui#readme"
+}

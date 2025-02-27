@@ -1,5 +1,5 @@
 {
-  "name": "ginga-ui",
+  "name": "@ginga-ui/utils",
   "private": false,
   "version": "0.8.1",
   "type": "module",
@@ -22,8 +22,8 @@
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
   "workspaces": [],
+  "main": "src/index.ts",
   "scripts": {
-    "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf {} +",
     "dev": "pnpm build:fast -- --watch",
     "build": "tsup src --dts",
     "build:fast": "tsup src",
@@ -34,9 +34,6 @@
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "chroma-js": "^3.1.2",
@@ -46,39 +43,17 @@
     "valibot": "1.0.0-beta.11"
   },
   "devDependencies": {
-    "tsup": "^8.4.0",
-    "@eslint/eslintrc": "^3.2.0",
-    "@storybook/addon-essentials": "^8.5.1",
-    "@storybook/addon-links": "^8.5.1",
-    "@storybook/blocks": "^8.5.1",
-    "@storybook/builder-vite": "^8.5.1",
-    "@storybook/react": "^8.5.1",
-    "@storybook/react-vite": "^8.5.1",
-    "@types/chroma-js": "^3.1.0",
-    "@types/css-modules": "^1.0.5",
-    "@types/node": "^22.10.5",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
-    "chromatic": "^11.22.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "prettier": "^3.4.2",
-    "storybook": "^8.5.1",
-    "stylelint": "^16.12.0",
-    "stylelint-config-recess-order": "^5.1.1",
-    "stylelint-config-standard": "^36.0.1",
-    "typescript": "^5.7.2",
-    "typescript-eslint": "^8.19.1",
-    "vite": "^6.0.11",
-    "vite-plugin-dts": "^4.4.0"
+    "react": "^18.3.1"
   },
-  "pnpm": {
-    "overrides": {
-      "react": "^18.0.0",
-      "react-dom": "^18.0.0"
-    }
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
   },
   "homepage": "https://github.com/newt239/ginga-ui#readme"
 }

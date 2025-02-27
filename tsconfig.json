@@ -25,6 +25,15 @@
     },
     "declaration": true
   },
-  "include": ["src"],
+  "include": [
+    "@types",
+    ".storybook/**/*",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "**/*.mts",
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
