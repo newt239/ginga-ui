@@ -8,7 +8,7 @@ import {
   DisclosurePanel,
 } from "react-aria-components";
 
-import styles from "./Accordion.module.css";
+import styles from "./accordion.module.css";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 
