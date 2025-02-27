@@ -1,5 +1,13 @@
 # @ginga-ui/switch
 
+## 0.9.3
+
+### Patch Changes
+
+- 96cb780: remove group components
+- Updated dependencies [96cb780]
+  - @ginga-ui/utils@0.9.3
+
 ## 0.10.0
 
 ### Minor Changes
