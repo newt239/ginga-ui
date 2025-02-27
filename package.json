@@ -83,5 +83,9 @@
       "react-dom": "^18.0.0"
     }
   },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "homepage": "https://github.com/newt239/ginga-ui#readme"
 }
