@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.9.3
+
+### Patch Changes
+
+- 767f955: change filename case
+
 ## 0.9.2
 
 ### Patch Changes
