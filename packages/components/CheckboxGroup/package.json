@@ -1,0 +1,62 @@
+{
+  "name": "@ginga-ui/checkbox-group",
+  "private": false,
+  "version": "0.8.1",
+  "type": "module",
+  "description": "brand-new UI component library for web",
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "library"
+  ],
+  "author": {
+    "name": "newt239",
+    "email": "ysti2019.win2020.st@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newt239/ginga-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/newt239/ginga-ui/issues"
+  },
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "pnpm build:fast -- --watch",
+    "build": "tsup src --dts",
+    "build:fast": "tsup src"
+  },
+  "dependencies": {
+    "@ginga-ui/utils": "workspace:*",
+    "react-aria": "^3.36.0",
+    "react-aria-components": "^1.5.0"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "homepage": "https://github.com/newt239/ginga-ui#readme",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "banner": {
+      "js": "\"use client\""
+    },
+    "sourcemap": true
+  }
+}

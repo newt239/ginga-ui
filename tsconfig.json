@@ -19,12 +19,16 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["./src/*"],
-      "ginga-ui/*": ["dist/*"]
-    },
     "declaration": true
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "@types",
+    ".storybook/**/*",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.mjs",
+    "**/*.mts",
+  ]
 }
