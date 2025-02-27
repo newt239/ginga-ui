@@ -3,7 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import { Checkbox as AriaCheckbox } from "react-aria-components";
 
-import styles from "./Checkbox.module.css";
+import styles from "./checkbox.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 

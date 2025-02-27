@@ -3,7 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import { Button as AriaButton } from "react-aria-components";
 
-import styles from "./Button.module.css";
+import styles from "./button.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 

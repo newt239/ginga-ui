@@ -1,2 +1,2 @@
-export * from "./Checkbox";
-export * from "./CheckboxGroup";
+export * from "./checkbox";
+export * from "./checkbox-group";
