@@ -186,22 +186,6 @@ importers:
         specifier: ^18.0.0
         version: 18.3.1
 
-  packages/components/ButtonGroup:
-    dependencies:
-      '@ginga-ui/utils':
-        specifier: workspace:*
-        version: link:../../utils
-      react-aria:
-        specifier: ^3.36.0
-        version: 3.37.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-aria-components:
-        specifier: ^1.5.0
-        version: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    devDependencies:
-      react:
-        specifier: ^18.0.0
-        version: 18.3.1
-
   packages/components/Card:
     dependencies:
       '@ginga-ui/utils':
@@ -219,22 +203,6 @@ importers:
         version: 18.3.1
 
   packages/components/Checkbox:
-    dependencies:
-      '@ginga-ui/utils':
-        specifier: workspace:*
-        version: link:../../utils
-      react-aria:
-        specifier: ^3.36.0
-        version: 3.37.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-aria-components:
-        specifier: ^1.5.0
-        version: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    devDependencies:
-      react:
-        specifier: ^18.0.0
-        version: 18.3.1
-
-  packages/components/CheckboxGroup:
     dependencies:
       '@ginga-ui/utils':
         specifier: workspace:*
@@ -378,22 +346,6 @@ importers:
         specifier: ^18.0.0
         version: 18.3.1
 
-  packages/components/RadioGroup:
-    dependencies:
-      '@ginga-ui/utils':
-        specifier: workspace:*
-        version: link:../../utils
-      react-aria:
-        specifier: ^3.36.0
-        version: 3.37.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      react-aria-components:
-        specifier: ^1.5.0
-        version: 1.6.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    devDependencies:
-      react:
-        specifier: ^18.0.0
-        version: 18.3.1
-
   packages/components/Select:
     dependencies:
       '@ginga-ui/utils':
@@ -491,18 +443,12 @@ importers:
       '@ginga-ui/button':
         specifier: workspace:*
         version: link:../components/Button
-      '@ginga-ui/button-group':
-        specifier: workspace:*
-        version: link:../components/ButtonGroup
       '@ginga-ui/card':
         specifier: workspace:*
         version: link:../components/Card
       '@ginga-ui/checkbox':
         specifier: workspace:*
         version: link:../components/Checkbox
-      '@ginga-ui/checkbox-group':
-        specifier: workspace:*
-        version: link:../components/CheckboxGroup
       '@ginga-ui/dialog':
         specifier: workspace:*
         version: link:../components/Dialog
@@ -527,9 +473,6 @@ importers:
       '@ginga-ui/radio':
         specifier: workspace:*
         version: link:../components/Radio
-      '@ginga-ui/radio-group':
-        specifier: workspace:*
-        version: link:../components/RadioGroup
       '@ginga-ui/select':
         specifier: workspace:*
         version: link:../components/Select
