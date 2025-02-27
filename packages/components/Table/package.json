@@ -53,5 +53,17 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/newt239/ginga-ui#readme"
+  "homepage": "https://github.com/newt239/ginga-ui#readme",
+  "tsup": {
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ],
+    "banner": {
+      "js": "\"use client\""
+    },
+    "sourcemap": true
+  }
 }

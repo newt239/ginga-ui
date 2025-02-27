@@ -22,11 +22,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# vite files
-*.tsbuildinfo
-vite.config.js
-vite.config.d.ts
-
 # environment
 .env
 .env.local
