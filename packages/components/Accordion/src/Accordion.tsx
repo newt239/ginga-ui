@@ -10,7 +10,6 @@ import {
 
 import styles from "./Accordion.module.css";
 
-
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 
 export const Accordion: React.FC<AccordionProps> = ({

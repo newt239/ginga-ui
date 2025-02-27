@@ -10,7 +10,6 @@ import {
 
 import styles from "./Dialog.module.css";
 
-
 export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 
 export const DialogTrigger: React.FC<DialogTriggerProps> = ({
@@ -22,7 +21,11 @@ export const DialogTrigger: React.FC<DialogTriggerProps> = ({
 
 export type ModalProps = React.ComponentProps<typeof AriaModal>;
 
-export const Modal: React.FC<ModalProps> = ({ children, className, ...props }) => {
+export const Modal: React.FC<ModalProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <AriaModal className={cn(styles.modal, className)} {...props}>
       {children}
@@ -32,7 +35,11 @@ export const Modal: React.FC<ModalProps> = ({ children, className, ...props }) =
 
 export type DialogProps = React.ComponentProps<typeof AriaDialog>;
 
-export const Dialog: React.FC<DialogProps> = ({ children, className, ...props }) => {
+export const Dialog: React.FC<DialogProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <AriaDialog className={cn(styles.dialog, className)} {...props}>
       {children}

@@ -7,7 +7,6 @@ import styles from "./Anchor.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type AnchorProps = OmitStrict<
   React.ComponentProps<typeof AriaLink>,
   "isDisabled"
@@ -15,7 +14,11 @@ export type AnchorProps = OmitStrict<
   disabled?: boolean;
 };
 
-export const Anchor: React.FC<AnchorProps> = ({ disabled, className, ...props }) => {
+export const Anchor: React.FC<AnchorProps> = ({
+  disabled,
+  className,
+  ...props
+}) => {
   return (
     <AriaLink
       isDisabled={disabled}

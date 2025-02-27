@@ -7,7 +7,6 @@ import styles from "./Checkbox.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type CheckboxProps = OmitStrict<
   React.ComponentProps<typeof AriaCheckbox>,
   "isDisabled" | "isRequired" | "isIndeterminate" | "isSelected"

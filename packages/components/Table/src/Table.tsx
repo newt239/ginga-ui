@@ -13,9 +13,7 @@ import {
   TableHeader as AriaTableHeader,
 } from "react-aria-components";
 
-
 import styles from "./Table.module.css";
-
 
 export interface TableColumn<T> {
   key: string;

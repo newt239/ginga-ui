@@ -7,7 +7,6 @@ import styles from "./RadioGroup.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type RadioGroupProps = OmitStrict<
   React.ComponentProps<typeof AriaRadioGroup>,
   "isDisabled" | "isRequired"

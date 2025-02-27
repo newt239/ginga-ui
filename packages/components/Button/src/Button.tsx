@@ -7,7 +7,6 @@ import styles from "./Button.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type ButtonProps = OmitStrict<
   React.ComponentProps<typeof AriaButton>,
   "isDisabled"

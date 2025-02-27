@@ -12,7 +12,6 @@ import styles from "./Tabs.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
   orientation?: "horizontal" | "vertical";
 };
@@ -60,7 +59,11 @@ export const Tab: React.FC<TabProps> = ({
 
 export type TabListProps = React.ComponentProps<typeof AriaTabList>;
 
-export const TabList: React.FC<TabListProps> = ({ children, className, ...props }) => {
+export const TabList: React.FC<TabListProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <AriaTabList className={cn(styles["tab-list"], className)} {...props}>
       {children}

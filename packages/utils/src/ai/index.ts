@@ -7,7 +7,6 @@ import GeminiClient from "./gemini";
 import OpenAIClient from "./openai";
 import { Variables } from "./types";
 
-
 type ClientType = "gemini" | "openai";
 
 export class ThemeClient {

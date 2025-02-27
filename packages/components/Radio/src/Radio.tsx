@@ -7,7 +7,6 @@ import styles from "./Radio.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type RadioProps = OmitStrict<
   React.ComponentProps<typeof AriaRadio>,
   "isDisabled"

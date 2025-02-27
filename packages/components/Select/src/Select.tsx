@@ -15,7 +15,6 @@ import styles from "./Select.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type SelectProps = OmitStrict<
   React.ComponentProps<typeof AriaSelect>,
   "isDisabled" | "isRequired"
@@ -25,7 +24,7 @@ export type SelectProps = OmitStrict<
   required?: boolean;
 };
 
-export const  Select: React.FC<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   children,
   className,
   label,

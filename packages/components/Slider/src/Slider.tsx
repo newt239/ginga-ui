@@ -10,11 +10,14 @@ import {
 
 import styles from "./Slider.module.css";
 
-
 export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
   React.ComponentProps<typeof AriaSlider>;
 
-export const  Slider: React.FC<SliderProps> = ({ children, className, ...props }) => {
+export const Slider: React.FC<SliderProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <AriaSlider className={cn(styles.slider, className)} {...props}>
       {children}

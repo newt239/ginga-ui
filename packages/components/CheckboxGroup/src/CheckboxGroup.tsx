@@ -5,7 +5,6 @@ import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
 
 import styles from "./CheckboxGroup.module.css";
 
-
 export type CheckboxGroupProps = React.ComponentProps<typeof AriaCheckboxGroup>;
 
 export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({

@@ -5,7 +5,6 @@ import { Input as AriaInput } from "react-aria-components";
 
 import styles from "./Input.module.css";
 
-
 export type InputProps = React.ComponentProps<typeof AriaInput>;
 
 export const Input: React.FC<InputProps> = ({ className, type, ...props }) => {

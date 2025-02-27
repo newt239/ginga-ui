@@ -7,7 +7,6 @@ import styles from "./Switch.module.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-
 export type SwitchProps = OmitStrict<
   React.ComponentProps<typeof AriaSwitch>,
   "isDisabled" | "isSelected"

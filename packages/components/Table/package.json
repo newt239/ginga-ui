@@ -25,13 +25,7 @@
   "scripts": {
     "dev": "pnpm build:fast -- --watch",
     "build": "tsup src --dts",
-    "build:fast": "tsup src",
-    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
-    "stylelint": "stylelint \"./src/**/*.css\" --fix",
-    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
+    "build:fast": "tsup src"
   },
   "dependencies": {
     "react-aria": "^3.36.0",
