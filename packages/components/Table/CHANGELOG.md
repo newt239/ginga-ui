@@ -6,8 +6,8 @@
 
 - 96cb780: remove group components
 - Updated dependencies [96cb780]
-  - @ginga-ui/checkbox@0.9.3
-  - @ginga-ui/utils@0.9.3
+  - @ginga-ui/checkbox@0.9.2
+  - @ginga-ui/utils@0.9.2
 
 ## 0.9.1
 
