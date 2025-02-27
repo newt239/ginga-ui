@@ -24,8 +24,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "pnpm build:fast -- --watch",
-    "build": "tsup src --dts",
-    "build:fast": "tsup src"
+    "build": "tsup",
+    "build:fast": "tsup"
   },
   "dependencies": {
     "@ginga-ui/accordion": "workspace:*",
@@ -65,17 +65,5 @@
     "access": "public",
     "provenance": true
   },
-  "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "banner": {
-      "js": "\"use client\""
-    },
-    "sourcemap": true
-  }
+  "homepage": "https://github.com/newt239/ginga-ui#readme"
 }
