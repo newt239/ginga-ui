@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.4
+
+### Patch Changes
+
+- c8b2ee2: update dependencies
+- Updated dependencies [c8b2ee2]
+  - @ginga-ui/accordion@0.9.4
+  - @ginga-ui/anchor@0.9.4
+  - @ginga-ui/box@0.9.4
+  - @ginga-ui/button@0.9.4
+  - @ginga-ui/card@0.9.4
+  - @ginga-ui/checkbox@0.9.4
+  - @ginga-ui/dialog@0.9.4
+  - @ginga-ui/form-control@0.9.4
+  - @ginga-ui/heading@0.9.4
+  - @ginga-ui/image@0.9.4
+  - @ginga-ui/input@0.9.4
+  - @ginga-ui/list@0.9.4
+  - @ginga-ui/paragraph@0.9.4
+  - @ginga-ui/radio@0.9.4
+  - @ginga-ui/select@0.9.4
+  - @ginga-ui/slider@0.9.4
+  - @ginga-ui/switch@0.9.4
+  - @ginga-ui/tab@0.9.4
+  - @ginga-ui/table@0.9.4
+  - @ginga-ui/utils@0.9.4
+
 ## 0.9.3
 
 ### Patch Changes
