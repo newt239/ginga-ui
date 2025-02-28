@@ -15,5 +15,5 @@ export default defineConfig({
   },
   sourcemap: true,
   esbuildPlugins: [cssPlugin()],
-  onSuccess: "cp src/index.css dist/",
+  onSuccess: "cp src/index.css dist/ && cp src/variables.css dist/",
 });
