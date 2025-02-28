@@ -1,4 +1,3 @@
-import cssPlugin from "esbuild-plugin-react18-css";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
@@ -14,5 +13,4 @@ export default defineConfig({
     js: '"use client"',
   },
   sourcemap: true,
-  esbuildPlugins: [cssPlugin()],
 });

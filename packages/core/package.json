@@ -68,7 +68,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./index.css": "./dist/index.css"
   },
   "sideEffects": false,
   "publishConfig": {

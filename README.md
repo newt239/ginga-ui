@@ -38,7 +38,7 @@ npm install ginga-ui
 If you are using Next.js App Router, you can import CSS files in the `layout.tsx` file.
 
 ```jsx
-import "@ginga-ui/style.css";
+import "@ginga-ui/core/index.css";
 import "@ginga-ui/variables.css";
 ```
 
@@ -125,7 +125,7 @@ export default async function Home() {
 #### Gemini Client
 
 ```jsx
-import { ThemeClient } from "@ginga-ui/ai";
+import { ThemeClient } from "@ginga-ui/core";
 
 const themeClient = new ThemeClient({
   clientType: "gemini",
