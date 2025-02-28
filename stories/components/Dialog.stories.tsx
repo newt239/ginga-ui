@@ -7,6 +7,8 @@ import {
 } from "@ginga-ui/core";
 import { Input, Label, TextField } from "react-aria-components";
 
+import "@ginga-ui/core/index.css";
+
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof Dialog> = {

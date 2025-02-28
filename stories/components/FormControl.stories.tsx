@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { Button, FormControl, Input, ThemeClient } from "@ginga-ui/core";
 
+import "@ginga-ui/core/index.css";
+
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta: Meta<typeof FormControl> = {
