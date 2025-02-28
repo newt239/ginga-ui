@@ -10,9 +10,6 @@ export default defineConfig({
   },
   target: "esnext",
   format: ["cjs", "esm"],
-  banner: {
-    js: '"use client"',
-  },
   sourcemap: true,
   esbuildPlugins: [cssPlugin()],
   onSuccess: "cp src/index.css dist/ && cp src/variables.css dist/",

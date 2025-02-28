@@ -1,10 +1,8 @@
 name: chromatic
-
 on:
-  push:
+  pull_request:
     branches:
       - main
-
 jobs:
   chromatic-deployment:
     name: Deploy Storybook to chromatic
@@ -30,3 +28,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        working-directory: stories

@@ -30,17 +30,16 @@
 ### 1. Install the package
 
 ```bash
-npm install ginga-ui
+npm install @ginga-ui/core
 ```
 
 ### 2. Import CSS file on root component
 
 If you are using Next.js App Router, you can import CSS files in the `layout.tsx` file.
 
-```jsximport "@ginga-ui/core/index.css";
-
-import type { Meta, StoryObj } from "@storybook/react";
-import "@ginga-ui/variables.css";
+```jsx
+import "@ginga-ui/core/index.css";
+import "@ginga-ui/core/variables.css";
 ```
 
 ### 3. Import components

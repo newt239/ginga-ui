@@ -18,4 +18,3 @@ export * from "@ginga-ui/switch";
 export * from "@ginga-ui/tab";
 export * from "@ginga-ui/table";
 export * from "@ginga-ui/utils";
-
