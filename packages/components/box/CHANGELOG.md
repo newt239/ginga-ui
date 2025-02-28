@@ -1,5 +1,13 @@
 # @ginga-ui/box
 
+## 0.9.9
+
+### Patch Changes
+
+- e66ad5d: fix: tsup config
+- Updated dependencies [e66ad5d]
+  - @ginga-ui/utils@0.9.9
+
 ## 0.9.8
 
 ### Patch Changes

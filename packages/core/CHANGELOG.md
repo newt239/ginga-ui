@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.9
+
+### Patch Changes
+
+- e66ad5d: fix: tsup config
+- Updated dependencies [e66ad5d]
+  - @ginga-ui/form-control@0.9.9
+  - @ginga-ui/accordion@0.9.9
+  - @ginga-ui/paragraph@0.9.9
+  - @ginga-ui/checkbox@0.9.9
+  - @ginga-ui/heading@0.9.9
+  - @ginga-ui/anchor@0.9.9
+  - @ginga-ui/button@0.9.9
+  - @ginga-ui/dialog@0.9.9
+  - @ginga-ui/select@0.9.9
+  - @ginga-ui/slider@0.9.9
+  - @ginga-ui/switch@0.9.9
+  - @ginga-ui/image@0.9.9
+  - @ginga-ui/input@0.9.9
+  - @ginga-ui/radio@0.9.9
+  - @ginga-ui/table@0.9.9
+  - @ginga-ui/card@0.9.9
+  - @ginga-ui/list@0.9.9
+  - @ginga-ui/box@0.9.9
+  - @ginga-ui/tab@0.9.9
+  - @ginga-ui/utils@0.9.9
+
 ## 0.9.8
 
 ### Patch Changes

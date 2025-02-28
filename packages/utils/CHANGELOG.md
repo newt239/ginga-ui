@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.9.9
+
+### Patch Changes
+
+- e66ad5d: fix: tsup config
+
 ## 0.9.8
 
 ### Patch Changes
