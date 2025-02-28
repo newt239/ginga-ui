@@ -1,5 +1,14 @@
 # @ginga-ui/table
 
+## 0.9.7
+
+### Patch Changes
+
+- 0f0fc0f: fix: change entry points
+- Updated dependencies [0f0fc0f]
+  - @ginga-ui/checkbox@0.9.7
+  - @ginga-ui/utils@0.9.7
+
 ## 0.9.6
 
 ### Patch Changes

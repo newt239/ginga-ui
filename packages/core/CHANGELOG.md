@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.7
+
+### Patch Changes
+
+- 0f0fc0f: fix: change entry points
+- Updated dependencies [0f0fc0f]
+  - @ginga-ui/form-control@0.9.7
+  - @ginga-ui/accordion@0.9.7
+  - @ginga-ui/paragraph@0.9.7
+  - @ginga-ui/checkbox@0.9.7
+  - @ginga-ui/heading@0.9.7
+  - @ginga-ui/anchor@0.9.7
+  - @ginga-ui/button@0.9.7
+  - @ginga-ui/dialog@0.9.7
+  - @ginga-ui/select@0.9.7
+  - @ginga-ui/slider@0.9.7
+  - @ginga-ui/switch@0.9.7
+  - @ginga-ui/image@0.9.7
+  - @ginga-ui/input@0.9.7
+  - @ginga-ui/radio@0.9.7
+  - @ginga-ui/table@0.9.7
+  - @ginga-ui/card@0.9.7
+  - @ginga-ui/list@0.9.7
+  - @ginga-ui/box@0.9.7
+  - @ginga-ui/tab@0.9.7
+  - @ginga-ui/utils@0.9.7
+
 ## 0.9.6
 
 ### Patch Changes
