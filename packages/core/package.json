@@ -66,10 +66,12 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./index.css": "./dist/index.css"
+    "./index.css": "./dist/index.css",
+    "./variables.css": "./dist/variables.css"
   },
   "sideEffects": false,
   "publishConfig": {
