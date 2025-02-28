@@ -1,10 +1,8 @@
 name: chromatic
-
 on:
-  push:
+  pull_request:
     branches:
       - main
-
 jobs:
   chromatic-deployment:
     name: Deploy Storybook to chromatic
