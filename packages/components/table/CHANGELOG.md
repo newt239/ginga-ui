@@ -1,5 +1,14 @@
 # @ginga-ui/table
 
+## 0.9.9
+
+### Patch Changes
+
+- e66ad5d: fix: tsup config
+- Updated dependencies [e66ad5d]
+  - @ginga-ui/checkbox@0.9.9
+  - @ginga-ui/utils@0.9.9
+
 ## 0.9.8
 
 ### Patch Changes
