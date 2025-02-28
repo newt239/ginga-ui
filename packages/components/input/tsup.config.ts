@@ -8,7 +8,7 @@ export default defineConfig({
   loader: {
     ".css": "copy",
   },
-  target: "es2019",
+  target: "esnext",
   format: ["cjs", "esm"],
   banner: {
     js: '"use client"',

@@ -4,16 +4,23 @@ import importPlugin from "eslint-plugin-import";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  eslintConfigPrettier,
-  importPlugin.flatConfigs.recommended,
+  // ignoresオプションは単独で設定する必要がある
+  // https://eslint.org/docs/latest/use/configure/ignore
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    ignores: ["**/node_modules/", "**/dist/"],
+  },
+  {
+    files: ["**/*.{ts,tsx}"],
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
     },
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      eslintConfigPrettier,
+      importPlugin.flatConfigs.recommended,
+    ],
     rules: {
       "import/no-named-as-default-member": "off",
       "import/no-unresolved": "off",
