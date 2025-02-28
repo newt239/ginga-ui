@@ -1,5 +1,35 @@
 # @ginga-ui/core
 
+## 0.10.0
+
+### Minor Changes
+
+- 091e6cd: fix: export config
+
+### Patch Changes
+
+- Updated dependencies [091e6cd]
+  - @ginga-ui/form-control@0.10.0
+  - @ginga-ui/accordion@0.10.0
+  - @ginga-ui/paragraph@0.10.0
+  - @ginga-ui/checkbox@0.10.0
+  - @ginga-ui/heading@0.10.0
+  - @ginga-ui/anchor@0.10.0
+  - @ginga-ui/button@0.10.0
+  - @ginga-ui/dialog@0.10.0
+  - @ginga-ui/select@0.10.0
+  - @ginga-ui/slider@0.10.0
+  - @ginga-ui/switch@0.10.0
+  - @ginga-ui/image@0.10.0
+  - @ginga-ui/input@0.10.0
+  - @ginga-ui/radio@0.10.0
+  - @ginga-ui/table@0.10.0
+  - @ginga-ui/card@0.10.0
+  - @ginga-ui/list@0.10.0
+  - @ginga-ui/box@0.10.0
+  - @ginga-ui/tab@0.10.0
+  - @ginga-ui/utils@0.10.0
+
 ## 0.9.9
 
 ### Patch Changes
