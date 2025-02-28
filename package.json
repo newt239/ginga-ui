@@ -1,7 +1,7 @@
 {
   "name": "ginga-ui",
   "private": true,
-  "version": "0.9.2",
+  "version": "1.0.0",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -37,14 +37,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@google/generative-ai": "^0.21.0",
-    "chroma-js": "^3.1.2",
-    "openai": "^4.85.4",
-    "react-aria": "^3.37.0",
-    "react-aria-components": "^1.6.0",
-    "valibot": "1.0.0-beta.11"
-  },
   "devDependencies": {
     "@changesets/cli": "^2.28.1",
     "@eslint/eslintrc": "^3.3.0",

@@ -46,9 +46,7 @@
     "@ginga-ui/switch": "workspace:*",
     "@ginga-ui/tab": "workspace:*",
     "@ginga-ui/table": "workspace:*",
-    "@ginga-ui/utils": "workspace:*",
-    "react-aria": "^3.36.0",
-    "react-aria-components": "^1.5.0"
+    "@ginga-ui/utils": "workspace:*"
   },
   "devDependencies": {
     "react": "^18.3.1"

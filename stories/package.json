@@ -1,7 +1,7 @@
 {
   "name": "@ginga-ui/stories",
   "private": true,
-  "version": "0.9.2",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
