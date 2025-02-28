@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.9.8
+
+### Patch Changes
+
+- ae49196: fix: file ext on exports field
+- Updated dependencies [ae49196]
+  - @ginga-ui/form-control@0.9.8
+  - @ginga-ui/accordion@0.9.8
+  - @ginga-ui/paragraph@0.9.8
+  - @ginga-ui/checkbox@0.9.8
+  - @ginga-ui/heading@0.9.8
+  - @ginga-ui/anchor@0.9.8
+  - @ginga-ui/button@0.9.8
+  - @ginga-ui/dialog@0.9.8
+  - @ginga-ui/select@0.9.8
+  - @ginga-ui/slider@0.9.8
+  - @ginga-ui/switch@0.9.8
+  - @ginga-ui/image@0.9.8
+  - @ginga-ui/input@0.9.8
+  - @ginga-ui/radio@0.9.8
+  - @ginga-ui/table@0.9.8
+  - @ginga-ui/card@0.9.8
+  - @ginga-ui/list@0.9.8
+  - @ginga-ui/box@0.9.8
+  - @ginga-ui/tab@0.9.8
+  - @ginga-ui/utils@0.9.8
+
 ## 0.9.7
 
 ### Patch Changes
