@@ -38,14 +38,14 @@ npm install ginga-ui
 If you are using Next.js App Router, you can import CSS files in the `layout.tsx` file.
 
 ```jsx
-import "ginga-ui/style.css";
-import "ginga-ui/variables.css";
+import "@ginga-ui/style.css";
+import "@ginga-ui/variables.css";
 ```
 
 ### 3. Import components
 
 ```jsx
-import { Button } from "ginga-ui/core";
+import { Button } from "@ginga-ui/core";
 
 const CustomButton = () => {
   return <Button>Button</Button>;
@@ -59,7 +59,7 @@ export default CustomButton;
 You can generate with your own theme by using `ThemeClient` class.
 
 ```jsx
-import ThemeClient from "ginga-ui/ai";
+import { ThemeClient } from "@ginga-ui/core";
 
 const themeClient = new ThemeClient({
   clientType: "openai",
@@ -99,8 +99,7 @@ const handleClick = async () => {
 If you want to generate theme on server side, you can write like this. Recommended to use with Next.js App Router and write this on page component.
 
 ```jsx
-import { Button } from "ginga-ui/core";
-import ThemeClient from "ginga-ui/ai";
+import { Button, ThemeClient } from "@ginga-ui/core";
 
 export default async function Home() {
   const themeClient = new ThemeClient({
@@ -126,7 +125,7 @@ export default async function Home() {
 #### Gemini Client
 
 ```jsx
-import ThemeClient from "ginga-ui/ai";
+import { ThemeClient } from "@ginga-ui/ai";
 
 const themeClient = new ThemeClient({
   clientType: "gemini",
