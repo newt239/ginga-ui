@@ -1,4 +1,5 @@
 import { Heading } from "@ginga-ui/core";
+import "@ginga-ui/core/index.css";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

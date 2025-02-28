@@ -5,6 +5,7 @@ import {
   DialogTrigger,
   Modal,
 } from "@ginga-ui/core";
+import "@ginga-ui/core/index.css";
 import { Input, Label, TextField } from "react-aria-components";
 
 import type { Meta, StoryObj } from "@storybook/react";

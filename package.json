@@ -32,10 +32,7 @@
     "build:fast": "turbo run build:fast --filter=./packages/**",
     "lint": "eslint --fix",
     "stylelint": "stylelint \"./**/*.css\" --fix",
-    "format": "prettier --write \"./**/*.{ts,tsx}\"",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
+    "format": "prettier --write \"./**/*.{ts,tsx}\""
   },
   "files": [
     "dist"
@@ -52,12 +49,6 @@
     "@changesets/cli": "^2.28.1",
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.21.0",
-    "@storybook/addon-essentials": "^8.6.1",
-    "@storybook/addon-links": "^8.6.1",
-    "@storybook/blocks": "^8.6.1",
-    "@storybook/builder-vite": "^8.6.1",
-    "@storybook/react": "^8.6.1",
-    "@storybook/react-vite": "^8.6.1",
     "@types/chroma-js": "^3.1.1",
     "@types/css-modules": "^1.0.5",
     "@types/node": "^22.13.5",
@@ -69,15 +60,13 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
     "prettier": "^3.5.2",
-    "storybook": "^8.6.1",
     "stylelint": "^16.14.1",
     "stylelint-config-recess-order": "^5.1.1",
     "stylelint-config-standard": "^36.0.1",
     "tsup": "^8.4.0",
     "turbo": "^2.4.4",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.25.0",
-    "vite": "^6.2.0"
+    "typescript-eslint": "^8.25.0"
   },
   "pnpm": {
     "overrides": {

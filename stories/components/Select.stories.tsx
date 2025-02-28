@@ -1,4 +1,5 @@
 import { Select } from "@ginga-ui/core";
+import "@ginga-ui/core/index.css";
 import { ListBoxItem } from "react-aria-components";
 
 import type { Meta, StoryObj } from "@storybook/react";
