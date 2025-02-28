@@ -40,24 +40,6 @@ importers:
       '@eslint/js':
         specifier: ^9.21.0
         version: 9.21.0
-      '@storybook/addon-essentials':
-        specifier: ^8.6.1
-        version: 8.6.2(@types/react@18.3.18)(storybook@8.6.2(prettier@3.5.2))
-      '@storybook/addon-links':
-        specifier: ^8.6.1
-        version: 8.6.2(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))
-      '@storybook/blocks':
-        specifier: ^8.6.1
-        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))
-      '@storybook/builder-vite':
-        specifier: ^8.6.1
-        version: 8.6.2(storybook@8.6.2(prettier@3.5.2))(vite@6.2.0(@types/node@22.13.5)(sass@1.85.1))
-      '@storybook/react':
-        specifier: ^8.6.1
-        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))(typescript@5.7.3)
-      '@storybook/react-vite':
-        specifier: ^8.6.1
-        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.8)(storybook@8.6.2(prettier@3.5.2))(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(sass@1.85.1))
       '@types/chroma-js':
         specifier: ^3.1.1
         version: 3.1.1
@@ -91,9 +73,6 @@ importers:
       prettier:
         specifier: ^3.5.2
         version: 3.5.2
-      storybook:
-        specifier: ^8.6.1
-        version: 8.6.2(prettier@3.5.2)
       stylelint:
         specifier: ^16.14.1
         version: 16.14.1(typescript@5.7.3)
@@ -115,9 +94,6 @@ importers:
       typescript-eslint:
         specifier: ^8.25.0
         version: 8.25.0(eslint@9.21.0)(typescript@5.7.3)
-      vite:
-        specifier: ^6.2.0
-        version: 6.2.0(@types/node@22.13.5)(sass@1.85.1)
 
   docs:
     dependencies:
@@ -536,9 +512,33 @@ importers:
         specifier: workspace:*
         version: link:../packages/core
     devDependencies:
+      '@storybook/addon-essentials':
+        specifier: ^8.6.1
+        version: 8.6.2(@types/react@18.3.18)(storybook@8.6.2(prettier@3.5.2))
+      '@storybook/addon-links':
+        specifier: ^8.6.1
+        version: 8.6.2(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))
+      '@storybook/blocks':
+        specifier: ^8.6.1
+        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))
+      '@storybook/builder-vite':
+        specifier: ^8.6.1
+        version: 8.6.2(storybook@8.6.2(prettier@3.5.2))(vite@6.2.0(@types/node@22.13.5)(sass@1.85.1))
+      '@storybook/react':
+        specifier: ^8.6.1
+        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.6.2(prettier@3.5.2))(typescript@5.7.3)
+      '@storybook/react-vite':
+        specifier: ^8.6.1
+        version: 8.6.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.34.8)(storybook@8.6.2(prettier@3.5.2))(typescript@5.7.3)(vite@6.2.0(@types/node@22.13.5)(sass@1.85.1))
       react:
         specifier: ^18.0.0
         version: 18.3.1
+      storybook:
+        specifier: ^8.6.1
+        version: 8.6.2(prettier@3.5.2)
+      vite:
+        specifier: ^6.2.0
+        version: 6.2.0(@types/node@22.13.5)(sass@1.85.1)
 
 packages:
 

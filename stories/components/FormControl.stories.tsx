@@ -40,7 +40,7 @@ export const withGeminiTheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
       clientType: "gemini",
-      apiKey: process.env.STORYBOOK_GEMINI_API_KEY as string,
+      apiKey: import.meta.env.STORYBOOK_GEMINI_API_KEY as string,
     });
 
     const onClick = async () => {
@@ -76,8 +76,7 @@ export const withOpenAITheme: Story = {
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
       clientType: "openai",
-      // TODO: dotenvをインストールする
-      apiKey: process.env.STORYBOOK_OPENAI_API_KEY as string,
+      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
       dangerouslyAllowBrowser: true,
     });
 
