@@ -1,11 +1,8 @@
-name: Release
-
+name: Create Release PR or Publish to npm
 on:
   push:
     branches: [main]
-
 concurrency: ${{ github.workflow }}-${{ github.ref }}
-
 jobs:
   release:
     runs-on: ubuntu-latest
