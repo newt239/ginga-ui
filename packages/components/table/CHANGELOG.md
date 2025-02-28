@@ -1,5 +1,14 @@
 # @ginga-ui/table
 
+## 0.9.8
+
+### Patch Changes
+
+- ae49196: fix: file ext on exports field
+- Updated dependencies [ae49196]
+  - @ginga-ui/checkbox@0.9.8
+  - @ginga-ui/utils@0.9.8
+
 ## 0.9.7
 
 ### Patch Changes
