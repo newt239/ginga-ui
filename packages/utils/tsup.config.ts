@@ -6,8 +6,5 @@ export default defineConfig({
   dts: true,
   target: "esnext",
   format: ["cjs", "esm"],
-  banner: {
-    js: '"use client";',
-  },
   sourcemap: true,
 });
