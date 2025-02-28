@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.10.0
+
+### Minor Changes
+
+- 091e6cd: fix: export config
+
 ## 0.9.9
 
 ### Patch Changes

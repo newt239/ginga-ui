@@ -1,5 +1,17 @@
 # @ginga-ui/table
 
+## 0.10.0
+
+### Minor Changes
+
+- 091e6cd: fix: export config
+
+### Patch Changes
+
+- Updated dependencies [091e6cd]
+  - @ginga-ui/checkbox@0.10.0
+  - @ginga-ui/utils@0.10.0
+
 ## 0.9.9
 
 ### Patch Changes
