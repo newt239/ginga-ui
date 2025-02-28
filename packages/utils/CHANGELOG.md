@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.9.8
+
+### Patch Changes
+
+- ae49196: fix: file ext on exports field
+
 ## 0.9.7
 
 ### Patch Changes
