@@ -1,7 +1,6 @@
 # Ginga UI
 
-![version](https://img.shields.io/github/package-json/v/newt239/ginga-ui?style=flat)
-[![npm version](https://badge.fury.io/js/ginga-ui.svg?icon=si%3Anpm)](https://badge.fury.io/js/ginga-ui)
+[![NPM Version](https://img.shields.io/npm/v/%40ginga-ui%2Fcore)](https://www.npmjs.com/package/@ginga-ui/core)
 ![GitHub License](https://img.shields.io/github/license/newt239/ginga-ui)
 [![Lint Code Base](https://github.com/newt239/ginga-ui/actions/workflows/lint.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/lint.yaml)
 [![Publish to npm](https://github.com/newt239/ginga-ui/actions/workflows/release.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/publish.yaml)
@@ -14,8 +13,9 @@
 
 ### Frameworks
 
-- React 18
-- Next.js 13 or Next.js 14 with App Router (not supported with Next.js 15)
+- React 18 or later
+- Next.js 13 or later (Recommended to use with App Router)
+- React Router v7
 - React with Vite
 
 ### Browsers
