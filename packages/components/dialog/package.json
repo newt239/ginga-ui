@@ -1,7 +1,7 @@
 {
   "name": "@ginga-ui/dialog",
   "private": false,
-  "version": "0.10.0",
+  "version": "0.10.1",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [

@@ -1,5 +1,13 @@
 # @ginga-ui/table
 
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [c95a983]
+  - @ginga-ui/utils@0.11.0
+  - @ginga-ui/checkbox@0.10.1
+
 ## 0.10.0
 
 ### Minor Changes
