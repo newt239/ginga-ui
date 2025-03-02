@@ -3,8 +3,9 @@ import * as v from "valibot";
 
 import { generateIntermediateColors } from "../lib/color";
 
-import GeminiClient, { GeminiConstructorProps } from "./gemini";
-import OpenAIClient, { OpenAConstructorProps } from "./openai";
+import AnthropicClient, { type AnthropicConstructorProps } from "./anthropic";
+import GeminiClient, { type GeminiConstructorProps } from "./gemini";
+import OpenAIClient, { type OpenAConstructorProps } from "./openai";
 import { Variables } from "./types";
 
 export type ThemeClientConstructorProps =
@@ -13,23 +14,32 @@ export type ThemeClientConstructorProps =
     } & OpenAConstructorProps)
   | ({
       clientType: "gemini";
-    } & GeminiConstructorProps);
+    } & GeminiConstructorProps)
+  | ({
+      clientType: "anthropic";
+    } & AnthropicConstructorProps);
 
 export type GemerateaThemeOptions = {
   maxRetries?: number;
 };
 
 export class ThemeClient {
-  private client: OpenAIClient | GeminiClient;
+  private client: OpenAIClient | GeminiClient | AnthropicClient;
   private maxRetries: number = 3;
 
   constructor(props: ThemeClientConstructorProps) {
-    if (props.clientType === "gemini") {
-      this.client = new GeminiClient(props);
-    } else if (props.clientType === "openai") {
-      this.client = new OpenAIClient(props);
-    } else {
-      throw new Error("Invalid client type");
+    switch (props.clientType) {
+      case "gemini":
+        this.client = new GeminiClient(props);
+        break;
+      case "openai":
+        this.client = new OpenAIClient(props);
+        break;
+      case "anthropic":
+        this.client = new AnthropicClient(props);
+        break;
+      default:
+        throw new Error("Invalid client type");
     }
   }
 
