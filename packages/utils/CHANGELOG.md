@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.11.0
+
+### Minor Changes
+
+- c95a983: feat: add anthropic client
+
 ## 0.10.0
 
 ### Minor Changes

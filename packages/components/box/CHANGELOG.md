@@ -1,5 +1,12 @@
 # @ginga-ui/box
 
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [c95a983]
+  - @ginga-ui/utils@0.11.0
+
 ## 0.10.0
 
 ### Minor Changes
