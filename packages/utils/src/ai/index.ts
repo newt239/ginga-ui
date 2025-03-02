@@ -3,38 +3,50 @@ import * as v from "valibot";
 
 import { generateIntermediateColors } from "../lib/color";
 
-import GeminiClient from "./gemini";
-import OpenAIClient from "./openai";
+import AnthropicClient, { type AnthropicConstructorProps } from "./anthropic";
+import GeminiClient, { type GeminiConstructorProps } from "./gemini";
+import OpenAIClient, { type OpenAConstructorProps } from "./openai";
 import { Variables } from "./types";
 
-type ClientType = "gemini" | "openai";
+export type ThemeClientConstructorProps =
+  | ({
+      clientType: "openai";
+    } & OpenAConstructorProps)
+  | ({
+      clientType: "gemini";
+    } & GeminiConstructorProps)
+  | ({
+      clientType: "anthropic";
+    } & AnthropicConstructorProps);
+
+export type GemerateaThemeOptions = {
+  maxRetries?: number;
+};
 
 export class ThemeClient {
-  private client: OpenAIClient | GeminiClient;
-  private maxRetries: number;
+  private client: OpenAIClient | GeminiClient | AnthropicClient;
+  private maxRetries: number = 3;
 
-  constructor({
-    clientType = "openai",
-    apiKey,
-    dangerouslyAllowBrowser = false,
-    maxRetries = 3,
-  }: {
-    clientType: ClientType;
-    apiKey: string;
-    dangerouslyAllowBrowser?: boolean;
-    maxRetries?: number;
-  }) {
-    if (clientType === "gemini") {
-      this.client = new GeminiClient(apiKey);
-    } else if (clientType === "openai") {
-      this.client = new OpenAIClient(apiKey, dangerouslyAllowBrowser);
-    } else {
-      throw new Error("Invalid client type");
+  constructor(props: ThemeClientConstructorProps) {
+    switch (props.clientType) {
+      case "gemini":
+        this.client = new GeminiClient(props);
+        break;
+      case "openai":
+        this.client = new OpenAIClient(props);
+        break;
+      case "anthropic":
+        this.client = new AnthropicClient(props);
+        break;
+      default:
+        throw new Error("Invalid client type");
     }
-    this.maxRetries = maxRetries;
   }
 
-  async generateTheme(prompt: string) {
+  async generateTheme(prompt: string, options?: GemerateaThemeOptions) {
+    if (options?.maxRetries) {
+      this.maxRetries = options.maxRetries;
+    }
     let i: number;
     for (i = 0; i < this.maxRetries; i++) {
       try {

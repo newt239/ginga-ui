@@ -2,20 +2,29 @@ import {
   type GenerationConfig,
   GenerativeModel,
   GoogleGenerativeAI,
+  type ModelParams,
   SchemaType,
 } from "@google/generative-ai";
 
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
+
+export type GeminiConstructorProps = {
+  apiKey: string;
+  model_name?: ModelParams["model"];
+};
 
 class GeminiClient {
   private genAI: GoogleGenerativeAI;
   private model: GenerativeModel;
   private generationConfig: GenerationConfig;
 
-  constructor(apiKey: string) {
+  constructor({
+    apiKey,
+    model_name = "gemini-exp-1206",
+  }: GeminiConstructorProps) {
     this.genAI = new GoogleGenerativeAI(apiKey);
     this.model = this.genAI.getGenerativeModel({
-      model: "gemini-exp-1206",
+      model: model_name,
       systemInstruction: SYSTEM_PROMPT,
     });
     this.generationConfig = {
