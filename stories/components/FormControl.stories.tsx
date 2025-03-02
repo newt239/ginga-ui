@@ -31,6 +31,43 @@ export const WithCustomId: Story = {
   },
 };
 
+export const withOpenAITheme: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  render: () => {
+    const [isGenerating, setIsGenerating] = useState(false);
+    const [value, setValue] = useState("");
+    const themeClient = new ThemeClient({
+      clientType: "openai",
+      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
+      dangerouslyAllowBrowser: true,
+    });
+
+    const onClick = async () => {
+      setIsGenerating(true);
+      await themeClient.generateTheme(value);
+      setIsGenerating(false);
+    };
+
+    return (
+      <>
+        <FormControl title="With OpenAI Generated Theme">
+          <Input
+            placeholder="fantasy theme"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+        </FormControl>
+        <Button variant="filled" disabled={false} onPress={onClick}>
+          Generate
+          {isGenerating && "..."}
+        </Button>
+      </>
+    );
+  },
+};
+
 export const withGeminiTheme: Story = {
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -67,7 +104,7 @@ export const withGeminiTheme: Story = {
   },
 };
 
-export const withOpenAITheme: Story = {
+export const withAnthropicTheme: Story = {
   parameters: {
     chromatic: { disableSnapshot: true },
   },
@@ -75,9 +112,8 @@ export const withOpenAITheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      clientType: "openai",
-      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
-      dangerouslyAllowBrowser: true,
+      clientType: "anthropic",
+      apiKey: import.meta.env.STORYBOOK_ANTHROPIC_API_KEY as string,
     });
 
     const onClick = async () => {
@@ -88,9 +124,9 @@ export const withOpenAITheme: Story = {
 
     return (
       <>
-        <FormControl title="With OpenAI Generated Theme">
+        <FormControl title="With Anthropic Generated Theme">
           <Input
-            placeholder="fantasy theme"
+            placeholder="sci-fi theme"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />

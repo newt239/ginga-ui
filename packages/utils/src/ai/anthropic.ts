@@ -20,7 +20,7 @@ class AnthropicClient {
 
   constructor({
     apiKey,
-    model_name = "gpt-4o-mini",
+    model_name = "claude-3-7-sonnet-latest",
   }: AnthropicConstructorProps) {
     this.model = model_name;
     this.anthropic = new Anthropic({

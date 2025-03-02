@@ -120,7 +120,7 @@ export default async function Home() {
 
 ### Client Types
 
-`ThemeClient` supports two client types: `gemini` and `openai`. You can specify the client type when creating an instance of `ThemeClient`.
+`ThemeClient` supports two client types: `openai`, `gemini`, `anthropic`. You can specify the client type when creating an instance of `ThemeClient`.
 
 #### Gemini Client
 
