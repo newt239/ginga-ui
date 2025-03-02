@@ -15,6 +15,10 @@ export type ThemeClientConstructorProps =
       clientType: "gemini";
     } & GeminiConstructorProps);
 
+export type GemerateaThemeOptions = {
+  maxRetries?: number;
+};
+
 export class ThemeClient {
   private client: OpenAIClient | GeminiClient;
   private maxRetries: number = 3;
@@ -29,16 +33,9 @@ export class ThemeClient {
     }
   }
 
-  async generateTheme(
-    prompt: string,
-    {
-      maxRetries,
-    }: {
-      maxRetries?: number;
-    }
-  ) {
-    if (maxRetries) {
-      this.maxRetries = maxRetries;
+  async generateTheme(prompt: string, options?: GemerateaThemeOptions) {
+    if (options?.maxRetries) {
+      this.maxRetries = options.maxRetries;
     }
     let i: number;
     for (i = 0; i < this.maxRetries; i++) {
