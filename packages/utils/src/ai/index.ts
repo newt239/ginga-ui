@@ -3,38 +3,43 @@ import * as v from "valibot";
 
 import { generateIntermediateColors } from "../lib/color";
 
-import GeminiClient from "./gemini";
-import OpenAIClient from "./openai";
+import GeminiClient, { GeminiConstructorProps } from "./gemini";
+import OpenAIClient, { OpenAConstructorProps } from "./openai";
 import { Variables } from "./types";
 
-type ClientType = "gemini" | "openai";
+export type ThemeClientConstructorProps =
+  | ({
+      clientType: "openai";
+    } & OpenAConstructorProps)
+  | ({
+      clientType: "gemini";
+    } & GeminiConstructorProps);
 
 export class ThemeClient {
   private client: OpenAIClient | GeminiClient;
-  private maxRetries: number;
+  private maxRetries: number = 3;
 
-  constructor({
-    clientType = "openai",
-    apiKey,
-    dangerouslyAllowBrowser = false,
-    maxRetries = 3,
-  }: {
-    clientType: ClientType;
-    apiKey: string;
-    dangerouslyAllowBrowser?: boolean;
-    maxRetries?: number;
-  }) {
-    if (clientType === "gemini") {
-      this.client = new GeminiClient(apiKey);
-    } else if (clientType === "openai") {
-      this.client = new OpenAIClient(apiKey, dangerouslyAllowBrowser);
+  constructor(props: ThemeClientConstructorProps) {
+    if (props.clientType === "gemini") {
+      this.client = new GeminiClient(props);
+    } else if (props.clientType === "openai") {
+      this.client = new OpenAIClient(props);
     } else {
       throw new Error("Invalid client type");
     }
-    this.maxRetries = maxRetries;
   }
 
-  async generateTheme(prompt: string) {
+  async generateTheme(
+    prompt: string,
+    {
+      maxRetries,
+    }: {
+      maxRetries?: number;
+    }
+  ) {
+    if (maxRetries) {
+      this.maxRetries = maxRetries;
+    }
     let i: number;
     for (i = 0; i < this.maxRetries; i++) {
       try {

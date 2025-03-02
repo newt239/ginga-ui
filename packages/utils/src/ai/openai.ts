@@ -16,10 +16,22 @@ const RESPONSE_FORMAT = {
   },
 } as const;
 
+export type OpenAConstructorProps = {
+  apiKey: string;
+  model_name?: OpenAI.Chat.ChatModel;
+  dangerouslyAllowBrowser?: boolean;
+};
+
 class OpenAIClient {
   private openai: OpenAI;
+  private model: OpenAI.Chat.ChatModel;
 
-  constructor(apiKey: string, dangerouslyAllowBrowser: boolean) {
+  constructor({
+    apiKey,
+    model_name = "gpt-4o-mini",
+    dangerouslyAllowBrowser,
+  }: OpenAConstructorProps) {
+    this.model = model_name;
     this.openai = new OpenAI({
       apiKey,
       dangerouslyAllowBrowser,
@@ -29,7 +41,7 @@ class OpenAIClient {
   async generateTheme(prompt: string) {
     try {
       const completion = await this.openai.chat.completions.create({
-        model: "gpt-4o-mini",
+        model: this.model,
         messages: [
           {
             role: "system",
