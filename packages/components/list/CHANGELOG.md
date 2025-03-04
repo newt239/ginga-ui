@@ -1,5 +1,12 @@
 # @ginga-ui/list
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [577c307]
+  - @ginga-ui/utils@0.11.1
+
 ## 0.10.1
 
 ### Patch Changes

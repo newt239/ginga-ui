@@ -1,7 +1,7 @@
 {
   "name": "@ginga-ui/anchor",
   "private": false,
-  "version": "0.10.1",
+  "version": "0.10.2",
   "type": "module",
   "description": "brand-new UI component library for web",
   "keywords": [
