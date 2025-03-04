@@ -1,8 +1,23 @@
 {
-  "name": "@ginga-ui/docs",
+  "name": "ginga-docs",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
   "dependencies": {
-    "@ginga-ui/core": "workspace:*"
+    "@ginga-ui/core": "workspace:*",
+    "@mdx-js/loader": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@next/mdx": "^15.2.1",
+    "next": "15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/mdx": "^2.0.13"
   }
 }

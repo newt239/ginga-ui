@@ -4,7 +4,7 @@ import { properties, SYSTEM_PROMPT } from "./const";
 
 export type AnthropicConstructorProps = {
   apiKey: string;
-  model_name?: Anthropic.Messages.Model;
+  model?: Anthropic.Messages.Model;
 };
 
 const FORMAT_INSTRUCTIONS = `
@@ -16,13 +16,13 @@ ${JSON.stringify(properties, null, 2)}
 
 class AnthropicClient {
   private anthropic: Anthropic;
-  private model: string;
+  private model: Anthropic.Messages.Model;
 
   constructor({
     apiKey,
-    model_name = "claude-3-7-sonnet-latest",
+    model = "claude-3-7-sonnet-latest",
   }: AnthropicConstructorProps) {
-    this.model = model_name;
+    this.model = model;
     this.anthropic = new Anthropic({
       apiKey,
     });

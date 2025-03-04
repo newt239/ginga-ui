@@ -10,7 +10,7 @@ import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
 
 export type GeminiConstructorProps = {
   apiKey: string;
-  model_name?: ModelParams["model"];
+  model?: ModelParams["model"];
 };
 
 class GeminiClient {
@@ -18,13 +18,10 @@ class GeminiClient {
   private model: GenerativeModel;
   private generationConfig: GenerationConfig;
 
-  constructor({
-    apiKey,
-    model_name = "gemini-exp-1206",
-  }: GeminiConstructorProps) {
+  constructor({ apiKey, model = "gemini-exp-1206" }: GeminiConstructorProps) {
     this.genAI = new GoogleGenerativeAI(apiKey);
     this.model = this.genAI.getGenerativeModel({
-      model: model_name,
+      model: model,
       systemInstruction: SYSTEM_PROMPT,
     });
     this.generationConfig = {
