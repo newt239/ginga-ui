@@ -32,7 +32,9 @@
     "build:fast": "turbo run build:fast --filter=./packages/**",
     "lint": "eslint --fix",
     "stylelint": "stylelint \"./**/*.css\" --fix",
-    "format": "prettier --write \"./**/*.{ts,tsx}\""
+    "format": "prettier --write \"./**/*.{ts,tsx}\"",
+    "storybook": "pnpm --prefix stories storybook",
+    "docs": "pnpm --prefix docs dev"
   },
   "files": [
     "dist"
