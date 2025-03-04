@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.11.1
+
+### Patch Changes
+
+- 577c307: improve: property name
+
 ## 0.11.0
 
 ### Minor Changes

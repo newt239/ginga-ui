@@ -1,5 +1,31 @@
 # @ginga-ui/core
 
+## 0.10.2
+
+### Patch Changes
+
+- Updated dependencies [577c307]
+  - @ginga-ui/utils@0.11.1
+  - @ginga-ui/accordion@0.10.2
+  - @ginga-ui/anchor@0.10.2
+  - @ginga-ui/box@0.10.2
+  - @ginga-ui/button@0.10.2
+  - @ginga-ui/card@0.10.2
+  - @ginga-ui/checkbox@0.10.2
+  - @ginga-ui/dialog@0.10.2
+  - @ginga-ui/form-control@0.10.2
+  - @ginga-ui/heading@0.10.2
+  - @ginga-ui/image@0.10.2
+  - @ginga-ui/input@0.10.2
+  - @ginga-ui/list@0.10.2
+  - @ginga-ui/paragraph@0.10.2
+  - @ginga-ui/radio@0.10.2
+  - @ginga-ui/select@0.10.2
+  - @ginga-ui/slider@0.10.2
+  - @ginga-ui/switch@0.10.2
+  - @ginga-ui/tab@0.10.2
+  - @ginga-ui/table@0.10.2
+
 ## 0.10.1
 
 ### Patch Changes
