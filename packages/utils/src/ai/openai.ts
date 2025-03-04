@@ -18,7 +18,7 @@ const RESPONSE_FORMAT = {
 
 export type OpenAConstructorProps = {
   apiKey: string;
-  model_name?: OpenAI.Chat.ChatModel;
+  model?: OpenAI.Chat.ChatModel;
   dangerouslyAllowBrowser?: boolean;
 };
 
@@ -28,10 +28,10 @@ class OpenAIClient {
 
   constructor({
     apiKey,
-    model_name = "gpt-4o-mini",
+    model = "gpt-4o-mini",
     dangerouslyAllowBrowser,
   }: OpenAConstructorProps) {
-    this.model = model_name;
+    this.model = model;
     this.openai = new OpenAI({
       apiKey,
       dangerouslyAllowBrowser,
