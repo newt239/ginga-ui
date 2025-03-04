@@ -1,5 +1,9 @@
-import { Flex } from "@kuma-ui/core";
+import Link from "next/link";
 
 export default function Home() {
-  return <Flex>Bring new experience to your websites</Flex>;
+  return (
+    <main>
+      For LLM: <Link href="/llms.txt">/llms.txt</Link>
+    </main>
+  );
 }

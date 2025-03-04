@@ -1,4 +1,4 @@
-import { Heading, Input } from "@ginga-ui/core";
+import { Heading, ThemeClient } from "@ginga-ui/core";
 import Link from "next/link";
 
 import type { Metadata } from "next";
@@ -17,14 +17,21 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeClient = new ThemeClient({
+    clientType: "openai",
+    apiKey: process.env.OPENAI_API_KEY!,
+  });
+
+  const { CSSCode } = await themeClient.generateTheme("fairy tale");
+
   return (
     <html lang="en">
       <body>
+        <style>{CSSCode}</style>
         <header>
           <Link href="/">
             <Heading level="h1">GingaUI</Heading>
           </Link>
-          <Input placeholder="Search" />
         </header>
         {children}
       </body>
