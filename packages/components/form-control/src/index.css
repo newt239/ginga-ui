@@ -1,0 +1,17 @@
+.ginga-form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.ginga-form-control-label {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family);
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.ginga-form-control-inner {
+  display: flex;
+  flex-direction: column;
+}

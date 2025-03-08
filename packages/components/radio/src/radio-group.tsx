@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { RadioGroup as AriaRadioGroup } from "react-aria-components";
-
-import styles from "./radio-group.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -26,7 +25,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <AriaRadioGroup
       isDisabled={disabled}
       isRequired={required}
-      className={cn(styles["radio-group"], className)}
+      className={cn("ginga-radio-group", className)}
       {...props}
     >
       {children}

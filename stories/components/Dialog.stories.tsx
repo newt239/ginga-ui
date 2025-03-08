@@ -1,12 +1,12 @@
+import { Input, Label, TextField } from "react-aria-components";
+
+import { Button } from "../../packages/components/button/src";
 import {
-  Button,
   Dialog,
   DialogTitle,
   DialogTrigger,
   Modal,
-} from "@ginga-ui/core";
-import "@ginga-ui/core/index.css";
-import { Input, Label, TextField } from "react-aria-components";
+} from "../../packages/components/dialog/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

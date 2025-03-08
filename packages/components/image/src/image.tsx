@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-
-import styles from "./image.module.css";
+import "./index.css";
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   variant?: "default" | "avatar";
@@ -15,7 +14,7 @@ export const Image: React.FC<ImageProps> = ({
 }) => {
   return (
     <img
-      className={cn(styles.image, className)}
+      className={cn("ginga-image", className)}
       data-variant={variant}
       {...props}
     />

@@ -1,0 +1,110 @@
+.ginga-select {
+  position: relative;
+
+  &[data-disabled] {
+    .ginga-label {
+      color: var(--color-secondary-5);
+    }
+
+    button {
+      color: var(--color-secondary-5);
+      cursor: not-allowed;
+      background-color: var(--color-secondary-1);
+      border-color: var(--color-secondary-5);
+      opacity: 0.5;
+    }
+  }
+}
+
+.ginga-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-secondary-9);
+}
+
+.ginga-select button {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  color: var(--color-secondary-9);
+  background-color: var(--color-background);
+  border: var(--width-border) solid var(--color-secondary-9);
+  border-radius: calc(var(--size-radius) * 0.5);
+  transition: all 0.2s ease;
+
+  span[aria-hidden] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-secondary-0);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-secondary-2);
+  }
+
+  &[data-open] {
+    button span[aria-hidden] {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.ginga-select-popover {
+  position: relative;
+  z-index: 50;
+  min-width: 8rem;
+  margin-top: 0.25rem;
+  overflow: hidden;
+  background-color: var(--color-background);
+  border: var(--width-border) solid var(--color-secondary-9);
+  border-radius: calc(var(--size-radius) * 0.5);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
+}
+
+.ginga-select-listbox {
+  overflow-y: auto;
+}
+
+[role="option"] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  color: var(--color-secondary-9);
+  cursor: pointer;
+  user-select: none;
+  border-radius: calc(var(--size-radius) * 0.25);
+
+  &:hover {
+    background-color: var(--color-secondary-1);
+  }
+
+  &[data-selected] {
+    font-weight: 500;
+    color: var(--color-background);
+    background-color: var(--color-primary-9);
+  }
+}

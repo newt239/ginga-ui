@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { Radio as AriaRadio } from "react-aria-components";
-
-import styles from "./radio.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -23,7 +22,7 @@ export const Radio: React.FC<RadioProps> = ({
   return (
     <AriaRadio
       isDisabled={disabled}
-      className={cn(styles.radio, className)}
+      className={cn("ginga-radio", className)}
       {...props}
     >
       {children}

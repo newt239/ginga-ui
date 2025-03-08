@@ -3,7 +3,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@ginga-ui/core";
+} from "../../packages/components/accordion/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

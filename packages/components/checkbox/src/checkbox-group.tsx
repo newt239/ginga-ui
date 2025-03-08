@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
-
-import styles from "./checkbox-group.module.css";
+import "./index.css";
 
 export type CheckboxGroupProps = React.ComponentProps<typeof AriaCheckboxGroup>;
 
@@ -14,7 +13,7 @@ export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
 }) => {
   return (
     <AriaCheckboxGroup
-      className={cn(styles["checkbox-group"], className)}
+      className={cn("ginga-checkbox-group", className)}
       {...props}
     >
       {children}

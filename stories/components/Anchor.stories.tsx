@@ -1,5 +1,6 @@
-import { Anchor } from "@ginga-ui/core";
 import "@ginga-ui/core/index.css";
+
+import { Anchor } from "../../packages/components/anchor/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -40,5 +41,13 @@ export const DisabledAnchor: Story = {
     children: "Disabled Link",
     href: "https://example.com",
     disabled: true,
+  },
+};
+
+export const ButtonAnchor: Story = {
+  args: {
+    children: "Button Link",
+    href: "https://example.com",
+    variant: "button",
   },
 };

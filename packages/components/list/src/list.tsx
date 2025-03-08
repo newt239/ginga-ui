@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-
-import styles from "./list.module.css";
+import "./index.css";
 
 export interface ListProps
   extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
@@ -19,8 +18,8 @@ export const List: React.FC<ListProps> = ({
   return (
     <Component
       className={cn(
-        styles.list,
-        type === "ordered" ? styles.orderedList : styles.unorderedList,
+        "ginga-list",
+        type === "ordered" ? "ginga-orderedList" : "ginga-unorderedList",
         className
       )}
       {...props}
@@ -31,6 +30,6 @@ export const List: React.FC<ListProps> = ({
 export type ListItemProps = React.HTMLAttributes<HTMLLIElement>;
 
 export const ListItem: React.FC<ListItemProps> = ({ className, ...props }) => {
-  return <li className={cn(styles.listItem, className)} {...props} />;
+  return <li className={cn("ginga-listItem", className)} {...props} />;
 };
 ListItem.displayName = "ListItem";

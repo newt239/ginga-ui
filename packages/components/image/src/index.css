@@ -1,0 +1,11 @@
+.ginga-image {
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--size-radius));
+
+  &[data-variant="avatar"] {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 9999px;
+  }
+}

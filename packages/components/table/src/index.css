@@ -1,0 +1,53 @@
+.ginga-table {
+  width: 100%;
+  font-family: var(--font-family);
+  color: var(--color-secondary-9);
+  border-collapse: collapse;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-secondary-2);
+  border-radius: calc(var(--size-radius) * 0.5);
+}
+
+.ginga-table-header {
+  background-color: var(--color-secondary-1);
+}
+
+.ginga-column {
+  padding: 0.75rem;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid var(--color-secondary-2);
+}
+
+.ginga-table-body {
+  background-color: var(--color-background);
+}
+
+.ginga-row {
+  border-bottom: 1px solid var(--color-secondary-2);
+}
+
+.ginga-row:last-child {
+  border-bottom: none;
+}
+
+.ginga-row:hover {
+  background-color: var(--color-secondary-1);
+}
+
+.ginga-cell {
+  padding: 0.75rem;
+}
+
+.ginga-row[data-selected="true"] {
+  background-color: var(--color-primary-1);
+}
+
+.ginga-row[data-selected="true"]:hover {
+  background-color: var(--color-primary-2);
+}
+
+.ginga-row:focus-visible {
+  outline: 2px solid var(--color-primary-6);
+  outline-offset: -2px;
+}

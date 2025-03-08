@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { Group } from "react-aria-components";
-
-import styles from "./button-group.module.css";
+import "./index.css";
 
 export type ButtonGroupProps = React.ComponentProps<typeof Group>;
 
@@ -13,7 +12,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   ...props
 }) => {
   return (
-    <Group className={cn(styles["button-group"], className)} {...props}>
+    <Group className={cn("ginga-button-group", className)} {...props}>
       {children}
     </Group>
   );
