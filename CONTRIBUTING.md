@@ -34,4 +34,4 @@
 
 リリース管理には[changesets](https://github.com/changesets/changesets)を使用しています。PRを作る前にローカルで`npx changeset`を実行し、変更を加えたパッケージを選択してください。
 
-その後変更内容が`major`, `minor`, `patch`のどれに該当するかを選択し、変更内容を簡単に記述し、コミットしてください。
+その後変更内容が`major`, `minor`, `patch`のどれに該当するかを選択し、変更内容を簡単に記述したうえでコミットしてください。
