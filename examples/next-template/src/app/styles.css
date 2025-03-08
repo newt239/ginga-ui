@@ -1,0 +1,17 @@
+body {
+  background-color: var(--color-background);
+  color: var(--color-secondary-9);
+  margin: 0;
+}
+
+main {
+  margin: 1rem;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
