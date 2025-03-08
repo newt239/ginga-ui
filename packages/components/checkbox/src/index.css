@@ -11,12 +11,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 10.2rem;
-    height: 10.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
     cursor: pointer;
     border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
-    transition: all 200ms;
+    transition: all 0.2s;
   }
 
   svg {
@@ -27,7 +27,7 @@
     stroke-dasharray: 22px;
     stroke-dashoffset: 66;
     stroke-width: 3px;
-    transition: all 200ms;
+    transition: all 0.2s;
   }
 
   &[data-pressed] .ginga-checkbox-input {

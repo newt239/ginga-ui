@@ -20,7 +20,7 @@
   position: relative;
   width: 100%;
   max-width: 32rem;
-  padding: 10.5rem;
+  padding: 1.5rem;
   color: var(--color-secondary-9);
   background-color: var(--color-background);
   border-radius: calc(var(--size-radius) * 0.5);
@@ -32,6 +32,6 @@
 .ginga-dialog-title {
   margin-bottom: 1rem;
   font-family: var(--font-family);
-  font-size: 10.5rem;
+  font-size: 1.5rem;
   font-weight: 800;
 }

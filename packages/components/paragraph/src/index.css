@@ -1,8 +1,8 @@
 .ginga-paragraph {
-  margin-bottom: 10.5rem;
+  margin-bottom: 0.5rem;
   font-family: var(--font-family);
   font-size: 1rem;
-  line-height: 10.5;
+  line-height: 1.5;
   color: var(--color-secondary-9);
   background: var(--color-background);
 }

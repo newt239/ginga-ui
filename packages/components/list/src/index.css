@@ -1,5 +1,5 @@
 .ginga-list {
-  padding-left: 10.5rem;
+  padding-left: 0.5rem;
   font-family: var(--font-family);
   color: var(--color-secondary-9);
 }
@@ -13,5 +13,5 @@
 }
 
 .ginga-listItem {
-  line-height: 10.5;
+  line-height: 1.5;
 }

@@ -3,22 +3,6 @@
   flex-direction: column;
   font-family: var(--font-family);
   color: var(--color-secondary-9);
-
-  &[data-orientation="vertical"] {
-    flex-direction: row;
-
-    .ginga-tab-list {
-      flex-direction: column;
-    }
-
-    .ginga-tab {
-      &[data-selected] {
-        color: var(--color-primary-9);
-        border: none;
-        border-right: var(--width-border) solid var(--color-primary-9);
-      }
-    }
-  }
 }
 
 .ginga-tab-list {
@@ -33,7 +17,7 @@
   color: var(--color-secondary);
   cursor: pointer;
   outline: none;
-  transition: color 200ms;
+  transition: color 0.2s;
   forced-color-adjust: none;
 
   &[data-hovered],
@@ -70,5 +54,23 @@
 
   &[data-focus-visible] {
     outline: 2px solid var(--color-primary-9);
+  }
+}
+
+&[data-orientation="vertical"] {
+  .ginga-tabs {
+    flex-direction: row;
+
+    .ginga-tab-list {
+      flex-direction: column;
+    }
+
+    .ginga-tab {
+      &[data-selected] {
+        color: var(--color-primary-9);
+        border: none;
+        border-right: var(--width-border) solid var(--color-primary-9);
+      }
+    }
   }
 }

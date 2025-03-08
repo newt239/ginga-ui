@@ -13,16 +13,16 @@
     background: var(--color-background);
     border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
-    transition: all 200ms;
+    transition: all 0.2s;
 
     &::before {
       display: block;
-      width: .ginga-9rem;
-      height: .ginga-9rem;
-      margin: .ginga-05rem .ginga-1rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      margin: 0.05rem 0.1rem;
       content: "";
       background: var(--color-primary-9);
-      border-radius: calc(var(--size-radius) * 0.5 - .ginga-1rem);
+      border-radius: calc(var(--size-radius) * 0.5 - 0.1rem);
       transition: all 0.2s;
     }
   }
