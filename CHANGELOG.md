@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.10
+
+- feat: add anthropic option to the `themeClient`
+- feat: select custom model on the `themeClient`
+
+## v0.9
+
+- change: build packages with tsup
+- change: separate components into individual packages
+- change: use `@ginga-ui` scope for all packages
+
 ## v0.8.1
 
 - feat: add `reverse` variant option to the Button component
