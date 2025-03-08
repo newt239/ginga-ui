@@ -1,8 +1,9 @@
 import { Box, Heading, Image, Paragraph } from "@ginga-ui/core";
+import Link from "next/link";
+
+import styles from "./ArticleCard.module.css";
 
 import { ArticleProps } from "#/libs/cms";
-import Link from "next/link";
-import styles from "./ArticleCard.module.css";
 
 const ArticleCard: React.FC<ArticleProps> = (props) => {
   return (

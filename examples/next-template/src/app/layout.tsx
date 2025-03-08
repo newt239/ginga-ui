@@ -1,9 +1,10 @@
 import "@ginga-ui/core/index.css";
 import "@ginga-ui/core/variables.css";
 
+import Header from "./_components/Header";
+
 import type { Metadata } from "next";
 
-import Header from "./_components/Header";
 import "./styles.css";
 
 export const metadata: Metadata = {

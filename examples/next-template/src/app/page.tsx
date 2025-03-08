@@ -1,6 +1,8 @@
-import { getBlogPosts } from "#/libs/cms";
 import { ThemeClient } from "@ginga-ui/core";
+
 import ArticleList from "./_components/ArticleList";
+
+import { getBlogPosts } from "#/libs/cms";
 
 export const dynamic = "force-static";
 

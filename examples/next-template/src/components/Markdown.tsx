@@ -1,3 +1,5 @@
+import React from "react";
+
 import {
   Anchor,
   Heading,
@@ -6,7 +8,6 @@ import {
   ListItem,
   Paragraph,
 } from "@ginga-ui/core";
-import React from "react";
 import * as prod from "react/jsx-runtime";
 import rehypeParse from "rehype-parse";
 import rehypeReact from "rehype-react";

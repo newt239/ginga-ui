@@ -1,10 +1,11 @@
-import { htmlToComponents } from "#/components/Markdown";
-import { cmsClient, getBlogPosts } from "#/libs/cms";
 import { Anchor, Box, Heading, Image, ThemeClient } from "@ginga-ui/core";
-
 import { notFound } from "next/navigation";
 import { Metadata } from "next/types";
+
 import styles from "./page.module.css";
+
+import { htmlToComponents } from "#/components/Markdown";
+import { cmsClient, getBlogPosts } from "#/libs/cms";
 
 export const dynamic = "force-static";
 

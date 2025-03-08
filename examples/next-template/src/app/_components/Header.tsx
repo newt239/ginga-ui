@@ -1,8 +1,8 @@
 import { Heading } from "@ginga-ui/core";
-import Search from "./Search";
-
 import Link from "next/link";
+
 import styles from "./Header.module.css";
+import Search from "./Search";
 
 const Header: React.FC = () => {
   return (

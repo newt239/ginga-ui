@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.11.0
+
+- remove: CSS Modules
+
 ## v0.10
 
 - feat: add anthropic option to the `themeClient`

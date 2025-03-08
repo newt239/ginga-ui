@@ -1,8 +1,9 @@
-import ArticleCard from "#/app/_components/ArticleCard";
-import { ArticleProps } from "#/libs/cms";
 import { Heading } from "@ginga-ui/core";
 
 import styles from "./ArticleList.module.css";
+
+import ArticleCard from "#/app/_components/ArticleCard";
+import { ArticleProps } from "#/libs/cms";
 
 type ArticleListProps = {
   posts: ArticleProps[];

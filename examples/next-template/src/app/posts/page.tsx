@@ -1,6 +1,8 @@
-import { getBlogPosts } from "#/libs/cms";
 import { Metadata } from "next";
+
 import ArticleList from "../_components/ArticleList";
+
+import { getBlogPosts } from "#/libs/cms";
 
 export const dynamic = "force-static";
 

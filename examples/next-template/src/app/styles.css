@@ -1,7 +1,7 @@
 body {
-  background-color: var(--color-background);
-  color: var(--color-secondary-9);
   margin: 0;
+  color: var(--color-secondary-9);
+  background-color: var(--color-background);
 }
 
 main {
