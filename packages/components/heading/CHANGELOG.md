@@ -1,5 +1,13 @@
 # @ginga-ui/heading
 
+## 0.10.3
+
+### Patch Changes
+
+- 4d7f452: remove css modules
+- Updated dependencies [4d7f452]
+  - @ginga-ui/utils@0.11.2
+
 ## 0.10.2
 
 ### Patch Changes

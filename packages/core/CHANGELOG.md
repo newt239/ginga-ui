@@ -1,5 +1,32 @@
 # @ginga-ui/core
 
+## 0.10.3
+
+### Patch Changes
+
+- 4d7f452: remove css modules
+- Updated dependencies [4d7f452]
+  - @ginga-ui/form-control@0.10.3
+  - @ginga-ui/accordion@0.10.3
+  - @ginga-ui/paragraph@0.10.3
+  - @ginga-ui/checkbox@0.10.3
+  - @ginga-ui/heading@0.10.3
+  - @ginga-ui/anchor@0.10.3
+  - @ginga-ui/button@0.10.3
+  - @ginga-ui/dialog@0.10.3
+  - @ginga-ui/select@0.10.3
+  - @ginga-ui/slider@0.10.3
+  - @ginga-ui/switch@0.10.3
+  - @ginga-ui/image@0.10.3
+  - @ginga-ui/input@0.10.3
+  - @ginga-ui/radio@0.10.3
+  - @ginga-ui/table@0.10.3
+  - @ginga-ui/card@0.10.3
+  - @ginga-ui/list@0.10.3
+  - @ginga-ui/box@0.10.3
+  - @ginga-ui/tab@0.10.3
+  - @ginga-ui/utils@0.11.2
+
 ## 0.10.2
 
 ### Patch Changes
