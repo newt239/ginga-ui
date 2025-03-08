@@ -1,5 +1,9 @@
-import { Checkbox, CheckboxGroup } from "@ginga-ui/core";
 import "@ginga-ui/core/index.css";
+
+import {
+  Checkbox,
+  CheckboxGroup,
+} from "../../packages/components/checkbox/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

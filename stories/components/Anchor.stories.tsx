@@ -1,5 +1,6 @@
-import { Anchor } from "@ginga-ui/core";
 import "@ginga-ui/core/index.css";
+
+import { Anchor } from "../../packages/components/anchor/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

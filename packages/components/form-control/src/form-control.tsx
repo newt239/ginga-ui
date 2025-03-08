@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef } from "react";
 
-import { cn } from "packages/utils/dist";
+import { cn } from "@ginga-ui/utils";
 import { Label } from "react-aria-components";
 import "./index.css";
 
