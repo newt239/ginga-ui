@@ -7,8 +7,7 @@ import {
   TabPanel as AriaTabPanel,
   Tabs as AriaTabs,
 } from "react-aria-components";
-
-import styles from "./tab.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -24,7 +23,7 @@ export const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <AriaTabs
-      className={cn(styles.tabs, className)}
+      className={cn("ginga-tabs", className)}
       orientation={orientation}
       {...props}
     >
@@ -49,7 +48,7 @@ export const Tab: React.FC<TabProps> = ({
   return (
     <AriaTab
       isDisabled={disabled}
-      className={cn(styles.tab, className)}
+      className={cn("ginga-tab", className)}
       {...props}
     >
       {children}
@@ -65,7 +64,7 @@ export const TabList: React.FC<TabListProps> = ({
   ...props
 }) => {
   return (
-    <AriaTabList className={cn(styles["tab-list"], className)} {...props}>
+    <AriaTabList className={cn("ginga-tab-list", className)} {...props}>
       {children}
     </AriaTabList>
   );
@@ -79,7 +78,7 @@ export const TabPanel: React.FC<TabPanelProps> = ({
   ...props
 }) => {
   return (
-    <AriaTabPanel className={cn(styles["tab-panel"], className)} {...props}>
+    <AriaTabPanel className={cn("ginga-tab-panel", className)} {...props}>
       {children}
     </AriaTabPanel>
   );

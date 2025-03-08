@@ -8,7 +8,7 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
-    "@ginga-ui/core": "^0.11.0",
+    "@ginga-ui/core": "workspace:*",
     "react-aria-components": "^1.5.0"
   },
   "devDependencies": {

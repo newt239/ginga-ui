@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { Checkbox as AriaCheckbox } from "react-aria-components";
-
-import styles from "./checkbox.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -33,11 +32,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       isRequired={required}
       isIndeterminate={indeterminate}
       isSelected={selected}
-      className={cn(styles.checkbox, className)}
+      className={cn("ginga-checkbox", className)}
       {...props}
       aria-label={label || props["aria-label"]}
     >
-      <div className={styles["checkbox-input"]}>
+      <div className={"ginga-checkbox-input"}>
         <svg viewBox="0 0 18 18" aria-hidden="true">
           <polyline points="1 9 7 14 15 4" />
         </svg>

@@ -1,4 +1,4 @@
-.anchor {
+.ginga-anchor {
   position: relative;
   font-family: var(--font-family);
   color: var(--color-primary-9);
@@ -25,5 +25,30 @@
     content: "";
     border: var(--width-border) solid var(--color-primary-5);
     border-radius: calc(var(--size-radius) * 0.3);
+  }
+
+  &[data-variant="button"] {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: var(--color-background);
+    text-decoration: none;
+    background-color: var(--color-primary-9);
+    border-radius: var(--size-radius);
+
+    &[data-hovered] {
+      background-color: var(--color-primary-8);
+    }
+
+    &[data-pressed] {
+      background-color: var(--color-primary-7);
+    }
+
+    &[data-disabled] {
+      background-color: var(--color-secondary-5);
+    }
+
+    &[data-focus-visible]::after {
+      border-color: var(--color-background);
+    }
   }
 }

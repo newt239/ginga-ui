@@ -1,28 +1,28 @@
-.eyecatch {
-  margin-top: 1rem;
+.ginga-eyecatch {
   height: 20rem;
+  margin-top: 1rem;
   object-fit: cover;
 }
 
-.title {
+.ginga-title {
   margin: 0.5rem;
 }
 
-.author {
+.ginga-author {
   display: flex;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
   margin: 1rem;
   color: var(--color-secondary-9);
 }
 
-.avatar {
-  width: 2.5rem;
-  height: 2.5rem;
+.ginga-avatar {
+  width: 20.5rem;
+  height: 20.5rem;
 }
 
-.post-footer {
+.ginga-post-footer {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }

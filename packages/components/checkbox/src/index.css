@@ -1,4 +1,4 @@
-.checkbox {
+.ginga-checkbox {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -7,12 +7,12 @@
   color: var(--color-secondary-9);
   forced-color-adjust: none;
 
-  .checkbox-input {
+  .ginga-checkbox-input {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 10.2rem;
+    height: 10.2rem;
     cursor: pointer;
     border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
@@ -30,22 +30,22 @@
     transition: all 200ms;
   }
 
-  &[data-pressed] .checkbox-input {
+  &[data-pressed] .ginga-checkbox-input {
     border-color: var(--color-primary-8);
   }
 
-  &[data-focus-visible] .checkbox-input {
+  &[data-focus-visible] .ginga-checkbox-input {
     outline: 2px solid var(--color-primary-8);
     outline-offset: 2px;
   }
 
   &[data-selected],
   &[data-indeterminate] {
-    .checkbox-input {
+    .ginga-checkbox-input {
       background-color: var(--color-primary-9);
     }
 
-    &[data-pressed] .checkbox-input {
+    &[data-pressed] .ginga-checkbox-input {
       background-color: var(--color-primary-8);
     }
 
@@ -67,7 +67,7 @@
     pointer-events: none;
     cursor: not-allowed;
 
-    .checkbox-input {
+    .ginga-checkbox-input {
       background-color: var(--color-secondary-1);
       border-color: var(--color-secondary-3);
     }
@@ -76,4 +76,12 @@
       stroke: var(--color-secondary-3);
     }
   }
+}
+
+.ginga-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--font-family);
+  color: var(--color-secondary);
 }

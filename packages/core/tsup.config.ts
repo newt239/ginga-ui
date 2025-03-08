@@ -1,4 +1,3 @@
-import cssPlugin from "esbuild-plugin-react18-css";
 import { defineConfig } from "tsup";
 
 export default defineConfig({
@@ -8,6 +7,6 @@ export default defineConfig({
   target: "esnext",
   format: ["cjs", "esm"],
   sourcemap: true,
-  esbuildPlugins: [cssPlugin()],
+  esbuildPlugins: [],
   onSuccess: "cp src/index.css dist/ && cp src/variables.css dist/",
 });

@@ -1,4 +1,4 @@
-.switch {
+.ginga-switch {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -7,7 +7,7 @@
   color: var(--color-secondary);
   cursor: pointer;
 
-  .switch-indicator {
+  .ginga-switch-indicator {
     width: 2rem;
     height: 1rem;
     background: var(--color-background);
@@ -17,17 +17,17 @@
 
     &::before {
       display: block;
-      width: 0.9rem;
-      height: 0.9rem;
-      margin: 0.05rem 0.1rem;
+      width: .ginga-9rem;
+      height: .ginga-9rem;
+      margin: .ginga-05rem .ginga-1rem;
       content: "";
       background: var(--color-primary-9);
-      border-radius: calc(var(--size-radius) * 0.5 - 0.1rem);
+      border-radius: calc(var(--size-radius) * 0.5 - .ginga-1rem);
       transition: all 0.2s;
     }
   }
 
-  &[data-pressed] .switch-indicator {
+  &[data-pressed] .ginga-switch-indicator {
     border-color: var(--color-primary-8);
 
     &::before {
@@ -36,7 +36,7 @@
   }
 
   &[data-selected] {
-    .switch-indicator {
+    .ginga-switch-indicator {
       background: var(--color-primary-9);
       border-color: var(--color-primary-9);
 
@@ -47,14 +47,14 @@
     }
 
     &[data-pressed] {
-      .switch-indicator {
+      .ginga-switch-indicator {
         background: var(--color-primary-8);
         border-color: var(--color-primary-8);
       }
     }
   }
 
-  &[data-focus-visible] .switch-indicator {
+  &[data-focus-visible] .ginga-switch-indicator {
     outline: 2px solid var(--color-primary-9);
     outline-offset: 2px;
   }
@@ -64,7 +64,7 @@
     pointer-events: none;
     cursor: not-allowed;
 
-    .switch-indicator {
+    .ginga-switch-indicator {
       background: var(--color-secondary-1);
       border-color: var(--color-secondary-5);
 

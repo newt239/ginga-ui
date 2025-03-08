@@ -7,8 +7,7 @@ import {
   Heading as AriaHeading,
   Modal as AriaModal,
 } from "react-aria-components";
-
-import styles from "./dialog.module.css";
+import "./index.css";
 
 export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 
@@ -27,7 +26,7 @@ export const Modal: React.FC<ModalProps> = ({
   ...props
 }) => {
   return (
-    <AriaModal className={cn(styles.modal, className)} {...props}>
+    <AriaModal className={cn("ginga-modal", className)} {...props}>
       {children}
     </AriaModal>
   );
@@ -41,7 +40,7 @@ export const Dialog: React.FC<DialogProps> = ({
   ...props
 }) => {
   return (
-    <AriaDialog className={cn(styles.dialog, className)} {...props}>
+    <AriaDialog className={cn("ginga-dialog", className)} {...props}>
       {children}
     </AriaDialog>
   );
@@ -57,7 +56,7 @@ export const DialogTitle: React.FC<DialogTitleProps> = ({
   return (
     <AriaHeading
       slot="title"
-      className={cn(styles["dialog-title"], className)}
+      className={cn("ginga-dialog-title", className)}
       {...props}
     >
       {children}

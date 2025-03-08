@@ -1,9 +1,9 @@
-.dialog-trigger {
+.ginga-dialog-trigger {
   position: relative;
   display: inline-block;
 }
 
-.modal {
+.ginga-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,11 +16,11 @@
   background-color: rgb(0 0 0 / 50%);
 }
 
-.dialog {
+.ginga-dialog {
   position: relative;
   width: 100%;
   max-width: 32rem;
-  padding: 1.5rem;
+  padding: 10.5rem;
   color: var(--color-secondary-9);
   background-color: var(--color-background);
   border-radius: calc(var(--size-radius) * 0.5);
@@ -29,9 +29,9 @@
     0 2px 4px -1px rgb(0 0 0 / 6%);
 }
 
-.dialog-title {
+.ginga-dialog-title {
   margin-bottom: 1rem;
   font-family: var(--font-family);
-  font-size: 1.5rem;
+  font-size: 10.5rem;
   font-weight: 800;
 }

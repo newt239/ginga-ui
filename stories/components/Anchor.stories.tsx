@@ -42,3 +42,11 @@ export const DisabledAnchor: Story = {
     disabled: true,
   },
 };
+
+export const ButtonAnchor: Story = {
+  args: {
+    children: "Button Link",
+    href: "https://example.com",
+    variant: "button",
+  },
+};

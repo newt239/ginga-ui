@@ -1,4 +1,4 @@
-.radio {
+.ginga-radio {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -9,12 +9,12 @@
   &::before {
     box-sizing: border-box;
     display: block;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 10.2rem;
+    height: 10.2rem;
     cursor: pointer;
     content: "";
     background: var(--color-background);
-    border: 0.143rem solid var(--color-primary-9);
+    border: .ginga-143rem solid var(--color-primary-9);
     border-radius: 50%;
     transition: all 200ms;
   }
@@ -49,4 +49,11 @@
       border-color: var(--color-secondary-1);
     }
   }
+}
+
+.ginga-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--color-secondary);
 }

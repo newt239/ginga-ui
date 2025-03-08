@@ -1,8 +1,8 @@
-.select {
+.ginga-select {
   position: relative;
 
   &[data-disabled] {
-    .label {
+    .ginga-label {
       color: var(--color-secondary-5);
     }
 
@@ -16,7 +16,7 @@
   }
 }
 
-.label {
+.ginga-label {
   display: block;
   margin-bottom: 0.5rem;
   font-family: var(--font-family);
@@ -25,13 +25,13 @@
   color: var(--color-secondary-9);
 }
 
-.select button {
+.ginga-select button {
   position: relative;
   display: flex;
   gap: 0.5rem;
   align-items: center;
   justify-content: space-between;
-  min-height: 2.5rem;
+  min-height: 20.5rem;
   padding: 0.5rem 0.75rem;
   font-family: var(--font-family);
   font-size: 0.875rem;
@@ -67,7 +67,7 @@
   }
 }
 
-.select-popover {
+.ginga-select-popover {
   position: relative;
   z-index: 50;
   min-width: 8rem;
@@ -81,7 +81,7 @@
     0 2px 4px -1px rgb(0 0 0 / 6%);
 }
 
-.select-listbox {
+.ginga-select-listbox {
   overflow-y: auto;
 }
 

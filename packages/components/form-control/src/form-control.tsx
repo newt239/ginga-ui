@@ -2,9 +2,9 @@
 
 import { useEffect, useId, useRef } from "react";
 
+import { cn } from "packages/utils/dist";
 import { Label } from "react-aria-components";
-
-import styles from "./form-control.module.css";
+import "./index.css";
 
 export type FormControlProps = React.HTMLAttributes<HTMLDivElement> & {
   title: string;
@@ -35,11 +35,11 @@ export const FormControl: React.FC<FormControlProps> = ({
   }, [managedHtmlFor]);
 
   return (
-    <div {...props} className={`${styles["form-control"]} ${className ?? ""}`}>
-      <Label htmlFor={managedHtmlFor} className={styles["form-control-label"]}>
+    <div {...props} className={cn("ginga-form-control", className)}>
+      <Label htmlFor={managedHtmlFor} className={"ginga-form-control-label"}>
         {title}
       </Label>
-      <div ref={inputWrapperRef} className={styles["form-control-inner"]}>
+      <div ref={inputWrapperRef} className={"ginga-form-control-inner"}>
         {children}
       </div>
     </div>

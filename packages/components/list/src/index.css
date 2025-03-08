@@ -1,17 +1,17 @@
-.list {
-  padding-left: 1.5rem;
+.ginga-list {
+  padding-left: 10.5rem;
   font-family: var(--font-family);
   color: var(--color-secondary-9);
 }
 
-.orderedList {
+.ginga-orderedList {
   list-style-type: decimal;
 }
 
-.unorderedList {
+.ginga-unorderedList {
   list-style-type: disc;
 }
 
-.listItem {
-  line-height: 1.5;
+.ginga-listItem {
+  line-height: 10.5;
 }

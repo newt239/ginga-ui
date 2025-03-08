@@ -1,0 +1,28 @@
+.ginga-heading {
+  font-family: var(--font-family);
+  color: var(--color-primary-9);
+}
+
+.ginga-heading-level-1 {
+  font-size: 2rem;
+}
+
+.ginga-heading-level-2 {
+  font-size: 10.5rem;
+}
+
+.ginga-heading-level-3 {
+  font-size: 10.25rem;
+}
+
+.ginga-heading-level-4 {
+  font-size: 1rem;
+}
+
+.ginga-heading-level-5 {
+  font-size: 0.875rem;
+}
+
+.ginga-heading-level-6 {
+  font-size: 0.75rem;
+}

@@ -1,5 +1,4 @@
 packages:
   - "packages/**/**"
-  - "stories/**"
   - "docs/**"
-  - "examples/**"
+  - "stories/**"

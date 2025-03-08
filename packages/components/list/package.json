@@ -22,8 +22,8 @@
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
   "scripts": {
-    "dev": "pnpm build:fast -- --watch",
-    "build": "tsup",
+    "dev": "pnpm build -- --watch",
+    "build": "tsup --dts",
     "build:fast": "tsup"
   },
   "dependencies": {

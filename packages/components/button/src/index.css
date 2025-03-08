@@ -1,4 +1,4 @@
-.button {
+.ginga-button {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -78,4 +78,34 @@
       background-color: var(--color-primary-1);
     }
   }
+}
+
+.ginga-button-group {
+  display: inline-flex;
+}
+
+.ginga-button-group-item {
+  position: relative;
+  margin: 0 !important;
+}
+
+.ginga-button-group-item:not([data-position="first"]) {
+  margin-left: -1px !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.ginga-button-group-item:not([data-position="last"]) {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* フォーカスされたボタン/ホバーされたボタンが兄弟ボタンの上に表示されるようにする */
+.ginga-button-group-item:hover,
+.ginga-button-group-item[data-focus-visible] {
+  z-index: 1;
+}
+
+.ginga-button-group-item[data-pressed] {
+  z-index: 2;
 }

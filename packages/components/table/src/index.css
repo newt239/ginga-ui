@@ -1,4 +1,4 @@
-.table {
+.ginga-table {
   width: 100%;
   font-family: var(--font-family);
   color: var(--color-secondary-9);
@@ -8,48 +8,46 @@
   border-radius: calc(var(--size-radius) * 0.5);
 }
 
-.table-header {
+.ginga-table-header {
   background-color: var(--color-secondary-1);
 }
 
-.column {
+.ginga-column {
   padding: 0.75rem;
   font-weight: 600;
   text-align: left;
   border-bottom: 2px solid var(--color-secondary-2);
 }
 
-.table-body {
+.ginga-table-body {
   background-color: var(--color-background);
 }
 
-.row {
+.ginga-row {
   border-bottom: 1px solid var(--color-secondary-2);
 }
 
-.row:last-child {
+.ginga-row:last-child {
   border-bottom: none;
 }
 
-.row:hover {
+.ginga-row:hover {
   background-color: var(--color-secondary-1);
 }
 
-.cell {
+.ginga-cell {
   padding: 0.75rem;
 }
 
-/* Selection styles */
-.row[data-selected="true"] {
+.ginga-row[data-selected="true"] {
   background-color: var(--color-primary-1);
 }
 
-.row[data-selected="true"]:hover {
+.ginga-row[data-selected="true"]:hover {
   background-color: var(--color-primary-2);
 }
 
-/* Focus styles */
-.row:focus-visible {
+.ginga-row:focus-visible {
   outline: 2px solid var(--color-primary-6);
   outline-offset: -2px;
 }

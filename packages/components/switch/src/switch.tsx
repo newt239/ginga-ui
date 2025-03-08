@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { Switch as AriaSwitch } from "react-aria-components";
-
-import styles from "./switch.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -27,10 +26,10 @@ export const Switch: React.FC<SwitchProps> = ({
     <AriaSwitch
       isDisabled={disabled}
       isSelected={selected}
-      className={cn(styles.switch, className)}
+      className={cn("ginga-switch", className)}
       {...props}
     >
-      <div className={styles["switch-indicator"]} />
+      <div className={"ginga-switch-indicator"} />
       {children}
     </AriaSwitch>
   );

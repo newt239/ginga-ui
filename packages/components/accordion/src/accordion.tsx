@@ -7,8 +7,7 @@ import {
   DisclosureGroup,
   DisclosurePanel,
 } from "react-aria-components";
-
-import styles from "./accordion.module.css";
+import "./index.css";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
 
@@ -18,7 +17,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   ...props
 }) => {
   return (
-    <DisclosureGroup className={cn(styles.accordion, className)} {...props}>
+    <DisclosureGroup className={cn("ginga-accordion", className)} {...props}>
       {children}
     </DisclosureGroup>
   );
@@ -32,7 +31,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   ...props
 }) => {
   return (
-    <Disclosure className={cn(styles["accordion-item"], className)} {...props}>
+    <Disclosure className={cn("ginga-accordion-item", className)} {...props}>
       {children}
     </Disclosure>
   );
@@ -48,7 +47,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   return (
     <AriaButton
       slot="trigger"
-      className={cn(styles["accordion-trigger"], className)}
+      className={cn("ginga-accordion-trigger", className)}
       {...props}
     >
       {children}
@@ -67,7 +66,7 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 }) => {
   return (
     <DisclosurePanel
-      className={cn(styles["accordion-content"], className)}
+      className={cn("ginga-accordion-content", className)}
       {...props}
     >
       {children}

@@ -1,4 +1,4 @@
-.card {
+.ginga-card {
   font-family: var(--font-family);
   color: var(--color-secondary-9);
   background-color: var(--color-background);
@@ -7,30 +7,30 @@
   box-shadow: 0 1px 2px rgb(0 0 0 / 30%);
 }
 
-.card-header {
+.ginga-card-header {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   padding: 1rem;
 }
 
-.card-title {
-  font-size: 1.5rem;
+.ginga-card-title {
+  font-size: 10.5rem;
   font-weight: 800;
 }
 
-.card-description {
+.ginga-card-description {
   padding: 0;
   margin: 0;
   font-size: 1rem;
 }
 
-.card-content {
+.ginga-card-content {
   padding: 1rem;
   padding-top: 0;
 }
 
-.card-footer {
+.ginga-card-footer {
   display: flex;
   gap: 0.5rem;
   align-items: center;

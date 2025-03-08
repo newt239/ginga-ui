@@ -7,8 +7,7 @@ import {
   SliderThumb as AriaSliderThumb,
   SliderTrack as AriaSliderTrack,
 } from "react-aria-components";
-
-import styles from "./slider.module.css";
+import "./index.css";
 
 export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
   React.ComponentProps<typeof AriaSlider>;
@@ -19,7 +18,7 @@ export const Slider: React.FC<SliderProps> = ({
   ...props
 }) => {
   return (
-    <AriaSlider className={cn(styles.slider, className)} {...props}>
+    <AriaSlider className={cn("ginga-slider", className)} {...props}>
       {children}
     </AriaSlider>
   );
@@ -35,7 +34,7 @@ export const SliderOutput: React.FC<SliderOutputProps> = ({
 }) => {
   return (
     <AriaSliderOutput
-      className={cn(styles["slider-output"], className)}
+      className={cn("ginga-slider-output", className)}
       {...props}
     >
       {children}
@@ -52,10 +51,7 @@ export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
   ...props
 }) => {
   return (
-    <AriaSliderTrack
-      className={cn(styles["slider-track"], className)}
-      {...props}
-    >
+    <AriaSliderTrack className={cn("ginga-slider-track", className)} {...props}>
       {children}
     </AriaSliderTrack>
   );
@@ -70,10 +66,7 @@ export const SliderThumb: React.FC<SliderThumbProps> = ({
   ...props
 }) => {
   return (
-    <AriaSliderThumb
-      className={cn(styles["slider-thumb"], className)}
-      {...props}
-    >
+    <AriaSliderThumb className={cn("ginga-slider-thumb", className)} {...props}>
       {children}
     </AriaSliderThumb>
   );

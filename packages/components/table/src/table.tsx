@@ -12,8 +12,7 @@ import {
   TableBody as AriaTableBody,
   TableHeader as AriaTableHeader,
 } from "react-aria-components";
-
-import styles from "./table.module.css";
+import "./index.css";
 
 export interface TableColumn<T> {
   key: string;
@@ -84,14 +83,14 @@ export const Table = <T extends object>({
 
   return (
     <AriaTable
-      className={cn(styles.table, className)}
+      className={cn("ginga-table", className)}
       aria-label={ariaLabel}
       selectionMode={selectionMode}
     >
       {showHeader && (
-        <AriaTableHeader className={styles["table-header"]}>
+        <AriaTableHeader className={"ginga-table-header"}>
           {selectionMode !== "none" && (
-            <AriaColumn className={styles.column}>
+            <AriaColumn className={"ginga-column"}>
               <Checkbox
                 aria-label="Select all rows"
                 selected={selectedRows.size === data.length}
@@ -106,7 +105,7 @@ export const Table = <T extends object>({
           {columns.map((column) => (
             <AriaColumn
               key={column.key}
-              className={styles.column}
+              className={"ginga-column"}
               isRowHeader={column.isRowHeader}
             >
               {column.header}
@@ -114,15 +113,15 @@ export const Table = <T extends object>({
           ))}
         </AriaTableHeader>
       )}
-      <AriaTableBody className={styles["table-body"]}>
+      <AriaTableBody className={"ginga-table-body"}>
         {data.map((row, rowIndex) => (
           <AriaRow
             key={rowIndex}
-            className={styles.row}
+            className={"ginga-row"}
             data-selected={selectedRows.has(rowIndex)}
           >
             {selectionMode !== "none" && (
-              <AriaCell className={styles.cell}>
+              <AriaCell className={"ginga-cell"}>
                 <Checkbox
                   aria-label={`Select row ${rowIndex + 1}`}
                   selected={selectedRows.has(rowIndex)}
@@ -132,7 +131,7 @@ export const Table = <T extends object>({
               </AriaCell>
             )}
             {columns.map((column) => (
-              <AriaCell key={column.key} className={styles.cell}>
+              <AriaCell key={column.key} className={"ginga-cell"}>
                 {renderCell(row, column)}
               </AriaCell>
             ))}

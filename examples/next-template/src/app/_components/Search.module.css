@@ -1,5 +1,5 @@
-.search-area {
+.ginga-search-area {
   display: flex;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
 }

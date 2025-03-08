@@ -10,8 +10,7 @@ import {
   Popover,
   SelectValue,
 } from "react-aria-components";
-
-import styles from "./select.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -36,16 +35,16 @@ export const Select: React.FC<SelectProps> = ({
     <AriaSelect
       isDisabled={disabled}
       isRequired={required}
-      className={cn(styles.select, className)}
+      className={cn("ginga-select", className)}
       {...props}
     >
-      <AriaLabel className={cn(styles.label, className)}>{label}</AriaLabel>
-      <Button className={cn(styles["select-button"], className)}>
+      <AriaLabel className={cn("ginga-label", className)}>{label}</AriaLabel>
+      <Button className={cn("ginga-select-button", className)}>
         <SelectValue />
         <span aria-hidden="true">▼</span>
       </Button>
-      <Popover className={cn(styles["select-popover"], className)}>
-        <ListBox className={cn(styles["select-listbox"], className)}>
+      <Popover className={cn("ginga-select-popover", className)}>
+        <ListBox className={cn("ginga-select-listbox", className)}>
           {children}
         </ListBox>
       </Popover>
@@ -63,7 +62,7 @@ const SelectItem: React.FC<ListBoxItemProps> = ({
   ...props
 }) => {
   return (
-    <ListBoxItem className={cn(styles["select-item"], className)} {...props}>
+    <ListBoxItem className={cn("ginga-select-item", className)} {...props}>
       {children}
     </ListBoxItem>
   );

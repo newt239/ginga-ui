@@ -1,4 +1,4 @@
-.slider {
+.ginga-slider {
   display: grid;
   grid-template-areas:
     "label output"
@@ -8,15 +8,15 @@
   font-family: var(--font-family);
   color: var(--color-secondary);
 
-  .slider-label {
+  .ginga-slider-label {
     grid-area: label;
   }
 
-  .slider-output {
+  .ginga-slider-output {
     grid-area: output;
   }
 
-  .slider-track {
+  .ginga-slider-track {
     position: relative;
     grid-area: track;
 
@@ -28,7 +28,7 @@
     }
   }
 
-  .slider-thumb {
+  .ginga-slider-thumb {
     width: 1rem;
     height: 1rem;
     cursor: pointer;
@@ -50,7 +50,7 @@
     flex-direction: column;
     width: 300px;
 
-    .slider-track {
+    .ginga-slider-track {
       width: 100%;
       height: 30px;
 
@@ -62,7 +62,7 @@
       }
     }
 
-    .slider-thumb {
+    .ginga-slider-thumb {
       top: 50%;
     }
   }
@@ -72,11 +72,11 @@
     pointer-events: none;
     cursor: not-allowed;
 
-    .slider-track::before {
+    .ginga-slider-track::before {
       background-color: var(--color-secondary-5);
     }
 
-    .slider-thumb {
+    .ginga-slider-thumb {
       background-color: var(--color-secondary-5);
       border-color: var(--color-secondary-5);
     }

@@ -2,8 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import { Button as AriaButton } from "react-aria-components";
-
-import styles from "./button.module.css";
+import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -24,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <AriaButton
-      className={cn(styles.button, className)}
+      className={cn("ginga-button", className)}
       data-variant={variant}
       isDisabled={disabled}
       {...props}

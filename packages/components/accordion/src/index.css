@@ -1,14 +1,14 @@
-.accordion {
+.ginga-accordion {
   width: 100%;
 }
 
-.accordion-item {
+.ginga-accordion-item {
   margin-bottom: 0.25rem;
   border: var(--width-border) solid var(--color-primary-9);
   border-radius: calc(var(--size-radius) * 0.5);
 }
 
-.accordion-trigger {
+.ginga-accordion-trigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,7 +24,7 @@
   border: none;
 }
 
-.accordion-icon {
+.ginga-accordion-icon {
   position: relative;
   flex-shrink: 0;
   width: 1rem;
@@ -32,7 +32,7 @@
   transition: transform 0.2s ease;
 }
 
-.accordion-icon::before {
+.ginga-accordion-icon::before {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -44,7 +44,7 @@
   transition: transform 0.2s ease;
 }
 
-.accordion-content {
+.ginga-accordion-content {
   height: 0;
   padding: 0 1rem;
   overflow: hidden;

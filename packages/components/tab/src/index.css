@@ -1,4 +1,4 @@
-.tabs {
+.ginga-tabs {
   display: flex;
   flex-direction: column;
   font-family: var(--font-family);
@@ -7,11 +7,11 @@
   &[data-orientation="vertical"] {
     flex-direction: row;
 
-    .tab-list {
+    .ginga-tab-list {
       flex-direction: column;
     }
 
-    .tab {
+    .ginga-tab {
       &[data-selected] {
         color: var(--color-primary-9);
         border: none;
@@ -21,13 +21,13 @@
   }
 }
 
-.tab-list {
+.ginga-tab-list {
   display: flex;
   border: none;
   border-bottom: var(--width-border) solid var(--color-secondary-5);
 }
 
-.tab {
+.ginga-tab {
   position: relative;
   padding: 0.5rem 1rem;
   color: var(--color-secondary);
@@ -62,7 +62,7 @@
   }
 }
 
-.tab-panel {
+.ginga-tab-panel {
   padding: 10px;
   margin-top: 4px;
   border-radius: 4px;

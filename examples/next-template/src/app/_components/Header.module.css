@@ -1,17 +1,17 @@
-.root {
+.ginga-root {
   position: sticky;
   top: 1rem;
   z-index: 100;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin: 1rem;
+  justify-content: space-between;
   padding: 0.5rem 1rem;
+  margin: 1rem;
   background-color: var(--color-background);
   border: var(--width-border) solid var(--color-primary-9);
   border-radius: var(--size-radius);
 }
 
-.title {
+.ginga-title {
   margin: 0;
 }
