@@ -42,7 +42,7 @@ export const SignUpForm: Story = {
         <Dialog>
           <form onSubmit={(e) => e.preventDefault()}>
             <DialogTitle>Create an Account</DialogTitle>
-            <TextField autoFocus>
+            <TextField>
               <Label>First Name</Label>
               <Input />
             </TextField>

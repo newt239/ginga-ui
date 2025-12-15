@@ -32,10 +32,10 @@
     width: 1rem;
     height: 1rem;
     cursor: pointer;
+    forced-color-adjust: none;
     background: var(--color-primary-9);
     border: var(--width-border) solid var(--color-primary-9);
     border-radius: calc(var(--size-radius) * 0.5);
-    forced-color-adjust: none;
 
     &[data-dragging] {
       background: var(--color-primary-7);

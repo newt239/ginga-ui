@@ -49,7 +49,7 @@
     "@ginga-ui/utils": "workspace:*"
   },
   "devDependencies": {
-    "react": "^18.3.1"
+    "react": "^19.2.3"
   },
   "peerDependencies": {
     "react": ">=18"

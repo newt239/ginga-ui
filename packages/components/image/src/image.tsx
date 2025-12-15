@@ -10,11 +10,13 @@ export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 export const Image: React.FC<ImageProps> = ({
   className,
   variant = "default",
+  alt = "",
   ...props
 }) => {
   return (
     <img
       className={cn("ginga-image", className)}
+      alt={alt}
       data-variant={variant}
       {...props}
     />

@@ -4,10 +4,10 @@
   font-family: var(--font-family);
   font-size: 1rem;
   color: var(--color-secondary);
+  outline: none;
   background: var(--color-background);
   border: var(--width-border) solid var(--color-secondary-5);
   border-radius: calc(var(--size-radius) * 0.5);
-  outline: none;
   transition: all 0.2s;
 
   &[data-focused] {

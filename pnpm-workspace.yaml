@@ -1,4 +1,8 @@
 packages:
-  - "packages/**/**"
-  - "docs/**"
-  - "stories/**"
+  - packages/**/**
+  - docs/**
+  - stories/**
+minimumReleaseAge: 1420
+onlyBuiltDependencies:
+  - esbuild
+  - sharp

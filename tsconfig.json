@@ -3,7 +3,7 @@
     "target": "ESNext",
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "useDefineForClassFields": true,
     "skipLibCheck": true,
@@ -18,7 +18,9 @@
     "noFallthroughCasesInSwitch": true,
     "allowJs": false,
     "esModuleInterop": true,
-    "baseUrl": "./",
+    "paths": {
+      "@ginga-ui/*": ["./packages/*/src", "./packages/components/*/src"]
+    },
     "declaration": true
   },
   "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.mjs"]
