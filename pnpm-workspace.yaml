@@ -2,3 +2,4 @@ packages:
   - "packages/**/**"
   - "docs/**"
   - "stories/**"
+minimumReleaseAge: 1420 # 24 hours

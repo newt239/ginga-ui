@@ -22,7 +22,7 @@
     "url": "https://github.com/newt239/ginga-ui/issues"
   },
   "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.11.0",
   "scripts": {
     "changeset-version": "changeset version",
     "changeset-publish": "changeset publish",
