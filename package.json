@@ -40,31 +40,25 @@
     "dist"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.28.1",
-    "@eslint/eslintrc": "^3.3.0",
-    "@eslint/js": "^9.22.0",
-    "@types/chroma-js": "^3.1.1",
+    "@changesets/cli": "^2.29.8",
+    "@eslint/eslintrc": "^3.3.3",
+    "@eslint/js": "^9.39.2",
+    "@types/chroma-js": "^3.1.2",
     "@types/css-modules": "^1.0.5",
-    "@types/node": "^22.13.9",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
-    "chromatic": "^11.27.0",
-    "eslint": "^9.22.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "prettier": "^3.5.3",
-    "stylelint": "^16.15.0",
-    "stylelint-config-recess-order": "^5.1.1",
-    "stylelint-config-standard": "^36.0.1",
-    "tsup": "^8.4.0",
-    "turbo": "^2.4.4",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0"
-  },
-  "pnpm": {
-    "overrides": {
-      "react": "^18.0.0",
-      "react-dom": "^18.0.0"
-    }
+    "@types/node": "^25.0.2",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "chromatic": "^13.3.4",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "prettier": "^3.7.4",
+    "stylelint": "^16.26.1",
+    "stylelint-config-recess-order": "^7.4.0",
+    "stylelint-config-standard": "^39.0.1",
+    "tsup": "^8.5.1",
+    "turbo": "^2.6.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.49.0"
   }
 }
