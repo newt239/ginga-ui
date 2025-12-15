@@ -3,8 +3,9 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export interface ListProps
-  extends React.HTMLAttributes<HTMLUListElement | HTMLOListElement> {
+export interface ListProps extends React.HTMLAttributes<
+  HTMLUListElement | HTMLOListElement
+> {
   type?: "ordered" | "unordered";
 }
 
