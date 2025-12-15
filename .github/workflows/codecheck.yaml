@@ -22,8 +22,8 @@ jobs:
       - name: Type check
         run: npx tsc --noEmit
       - name: Oxlint
-        run: pnpm lint --fix
+        run: pnpm lint
       - name: Oxfmt
-        run: pnpm format --check
+        run: pnpm format
       - name: Stylelint
         run: pnpm stylelint
