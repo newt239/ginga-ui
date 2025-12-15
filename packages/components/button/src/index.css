@@ -6,16 +6,16 @@
   margin: 0;
   font-family: var(--font-family);
   font-size: 1rem;
+  vertical-align: middle;
   color: var(--color-background);
   text-align: center;
   text-decoration: none;
-  vertical-align: middle;
   appearance: none;
   cursor: pointer;
+  outline: none;
   background-color: var(--color-primary-9);
   border: none;
   border-radius: calc(var(--size-radius) * 0.5);
-  outline: none;
   transition: all 0.2s;
 
   &[data-hovered] {

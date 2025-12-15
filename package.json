@@ -33,7 +33,7 @@
     "build": "turbo run build --filter=./packages/**",
     "build:fast": "turbo run build:fast --filter=./packages/**",
     "lint": "oxlint --type-aware --fix",
-    "format": "oxfmt --write \"./**/*.{ts,tsx}\"",
+    "format": "oxfmt ./**/*.{ts,tsx}",
     "stylelint": "stylelint \"./**/*.css\" --fix",
     "storybook": "pnpm --prefix stories storybook",
     "docs": "pnpm --prefix docs dev"

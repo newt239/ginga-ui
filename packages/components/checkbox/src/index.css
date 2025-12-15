@@ -24,9 +24,9 @@
     height: 1rem;
     fill: none;
     stroke: var(--color-primary-9);
+    stroke-width: 3px;
     stroke-dasharray: 22px;
     stroke-dashoffset: 66;
-    stroke-width: 3px;
     transition: all 0.2s;
   }
 
