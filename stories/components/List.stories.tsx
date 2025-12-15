@@ -21,11 +21,11 @@ export const UnorderedList: Story = {
   args: {
     type: "unordered",
     children: [
-      <ListItem>First item in the list</ListItem>,
-      <ListItem>
+      <ListItem key="1">First item in the list</ListItem>,
+      <ListItem key="2">
         Second item with some longer text to show how it wraps
       </ListItem>,
-      <ListItem>Third item in the list</ListItem>,
+      <ListItem key="3">Third item in the list</ListItem>,
     ],
   },
 };
@@ -34,12 +34,12 @@ export const OrderedList: Story = {
   args: {
     type: "ordered",
     children: [
-      <ListItem>First step in the process</ListItem>,
-      <ListItem>
+      <ListItem key="1">First step in the process</ListItem>,
+      <ListItem key="2">
         Second step with detailed explanation that might span multiple lines to
         demonstrate text wrapping behavior
       </ListItem>,
-      <ListItem>Final step in the process</ListItem>,
+      <ListItem key="3">Final step in the process</ListItem>,
     ],
   },
 };
@@ -48,8 +48,10 @@ export const WithCustomClassName: Story = {
   args: {
     type: "unordered",
     children: [
-      <ListItem className="custom-item-class">Item with custom class</ListItem>,
-      <ListItem className="custom-item-class">
+      <ListItem key="1" className="custom-item-class">
+        Item with custom class
+      </ListItem>,
+      <ListItem key="2" className="custom-item-class">
         Another item with custom class
       </ListItem>,
     ],
@@ -60,15 +62,15 @@ export const NestedList: Story = {
   args: {
     type: "unordered",
     children: [
-      <ListItem>Parent item 1</ListItem>,
-      <ListItem>
+      <ListItem key="1">Parent item 1</ListItem>,
+      <ListItem key="2">
         Parent item 2
         <List type="unordered">
-          <ListItem>Nested item 1</ListItem>
-          <ListItem>Nested item 2</ListItem>
+          <ListItem key="1">Nested item 1</ListItem>
+          <ListItem key="2">Nested item 2</ListItem>
         </List>
       </ListItem>,
-      <ListItem>Parent item 3</ListItem>,
+      <ListItem key="3">Parent item 3</ListItem>,
     ],
   },
 };

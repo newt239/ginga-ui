@@ -21,13 +21,5 @@
       "version": "detect"
     }
   },
-  "plugins": [
-    "eslint",
-    "oxc",
-    "nextjs",
-    "react",
-    "import",
-    "jsx-a11y",
-    "unicorn"
-  ]
+  "plugins": ["eslint", "oxc", "react", "import", "jsx-a11y", "unicorn"]
 }

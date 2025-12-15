@@ -18,12 +18,8 @@
     "noFallthroughCasesInSwitch": true,
     "allowJs": false,
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "@ginga-ui/*": [
-        "packages/*/src",
-        "packages/components/*/src"
-      ]
+      "@ginga-ui/*": ["./packages/*/src", "./packages/components/*/src"]
     },
     "declaration": true
   },
