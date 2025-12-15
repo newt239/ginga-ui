@@ -1,9 +1,9 @@
 import {
   type GenerationConfig,
-  GenerativeModel,
+  type GenerativeModel,
   GoogleGenerativeAI,
   type ModelParams,
-  SchemaType,
+  type SchemaType,
 } from "@google/generative-ai";
 
 import { properties, requiredVariables, SYSTEM_PROMPT } from "./const";
@@ -35,7 +35,7 @@ class GeminiClient {
         properties,
         required: requiredVariables.map((variable) => variable.name),
       },
-    };
+    } as GenerationConfig;
   }
 
   async generateTheme(prompt: string) {
