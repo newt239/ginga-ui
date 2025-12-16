@@ -23,16 +23,20 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
-  viteFinal: (config) => {
-    if (config.resolve) {
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@ginga-ui/core": resolve(__dirname, "../packages/core/src"),
-        "@ginga-ui/utils": resolve(__dirname, "../packages/utils/src"),
-        ...componentAliases,
-      };
-    }
-    return config;
+  core: {
+    builder: "@storybook/builder-vite",
+  },
+  viteFinal: async (config) => {
+    const { mergeConfig } = await import("vite");
+    return mergeConfig(config, {
+      resolve: {
+        alias: {
+          "@ginga-ui/core": resolve(__dirname, "../packages/core/src"),
+          "@ginga-ui/utils": resolve(__dirname, "../packages/utils/src"),
+          ...componentAliases,
+        },
+      },
+    });
   },
 };
 
