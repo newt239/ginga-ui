@@ -56,14 +56,25 @@ export default CustomButton;
 
 ## Theme Generation
 
-You can generate with your own theme by using `ThemeClient` class.
+You can generate with your own theme by using `ThemeClient` class powered by [Vercel AI SDK](https://sdk.vercel.ai/).
+
+### Environment Variables
+
+`ThemeClient` uses Vercel AI SDK to generate themes. The SDK automatically reads API keys from environment variables:
+
+- OpenAI: `OPENAI_API_KEY`
+- Anthropic: `ANTHROPIC_API_KEY`
+- Google: `GOOGLE_API_KEY` or `GOOGLE_GENERATIVE_AI_API_KEY`
+
+Set these environment variables in your `.env` file or deployment environment.
+
+### Basic Usage
 
 ```tsx
 import { ThemeClient } from "@ginga-ui/core";
 
 const themeClient = new ThemeClient({
-  clientType: "openai",
-  apiKey: "YOUR_OPENAI_API_KEY",
+  model: "gpt-4o-mini", // Specify the model name
 });
 
 const CustomButton = () => {
@@ -77,34 +88,16 @@ const CustomButton = () => {
 export default CustomButton;
 ```
 
-If you want to call on client side, you can use `dangerouslyAllowBrowser` option.
+### SSR Mode (Recommended)
 
-> [!CAUTION]
-> This is extremely dangerous because it allows users to access the API key. Use this option only when you are developing locally.
-
-```tsx
-const themeClient = new ThemeClient({
-  clientType: "openai",
-  apiKey: "YOUR_OPENAI_API_KEY",
-  dangerouslyAllowBrowser: true,
-});
-
-const handleClick = async () => {
-  await themeClient.generateTheme("the image of you thought");
-};
-```
-
-### SSR Mode
-
-If you want to generate theme on server side, you can write like this. Recommended to use with Next.js App Router and write this on page component.
+If you want to generate theme on server side, you can write like this. Recommended to use with Next.js App Router.
 
 ```tsx
 import { Button, ThemeClient } from "@ginga-ui/core";
 
 export default async function Home() {
   const themeClient = new ThemeClient({
-    clientType: "openai",
-    apiKey: process.env.OPENAI_API_KEY!,
+    model: "gpt-4o-mini",
   });
 
   const { CSSCode } = await themeClient.generateTheme("fairy tale");
@@ -118,39 +111,40 @@ export default async function Home() {
 }
 ```
 
-### Client Types
+### Supported Models
 
-`ThemeClient` supports two client types: `openai`, `gemini`, `anthropic`. You can specify the client type when creating an instance of `ThemeClient`.
+`ThemeClient` automatically detects the provider based on the model name prefix:
 
-#### Gemini Client
+- **OpenAI**: Models starting with `gpt-` or `o1-` (e.g., `gpt-4o`, `gpt-4o-mini`, `o1`)
+- **Anthropic**: Models starting with `claude-` (e.g., `claude-3-7-sonnet-latest`, `claude-3-5-sonnet-latest`)
+- **Google**: Models starting with `gemini-` (e.g., `gemini-2.0-flash-exp`, `gemini-1.5-pro`)
+
+You can use any model supported by the [Vercel AI SDK](https://sdk.vercel.ai/providers/ai-sdk-providers).
+
+#### Examples
 
 ```tsx
-import { ThemeClient } from "@ginga-ui/core";
-
+// OpenAI
 const themeClient = new ThemeClient({
-  clientType: "gemini",
-  apiKey: "YOUR_GEMINI_API_KEY",
+  model: "gpt-4o-mini",
 });
 
-const CustomButton = () => {
-  const handleClick = async () => {
-    await themeClient.generateTheme("the image of you thought");
-  };
+// Anthropic
+const themeClient = new ThemeClient({
+  model: "claude-3-7-sonnet-latest",
+});
 
-  return <Button onClick={handleClick}>Button</Button>;
-};
-
-export default CustomButton;
+// Google Gemini
+const themeClient = new ThemeClient({
+  model: "gemini-2.0-flash-exp",
+});
 ```
 
-### `ThemeClient` constructor props
+### `ThemeClient` Constructor Options
 
-| Name                      | Description                                                                           | Default Value                                                                                     | Required |
-| ------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------- |
-| `clientType`              | Client type (`openai`, `gemini`, `anthropic`)                                         | `openai`                                                                                          | Yes      |
-| `apiKey`                  | API key for the client                                                                |                                                                                                   | Yes      |
-| `model`                   | Model name for the client                                                             | OpenAI: `gpt-4o-mini` <br/> Gemini: `gemini-exp-1206` <br/> Anthropic: `claude-3-7-sonnet-latest` | No       |
-| `dangerouslyAllowBrowser` | Allow to use on client side. This feature can use only when `clientType` is `openai`. | `false`                                                                                           | No       |
+| Name    | Description                                                                            | Default Value   | Required |
+| ------- | -------------------------------------------------------------------------------------- | --------------- | -------- |
+| `model` | Model name to use for theme generation. Provider is automatically detected from name. | `"gpt-4o-mini"` | No       |
 
 ## Variables
 

@@ -18,8 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeClient = new ThemeClient({
-    clientType: "openai",
-    apiKey: process.env.OPENAI_API_KEY!,
+    model: "gpt-4o-mini",
   });
 
   const { CSSCode } = await themeClient.generateTheme("fairy tale");

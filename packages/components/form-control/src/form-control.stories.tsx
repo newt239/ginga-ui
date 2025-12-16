@@ -41,9 +41,7 @@ export const withOpenAITheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      clientType: "openai",
-      apiKey: import.meta.env.STORYBOOK_OPENAI_API_KEY as string,
-      dangerouslyAllowBrowser: true,
+      model: "gpt-4o-mini",
     });
 
     const onClick = async () => {
@@ -78,8 +76,7 @@ export const withGeminiTheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      clientType: "gemini",
-      apiKey: import.meta.env.STORYBOOK_GEMINI_API_KEY as string,
+      model: "gemini-2.0-flash-exp",
     });
 
     const onClick = async () => {
@@ -114,8 +111,7 @@ export const withAnthropicTheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      clientType: "anthropic",
-      apiKey: import.meta.env.STORYBOOK_ANTHROPIC_API_KEY as string,
+      model: "claude-3-7-sonnet-latest",
     });
 
     const onClick = async () => {
