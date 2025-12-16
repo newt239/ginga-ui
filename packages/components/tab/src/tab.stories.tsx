@@ -1,9 +1,4 @@
-import {
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs,
-} from "../../packages/components/tab/src";
+import { Tab, TabList, TabPanel, Tabs } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

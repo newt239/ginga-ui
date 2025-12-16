@@ -1,4 +1,4 @@
-import { Image } from "../../packages/components/image/src";
+import { Image } from "./image";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

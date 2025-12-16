@@ -1,6 +1,6 @@
 import { ListBoxItem } from "react-aria-components";
 
-import { Select } from "../../packages/components/select/src";
+import { Select } from "./select";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

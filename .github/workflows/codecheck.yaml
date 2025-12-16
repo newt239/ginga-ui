@@ -1,4 +1,4 @@
-name: Code Check (TypeScript, Oxlint, Oxfmt)
+name: Codecheck
 
 on:
   pull_request:

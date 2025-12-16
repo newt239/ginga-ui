@@ -35,28 +35,40 @@
     "lint": "oxlint --type-aware --fix",
     "format": "oxfmt .",
     "stylelint": "stylelint \"./**/*.css\" --fix",
-    "storybook": "pnpm --prefix stories storybook",
-    "docs": "pnpm --prefix docs dev"
+    "docs": "pnpm --prefix docs dev",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
     "@changesets/cli": "^2.29.8",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-interactions": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/blocks": "^8.6.14",
+    "@storybook/react": "^8.6.14",
+    "@storybook/react-vite": "^8.6.14",
+    "@storybook/test": "^8.6.14",
     "oxfmt": "^0.16.0",
     "oxlint": "^1.0.0",
-    "oxlint-tsgolint": "^0.8.3",
+    "oxlint-tsgolint": "^0.9.0",
     "@types/chroma-js": "^3.1.2",
     "@types/css-modules": "^1.0.5",
     "@types/node": "^25.0.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "chromatic": "^13.3.4",
+    "storybook": "^8.6.14",
     "stylelint": "^16.26.1",
     "stylelint-config-recess-order": "^7.4.0",
     "stylelint-config-standard": "^39.0.1",
     "tsup": "^8.5.1",
     "turbo": "^2.6.3",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vite": "^6.0.0",
+    "react": "^19.2.3",
+    "react-aria-components": "^1.13.0"
   }
 }

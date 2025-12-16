@@ -1,9 +1,4 @@
-import {
-  Slider,
-  SliderOutput,
-  SliderThumb,
-  SliderTrack,
-} from "../../packages/components/slider/src";
+import { Slider, SliderOutput, SliderThumb, SliderTrack } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

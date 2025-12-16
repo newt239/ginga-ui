@@ -1,4 +1,4 @@
-import { Radio, RadioGroup } from "../../packages/components/radio/src";
+import { Radio, RadioGroup } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

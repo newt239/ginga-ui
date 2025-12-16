@@ -1,6 +1,4 @@
-import "@ginga-ui/core/index.css";
-
-import { Button } from "../../packages/components/button/src";
+import { Button } from "./button";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

@@ -1,4 +1,4 @@
-import { Table } from "../../packages/components/table/src";
+import { Table } from "./table";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

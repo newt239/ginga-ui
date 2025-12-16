@@ -1,4 +1,4 @@
-import { Switch } from "../../packages/components/switch/src";
+import { Switch } from "./switch";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -11,7 +11,7 @@ const meta: Meta<typeof Switch> = {
     docs: {
       description: {
         component:
-          "スイッチコンポーネントは、2つの状態（オン/オフ）を切り替えることができる制御要素です。",
+          "スイッチコンポーネントは、2つの状態(オン/オフ)を切り替えることができる制御要素です。",
       },
     },
   },
