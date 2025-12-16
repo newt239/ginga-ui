@@ -1,7 +1,6 @@
 packages:
   - packages/**/**
   - docs/**
-  - stories/**
 minimumReleaseAge: 1420
 onlyBuiltDependencies:
   - esbuild

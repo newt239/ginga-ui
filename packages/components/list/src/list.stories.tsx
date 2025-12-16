@@ -1,4 +1,4 @@
-import { List, ListItem } from "../../packages/components/list/src";
+import { List, ListItem } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

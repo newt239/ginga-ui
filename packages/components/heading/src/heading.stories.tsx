@@ -1,4 +1,4 @@
-import { Heading } from "../../packages/components/heading/src";
+import { Heading } from "./heading";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

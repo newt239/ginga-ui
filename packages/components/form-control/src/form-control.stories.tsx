@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { Button } from "../../packages/components/button/src";
-import { FormControl } from "../../packages/components/form-control/src";
-import { Input } from "../../packages/components/input/src";
-import { ThemeClient } from "../../packages/utils/src";
+import { Button } from "../../button/src";
+import { FormControl } from "./form-control";
+import { Input } from "../../input/src";
+import { ThemeClient } from "../../../utils/src";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
