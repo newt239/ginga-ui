@@ -1,5 +1,5 @@
-import { Heading, ThemeClient } from "@ginga-ui/core";
-import Link from "next/link";
+import { ThemeClient } from "@ginga-ui/core";
+import { DocsLayout } from "#/components/docs-layout";
 
 import type { Metadata } from "next";
 
@@ -8,8 +8,10 @@ import "@ginga-ui/core/variables.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GingaUI",
-  description: "brand-new UI component library for web",
+  title:
+    "Ginga UI - LLMを活用したテーマ生成可能なReact UIコンポーネントライブラリ",
+  description:
+    "Webサイトのコンテンツやプロンプトに基づいて動的にスタイリングされるReactコンポーネント",
 };
 
 export default async function RootLayout({
@@ -21,18 +23,16 @@ export default async function RootLayout({
     model: "gpt-4o-mini",
   });
 
-  const { CSSCode } = await themeClient.generateTheme("fairy tale");
+  const { CSSCode } = await themeClient.generateTheme(
+    "モダンでクリーンなデザイン"
+  );
 
   return (
-    <html lang="en">
+    <html lang="ja">
       <body>
-        <style>{CSSCode}</style>
-        <header>
-          <Link href="/">
-            <Heading level="h1">GingaUI</Heading>
-          </Link>
-        </header>
-        {children}
+        <style id="initial-theme">{CSSCode}</style>
+        <style id="dynamic-theme"></style>
+        <DocsLayout>{children}</DocsLayout>
       </body>
     </html>
   );
