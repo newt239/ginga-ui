@@ -9,12 +9,12 @@ import {
   Tabs,
 } from "@ginga-ui/core";
 import { CATEGORIES, getComponentsByCategory } from "#/data/components";
-import type { ComponentCategory } from "#/data/components";
+import type { ComponentCategory, ComponentMetadata } from "#/data/components";
 
 export default function ComponentsPage() {
-  const categories = Object.entries(CATEGORIES).sort(
-    ([, a], [, b]) => a.order - b.order
-  ) as [ComponentCategory, { label: string; order: number }][];
+  const categories = (
+    Object.entries(CATEGORIES) as [ComponentCategory, { label: string; order: number }][]
+  ).sort(([, a], [, b]) => a.order - b.order);
 
   return (
     <article>
@@ -34,15 +34,13 @@ export default function ComponentsPage() {
             ))}
           </TabList>
 
-          {categories.map(([category]) => {
-            const components = getComponentsByCategory(
-              category as ComponentCategory
-            );
+            {categories.map(([category]) => {
+              const components = getComponentsByCategory(category);
 
             return (
               <TabPanel key={category} id={category}>
                 <div className="component-grid">
-                  {components.map((component) => (
+                  {components.map((component: ComponentMetadata) => (
                     <Link
                       key={component.id}
                       href={`/components/${component.id}`}

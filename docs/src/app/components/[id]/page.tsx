@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Heading, Paragraph } from "@ginga-ui/core";
 import { CodeBlock } from "#/components/code-block";
 import { getComponentById, COMPONENTS } from "#/data/components";
+import type { ComponentMetadata } from "#/data/components";
 import { getExampleCode } from "#/lib/get-example-code";
 import { highlightCode } from "#/lib/shiki";
 
@@ -115,7 +116,9 @@ export default async function ComponentPage({
 }
 
 export function generateStaticParams() {
-  return COMPONENTS.map((component) => ({ id: component.id }));
+  return COMPONENTS.map((component: ComponentMetadata) => ({
+    id: component.id,
+  }));
 }
 
 export const dynamicParams = false;

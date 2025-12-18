@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CATEGORIES, getComponentsByCategory } from "#/data/components";
-import type { ComponentCategory } from "#/data/components";
+import type { ComponentCategory, ComponentMetadata } from "#/data/components";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -44,20 +44,21 @@ export function Sidebar() {
         </section>
 
         {(
-          Object.entries(CATEGORIES).sort(
-            ([, a], [, b]) => a.order - b.order
-          ) as [ComponentCategory, { label: string; order: number }][]
-        ).map(([category, { label }]) => {
-          const components = getComponentsByCategory(
-            category as ComponentCategory
-          );
+          Object.entries(CATEGORIES) as [
+            ComponentCategory,
+            { label: string; order: number }
+          ][]
+        )
+          .sort(([, a], [, b]) => a.order - b.order)
+          .map(([category, { label }]) => {
+            const components = getComponentsByCategory(category);
           if (components.length === 0) return null;
 
           return (
             <section key={category}>
               <h2>{label}</h2>
               <ul>
-                {components.map((component) => (
+                {components.map((component: ComponentMetadata) => (
                   <li key={component.id}>
                     <Link
                       href={`/components/${component.id}`}
