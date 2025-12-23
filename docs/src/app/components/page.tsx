@@ -10,6 +10,7 @@ import {
 } from "@ginga-ui/core";
 import { CATEGORIES, getComponentsByCategory } from "#/data/components";
 import type { ComponentCategory, ComponentMetadata } from "#/data/components";
+import styles from "./page.module.css";
 
 export default function ComponentsPage() {
   const categories = (
@@ -27,7 +28,7 @@ export default function ComponentsPage() {
         UIが提供する全19個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。
       </Paragraph>
 
-      <div style={{ marginTop: "2rem" }}>
+      <div className={styles.tabsContainer}>
         <Tabs>
           <TabList aria-label="コンポーネントカテゴリ">
             {categories.map(([category, { label }]) => (
@@ -47,7 +48,7 @@ export default function ComponentsPage() {
                     <Link
                       key={component.id}
                       href={`/components/${component.id}`}
-                      style={{ textDecoration: "none" }}
+                      className={styles.componentLink}
                     >
                       <Card className="component-card">
                         <Heading level="h3">{component.name}</Heading>

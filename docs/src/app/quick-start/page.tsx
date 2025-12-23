@@ -1,6 +1,7 @@
 import { Heading, Paragraph } from "@ginga-ui/core";
 import { CodeBlock } from "#/components/code-block";
 import { highlightCode } from "#/lib/shiki";
+import styles from "./page.module.css";
 
 export default async function QuickStartPage() {
   return (
@@ -11,7 +12,7 @@ export default async function QuickStartPage() {
         UIを使い始めるための簡単なガイドです。わずか3ステップで、美しいUIコンポーネントを使い始められます。
       </Paragraph>
 
-      <section style={{ marginTop: "3rem" }}>
+      <section className={styles.installSection}>
         <Heading level="h2">1. インストール</Heading>
         <Paragraph>
           パッケージマネージャーを使ってGinga UIをインストールします。
@@ -23,7 +24,7 @@ export default async function QuickStartPage() {
             "bash"
           )}
         />
-        <Paragraph style={{ marginTop: "1rem" }}>
+        <Paragraph className={styles.npmNote}>
           npmやyarnを使用している場合:
         </Paragraph>
         <CodeBlock
@@ -39,20 +40,12 @@ yarn add @ginga-ui/core`,
         />
       </section>
 
-      <section style={{ marginTop: "3rem" }}>
+      <section className={styles.cssSection}>
         <Heading level="h2">2. CSSファイルのインポート</Heading>
         <Paragraph>
           ルートコンポーネントでGinga UIのCSSファイルをインポートします。Next.js
           App Routerの場合は
-          <code
-            style={{
-              backgroundColor: "var(--color-primary-1)",
-              padding: "0.25rem 0.5rem",
-              borderRadius: "4px",
-            }}
-          >
-            layout.tsx
-          </code>
+          <code className={styles.inlineCode}>layout.tsx</code>
           に記述します。
         </Paragraph>
         <CodeBlock
@@ -66,19 +59,11 @@ import "@ginga-ui/core/variables.css";`,
         />
       </section>
 
-      <section style={{ marginTop: "3rem" }}>
+      <section className={styles.usageSection}>
         <Heading level="h2">3. コンポーネントを使う</Heading>
         <Paragraph>
           コンポーネントを
-          <code
-            style={{
-              backgroundColor: "var(--color-primary-1)",
-              padding: "0.25rem 0.5rem",
-              borderRadius: "4px",
-            }}
-          >
-            @ginga-ui/core
-          </code>
+          <code className={styles.inlineCode}>@ginga-ui/core</code>
           からインポートして使用します。
         </Paragraph>
         <CodeBlock
@@ -112,13 +97,13 @@ export default function App() {
         />
       </section>
 
-      <section style={{ marginTop: "3rem" }}>
+      <section className={styles.nextExample}>
         <Heading level="h2">Next.js App Routerでの完全な例</Heading>
         <Paragraph>
           Next.js 13以降のApp Routerを使用する場合の完全なセットアップ例です。
         </Paragraph>
 
-        <Heading level="h3" style={{ marginTop: "2rem" }}>
+        <Heading level="h3" className={styles.nextSubsection}>
           app/layout.tsx
         </Heading>
         <CodeBlock
@@ -173,7 +158,7 @@ export default async function RootLayout({
           )}
         />
 
-        <Heading level="h3" style={{ marginTop: "2rem" }}>
+        <Heading level="h3" className={styles.nextSubsection}>
           app/page.tsx
         </Heading>
         <CodeBlock
@@ -205,23 +190,17 @@ export default function Home() {
         />
       </section>
 
-      <section style={{ marginTop: "3rem" }}>
+      <section className={styles.nextSteps}>
         <Heading level="h2">次のステップ</Heading>
-        <ul style={{ lineHeight: 2 }}>
+        <ul className={styles.nextStepsList}>
           <li>
-            <a
-              href="/components"
-              style={{ color: "var(--color-primary)", fontWeight: 600 }}
-            >
+            <a href="/components" className={styles.primaryLink}>
               全コンポーネント
             </a>
             を確認して、利用可能なUIパーツを探索
           </li>
           <li>
-            <a
-              href="/theme-generation"
-              style={{ color: "var(--color-primary)", fontWeight: 600 }}
-            >
+            <a href="/theme-generation" className={styles.primaryLink}>
               テーマ生成
             </a>
             を試して、AIによる自動スタイリングを体験

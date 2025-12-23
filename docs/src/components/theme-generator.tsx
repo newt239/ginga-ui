@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button, Input, Select } from "@ginga-ui/core";
 import { ListBoxItem } from "react-aria-components";
 import { CodeBlock } from "./code-block";
+import styles from "./theme-generator.module.css";
 
 type ThemeProvider = "openai" | "google" | "anthropic";
 
@@ -77,23 +78,9 @@ export function ThemeGenerator() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "1.5rem",
-        maxWidth: "800px",
-      }}
-    >
-      <div
-        style={{
-          padding: "1rem",
-          backgroundColor: "var(--color-primary-1)",
-          border: "1px solid var(--color-primary-3)",
-          borderRadius: "var(--size-radius)",
-        }}
-      >
-        <p style={{ margin: 0, fontSize: "0.9375rem", lineHeight: 1.6 }}>
+    <div className={styles.container}>
+      <div className={styles.warningBox}>
+        <p className={styles.warningText}>
           ⚠️
           <strong>セキュリティ上の注意:</strong>
           このデモではクライアントサイドでAPI呼び出しを行うため、APIキーがブラウザに露出します。本番環境では必ずサーバーサイドRoute
@@ -124,15 +111,7 @@ export function ThemeGenerator() {
       </Select>
 
       <div>
-        <label
-          htmlFor="api-key-input"
-          style={{
-            display: "block",
-            marginBottom: "0.5rem",
-            fontWeight: 600,
-            fontSize: "0.9375rem",
-          }}
-        >
+        <label htmlFor="api-key-input" className={styles.fieldLabel}>
           APIキー
         </label>
         <Input
@@ -145,15 +124,7 @@ export function ThemeGenerator() {
       </div>
 
       <div>
-        <label
-          htmlFor="theme-prompt-input"
-          style={{
-            display: "block",
-            marginBottom: "0.5rem",
-            fontWeight: 600,
-            fontSize: "0.9375rem",
-          }}
-        >
+        <label htmlFor="theme-prompt-input" className={styles.fieldLabel}>
           テーマプロンプト
         </label>
         <Input
@@ -173,23 +144,15 @@ export function ThemeGenerator() {
       </Button>
 
       {error && (
-        <div
-          style={{
-            padding: "1rem",
-            backgroundColor: "var(--color-primary-1)",
-            border: "1px solid var(--color-primary)",
-            borderRadius: "var(--size-radius)",
-            color: "var(--color-primary)",
-          }}
-        >
+        <div className={styles.errorBox}>
           <strong>エラー:</strong> {error}
         </div>
       )}
 
       {cssCode && (
-        <div style={{ marginTop: "2rem" }}>
-          <h3 style={{ marginBottom: "1rem" }}>生成されたテーマ</h3>
-          <p style={{ marginBottom: "1rem" }}>
+        <div className={styles.resultContainer}>
+          <h3 className={styles.resultTitle}>生成されたテーマ</h3>
+          <p className={styles.resultDescription}>
             テーマがサイト全体に適用されました。ページをスクロールして変化を確認してください。
           </p>
           <CodeBlock code={cssCode} highlightedCode={`<pre>${cssCode}</pre>`} />

@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { Heading, Paragraph, Button, Card } from "@ginga-ui/core";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <article>
-      <section className="hero">
+      <section className={styles.hero}>
         <Heading level="h1">Ginga UI</Heading>
-        <Paragraph style={{ fontSize: "1.25rem", marginBottom: "2rem" }}>
+        <Paragraph className={styles.heroLead}>
           LLMを活用したテーマ生成機能を持つReact UIコンポーネントライブラリ
         </Paragraph>
-        <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+        <div className={styles.buttonGroup}>
           <Link href="/quick-start">
             <Button variant="filled">クイックスタート</Button>
           </Link>
@@ -22,16 +23,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ marginTop: "4rem" }}>
+      <section className={styles.featuresSection}>
         <Heading level="h2">特徴</Heading>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "2rem",
-            marginTop: "2rem",
-          }}
-        >
+        <div className={styles.featuresGrid}>
           <Card>
             <Heading level="h3">🎨 AIテーマ生成</Heading>
             <Paragraph>
@@ -79,19 +73,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ marginTop: "4rem" }}>
+      <section className={styles.gettingStartedSection}>
         <Heading level="h2">はじめ方</Heading>
-        <div style={{ marginTop: "1.5rem" }}>
+        <div className={styles.gettingStartedContent}>
           <Paragraph>
             Ginga
             UIを使い始めるのは簡単です。パッケージをインストールして、コンポーネントをインポートするだけ。
           </Paragraph>
           <Paragraph>
             詳しい手順は
-            <Link
-              href="/quick-start"
-              style={{ color: "var(--color-primary)", fontWeight: 600 }}
-            >
+            <Link href="/quick-start" className={styles.primaryLink}>
               クイックスタート
             </Link>
             をご覧ください。
