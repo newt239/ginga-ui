@@ -1,5 +1,18 @@
 # @ginga-ui/box
 
+## 0.11.0
+
+### Minor Changes
+
+- ec9d767: change the usage of ai feature
+
+### Patch Changes
+
+- 3c2a565: upgrade dependencies and setup oxlint, oxfmt
+- Updated dependencies [3c2a565]
+- Updated dependencies [ec9d767]
+  - @ginga-ui/utils@0.12.0
+
 ## 0.10.3
 
 ### Patch Changes

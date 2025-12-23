@@ -1,5 +1,15 @@
 # @ginga-ui/utils
 
+## 0.12.0
+
+### Minor Changes
+
+- ec9d767: change the usage of ai feature
+
+### Patch Changes
+
+- 3c2a565: upgrade dependencies and setup oxlint, oxfmt
+
 ## 0.11.2
 
 ### Patch Changes
