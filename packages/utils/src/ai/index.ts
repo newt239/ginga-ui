@@ -1,153 +1,170 @@
+import { anthropic } from "@ai-sdk/anthropic";
+import { google } from "@ai-sdk/google";
+import { openai } from "@ai-sdk/openai";
+import { generateObject } from "ai";
 import chroma from "chroma-js";
-import * as v from "valibot";
 
 import { generateIntermediateColors } from "../lib/color";
 
-import AnthropicClient, { type AnthropicConstructorProps } from "./anthropic";
-import GeminiClient, { type GeminiConstructorProps } from "./gemini";
-import OpenAIClient, { type OpenAConstructorProps } from "./openai";
-import { Variables } from "./types";
+import { SYSTEM_PROMPT } from "./const";
+import { themeVariablesSchema, type ThemeVariables } from "./schema";
 
-export type ThemeClientConstructorProps =
-  | ({
-      clientType: "openai";
-    } & OpenAConstructorProps)
-  | ({
-      clientType: "gemini";
-    } & GeminiConstructorProps)
-  | ({
-      clientType: "anthropic";
-    } & AnthropicConstructorProps);
+export type ThemeClientConstructorProps = {
+  model?: string;
+};
 
-export type GemerateaThemeOptions = {
+export type GenerateThemeOptions = {
   maxRetries?: number;
 };
 
 export class ThemeClient {
-  private client: OpenAIClient | GeminiClient | AnthropicClient;
+  private model: string;
   private maxRetries: number = 3;
 
-  constructor(props: ThemeClientConstructorProps) {
-    switch (props.clientType) {
-      case "gemini":
-        this.client = new GeminiClient(props);
-        break;
-      case "openai":
-        this.client = new OpenAIClient(props);
-        break;
-      case "anthropic":
-        this.client = new AnthropicClient(props);
-        break;
-      default:
-        throw new Error("Invalid client type");
-    }
+  constructor({ model = "gpt-4o-mini" }: ThemeClientConstructorProps) {
+    this.model = model;
   }
 
-  async generateTheme(prompt: string, options?: GemerateaThemeOptions) {
+  private getProvider() {
+    // モデル名からプロバイダーを自動判定
+    if (this.model.startsWith("gpt-") || this.model.startsWith("o1")) {
+      return openai(this.model);
+    }
+    if (this.model.startsWith("claude-")) {
+      return anthropic(this.model);
+    }
+    if (this.model.startsWith("gemini-")) {
+      return google(this.model);
+    }
+    throw new Error(`Unsupported model: ${this.model}`);
+  }
+
+  async generateTheme(prompt: string, options?: GenerateThemeOptions) {
     if (options?.maxRetries) {
       this.maxRetries = options.maxRetries;
     }
-    let i: number;
-    for (i = 0; i < this.maxRetries; i++) {
+
+    for (let i = 0; i < this.maxRetries; i++) {
       try {
-        const result = await this.client.generateTheme(prompt);
-        if (result.type === "error") {
-          throw new Error(result.message);
-        }
-        const variables = v.parse(Variables, JSON.parse(result.value));
+        const { object } = await generateObject({
+          model: this.getProvider(),
+          schema: themeVariablesSchema,
+          system: SYSTEM_PROMPT,
+          prompt,
+        });
+
         const isPrimaryColorValid =
           chroma.contrast(
-            variables["--color-background"],
-            variables["--color-primary"]
+            object["--color-background"],
+            object["--color-primary"]
           ) > 3;
         const isSecondaryColorValid =
           chroma.contrast(
-            variables["--color-background"],
-            variables["--color-secondary"]
+            object["--color-background"],
+            object["--color-secondary"]
           ) > 3;
 
         if (isPrimaryColorValid && isSecondaryColorValid) {
-          const CSSCode = this.adaptNewTheme(variables);
-          return {
-            type: "success",
-            CSSCode,
-          } as const;
+          const CSSCode = this.adaptNewTheme(object);
+          return { type: "success", CSSCode } as const;
         }
 
+        // 最後のリトライでコントラストを強制
         if (i === this.maxRetries - 1) {
-          const enforcedPrimaryColor = this.enforceContrast(
-            variables["--color-background"],
-            variables["--color-primary"]
-          );
-          variables["--color-primary"] = enforcedPrimaryColor;
+          const enforcedVariables = {
+            ...object,
+            "--color-primary": this.enforceContrast(
+              object["--color-background"],
+              object["--color-primary"]
+            ),
+            "--color-secondary": this.enforceContrast(
+              object["--color-background"],
+              object["--color-secondary"]
+            ),
+          };
 
-          const enforcedSecondaryColor = this.enforceContrast(
-            variables["--color-background"],
-            variables["--color-secondary"]
-          );
-          variables["--color-secondary"] = enforcedSecondaryColor;
-
-          const CSSCode = this.adaptNewTheme(variables);
-          return {
-            type: "success",
-            CSSCode,
-          } as const;
+          const CSSCode = this.adaptNewTheme(enforcedVariables);
+          return { type: "success", CSSCode } as const;
         }
       } catch (e) {
-        console.error(e);
+        console.error(`Retry ${i + 1}/${this.maxRetries} failed:`, e);
+        if (i === this.maxRetries - 1) {
+          const errorMessage =
+            e instanceof Error ? e.message : "Failed to generate theme";
+          return { type: "error", CSSCode: errorMessage } as const;
+        }
       }
     }
+
     return { type: "error", CSSCode: "Failed to generate theme" } as const;
   }
 
   enforceContrast(baseColor: string, targetColor: string) {
     let color = chroma(targetColor);
     let contrast = chroma.contrast(color, baseColor);
-    while (contrast < 3) {
+    let iterations = 0;
+    const maxIterations = 100;
+
+    while (contrast < 3 && iterations < maxIterations) {
       if (chroma(baseColor).luminance() > 0.5) {
         color = color.darken(0.1);
       } else {
         color = color.brighten(0.1);
       }
-      contrast = chroma.contrast(color, baseColor);
+
+      const newContrast = chroma.contrast(color, baseColor);
+
+      // コントラストが改善していない場合は打ち切り
+      if (newContrast <= contrast) {
+        console.warn(`Contrast improvement stopped at: ${contrast}`);
+        break;
+      }
+
+      contrast = newContrast;
+      iterations++;
     }
+
+    if (iterations >= maxIterations) {
+      console.warn(
+        `Max iterations reached: baseColor=${baseColor}, targetColor=${targetColor}`
+      );
+    }
+
     return color.hex();
   }
 
-  adaptNewTheme(variables: Record<string, string>) {
+  adaptNewTheme(variables: ThemeVariables) {
     const primaryColors = generateIntermediateColors(
       variables["--color-background"],
       variables["--color-primary"]
-    ).map((c, i) => ({
-      key: `--color-primary-${i}`,
-      value: c,
-    }));
-    primaryColors.forEach((color) => {
-      variables[color.key] = color.value;
-    });
+    ).map((c, i) => ({ key: `--color-primary-${i}`, value: c }));
 
     const secondaryColors = generateIntermediateColors(
       variables["--color-background"],
       variables["--color-secondary"]
-    ).map((c, i) => ({
-      key: `--color-secondary-${i}`,
-      value: c,
-    }));
-    secondaryColors.forEach((color) => {
-      variables[color.key] = color.value;
-    });
+    ).map((c, i) => ({ key: `--color-secondary-${i}`, value: c }));
 
+    const allVariables = {
+      ...variables,
+      ...Object.fromEntries(primaryColors.map((c) => [c.key, c.value])),
+      ...Object.fromEntries(secondaryColors.map((c) => [c.key, c.value])),
+    };
+
+    // ブラウザ環境でCSS変数を設定
     if (typeof window !== "undefined") {
-      const r = window.document.documentElement;
-      Object.entries(variables).forEach(([key, value]) => {
-        r.style.setProperty(key, value);
+      const root = window.document.documentElement;
+      Object.entries(allVariables).forEach(([key, value]) => {
+        root.style.setProperty(key, value);
       });
     }
+
+    // CSSコードを生成
     let CSSCode = ":root {\n";
-    Object.entries(variables).forEach(([key, value]) => {
+    Object.entries(allVariables).forEach(([key, value]) => {
       CSSCode += `  ${key}: ${value};\n`;
     });
     CSSCode += "}";
+
     return CSSCode;
   }
 }

@@ -33,3 +33,4 @@ storybook-static/
 *.tgz
 
 .turbo/
+tsconfig.tsbuildinfo

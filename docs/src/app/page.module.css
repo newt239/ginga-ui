@@ -1,0 +1,39 @@
+.hero {
+  /* デフォルトのセクションスタイル */
+}
+
+.heroLead {
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.featuresSection {
+  margin-top: 4rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gettingStartedSection {
+  margin-top: 4rem;
+}
+
+.gettingStartedContent {
+  margin-top: 1.5rem;
+}
+
+.primaryLink {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
