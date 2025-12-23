@@ -13,7 +13,10 @@ import type { ComponentCategory, ComponentMetadata } from "#/data/components";
 
 export default function ComponentsPage() {
   const categories = (
-    Object.entries(CATEGORIES) as [ComponentCategory, { label: string; order: number }][]
+    Object.entries(CATEGORIES) as [
+      ComponentCategory,
+      { label: string; order: number },
+    ][]
   ).sort(([, a], [, b]) => a.order - b.order);
 
   return (
@@ -34,8 +37,8 @@ export default function ComponentsPage() {
             ))}
           </TabList>
 
-            {categories.map(([category]) => {
-              const components = getComponentsByCategory(category);
+          {categories.map(([category]) => {
+            const components = getComponentsByCategory(category);
 
             return (
               <TabPanel key={category} id={category}>

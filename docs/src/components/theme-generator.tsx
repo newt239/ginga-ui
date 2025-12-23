@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button, Input, Select } from "@ginga-ui/core";
-import { ThemeClient } from "@ginga-ui/core";
 import { ListBoxItem } from "react-aria-components";
 import { CodeBlock } from "./code-block";
 
@@ -33,19 +32,26 @@ export function ThemeGenerator() {
     setError("");
 
     try {
-      // 環境変数にAPIキーを設定（クライアントサイド）
-      const envKey =
-        provider === "openai"
-          ? "OPENAI_API_KEY"
-          : provider === "google"
-            ? "GOOGLE_GENERATIVE_AI_API_KEY"
-            : "ANTHROPIC_API_KEY";
+      // サーバーサイドRoute Handlerを使用
+      const response = await fetch("/api/generate-theme", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model,
+          prompt,
+          apiKey,
+          provider,
+        }),
+      });
 
-      // 注意: 本番環境ではサーバーサイドRoute Handlerを使用すべき
-      process.env[envKey] = apiKey;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "テーマ生成に失敗しました");
+      }
 
-      const client = new ThemeClient({ model });
-      const result = await client.generateTheme(prompt);
+      const result = await response.json();
 
       if (result.type === "success") {
         setCssCode(result.CSSCode);

@@ -17,8 +17,11 @@ export async function getExampleCode(
     const regex = new RegExp(`export function ${exampleName}[\\s\\S]*?^}`, "m");
     const match = content.match(regex);
     return match ? match[0] : "";
-  } catch {
-    console.error(`Failed to read example code: ${componentId}/${exampleName}`);
+  } catch (error) {
+    console.error(
+      `Failed to read example code: ${componentId}/${exampleName}`,
+      error
+    );
     return "";
   }
 }

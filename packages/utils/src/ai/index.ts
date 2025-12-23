@@ -36,7 +36,7 @@ export class ThemeClient {
     if (this.model.startsWith("gemini-")) {
       return google(this.model);
     }
-    throw new Error(`サポートされていないモデル: ${this.model}`);
+    throw new Error(`Unsupported model: ${this.model}`);
   }
 
   async generateTheme(prompt: string, options?: GenerateThemeOptions) {
@@ -87,16 +87,16 @@ export class ThemeClient {
           return { type: "success", CSSCode } as const;
         }
       } catch (e) {
-        console.error(`リトライ ${i + 1}/${this.maxRetries} 失敗:`, e);
+        console.error(`Retry ${i + 1}/${this.maxRetries} failed:`, e);
         if (i === this.maxRetries - 1) {
           const errorMessage =
-            e instanceof Error ? e.message : "テーマ生成に失敗しました";
+            e instanceof Error ? e.message : "Failed to generate theme";
           return { type: "error", CSSCode: errorMessage } as const;
         }
       }
     }
 
-    return { type: "error", CSSCode: "テーマ生成に失敗しました" } as const;
+    return { type: "error", CSSCode: "Failed to generate theme" } as const;
   }
 
   enforceContrast(baseColor: string, targetColor: string) {
@@ -116,7 +116,7 @@ export class ThemeClient {
 
       // コントラストが改善していない場合は打ち切り
       if (newContrast <= contrast) {
-        console.warn(`コントラスト改善が停止しました: ${contrast}`);
+        console.warn(`Contrast improvement stopped at: ${contrast}`);
         break;
       }
 
@@ -126,7 +126,7 @@ export class ThemeClient {
 
     if (iterations >= maxIterations) {
       console.warn(
-        `最大反復回数に到達: baseColor=${baseColor}, targetColor=${targetColor}`
+        `Max iterations reached: baseColor=${baseColor}, targetColor=${targetColor}`
       );
     }
 

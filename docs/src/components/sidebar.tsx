@@ -46,32 +46,32 @@ export function Sidebar() {
         {(
           Object.entries(CATEGORIES) as [
             ComponentCategory,
-            { label: string; order: number }
+            { label: string; order: number },
           ][]
         )
           .sort(([, a], [, b]) => a.order - b.order)
           .map(([category, { label }]) => {
             const components = getComponentsByCategory(category);
-          if (components.length === 0) return null;
+            if (components.length === 0) return null;
 
-          return (
-            <section key={category}>
-              <h2>{label}</h2>
-              <ul>
-                {components.map((component: ComponentMetadata) => (
-                  <li key={component.id}>
-                    <Link
-                      href={`/components/${component.id}`}
-                      data-active={pathname === `/components/${component.id}`}
-                    >
-                      {component.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          );
-        })}
+            return (
+              <section key={category}>
+                <h2>{label}</h2>
+                <ul>
+                  {components.map((component: ComponentMetadata) => (
+                    <li key={component.id}>
+                      <Link
+                        href={`/components/${component.id}`}
+                        data-active={pathname === `/components/${component.id}`}
+                      >
+                        {component.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
       </nav>
     </aside>
   );
