@@ -1,5 +1,37 @@
 # @ginga-ui/core
 
+## 0.11.0
+
+### Minor Changes
+
+- ec9d767: change the usage of ai feature
+
+### Patch Changes
+
+- 3c2a565: upgrade dependencies and setup oxlint, oxfmt
+- Updated dependencies [3c2a565]
+- Updated dependencies [ec9d767]
+  - @ginga-ui/form-control@0.11.0
+  - @ginga-ui/accordion@0.11.0
+  - @ginga-ui/paragraph@0.11.0
+  - @ginga-ui/checkbox@0.11.0
+  - @ginga-ui/heading@0.11.0
+  - @ginga-ui/anchor@0.11.0
+  - @ginga-ui/button@0.11.0
+  - @ginga-ui/dialog@0.11.0
+  - @ginga-ui/select@0.11.0
+  - @ginga-ui/slider@0.11.0
+  - @ginga-ui/switch@0.11.0
+  - @ginga-ui/image@0.11.0
+  - @ginga-ui/input@0.11.0
+  - @ginga-ui/radio@0.11.0
+  - @ginga-ui/table@0.11.0
+  - @ginga-ui/card@0.11.0
+  - @ginga-ui/list@0.11.0
+  - @ginga-ui/box@0.11.0
+  - @ginga-ui/tab@0.11.0
+  - @ginga-ui/utils@0.12.0
+
 ## 0.10.3
 
 ### Patch Changes
