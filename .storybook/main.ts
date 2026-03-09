@@ -1,13 +1,12 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
   stories: ["../packages/core/src/components/**/src/*.stories.tsx"],
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-links",
-  ],
+  addons: ["@storybook/addon-links"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
