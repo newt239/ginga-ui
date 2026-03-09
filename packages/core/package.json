@@ -1,15 +1,18 @@
 {
   "name": "@ginga-ui/core",
-  "private": false,
   "version": "0.11.0",
-  "type": "module",
+  "private": false,
   "description": "brand-new UI component library for web",
   "keywords": [
-    "react",
-    "ui",
     "component",
-    "library"
+    "library",
+    "react",
+    "ui"
   ],
+  "homepage": "https://github.com/newt239/ginga-ui#readme",
+  "bugs": {
+    "url": "https://github.com/newt239/ginga-ui/issues"
+  },
   "author": {
     "name": "newt239",
     "email": "ysti2019.win2020.st@gmail.com"
@@ -18,26 +21,11 @@
     "type": "git",
     "url": "git+https://github.com/newt239/ginga-ui.git"
   },
-  "bugs": {
-    "url": "https://github.com/newt239/ginga-ui/issues"
-  },
-  "scripts": {
-    "dev": "pnpm build -- --watch",
-    "build": "tsup --dts",
-    "build:fast": "tsup"
-  },
-  "dependencies": {
-    "@ginga-ui/utils": "workspace:*"
-  },
-  "devDependencies": {
-    "react": "^19.2.3"
-  },
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "files": [
     "dist"
   ],
+  "type": "module",
+  "sideEffects": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -51,10 +39,22 @@
     "./index.css": "./dist/index.css",
     "./variables.css": "./dist/variables.css"
   },
-  "sideEffects": false,
   "publishConfig": {
     "access": "public",
     "provenance": true
   },
-  "homepage": "https://github.com/newt239/ginga-ui#readme"
+  "scripts": {
+    "dev": "pnpm build -- --watch",
+    "build": "tsup --dts",
+    "build:fast": "tsup"
+  },
+  "dependencies": {
+    "@ginga-ui/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "react": "19.2.4"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  }
 }

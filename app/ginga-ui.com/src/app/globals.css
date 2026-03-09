@@ -191,7 +191,9 @@ body {
   padding: 1.5rem;
   cursor: pointer;
   border: 1px solid var(--color-primary-2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .component-card:hover {
