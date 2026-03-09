@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.13.0
+
+### Minor Changes
+
+- 69b40d6: change package schemas
+
 ## 0.12.0
 
 ### Minor Changes

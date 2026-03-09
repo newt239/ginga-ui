@@ -1,5 +1,16 @@
 # @ginga-ui/core
 
+## 0.12.0
+
+### Minor Changes
+
+- 69b40d6: change package schemas
+
+### Patch Changes
+
+- Updated dependencies [69b40d6]
+  - @ginga-ui/utils@0.13.0
+
 ## 0.11.0
 
 ### Minor Changes
