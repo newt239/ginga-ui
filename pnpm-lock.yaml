@@ -9,85 +9,85 @@ importers:
   .:
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.30.0
+        specifier: 2.30.0
         version: 2.30.0(@types/node@25.3.5)
       '@storybook/addon-essentials':
-        specifier: ^8.6.14
+        specifier: 8.6.14
         version: 8.6.14(@types/react@19.2.14)(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@storybook/addon-interactions':
-        specifier: ^8.6.14
+        specifier: 8.6.14
         version: 8.6.14(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@storybook/addon-links':
-        specifier: ^10.2.16
+        specifier: 10.2.16
         version: 10.2.16(react@19.2.4)(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@storybook/blocks':
-        specifier: ^8.6.14
+        specifier: 8.6.14
         version: 8.6.14(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@storybook/react':
-        specifier: ^10.2.16
+        specifier: 10.2.16
         version: 10.2.16(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)
       '@storybook/react-vite':
-        specifier: ^10.2.16
+        specifier: 10.2.16
         version: 10.2.16(esbuild@0.27.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(typescript@5.9.3)(vite@7.3.1(@types/node@25.3.5))
       '@storybook/test':
-        specifier: ^8.6.15
+        specifier: 8.6.15
         version: 8.6.15(storybook@10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@types/chroma-js':
-        specifier: ^3.1.2
+        specifier: 3.1.2
         version: 3.1.2
       '@types/css-modules':
-        specifier: ^1.0.5
+        specifier: 1.0.5
         version: 1.0.5
       '@types/node':
-        specifier: ^25.3.5
+        specifier: 25.3.5
         version: 25.3.5
       '@types/react':
-        specifier: ^19.2.14
+        specifier: 19.2.14
         version: 19.2.14
       '@types/react-dom':
-        specifier: ^19.2.3
+        specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
       chromatic:
-        specifier: ^15.2.0
+        specifier: 15.2.0
         version: 15.2.0
       oxfmt:
-        specifier: ^0.36.0
+        specifier: 0.36.0
         version: 0.36.0
       oxlint:
-        specifier: ^1.51.0
+        specifier: 1.51.0
         version: 1.51.0(oxlint-tsgolint@0.16.0)
       oxlint-tsgolint:
-        specifier: ^0.16.0
+        specifier: 0.16.0
         version: 0.16.0
       react:
-        specifier: ^19.2.4
+        specifier: 19.2.4
         version: 19.2.4
       react-aria-components:
-        specifier: ^1.16.0
+        specifier: 1.16.0
         version: 1.16.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       storybook:
-        specifier: ^10.2.16
+        specifier: 10.2.16
         version: 10.2.16(@testing-library/dom@10.4.0)(prettier@2.8.8)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       stylelint:
-        specifier: ^17.4.0
+        specifier: 17.4.0
         version: 17.4.0(typescript@5.9.3)
       stylelint-config-recess-order:
-        specifier: ^7.6.1
+        specifier: 7.6.1
         version: 7.6.1(stylelint-order@7.0.0(stylelint@17.4.0(typescript@5.9.3)))(stylelint@17.4.0(typescript@5.9.3))
       stylelint-config-standard:
-        specifier: ^40.0.0
+        specifier: 40.0.0
         version: 40.0.0(stylelint@17.4.0(typescript@5.9.3))
       tsup:
-        specifier: ^8.5.1
+        specifier: 8.5.1
         version: 8.5.1(postcss@8.5.8)(typescript@5.9.3)
       turbo:
-        specifier: ^2.8.14
+        specifier: 2.8.14
         version: 2.8.14
       typescript:
-        specifier: ^5.9.3
+        specifier: 5.9.3
         version: 5.9.3
       vite:
-        specifier: ^7.3.1
+        specifier: 7.3.1
         version: 7.3.1(@types/node@25.3.5)
 
   app/ginga-ui.com:
@@ -96,35 +96,35 @@ importers:
         specifier: workspace:*
         version: link:../../packages/core
       '@mdx-js/loader':
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1
       '@mdx-js/react':
-        specifier: ^3.1.1
+        specifier: 3.1.1
         version: 3.1.1(@types/react@19.2.14)(react@19.2.4)
       '@next/mdx':
-        specifier: ^16.1.6
+        specifier: 16.1.6
         version: 16.1.6(@mdx-js/loader@3.1.1)(@mdx-js/react@3.1.1(@types/react@19.2.14)(react@19.2.4))
       dompurify:
-        specifier: ^3.3.2
+        specifier: 3.3.2
         version: 3.3.2
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react:
-        specifier: ^19.2.4
+        specifier: 19.2.4
         version: 19.2.4
       react-dom:
-        specifier: ^19.2.4
+        specifier: 19.2.4
         version: 19.2.4(react@19.2.4)
       shiki:
-        specifier: ^4.0.2
+        specifier: 4.0.2
         version: 4.0.2
     devDependencies:
       '@types/dompurify':
-        specifier: ^3.2.0
+        specifier: 3.2.0
         version: 3.2.0
       '@types/mdx':
-        specifier: ^2.0.13
+        specifier: 2.0.13
         version: 2.0.13
 
   packages/core:
@@ -134,32 +134,32 @@ importers:
         version: link:../utils
     devDependencies:
       react:
-        specifier: ^19.2.4
+        specifier: 19.2.4
         version: 19.2.4
 
   packages/utils:
     dependencies:
       '@ai-sdk/anthropic':
-        specifier: latest
+        specifier: 3.0.58
         version: 3.0.58(zod@4.3.6)
       '@ai-sdk/google':
-        specifier: latest
+        specifier: 3.0.43
         version: 3.0.43(zod@4.3.6)
       '@ai-sdk/openai':
-        specifier: latest
+        specifier: 3.0.41
         version: 3.0.41(zod@4.3.6)
       ai:
-        specifier: latest
+        specifier: 6.0.116
         version: 6.0.116(zod@4.3.6)
       chroma-js:
-        specifier: ^3.2.0
+        specifier: 3.2.0
         version: 3.2.0
       zod:
-        specifier: latest
+        specifier: 4.3.6
         version: 4.3.6
     devDependencies:
       react:
-        specifier: ^19.2.4
+        specifier: 19.2.4
         version: 19.2.4
 
 packages:
