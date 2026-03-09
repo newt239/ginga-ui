@@ -1,5 +1,13 @@
 # @ginga-ui/core
 
+## 0.12.1
+
+### Patch Changes
+
+- 52adcd6: fix deploy workflow
+- Updated dependencies [52adcd6]
+  - @ginga-ui/utils@0.13.1
+
 ## 0.12.0
 
 ### Minor Changes
