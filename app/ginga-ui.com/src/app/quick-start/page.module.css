@@ -1,0 +1,42 @@
+.installSection {
+  margin-top: 3rem;
+}
+
+.npmNote {
+  margin-top: 1rem;
+}
+
+.cssSection {
+  margin-top: 3rem;
+}
+
+.inlineCode {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-primary-1);
+  border-radius: 4px;
+}
+
+.usageSection {
+  margin-top: 3rem;
+}
+
+.nextExample {
+  margin-top: 3rem;
+}
+
+.nextSubsection {
+  margin-top: 2rem;
+}
+
+.nextSteps {
+  margin-top: 3rem;
+}
+
+.nextStepsList {
+  line-height: 2;
+}
+
+.primaryLink {
+  font-weight: 600;
+  color: var(--color-primary);
+}

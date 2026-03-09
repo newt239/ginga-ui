@@ -1,6 +1,6 @@
 packages:
   - packages/**/**
-  - docs/**
+  - app/**
 minimumReleaseAge: 1420
 onlyBuiltDependencies:
   - esbuild

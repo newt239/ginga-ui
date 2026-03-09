@@ -142,8 +142,8 @@ const themeClient = new ThemeClient({
 
 ### `ThemeClient` Constructor Options
 
-| Name    | Description                                                                            | Default Value   | Required |
-| ------- | -------------------------------------------------------------------------------------- | --------------- | -------- |
+| Name    | Description                                                                           | Default Value   | Required |
+| ------- | ------------------------------------------------------------------------------------- | --------------- | -------- |
 | `model` | Model name to use for theme generation. Provider is automatically detected from name. | `"gpt-4o-mini"` | No       |
 
 ## Variables

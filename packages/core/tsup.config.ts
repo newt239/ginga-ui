@@ -8,5 +8,6 @@ export default defineConfig({
   format: ["cjs", "esm"],
   sourcemap: true,
   esbuildPlugins: [],
-  onSuccess: "cp src/index.css dist/ && cp src/variables.css dist/",
+  onSuccess:
+    "cp src/index.css dist/ && cp src/variables.css dist/ && cp -R src/components dist/components",
 });

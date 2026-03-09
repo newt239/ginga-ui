@@ -1,15 +1,18 @@
 {
   "name": "ginga-ui",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "description": "brand-new UI component library for web",
   "keywords": [
-    "react",
-    "ui",
     "component",
-    "library"
+    "library",
+    "react",
+    "ui"
   ],
+  "homepage": "https://github.com/newt239/ginga-ui#readme",
+  "bugs": {
+    "url": "https://github.com/newt239/ginga-ui/issues"
+  },
   "author": {
     "name": "newt239",
     "email": "ysti2019.win2020.st@gmail.com"
@@ -18,11 +21,10 @@
     "type": "git",
     "url": "git+https://github.com/newt239/ginga-ui.git"
   },
-  "bugs": {
-    "url": "https://github.com/newt239/ginga-ui/issues"
-  },
-  "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "packageManager": "pnpm@10.11.0",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "scripts": {
     "setup": "corepack enable pnpm",
     "preinstall": "npx only-allow pnpm",
@@ -35,40 +37,38 @@
     "lint": "oxlint --type-aware --fix",
     "format": "oxfmt .",
     "stylelint": "stylelint \"./**/*.css\" --fix",
-    "docs": "pnpm --prefix docs dev",
+    "docs": "pnpm --prefix app/ginga-ui.com dev",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": [
-    "dist"
-  ],
   "devDependencies": {
-    "@changesets/cli": "^2.29.8",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/addon-interactions": "^8.6.14",
-    "@storybook/addon-links": "^8.6.14",
-    "@storybook/blocks": "^8.6.14",
-    "@storybook/react": "^8.6.14",
-    "@storybook/react-vite": "^8.6.14",
-    "@storybook/test": "^8.6.14",
-    "oxfmt": "^0.16.0",
-    "oxlint": "^1.0.0",
-    "oxlint-tsgolint": "^0.9.0",
-    "@types/chroma-js": "^3.1.2",
-    "@types/css-modules": "^1.0.5",
-    "@types/node": "^25.0.2",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "chromatic": "^13.3.4",
-    "storybook": "^8.6.14",
-    "stylelint": "^16.26.1",
-    "stylelint-config-recess-order": "^7.4.0",
-    "stylelint-config-standard": "^39.0.1",
-    "tsup": "^8.5.1",
-    "turbo": "^2.6.3",
-    "typescript": "^5.9.3",
-    "vite": "^6.0.0",
-    "react": "^19.2.3",
-    "react-aria-components": "^1.13.0"
-  }
+    "@changesets/cli": "2.30.0",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-interactions": "8.6.14",
+    "@storybook/addon-links": "10.2.16",
+    "@storybook/blocks": "8.6.14",
+    "@storybook/react": "10.2.16",
+    "@storybook/react-vite": "10.2.16",
+    "@storybook/test": "8.6.15",
+    "@types/chroma-js": "3.1.2",
+    "@types/css-modules": "1.0.5",
+    "@types/node": "25.3.5",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "chromatic": "15.2.0",
+    "oxfmt": "0.36.0",
+    "oxlint": "1.51.0",
+    "oxlint-tsgolint": "0.16.0",
+    "react": "19.2.4",
+    "react-aria-components": "1.16.0",
+    "storybook": "10.2.16",
+    "stylelint": "17.4.0",
+    "stylelint-config-recess-order": "7.6.1",
+    "stylelint-config-standard": "40.0.0",
+    "tsup": "8.5.1",
+    "turbo": "2.8.14",
+    "typescript": "5.9.3",
+    "vite": "7.3.1"
+  },
+  "packageManager": "pnpm@10.11.0"
 }

@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+}
+
+.warningBox {
+  padding: 1rem;
+  background-color: var(--color-primary-1);
+  border: 1px solid var(--color-primary-3);
+  border-radius: var(--size-radius);
+}
+
+.warningText {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.fieldLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.errorBox {
+  padding: 1rem;
+  color: var(--color-primary);
+  background-color: var(--color-primary-1);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--size-radius);
+}
+
+.resultContainer {
+  margin-top: 2rem;
+}
+
+.resultTitle {
+  margin-bottom: 1rem;
+}
+
+.resultDescription {
+  margin-bottom: 1rem;
+}

@@ -1,9 +1,11 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
   "editor.formatOnSave": true,
+  "oxc.fmt.configPath": ".oxfmtrc.json",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": "explicit",
-    "source.fixAll": "explicit",
-    "source.organizeImports": "explicit"
-  }
+    "source.fixAll.oxc": "explicit",
+    "source.organizeImports": "never"
+  },
+  "files.insertFinalNewline": true
 }
