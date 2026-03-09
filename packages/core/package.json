@@ -27,25 +27,6 @@
     "build:fast": "tsup"
   },
   "dependencies": {
-    "@ginga-ui/accordion": "workspace:*",
-    "@ginga-ui/anchor": "workspace:*",
-    "@ginga-ui/box": "workspace:*",
-    "@ginga-ui/button": "workspace:*",
-    "@ginga-ui/card": "workspace:*",
-    "@ginga-ui/checkbox": "workspace:*",
-    "@ginga-ui/dialog": "workspace:*",
-    "@ginga-ui/form-control": "workspace:*",
-    "@ginga-ui/heading": "workspace:*",
-    "@ginga-ui/image": "workspace:*",
-    "@ginga-ui/input": "workspace:*",
-    "@ginga-ui/list": "workspace:*",
-    "@ginga-ui/paragraph": "workspace:*",
-    "@ginga-ui/radio": "workspace:*",
-    "@ginga-ui/select": "workspace:*",
-    "@ginga-ui/slider": "workspace:*",
-    "@ginga-ui/switch": "workspace:*",
-    "@ginga-ui/tab": "workspace:*",
-    "@ginga-ui/table": "workspace:*",
     "@ginga-ui/utils": "workspace:*"
   },
   "devDependencies": {

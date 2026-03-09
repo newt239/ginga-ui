@@ -35,7 +35,7 @@
     "lint": "oxlint --type-aware --fix",
     "format": "oxfmt .",
     "stylelint": "stylelint \"./**/*.css\" --fix",
-    "docs": "pnpm --prefix docs dev",
+    "docs": "pnpm --prefix app/ginga-ui.com dev",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

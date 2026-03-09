@@ -19,8 +19,8 @@
     "allowJs": false,
     "esModuleInterop": true,
     "paths": {
-      "@ginga-ui/*": ["./packages/*/src", "./packages/components/*/src"],
-      "#/*": ["./docs/src/*"]
+      "@ginga-ui/*": ["./packages/*/src"],
+      "#/*": ["./app/ginga-ui.com/src/*"]
     },
     "declaration": true
   },

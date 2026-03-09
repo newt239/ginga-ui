@@ -28,7 +28,7 @@
 
 本リポジトリではpnpm workspaceとTurporepoを使ったモノレポの構成になっています。
 
-パッケージはコンポーネント単位で分割されており、`packages/components`にそれぞれのコンポーネントが格納されています。
+コンポーネント実装は`packages/core/src/components`配下に統合され、公開パッケージは主に`@ginga-ui/core`と`@ginga-ui/utils`で構成されています。
 
 ## changesets
 
