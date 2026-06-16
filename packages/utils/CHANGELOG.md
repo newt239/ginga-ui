@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.13.2
+
+### Patch Changes
+
+- 60bf83d: ビルドツールを tsup から tsdown（Rolldown ベース）へ移行しました。公開している exports（`.`、`./index.css`、`./variables.css`）は変更ありません。CSS は `@tsdown/css` により `dist/index.css` へ一括バンドルされます。
+
 ## 0.13.1
 
 ### Patch Changes
