@@ -41,19 +41,17 @@ yarn add @ginga-ui/core`,
       </section>
 
       <section className={styles.cssSection}>
-        <Heading level="h2">2. CSSファイルのインポート</Heading>
+        <Heading level="h2">2. CSS変数のインポート</Heading>
         <Paragraph>
-          ルートコンポーネントでGinga UIのCSSファイルをインポートします。Next.js
+          各コンポーネントのCSSはインポート時に自動で読み込まれます。ルートコンポーネントでは、テーマのCSS変数定義のみをインポートします。Next.js
           App Routerの場合は
           <code className={styles.inlineCode}>layout.tsx</code>
           に記述します。
         </Paragraph>
         <CodeBlock
-          code={`import "@ginga-ui/core/index.css";
-import "@ginga-ui/core/variables.css";`}
+          code={`import "@ginga-ui/core/variables.css";`}
           highlightedCode={await highlightCode(
-            `import "@ginga-ui/core/index.css";
-import "@ginga-ui/core/variables.css";`,
+            `import "@ginga-ui/core/variables.css";`,
             "tsx"
           )}
         />
@@ -108,7 +106,6 @@ export default function App() {
         </Heading>
         <CodeBlock
           code={`import { ThemeClient } from "@ginga-ui/core";
-import "@ginga-ui/core/index.css";
 import "@ginga-ui/core/variables.css";
 import "./globals.css";
 
@@ -132,7 +129,6 @@ export default async function RootLayout({
 }`}
           highlightedCode={await highlightCode(
             `import { ThemeClient } from "@ginga-ui/core";
-import "@ginga-ui/core/index.css";
 import "@ginga-ui/core/variables.css";
 import "./globals.css";
 

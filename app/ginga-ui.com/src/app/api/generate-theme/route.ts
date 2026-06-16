@@ -1,4 +1,4 @@
-import { ThemeClient } from "@ginga-ui/utils";
+import { ThemeClient } from "@ginga-ui/core";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {

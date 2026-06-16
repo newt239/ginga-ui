@@ -3,7 +3,6 @@ import { DocsLayout } from "#/components/docs-layout";
 
 import type { Metadata } from "next";
 
-import "@ginga-ui/core/index.css";
 import "@ginga-ui/core/variables.css";
 import "./globals.css";
 

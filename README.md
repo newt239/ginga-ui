@@ -33,12 +33,11 @@
 npm install @ginga-ui/core
 ```
 
-### 2. Import CSS file on root component
+### 2. Import CSS variables on root component
 
-If you are using Next.js App Router, you can import CSS files in the `layout.tsx` file.
+Each component's CSS is loaded automatically when you import the component. On the root component, you only need to import the theme CSS variables. If you are using Next.js App Router, you can import it in the `layout.tsx` file.
 
 ```tsx
-import "@ginga-ui/core/index.css";
 import "@ginga-ui/core/variables.css";
 ```
 
