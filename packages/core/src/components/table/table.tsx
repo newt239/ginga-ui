@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Checkbox } from "../../checkbox/src";
+import { Checkbox } from "../checkbox";
 import { cn } from "@ginga-ui/utils";
 import {
   Cell as AriaCell,

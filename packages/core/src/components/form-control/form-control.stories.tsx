@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { ThemeClient } from "@ginga-ui/utils";
-import { Button } from "../../button/src";
-import { Input } from "../../input/src";
+import { Button } from "../button";
+import { Input } from "../input";
 import { FormControl } from "./form-control";
 
 import type { Meta, StoryObj } from "@storybook/react";

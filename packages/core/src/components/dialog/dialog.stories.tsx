@@ -1,6 +1,6 @@
 import { Input, Label, TextField } from "react-aria-components";
 
-import { Button } from "../../button/src";
+import { Button } from "../button";
 import { Dialog, DialogTitle, DialogTrigger, Modal } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";

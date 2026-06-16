@@ -1,4 +1,4 @@
-import { Button } from "../../button/src";
+import { Button } from "../button";
 import {
   Card,
   CardContent,
