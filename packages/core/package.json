@@ -44,15 +44,15 @@
     "provenance": true
   },
   "scripts": {
-    "dev": "pnpm build -- --watch",
-    "build": "tsup --dts",
-    "build:fast": "tsup"
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "build:fast": "tsdown --no-dts"
   },
   "dependencies": {
     "@ginga-ui/utils": "workspace:*"
   },
   "devDependencies": {
-    "react": "19.2.4"
+    "react": "19.2.7"
   },
   "peerDependencies": {
     "react": ">=18"

@@ -42,20 +42,20 @@
     "provenance": true
   },
   "scripts": {
-    "dev": "pnpm build -- --watch",
-    "build": "tsup --dts",
-    "build:fast": "tsup"
+    "dev": "tsdown --watch",
+    "build": "tsdown",
+    "build:fast": "tsdown --no-dts"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "3.0.58",
-    "@ai-sdk/google": "3.0.43",
-    "@ai-sdk/openai": "3.0.41",
-    "ai": "6.0.116",
+    "@ai-sdk/anthropic": "3.0.84",
+    "@ai-sdk/google": "3.0.82",
+    "@ai-sdk/openai": "3.0.71",
+    "ai": "6.0.205",
     "chroma-js": "3.2.0",
-    "zod": "4.3.6"
+    "zod": "4.4.3"
   },
   "devDependencies": {
-    "react": "19.2.4"
+    "react": "19.2.7"
   },
   "peerDependencies": {
     "react": ">=18"

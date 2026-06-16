@@ -2,6 +2,7 @@ packages:
   - packages/**/**
   - app/**
 minimumReleaseAge: 1420
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
+saveExact: true
+allowBuilds:
+  esbuild: true
+  sharp: true

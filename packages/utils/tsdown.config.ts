@@ -1,4 +1,4 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
 export default defineConfig({
   clean: true,
@@ -6,5 +6,7 @@ export default defineConfig({
   dts: true,
   target: "esnext",
   format: ["cjs", "esm"],
+  fixedExtension: false,
+  platform: "neutral",
   sourcemap: true,
 });
