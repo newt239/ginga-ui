@@ -42,7 +42,7 @@ importers:
         specifier: 17.4.1
         version: 17.4.1
       knip:
-        specifier: ^6.16.1
+        specifier: 6.16.1
         version: 6.16.1
       oxfmt:
         specifier: 0.55.0
