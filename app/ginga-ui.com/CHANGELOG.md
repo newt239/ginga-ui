@@ -1,5 +1,12 @@
 # ginga-ui.com
 
+## 1.1.2
+
+### Patch Changes
+
+- Updated dependencies [60bf83d]
+  - @ginga-ui/core@0.12.2
+
 ## 1.1.1
 
 ### Patch Changes
