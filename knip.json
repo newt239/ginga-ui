@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "ignoreBinaries": ["only-allow"],
+  "workspaces": {
+    ".": {
+      "entry": [".storybook/{main,preview}.ts"],
+      "ignoreDependencies": ["chromatic"]
+    },
+    "packages/core": {
+      "entry": ["src/components/**/*.stories.tsx"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "packages/utils": {
+      "project": ["src/**/*.ts"]
+    },
+    "app/ginga-ui.com": {}
+  }
+}

@@ -115,6 +115,8 @@ TypeScriptパスマッピングを使用:
 
 - バージョン管理にChangesets を使用（`pnpm changeset-version`、`pnpm changeset-publish`）
 - パッケージはnpmにpublicアクセスとprovenanceで公開
+- **バージョン統一**: `@ginga-ui/core`・`@ginga-ui/utils`・`ginga-ui.com` は Changesets の `fixed` 設定（`.changeset/config.json`）でグループ化しており、常に同一バージョンで一緒に更新される。いずれか1つのパッケージのみを変更した場合でも、グループ内の全パッケージのバージョンが揃って更新される
+- `ginga-ui.com` は `private: true` のため `fixed` グループに含めてもnpmへは公開されず、バージョン番号のみがグループに合わせて更新される
 
 ## 重要なパターン
 

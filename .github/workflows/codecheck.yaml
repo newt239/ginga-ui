@@ -27,3 +27,5 @@ jobs:
         run: pnpm run format
       - name: Stylelint
         run: pnpm run stylelint
+      - name: Knip
+        run: pnpm run knip

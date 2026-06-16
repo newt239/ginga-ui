@@ -105,7 +105,7 @@ export default function App() {
           app/layout.tsx
         </Heading>
         <CodeBlock
-          code={`import { ThemeClient } from "@ginga-ui/core";
+          code={`import { ThemeClient } from "@ginga-ui/utils";
 import "@ginga-ui/core/variables.css";
 import "./globals.css";
 
@@ -128,7 +128,7 @@ export default async function RootLayout({
   );
 }`}
           highlightedCode={await highlightCode(
-            `import { ThemeClient } from "@ginga-ui/core";
+            `import { ThemeClient } from "@ginga-ui/utils";
 import "@ginga-ui/core/variables.css";
 import "./globals.css";
 

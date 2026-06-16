@@ -1,6 +1,6 @@
 {
   "name": "@ginga-ui/utils",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "private": false,
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -53,11 +53,5 @@
     "ai": "6.0.205",
     "chroma-js": "3.2.0",
     "zod": "4.4.3"
-  },
-  "devDependencies": {
-    "react": "19.2.7"
-  },
-  "peerDependencies": {
-    "react": ">=18"
   }
 }

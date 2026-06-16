@@ -23,7 +23,7 @@ export const CATEGORIES: Record<
   layout: { label: "レイアウト", order: 5 },
 };
 
-export const COMPONENTS: ComponentMetadata[] = [
+const COMPONENTS: ComponentMetadata[] = [
   // Forms
   {
     id: "button",

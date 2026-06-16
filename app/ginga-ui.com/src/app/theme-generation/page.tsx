@@ -55,7 +55,7 @@ ANTHROPIC_API_KEY=...`,
           Next.js App Routerでの実装例
         </Heading>
         <CodeBlock
-          code={`import { ThemeClient } from "@ginga-ui/core";
+          code={`import { ThemeClient } from "@ginga-ui/utils";
 
 export default async function RootLayout({
   children,
@@ -80,7 +80,7 @@ export default async function RootLayout({
   );
 }`}
           highlightedCode={await highlightCode(
-            `import { ThemeClient } from "@ginga-ui/core";
+            `import { ThemeClient } from "@ginga-ui/utils";
 
 export default async function RootLayout({
   children,
