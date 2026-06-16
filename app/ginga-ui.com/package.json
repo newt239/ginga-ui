@@ -12,15 +12,15 @@
     "@ginga-ui/core": "workspace:*",
     "@mdx-js/loader": "3.1.1",
     "@mdx-js/react": "3.1.1",
-    "@next/mdx": "16.1.6",
-    "dompurify": "3.3.2",
-    "next": "16.1.6",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "shiki": "4.0.2"
+    "@next/mdx": "16.2.9",
+    "dompurify": "3.4.10",
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "shiki": "4.2.0"
   },
   "devDependencies": {
     "@types/dompurify": "3.2.0",
-    "@types/mdx": "2.0.13"
+    "@types/mdx": "2.0.14"
   }
 }
