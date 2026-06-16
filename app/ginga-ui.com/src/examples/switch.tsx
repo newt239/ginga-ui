@@ -1,3 +1,5 @@
+"use client";
+
 import { Switch } from "@ginga-ui/core";
 
 export function BasicExample() {

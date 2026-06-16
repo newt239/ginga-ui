@@ -1,3 +1,5 @@
+"use client";
+
 import { List, ListItem } from "@ginga-ui/core";
 
 export function UnorderedExample() {

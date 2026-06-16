@@ -9,8 +9,9 @@ export default defineConfig({
   fixedExtension: false,
   platform: "neutral",
   sourcemap: true,
+  unbundle: true,
   css: {
-    fileName: "index.css",
+    inject: true,
   },
   onSuccess: "cp src/variables.css dist/",
 });

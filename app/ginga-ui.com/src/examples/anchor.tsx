@@ -1,3 +1,5 @@
+"use client";
+
 import { Anchor } from "@ginga-ui/core";
 
 export function BasicExample() {

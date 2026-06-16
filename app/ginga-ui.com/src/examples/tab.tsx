@@ -1,3 +1,5 @@
+"use client";
+
 import { Tab, TabList, TabPanel, Tabs } from "@ginga-ui/core";
 
 export function BasicExample() {

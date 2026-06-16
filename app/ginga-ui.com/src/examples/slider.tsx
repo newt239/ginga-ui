@@ -1,3 +1,5 @@
+"use client";
+
 import { Slider, SliderOutput, SliderThumb, SliderTrack } from "@ginga-ui/core";
 
 export function BasicExample() {

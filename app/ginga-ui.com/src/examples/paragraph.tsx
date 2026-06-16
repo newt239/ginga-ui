@@ -1,3 +1,5 @@
+"use client";
+
 import { Paragraph } from "@ginga-ui/core";
 
 export function BasicExample() {

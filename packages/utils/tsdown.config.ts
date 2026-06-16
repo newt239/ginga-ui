@@ -9,4 +9,5 @@ export default defineConfig({
   fixedExtension: false,
   platform: "neutral",
   sourcemap: true,
+  unbundle: true,
 });

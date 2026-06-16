@@ -1,3 +1,5 @@
+"use client";
+
 import { Checkbox, CheckboxGroup } from "@ginga-ui/core";
 
 export function BasicExample() {

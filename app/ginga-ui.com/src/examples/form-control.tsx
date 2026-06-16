@@ -1,3 +1,5 @@
+"use client";
+
 import { FormControl, Input } from "@ginga-ui/core";
 
 export function BasicExample() {
