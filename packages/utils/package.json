@@ -53,11 +53,5 @@
     "ai": "6.0.205",
     "chroma-js": "3.2.0",
     "zod": "4.4.3"
-  },
-  "devDependencies": {
-    "react": "19.2.7"
-  },
-  "peerDependencies": {
-    "react": ">=18"
   }
 }

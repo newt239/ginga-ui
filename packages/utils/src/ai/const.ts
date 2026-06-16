@@ -1,4 +1,4 @@
-export const requiredVariables = [
+const requiredVariables = [
   {
     name: "--color-primary",
     description: "Accent color",
