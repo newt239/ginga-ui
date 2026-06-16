@@ -25,7 +25,10 @@
     "dist"
   ],
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css",
+    "*.css"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -36,7 +39,6 @@
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json",
-    "./index.css": "./dist/index.css",
     "./variables.css": "./dist/variables.css"
   },
   "publishConfig": {
@@ -49,7 +51,8 @@
     "build:fast": "tsdown --no-dts"
   },
   "dependencies": {
-    "@ginga-ui/utils": "workspace:*"
+    "@ginga-ui/utils": "workspace:*",
+    "react-aria-components": "1.18.0"
   },
   "devDependencies": {
     "react": "19.2.7"

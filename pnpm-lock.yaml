@@ -123,6 +123,9 @@ importers:
       '@ginga-ui/utils':
         specifier: workspace:*
         version: link:../utils
+      react-aria-components:
+        specifier: 1.18.0
+        version: 1.18.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
     devDependencies:
       react:
         specifier: 19.2.7
