@@ -17,4 +17,3 @@ export * from "./components/slider";
 export * from "./components/switch";
 export * from "./components/tab";
 export * from "./components/table";
-export * from "@ginga-ui/utils";

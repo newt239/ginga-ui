@@ -1,4 +1,4 @@
-import { ThemeClient } from "@ginga-ui/core";
+import { ThemeClient } from "@ginga-ui/utils";
 import { DocsLayout } from "#/components/docs-layout";
 
 import type { Metadata } from "next";

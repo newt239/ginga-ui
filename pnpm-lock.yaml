@@ -86,6 +86,9 @@ importers:
       '@ginga-ui/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@ginga-ui/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
       '@mdx-js/loader':
         specifier: 3.1.1
         version: 3.1.1

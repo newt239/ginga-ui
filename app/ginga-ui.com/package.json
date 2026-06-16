@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ginga-ui/core": "workspace:*",
+    "@ginga-ui/utils": "workspace:*",
     "@mdx-js/loader": "3.1.1",
     "@mdx-js/react": "3.1.1",
     "@next/mdx": "16.2.9",
