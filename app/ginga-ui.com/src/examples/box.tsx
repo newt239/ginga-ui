@@ -1,3 +1,5 @@
+"use client";
+
 import { Box } from "@ginga-ui/core";
 
 export function BasicExample() {

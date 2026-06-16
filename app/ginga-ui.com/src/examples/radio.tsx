@@ -1,3 +1,5 @@
+"use client";
+
 import { Radio, RadioGroup } from "@ginga-ui/core";
 
 export function BasicExample() {

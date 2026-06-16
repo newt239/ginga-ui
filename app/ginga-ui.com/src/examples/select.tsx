@@ -1,3 +1,5 @@
+"use client";
+
 import { Select } from "@ginga-ui/core";
 import { ListBoxItem } from "react-aria-components";
 

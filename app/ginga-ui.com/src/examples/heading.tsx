@@ -1,3 +1,5 @@
+"use client";
+
 import { Heading } from "@ginga-ui/core";
 
 export function BasicExample() {

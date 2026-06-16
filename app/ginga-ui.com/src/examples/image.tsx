@@ -1,3 +1,5 @@
+"use client";
+
 import { Image } from "@ginga-ui/core";
 
 export function BasicExample() {
