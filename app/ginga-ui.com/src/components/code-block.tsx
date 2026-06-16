@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Button } from "@ginga-ui/core";
-import DOMPurify from "dompurify";
 
 type CodeBlockProps = {
   code: string;
@@ -29,9 +28,6 @@ export function CodeBlock({ code, highlightedCode, filename }: CodeBlockProps) {
     }
   };
 
-  // ShikiによるHTMLをDOMPurifyでサニタイズ
-  const sanitizedHtml = DOMPurify.sanitize(highlightedCode);
-
   return (
     <div className="code-block">
       <div className="code-header">
@@ -42,7 +38,7 @@ export function CodeBlock({ code, highlightedCode, filename }: CodeBlockProps) {
       </div>
       <div
         className="code-content"
-        dangerouslySetInnerHTML={{ __html: sanitizedHtml }}
+        dangerouslySetInnerHTML={{ __html: highlightedCode }}
       />
     </div>
   );
