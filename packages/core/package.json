@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@ginga-ui/utils": "workspace:*",
-    "react-aria-components": "1.18.0"
+    "react-aria-components": "1.19.0"
   },
   "devDependencies": {
     "react": "19.2.7"
