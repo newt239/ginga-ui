@@ -1,0 +1,42 @@
+.ginga-badge {
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  white-space: nowrap;
+  border-radius: calc(var(--size-radius) * 0.5);
+
+  &[data-variant="primary"] {
+    color: var(--color-primary-9);
+    background-color: var(--color-primary-1);
+  }
+
+  &[data-variant="secondary"] {
+    color: var(--color-secondary-9);
+    background-color: var(--color-secondary-1);
+  }
+
+  &[data-variant="info"] {
+    color: var(--color-info-dark);
+    background-color: var(--color-info-light);
+  }
+
+  &[data-variant="success"] {
+    color: var(--color-success-dark);
+    background-color: var(--color-success-light);
+  }
+
+  &[data-variant="warning"] {
+    color: var(--color-warning-dark);
+    background-color: var(--color-warning-light);
+  }
+
+  &[data-variant="danger"] {
+    color: var(--color-danger-dark);
+    background-color: var(--color-danger-light);
+  }
+}
