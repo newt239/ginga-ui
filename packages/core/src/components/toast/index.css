@@ -1,0 +1,127 @@
+.ginga-toast-region {
+  position: fixed;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: calc(100vw - 2rem);
+  outline: none;
+
+  &[data-placement="top-left"] {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &[data-placement="top-right"] {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &[data-placement="bottom-left"] {
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  &[data-placement="bottom-right"] {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--color-primary-5);
+    outline-offset: 2px;
+  }
+}
+
+.ginga-toast {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  width: 20rem;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-family);
+  border-left: 4px solid;
+  border-radius: calc(var(--size-radius) * 0.5);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
+  animation: ginga-toast-enter 200ms ease-out;
+
+  &[data-variant="info"] {
+    color: var(--color-info-dark);
+    background-color: var(--color-info-light);
+    border-left-color: var(--color-info);
+  }
+
+  &[data-variant="success"] {
+    color: var(--color-success-dark);
+    background-color: var(--color-success-light);
+    border-left-color: var(--color-success);
+  }
+
+  &[data-variant="warning"] {
+    color: var(--color-warning-dark);
+    background-color: var(--color-warning-light);
+    border-left-color: var(--color-warning);
+  }
+
+  &[data-variant="danger"] {
+    color: var(--color-danger-dark);
+    background-color: var(--color-danger-light);
+    border-left-color: var(--color-danger);
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--color-primary-5);
+    outline-offset: 2px;
+  }
+}
+
+.ginga-toast-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ginga-toast-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.ginga-toast-description {
+  font-size: 0.8125rem;
+}
+
+.ginga-toast-close {
+  padding: 0 0.25rem;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: calc(var(--size-radius) * 0.25);
+
+  &[data-hovered] {
+    background-color: rgb(0 0 0 / 8%);
+  }
+
+  &[data-focus-visible] {
+    outline: 2px solid var(--color-primary-5);
+    outline-offset: 1px;
+  }
+}
+
+@keyframes ginga-toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
