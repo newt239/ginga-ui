@@ -1,4 +1,4 @@
-import { Heading, Paragraph } from "@ginga-ui/core";
+import { Anchor, Heading, Paragraph } from "@ginga-ui/core";
 import { CodeBlock } from "#/components/code-block";
 import { highlightCode } from "#/lib/shiki";
 import styles from "./page.module.css";
@@ -190,15 +190,11 @@ export default function Home() {
         <Heading level="h2">次のステップ</Heading>
         <ul className={styles.nextStepsList}>
           <li>
-            <a href="/components" className={styles.primaryLink}>
-              全コンポーネント
-            </a>
+            <Anchor href="/components">全コンポーネント</Anchor>
             を確認して、利用可能なUIパーツを探索
           </li>
           <li>
-            <a href="/theme-generation" className={styles.primaryLink}>
-              テーマ生成
-            </a>
+            <Anchor href="/theme-generation">テーマ生成</Anchor>
             を試して、AIによる自動スタイリングを体験
           </li>
           <li>

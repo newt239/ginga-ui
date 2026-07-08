@@ -1,0 +1,39 @@
+.ginga-code-block {
+  overflow: hidden;
+  font-family: var(--font-family);
+  color: var(--color-secondary-9);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-primary-2);
+  border-radius: calc(var(--size-radius) * 0.5);
+}
+
+.ginga-code-block-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary-1);
+  border-bottom: 1px solid var(--color-primary-2);
+}
+
+.ginga-code-block-filename {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.ginga-code-block-copy-button {
+  margin-left: auto;
+  font-size: 0.875rem;
+}
+
+.ginga-code-block-content {
+  overflow-x: auto;
+
+  & pre {
+    padding: 1rem;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
