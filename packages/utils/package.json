@@ -47,10 +47,10 @@
     "build:fast": "tsdown --no-dts"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "3.0.84",
-    "@ai-sdk/google": "3.0.88",
-    "@ai-sdk/openai": "3.0.71",
-    "ai": "6.0.205",
+    "@ai-sdk/anthropic": "4.0.8",
+    "@ai-sdk/google": "4.0.8",
+    "@ai-sdk/openai": "4.0.8",
+    "ai": "7.0.16",
     "chroma-js": "3.2.0",
     "zod": "4.4.3"
   }
