@@ -16,6 +16,7 @@ export * from "./components/image";
 export * from "./components/input";
 export * from "./components/list";
 export * from "./components/paragraph";
+export * from "./components/popover";
 export * from "./components/radio";
 export * from "./components/select";
 export * from "./components/slider";

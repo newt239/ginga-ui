@@ -1,0 +1,78 @@
+.ginga-popover {
+  z-index: 50;
+  min-width: 8rem;
+  background-color: var(--color-background);
+  border: var(--width-border) solid var(--color-secondary-9);
+  border-radius: calc(var(--size-radius) * 0.5);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -1px rgb(0 0 0 / 6%);
+
+  &[data-entering] {
+    animation: ginga-popover-enter 150ms ease-out;
+  }
+
+  &[data-exiting] {
+    animation: ginga-popover-exit 150ms ease-in;
+  }
+}
+
+.ginga-popover-arrow {
+  svg {
+    display: block;
+    fill: var(--color-background);
+    stroke: var(--color-secondary-9);
+    stroke-width: var(--width-border);
+  }
+
+  &[data-placement="top"] svg {
+    margin-top: calc(var(--width-border) * -1);
+  }
+
+  &[data-placement="bottom"] svg {
+    margin-bottom: calc(var(--width-border) * -1);
+    transform: rotate(180deg);
+  }
+
+  &[data-placement="left"] svg {
+    margin-left: calc(var(--width-border) * -1);
+    transform: rotate(-90deg);
+  }
+
+  &[data-placement="right"] svg {
+    margin-right: calc(var(--width-border) * -1);
+    transform: rotate(90deg);
+  }
+}
+
+.ginga-popover-dialog {
+  padding: 1rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  color: var(--color-secondary-9);
+  outline: none;
+}
+
+@keyframes ginga-popover-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes ginga-popover-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
