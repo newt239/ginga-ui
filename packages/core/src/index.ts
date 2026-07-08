@@ -1,4 +1,5 @@
 export * from "./components/accordion";
+export * from "./components/alert";
 export * from "./components/anchor";
 export * from "./components/box";
 export * from "./components/button";

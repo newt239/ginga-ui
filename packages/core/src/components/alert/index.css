@@ -1,0 +1,43 @@
+.ginga-alert {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-family);
+  border-left: 4px solid;
+  border-radius: calc(var(--size-radius) * 0.5);
+
+  &[data-variant="info"] {
+    color: var(--color-info-dark);
+    background-color: var(--color-info-light);
+    border-left-color: var(--color-info);
+  }
+
+  &[data-variant="success"] {
+    color: var(--color-success-dark);
+    background-color: var(--color-success-light);
+    border-left-color: var(--color-success);
+  }
+
+  &[data-variant="warning"] {
+    color: var(--color-warning-dark);
+    background-color: var(--color-warning-light);
+    border-left-color: var(--color-warning);
+  }
+
+  &[data-variant="danger"] {
+    color: var(--color-danger-dark);
+    background-color: var(--color-danger-light);
+    border-left-color: var(--color-danger);
+  }
+}
+
+.ginga-alert-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ginga-alert-description {
+  margin: 0;
+  font-size: 0.875rem;
+}
