@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.14.0
+
+- feat: AlertDialog / Drawer / Popover / Alert / Badge / Toast コンポーネントを追加
+- feat: セマンティックカラー変数(`--color-info` / `--color-success` / `--color-warning` / `--color-danger`)を追加
+
 ## v0.11.0
 
 - remove: CSS Modules
