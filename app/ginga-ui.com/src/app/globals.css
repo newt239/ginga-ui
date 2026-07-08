@@ -142,41 +142,8 @@ body {
 }
 
 /* Code Block */
-.code-block {
+.ginga-code-block {
   margin: 1.5rem 0;
-  overflow: hidden;
-  border: 1px solid var(--color-primary-2);
-  border-radius: var(--size-radius);
-}
-
-.code-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1rem;
-  background-color: var(--color-primary-1);
-  border-bottom: 1px solid var(--color-primary-2);
-}
-
-.code-filename {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-secondary);
-}
-
-.copy-button {
-  font-size: 0.875rem;
-}
-
-.code-content {
-  overflow-x: auto;
-}
-
-.code-content pre {
-  padding: 1rem;
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.6;
 }
 
 /* Component Grid */

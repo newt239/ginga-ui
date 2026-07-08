@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heading, Paragraph, Button, Card } from "@ginga-ui/core";
+import { Anchor, Heading, Paragraph, Button, Card } from "@ginga-ui/core";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -82,9 +82,7 @@ export default function Home() {
           </Paragraph>
           <Paragraph>
             詳しい手順は
-            <Link href="/quick-start" className={styles.primaryLink}>
-              クイックスタート
-            </Link>
+            <Anchor href="/quick-start">クイックスタート</Anchor>
             をご覧ください。
           </Paragraph>
         </div>

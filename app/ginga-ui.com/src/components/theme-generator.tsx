@@ -155,7 +155,7 @@ export function ThemeGenerator() {
           <p className={styles.resultDescription}>
             テーマがサイト全体に適用されました。ページをスクロールして変化を確認してください。
           </p>
-          <CodeBlock code={cssCode} highlightedCode={`<pre>${cssCode}</pre>`} />
+          <CodeBlock code={cssCode} />
         </div>
       )}
     </div>

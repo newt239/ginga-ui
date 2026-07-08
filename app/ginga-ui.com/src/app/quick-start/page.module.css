@@ -35,8 +35,3 @@
 .nextStepsList {
   line-height: 2;
 }
-
-.primaryLink {
-  font-weight: 600;
-  color: var(--color-primary);
-}

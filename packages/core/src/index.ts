@@ -4,6 +4,7 @@ export * from "./components/box";
 export * from "./components/button";
 export * from "./components/card";
 export * from "./components/checkbox";
+export * from "./components/code-block";
 export * from "./components/dialog";
 export * from "./components/form-control";
 export * from "./components/heading";
