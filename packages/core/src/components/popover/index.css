@@ -5,8 +5,8 @@
   border: var(--width-border) solid var(--color-secondary-9);
   border-radius: calc(var(--size-radius) * 0.5);
   box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 10%),
-    0 2px 4px -1px rgb(0 0 0 / 6%);
+    0 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%),
+    0 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
 
   &[data-entering] {
     animation: ginga-popover-enter 150ms ease-out;
