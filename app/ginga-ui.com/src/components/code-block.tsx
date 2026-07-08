@@ -11,8 +11,8 @@ export function CodeBlock({ code, highlightedCode, filename }: CodeBlockProps) {
     <CoreCodeBlock
       code={code}
       filename={filename}
-      copyLabel="コピー"
-      copiedLabel="コピー完了!"
+      copyLabel="コピーする"
+      copiedLabel="コピー済み"
     >
       {highlightedCode ? (
         <div dangerouslySetInnerHTML={{ __html: highlightedCode }} />
