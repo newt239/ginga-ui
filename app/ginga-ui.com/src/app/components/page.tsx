@@ -25,7 +25,7 @@ export default function ComponentsPage() {
       <Heading level="h1">全コンポーネント</Heading>
       <Paragraph>
         Ginga
-        UIが提供する全19個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。
+        UIが提供する全25個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。
       </Paragraph>
 
       <div className={styles.tabsContainer}>

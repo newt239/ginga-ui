@@ -27,6 +27,43 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: "状態を外部から制御するアコーディオンです。",
     },
   ],
+  alert: [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description: "タイトルと説明文を持つシンプルなアラートです。",
+    },
+    {
+      name: "VariantsExample",
+      title: "バリアント",
+      description:
+        "info、success、warning、dangerの4種類のバリアントを指定できます。",
+    },
+    {
+      name: "DescriptionOnlyExample",
+      title: "説明文のみ",
+      description:
+        "タイトルを省略して説明文だけを表示できます。動的に挿入して通知する場合はrole属性にalertを渡すか、Toastの利用を検討してください。",
+    },
+  ],
+  "alert-dialog": [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description:
+        "破壊的な操作の確認を求めるアラートダイアログです。外側をクリックしても閉じず、明示的な選択を求めます。",
+    },
+    {
+      name: "WarningExample",
+      title: "警告バリアント",
+      description: "variantプロップでタイトル色とアクセントを変更できます。",
+    },
+    {
+      name: "PlainExample",
+      title: "バリアントなし",
+      description: "variantを指定しない場合は通常の配色で表示されます。",
+    },
+  ],
   anchor: [
     {
       name: "BasicExample",
@@ -47,6 +84,24 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "ButtonVariantExample",
       title: "ボタンスタイル",
       description: "ボタンのようなスタイルでリンクを表示します。",
+    },
+  ],
+  badge: [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description: "シンプルなバッジの使用例です。",
+    },
+    {
+      name: "VariantsExample",
+      title: "バリアント",
+      description:
+        "primary、secondary、info、success、warning、dangerの6種類のバリアントを指定できます。",
+    },
+    {
+      name: "WithTextExample",
+      title: "テキストと組み合わせる",
+      description: "テキストの横に件数などを表示できます。",
     },
   ],
   box: [
@@ -158,6 +213,25 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "AlertExample",
       title: "アラート",
       description: "シンプルなアラートダイアログです。",
+    },
+  ],
+  drawer: [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description: "画面の右端からスライドインするドロワーです。",
+    },
+    {
+      name: "PlacementsExample",
+      title: "表示位置",
+      description:
+        "placementプロップでleft、right、top、bottomの4方向を指定できます。",
+    },
+    {
+      name: "NotDismissableExample",
+      title: "外側クリックで閉じない",
+      description:
+        "dismissableプロップにfalseを渡すと、外側のクリックやESCキーでは閉じなくなります。",
     },
   ],
   "form-control": [
@@ -293,6 +367,25 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: "カスタムスタイルを適用した段落です。",
     },
   ],
+  popover: [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description:
+        "トリガーの下に表示されるシンプルなポップオーバーです。フォーカス管理とキーボード操作に対応しています。",
+    },
+    {
+      name: "PlacementsExample",
+      title: "表示位置",
+      description:
+        "placementプロップでtop、bottom、left、rightなどの表示位置を指定できます。",
+    },
+    {
+      name: "WithoutArrowExample",
+      title: "矢印なし",
+      description: "showArrowプロップにfalseを渡すと矢印を非表示にできます。",
+    },
+  ],
   radio: [
     {
       name: "BasicExample",
@@ -401,6 +494,26 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "ControlledExample",
       title: "制御されたタブ",
       description: "状態を外部から制御するタブです。",
+    },
+  ],
+  toast: [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description:
+        "ToastRegionをアプリのルートに1回だけ設置し、toast.showで通知を表示します。toast関数はクライアントのイベントハンドラから呼び出してください。",
+    },
+    {
+      name: "VariantsExample",
+      title: "バリアント",
+      description:
+        "toast.info、toast.success、toast.warning、toast.dangerで状態に応じた通知を表示できます。",
+    },
+    {
+      name: "TimeoutExample",
+      title: "自動クローズ",
+      description:
+        "timeoutオプションを指定すると自動的に閉じます。ホバーやフォーカス中はタイマーが一時停止します。",
     },
   ],
   table: [
