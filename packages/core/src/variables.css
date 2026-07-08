@@ -24,6 +24,18 @@
   --color-white: #fff;
   --color-black: #000;
   --color-background: #fff;
+  --color-info: #1677ff;
+  --color-info-light: #e6f4ff;
+  --color-info-dark: #003eb3;
+  --color-success: #52c41a;
+  --color-success-light: #f6ffed;
+  --color-success-dark: #237804;
+  --color-warning: #faad14;
+  --color-warning-light: #fffbe6;
+  --color-warning-dark: #ad6800;
+  --color-danger: #ff4d4f;
+  --color-danger-light: #fff1f0;
+  --color-danger-dark: #a8071a;
   --size-radius: 1rem;
   --width-border: 2px;
   --font-family: sans-serif;

@@ -86,6 +86,26 @@ const COMPONENTS: ComponentMetadata[] = [
     description: "展開/折りたたみ可能なコンテンツセクション。",
   },
   {
+    id: "alert",
+    name: "Alert",
+    category: "display",
+    description:
+      "重要な情報をユーザーに伝えるアラート。4種類のバリアント(info、success、warning、danger)をサポート。",
+  },
+  {
+    id: "alert-dialog",
+    name: "AlertDialog",
+    category: "display",
+    description:
+      "ユーザーの確認を必須とするアラートダイアログ。破壊的な操作の確認などに使用。",
+  },
+  {
+    id: "badge",
+    name: "Badge",
+    category: "display",
+    description: "ステータスやラベルを表示する小さなバッジ。",
+  },
+  {
     id: "card",
     name: "Card",
     category: "display",
@@ -97,6 +117,13 @@ const COMPONENTS: ComponentMetadata[] = [
     category: "display",
     description:
       "モーダルダイアログ。ユーザーの注意を引く重要な情報や操作を表示。",
+  },
+  {
+    id: "drawer",
+    name: "Drawer",
+    category: "display",
+    description:
+      "画面の端からスライドインするドロワー。4方向(left、right、top、bottom)に対応。",
   },
   {
     id: "image",
@@ -111,6 +138,13 @@ const COMPONENTS: ComponentMetadata[] = [
     description: "順序付きリストと順序なしリストを表示。",
   },
   {
+    id: "popover",
+    name: "Popover",
+    category: "display",
+    description:
+      "トリガー要素に紐づけて表示されるポップオーバー。配置方向と矢印表示をカスタマイズ可能。",
+  },
+  {
     id: "table",
     name: "Table",
     category: "display",
@@ -122,6 +156,13 @@ const COMPONENTS: ComponentMetadata[] = [
     category: "display",
     description:
       "タブで切り替え可能なコンテンツパネル。水平・垂直レイアウトに対応。",
+  },
+  {
+    id: "toast",
+    name: "Toast",
+    category: "display",
+    description:
+      "一時的な通知を表示するトースト。プログラマティックなAPI(toast.success等)で呼び出し可能。",
   },
 
   // Typography

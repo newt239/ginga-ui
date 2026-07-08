@@ -1,5 +1,29 @@
 # Changelog
 
+## v0.14.0
+
+- feat: AlertDialog / Drawer / Popover / Alert / Badge / Toast コンポーネントを追加
+- feat: セマンティックカラー変数(`--color-info` / `--color-success` / `--color-warning` / `--color-danger`)を追加
+- feat: CodeBlock コンポーネントを追加
+- improve: Card と Anchor のスタイルを CodeBlock / Button と統一
+
+## v0.13.3
+
+- chore: changesets の fixed 設定で `@ginga-ui/core`・`@ginga-ui/utils`・`ginga-ui.com` のバージョンを 0.13.3 に統一
+- fix: tsdown を unbundle 化し、`"use client"` バナーの保持と CSS の自動付随に対応
+
+## v0.12.2
+
+- change: ビルドツールを tsup から tsdown(Rolldown ベース)へ移行
+
+## v0.12.1
+
+- fix: デプロイワークフローを修正
+
+## v0.12.0
+
+- change: パッケージスキーマを変更
+
 ## v0.11.0
 
 - remove: CSS Modules
