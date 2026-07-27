@@ -55,7 +55,7 @@
     "react-aria-components": "1.19.0"
   },
   "devDependencies": {
-    "react": "19.2.7"
+    "react": "19.2.8"
   },
   "peerDependencies": {
     "react": ">=18"
