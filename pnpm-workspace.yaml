@@ -6,3 +6,5 @@ saveExact: true
 allowBuilds:
   esbuild: true
   sharp: true
+overrides:
+  fast-uri: 3.1.5
