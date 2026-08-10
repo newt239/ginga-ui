@@ -1,7 +1,7 @@
 packages:
   - packages/**/**
   - app/**
-minimumReleaseAge: 1420
+minimumReleaseAge: 10080
 saveExact: true
 allowBuilds:
   esbuild: true
