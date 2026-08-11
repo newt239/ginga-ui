@@ -7,7 +7,7 @@
 .ginga-form-control-label {
   margin-bottom: 0.5rem;
   font-family: var(--font-family);
-  font-weight: bold;
+  font-weight: 700;
   color: var(--color-primary);
 }
 

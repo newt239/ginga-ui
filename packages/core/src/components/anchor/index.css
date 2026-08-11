@@ -21,10 +21,10 @@
 
   &[data-focus-visible]::after {
     position: absolute;
-    inset: -0.3rem;
+    inset: -0.25rem;
     content: "";
     border: var(--width-border) solid var(--color-primary-5);
-    border-radius: calc(var(--size-radius) * 0.3);
+    border-radius: calc(var(--size-radius) * 0.25);
   }
 
   &[data-variant="button"] {

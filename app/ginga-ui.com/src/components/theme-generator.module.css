@@ -14,15 +14,15 @@
 
 .warningText {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
 .fieldLabel {
   display: block;
   margin-bottom: 0.5rem;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .errorBox {

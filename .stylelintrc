@@ -1,7 +1,15 @@
 {
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
+  "ignoreFiles": ["**/dist/**", "**/.next/**", "**/storybook-static/**"],
   "rules": {
     "selector-class-pattern": null,
-    "no-descending-specificity": null
+    "no-descending-specificity": null,
+    "font-weight-notation": "numeric",
+    "declaration-property-value-allowed-list": {
+      "font-weight": ["400", "700"]
+    },
+    "declaration-property-value-disallowed-list": {
+      "/.+/": ["/(?<![\\d.])\\d*\\.(?!(?:125|25|375|5|625|75|875)rem)\\d+rem/"]
+    }
   }
 }

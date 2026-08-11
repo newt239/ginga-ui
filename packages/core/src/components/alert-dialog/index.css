@@ -9,8 +9,8 @@
   border-top: 0.25rem solid var(--color-secondary-9);
   border-radius: calc(var(--size-radius) * 0.5);
   box-shadow:
-    0 0.25rem 0.375rem -0.0625rem rgb(0 0 0 / 10%),
-    0 0.125rem 0.25rem -0.0625rem rgb(0 0 0 / 6%);
+    0 0.25rem 0.375rem -0.125rem rgb(0 0 0 / 10%),
+    0 0.125rem 0.25rem -0.125rem rgb(0 0 0 / 6%);
 
   &[data-variant="info"] {
     border-top-color: var(--color-info);
@@ -49,5 +49,5 @@
   margin-bottom: 1rem;
   font-family: var(--font-family);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 700;
 }
