@@ -9,12 +9,12 @@
   &::before {
     box-sizing: border-box;
     display: block;
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.25rem;
+    height: 1.25rem;
     cursor: pointer;
     content: "";
     background: var(--color-background);
-    border: 0.143rem solid var(--color-primary-9);
+    border: 0.125rem solid var(--color-primary-9);
     border-radius: 50%;
     transition: all 0.2s;
   }

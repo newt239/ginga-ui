@@ -96,7 +96,7 @@ body {
 .sidebar a {
   display: block;
   padding: 0.5rem 0.75rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--color-secondary);
   text-decoration: none;
   border-radius: calc(var(--size-radius) / 2);
@@ -179,7 +179,7 @@ body {
 
 .component-card p {
   margin: 0 0 1rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   color: var(--color-secondary);
 }

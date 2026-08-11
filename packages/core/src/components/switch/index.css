@@ -17,12 +17,12 @@
 
     &::before {
       display: block;
-      width: 0.9rem;
-      height: 0.9rem;
-      margin: 0.05rem 0.1rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      margin: 0.125rem;
       content: "";
       background: var(--color-primary-9);
-      border-radius: calc(var(--size-radius) * 0.5 - 0.1rem);
+      border-radius: calc(var(--size-radius) * 0.5);
       transition: all 0.2s;
     }
   }
@@ -42,7 +42,7 @@
 
       &::before {
         background: var(--color-background);
-        transform: translateX(100%);
+        transform: translateX(1rem);
       }
     }
 
