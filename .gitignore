@@ -35,3 +35,7 @@ storybook-static/
 
 .turbo/
 tsconfig.tsbuildinfo
+
+# tsdown が src 配下に生成する型定義
+packages/*/src/**/*.d.ts
+!packages/core/src/css.d.ts
