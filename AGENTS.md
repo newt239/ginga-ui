@@ -93,10 +93,10 @@ TypeScriptパスマッピングを使用:
 
 `packages/utils/src/ai/`に配置:
 
-1. **ThemeClient**（`ai/index.ts`）: 3つのクライアントタイプをサポートするメインエントリーポイント
-   - OpenAIクライアント（デフォルト: `gpt-4o-mini`）
-   - Geminiクライアント（デフォルト: `gemini-exp-1206`）
-   - Anthropicクライアント（デフォルト: `claude-3-7-sonnet-latest`）
+1. **ThemeClient** — `ai/index.ts` に定義。Vercel AI SDK を利用した単一のエントリーポイント。コンストラクタで `provider` を明示指定し、`model` を省略した場合は `DEFAULT_MODELS` の値を使用する。**モデル名から条件分岐でプロバイダーを判定してはならない**
+   - `provider: "openai"` — デフォルトモデルは `gpt-5.6-luna`
+   - `provider: "google"` — デフォルトモデルは `gemini-3.7-flash`
+   - `provider: "anthropic"` — デフォルトモデルは `claude-haiku-4-5`
 
 2. **テーマ生成フロー**:
    - LLMがプロンプトに基づいてCSS変数を生成
@@ -131,7 +131,7 @@ TypeScriptパスマッピングを使用:
 
 ### クライアントサイドの安全性
 
-`dangerouslyAllowBrowser`オプションはOpenAIクライアントでのみ存在し、ローカル開発時にクライアントサイドでの使用を許可します。APIキーが露出するため、本番環境では決して使用しないでください。
+APIキーはVercel AI SDKが環境変数から読み込みます。クライアントサイドにAPIキーを渡すと露出するため、テーマ生成はServer ComponentsやRoute Handlerなどのサーバーサイドで実行してください。
 
 ### サーバーサイドレンダリング
 

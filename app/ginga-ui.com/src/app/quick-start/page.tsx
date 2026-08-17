@@ -115,7 +115,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // サーバーサイドでテーマを生成（オプション）
-  const themeClient = new ThemeClient({ model: "gpt-4o-mini" });
+  const themeClient = new ThemeClient({ provider: "openai" });
   const { CSSCode } = await themeClient.generateTheme("モダンでクリーンなデザイン");
 
   return (
@@ -138,7 +138,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // サーバーサイドでテーマを生成（オプション）
-  const themeClient = new ThemeClient({ model: "gpt-4o-mini" });
+  const themeClient = new ThemeClient({ provider: "openai" });
   const { CSSCode } = await themeClient.generateTheme("モダンでクリーンなデザイン");
 
   return (

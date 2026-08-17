@@ -70,10 +70,10 @@ Set these environment variables in your `.env` file or deployment environment.
 ### Basic Usage
 
 ```tsx
-import { ThemeClient } from "@ginga-ui/core";
+import { ThemeClient } from "@ginga-ui/utils";
 
 const themeClient = new ThemeClient({
-  model: "gpt-4o-mini", // Specify the model name
+  provider: "openai",
 });
 
 const CustomButton = () => {
@@ -92,11 +92,12 @@ export default CustomButton;
 If you want to generate theme on server side, you can write like this. Recommended to use with Next.js App Router.
 
 ```tsx
-import { Button, ThemeClient } from "@ginga-ui/core";
+import { Button } from "@ginga-ui/core";
+import { ThemeClient } from "@ginga-ui/utils";
 
 export default async function Home() {
   const themeClient = new ThemeClient({
-    model: "gpt-4o-mini",
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme("fairy tale");
@@ -110,40 +111,43 @@ export default async function Home() {
 }
 ```
 
-### Supported Models
+### Supported Providers and Models
 
-`ThemeClient` automatically detects the provider based on the model name prefix:
+Specify the provider explicitly with `provider`. If `model` is omitted, the default model for that provider is used.
 
-- **OpenAI**: Models starting with `gpt-` or `o1-` (e.g., `gpt-4o`, `gpt-4o-mini`, `o1`)
-- **Anthropic**: Models starting with `claude-` (e.g., `claude-3-7-sonnet-latest`, `claude-3-5-sonnet-latest`)
-- **Google**: Models starting with `gemini-` (e.g., `gemini-2.0-flash-exp`, `gemini-1.5-pro`)
+| Provider  | `provider`    | Default model      | Other examples                            |
+| --------- | ------------- | ------------------ | ----------------------------------------- |
+| OpenAI    | `"openai"`    | `gpt-5.6-luna`     | `gpt-5.6-terra`, `gpt-5.6-sol`            |
+| Google    | `"google"`    | `gemini-3.7-flash` | `gemini-3.5-flash-lite`, `gemini-2.5-pro` |
+| Anthropic | `"anthropic"` | `claude-haiku-4-5` | `claude-sonnet-5`, `claude-opus-5`        |
 
 You can use any model supported by the [Vercel AI SDK](https://sdk.vercel.ai/providers/ai-sdk-providers).
 
 #### Examples
 
+Use the default model of a provider:
+
 ```tsx
-// OpenAI
 const themeClient = new ThemeClient({
-  model: "gpt-4o-mini",
+  provider: "openai",
 });
+```
 
-// Anthropic
-const themeClient = new ThemeClient({
-  model: "claude-3-7-sonnet-latest",
-});
+Use an explicit model:
 
-// Google Gemini
+```tsx
 const themeClient = new ThemeClient({
-  model: "gemini-2.0-flash-exp",
+  provider: "anthropic",
+  model: "claude-opus-5",
 });
 ```
 
 ### `ThemeClient` Constructor Options
 
-| Name    | Description                                                                           | Default Value   | Required |
-| ------- | ------------------------------------------------------------------------------------- | --------------- | -------- |
-| `model` | Model name to use for theme generation. Provider is automatically detected from name. | `"gpt-4o-mini"` | No       |
+| Name       | Description                                                   | Default Value                 | Required |
+| ---------- | ------------------------------------------------------------- | ----------------------------- | -------- |
+| `provider` | LLM provider to use. `"openai"` / `"google"` / `"anthropic"`. | -                             | Yes      |
+| `model`    | Model name to use for theme generation.                       | Default model of the provider | No       |
 
 ## Variables
 

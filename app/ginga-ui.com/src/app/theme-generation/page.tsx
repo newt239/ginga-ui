@@ -63,7 +63,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const themeClient = new ThemeClient({
-    model: "gpt-4o-mini", // または "gemini-exp-1206", "claude-3-7-sonnet-latest"
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme(
@@ -88,7 +88,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const themeClient = new ThemeClient({
-    model: "gpt-4o-mini", // または "gemini-exp-1206", "claude-3-7-sonnet-latest"
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme(
@@ -112,52 +112,73 @@ export default async function RootLayout({
       <section className={styles.providersSection}>
         <Heading level="h2">サポートされているLLMプロバイダー</Heading>
         <Paragraph>
-          ThemeClientは3つの主要なLLMプロバイダーをサポートしています。モデル名のプレフィックスから自動的にプロバイダーを判別します。
+          ThemeClientは3つの主要なLLMプロバイダーをサポートしています。
+          <code className={styles.inlineCode}>provider</code>
+          で使用するプロバイダーを指定し、
+          <code className={styles.inlineCode}>model</code>
+          で任意のモデルを指定できます。model
+          を省略した場合は各プロバイダーのデフォルトモデルが使われます。
         </Paragraph>
 
         <div className={styles.providersContent}>
-          <Heading level="h3">OpenAI</Heading>
+          <Heading level="h3">
+            OpenAI —{" "}
+            <code className={styles.inlineCode}>
+              provider: &quot;openai&quot;
+            </code>
+          </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>gpt-4o-mini</code>{" "}
-              (デフォルト、高速・低コスト)
+              <code className={styles.inlineCode}>gpt-5.6-luna</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gpt-4o</code> (高品質)
+              <code className={styles.inlineCode}>gpt-5.6-terra</code> —
+              バランス型
             </li>
             <li>
-              <code className={styles.inlineCode}>o1</code> (推論モデル)
+              <code className={styles.inlineCode}>gpt-5.6-sol</code> — 最高品質
             </li>
           </ul>
 
           <Heading level="h3" className={styles.nextSubsection}>
-            Google Gemini
+            Google Gemini —{" "}
+            <code className={styles.inlineCode}>
+              provider: &quot;google&quot;
+            </code>
           </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>gemini-exp-1206</code>{" "}
-              (実験モデル)
+              <code className={styles.inlineCode}>gemini-3.7-flash</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gemini-2.0-flash-exp</code>{" "}
-              (高速)
+              <code className={styles.inlineCode}>gemini-3.5-flash-lite</code> —
+              最軽量
+            </li>
+            <li>
+              <code className={styles.inlineCode}>gemini-2.5-pro</code> — 高品質
             </li>
           </ul>
 
           <Heading level="h3" className={styles.nextSubsection}>
-            Anthropic Claude
+            Anthropic Claude —{" "}
+            <code className={styles.inlineCode}>
+              provider: &quot;anthropic&quot;
+            </code>
           </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>
-                claude-3-7-sonnet-latest
-              </code>{" "}
-              (最新版)
+              <code className={styles.inlineCode}>claude-haiku-4-5</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>
-                claude-3-5-sonnet-20241022
-              </code>
+              <code className={styles.inlineCode}>claude-sonnet-5</code> —
+              バランス型
+            </li>
+            <li>
+              <code className={styles.inlineCode}>claude-opus-5</code> —
+              最高品質
             </li>
           </ul>
         </div>

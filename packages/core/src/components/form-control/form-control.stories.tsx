@@ -41,7 +41,7 @@ export const withOpenAITheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      model: "gpt-4o-mini",
+      provider: "openai",
     });
 
     const onClick = async () => {
@@ -76,7 +76,7 @@ export const withGeminiTheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      model: "gemini-2.0-flash-exp",
+      provider: "google",
     });
 
     const onClick = async () => {
@@ -111,7 +111,7 @@ export const withAnthropicTheme: Story = {
     const [isGenerating, setIsGenerating] = useState(false);
     const [value, setValue] = useState("");
     const themeClient = new ThemeClient({
-      model: "claude-3-7-sonnet-latest",
+      provider: "anthropic",
     });
 
     const onClick = async () => {
