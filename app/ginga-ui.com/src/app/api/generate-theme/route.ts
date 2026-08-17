@@ -1,5 +1,11 @@
-import { ThemeClient } from "@ginga-ui/utils";
+import { ThemeClient, type ThemeProvider } from "@ginga-ui/utils";
 import { NextRequest, NextResponse } from "next/server";
+
+const ENV_KEYS: Record<ThemeProvider, string> = {
+  openai: "OPENAI_API_KEY",
+  google: "GOOGLE_GENERATIVE_AI_API_KEY",
+  anthropic: "ANTHROPIC_API_KEY",
+};
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,19 +18,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 環境変数を一時的に設定
-    const envKey =
-      provider === "openai"
-        ? "OPENAI_API_KEY"
-        : provider === "google"
-          ? "GOOGLE_GENERATIVE_AI_API_KEY"
-          : "ANTHROPIC_API_KEY";
+    const envKey = ENV_KEYS[provider as ThemeProvider];
 
+    if (!envKey) {
+      return NextResponse.json(
+        { error: `不明なプロバイダーです: ${provider}` },
+        { status: 400 }
+      );
+    }
+
+    // 環境変数を一時的に設定
     const originalValue = process.env[envKey];
     process.env[envKey] = apiKey;
 
     try {
-      const client = new ThemeClient({ model });
+      const client = new ThemeClient({ provider, model });
       const result = await client.generateTheme(prompt);
 
       return NextResponse.json(result);

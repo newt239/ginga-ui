@@ -9,7 +9,22 @@ import { generateIntermediateColors } from "../lib/color";
 import { SYSTEM_PROMPT } from "./const";
 import { themeVariablesSchema, type ThemeVariables } from "./schema";
 
+export const PROVIDERS = {
+  openai,
+  google,
+  anthropic,
+} as const;
+
+export type ThemeProvider = keyof typeof PROVIDERS;
+
+export const DEFAULT_MODELS = {
+  openai: "gpt-5.6-luna",
+  google: "gemini-3.7-flash",
+  anthropic: "claude-haiku-4-5",
+} as const satisfies Record<ThemeProvider, string>;
+
 export type ThemeClientConstructorProps = {
+  provider: ThemeProvider;
   model?: string;
 };
 
@@ -18,25 +33,27 @@ export type GenerateThemeOptions = {
 };
 
 export class ThemeClient {
+  private provider: ThemeProvider;
   private model: string;
   private maxRetries: number = 3;
 
-  constructor({ model = "gpt-4o-mini" }: ThemeClientConstructorProps) {
-    this.model = model;
+  constructor({ provider, model }: ThemeClientConstructorProps) {
+    if (!(provider in PROVIDERS)) {
+      throw new Error(`Unsupported provider: ${provider}`);
+    }
+    this.provider = provider;
+    this.model = model ?? DEFAULT_MODELS[provider];
   }
 
-  private getProvider() {
-    // モデル名からプロバイダーを自動判定
-    if (this.model.startsWith("gpt-") || this.model.startsWith("o1")) {
-      return openai(this.model);
+  private getLanguageModel() {
+    switch (this.provider) {
+      case "openai":
+        return openai(this.model);
+      case "google":
+        return google(this.model);
+      case "anthropic":
+        return anthropic(this.model);
     }
-    if (this.model.startsWith("claude-")) {
-      return anthropic(this.model);
-    }
-    if (this.model.startsWith("gemini-")) {
-      return google(this.model);
-    }
-    throw new Error(`Unsupported model: ${this.model}`);
   }
 
   async generateTheme(prompt: string, options?: GenerateThemeOptions) {
@@ -47,7 +64,7 @@ export class ThemeClient {
     for (let i = 0; i < this.maxRetries; i++) {
       try {
         const { object } = await generateObject({
-          model: this.getProvider(),
+          model: this.getLanguageModel(),
           schema: themeVariablesSchema,
           system: SYSTEM_PROMPT,
           prompt,

@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const themeClient = new ThemeClient({
-    model: "gpt-4o-mini",
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme(

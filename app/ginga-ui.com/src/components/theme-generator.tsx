@@ -2,16 +2,15 @@
 
 import { useState } from "react";
 import { Button, Input, Select } from "@ginga-ui/core";
+import type { ThemeProvider } from "@ginga-ui/utils";
 import { ListBoxItem } from "react-aria-components";
 import { CodeBlock } from "./code-block";
 import styles from "./theme-generator.module.css";
 
-type ThemeProvider = "openai" | "google" | "anthropic";
-
 const MODELS: Record<ThemeProvider, string[]> = {
-  openai: ["gpt-4o-mini", "gpt-4o"],
-  google: ["gemini-exp-1206", "gemini-2.0-flash-exp"],
-  anthropic: ["claude-3-7-sonnet-latest", "claude-3-5-sonnet-20241022"],
+  openai: ["gpt-5.6-luna", "gpt-5.6-terra", "gpt-5.6-sol"],
+  google: ["gemini-3.7-flash", "gemini-3.5-flash-lite", "gemini-2.5-pro"],
+  anthropic: ["claude-haiku-4-5", "claude-sonnet-5", "claude-opus-5"],
 };
 
 export function ThemeGenerator() {
@@ -83,8 +82,8 @@ export function ThemeGenerator() {
         <p className={styles.warningText}>
           ⚠️
           <strong>セキュリティ上の注意:</strong>
-          このデモではクライアントサイドでAPI呼び出しを行うため、APIキーがブラウザに露出します。本番環境では必ずサーバーサイドRoute
-          Handlerを使用してください。
+          このデモで入力したAPIキーはサーバーサイドのRoute
+          Handlerへ送信され、テーマ生成にのみ使用されます（保存はされません）。本番環境ではAPIキーをクライアントから受け取らず、サーバーサイドの環境変数から読み込んでください。
         </p>
       </div>
 
