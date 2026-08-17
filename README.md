@@ -73,7 +73,7 @@ Set these environment variables in your `.env` file or deployment environment.
 import { ThemeClient } from "@ginga-ui/utils";
 
 const themeClient = new ThemeClient({
-  provider: "openai", // Specify the provider
+  provider: "openai",
 });
 
 const CustomButton = () => {
@@ -125,22 +125,20 @@ You can use any model supported by the [Vercel AI SDK](https://sdk.vercel.ai/pro
 
 #### Examples
 
+Use the default model of a provider:
+
 ```tsx
-// OpenAI (default model)
 const themeClient = new ThemeClient({
   provider: "openai",
 });
+```
 
-// Anthropic with an explicit model
+Use an explicit model:
+
+```tsx
 const themeClient = new ThemeClient({
   provider: "anthropic",
   model: "claude-opus-5",
-});
-
-// Google Gemini with an explicit model
-const themeClient = new ThemeClient({
-  provider: "google",
-  model: "gemini-2.5-pro",
 });
 ```
 

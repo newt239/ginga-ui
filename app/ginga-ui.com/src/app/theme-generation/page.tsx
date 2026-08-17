@@ -63,8 +63,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const themeClient = new ThemeClient({
-    provider: "openai", // または "google", "anthropic"
-    // model を省略するとプロバイダーごとのデフォルトモデルが使われます
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme(
@@ -89,8 +88,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const themeClient = new ThemeClient({
-    provider: "openai", // または "google", "anthropic"
-    // model を省略するとプロバイダーごとのデフォルトモデルが使われます
+    provider: "openai",
   });
 
   const { CSSCode } = await themeClient.generateTheme(
@@ -124,66 +122,63 @@ export default async function RootLayout({
 
         <div className={styles.providersContent}>
           <Heading level="h3">
-            OpenAI (
+            OpenAI —{" "}
             <code className={styles.inlineCode}>
               provider: &quot;openai&quot;
             </code>
-            )
           </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-luna</code>{" "}
-              (デフォルト、高速・低コスト)
+              <code className={styles.inlineCode}>gpt-5.6-luna</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-terra</code>{" "}
-              (バランス型)
+              <code className={styles.inlineCode}>gpt-5.6-terra</code> —
+              バランス型
             </li>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-sol</code> (最高品質)
+              <code className={styles.inlineCode}>gpt-5.6-sol</code> — 最高品質
             </li>
           </ul>
 
           <Heading level="h3" className={styles.nextSubsection}>
-            Google Gemini (
+            Google Gemini —{" "}
             <code className={styles.inlineCode}>
               provider: &quot;google&quot;
             </code>
-            )
           </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>gemini-3.7-flash</code>{" "}
-              (デフォルト、高速・低コスト)
+              <code className={styles.inlineCode}>gemini-3.7-flash</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gemini-3.5-flash-lite</code>{" "}
-              (最軽量)
+              <code className={styles.inlineCode}>gemini-3.5-flash-lite</code> —
+              最軽量
             </li>
             <li>
-              <code className={styles.inlineCode}>gemini-2.5-pro</code> (高品質)
+              <code className={styles.inlineCode}>gemini-2.5-pro</code> — 高品質
             </li>
           </ul>
 
           <Heading level="h3" className={styles.nextSubsection}>
-            Anthropic Claude (
+            Anthropic Claude —{" "}
             <code className={styles.inlineCode}>
               provider: &quot;anthropic&quot;
             </code>
-            )
           </Heading>
           <ul className={styles.providersList}>
             <li>
-              <code className={styles.inlineCode}>claude-haiku-4-5</code>{" "}
-              (デフォルト、高速・低コスト)
+              <code className={styles.inlineCode}>claude-haiku-4-5</code> —
+              デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>claude-sonnet-5</code>{" "}
-              (バランス型)
+              <code className={styles.inlineCode}>claude-sonnet-5</code> —
+              バランス型
             </li>
             <li>
-              <code className={styles.inlineCode}>claude-opus-5</code>{" "}
-              (最高品質)
+              <code className={styles.inlineCode}>claude-opus-5</code> —
+              最高品質
             </li>
           </ul>
         </div>

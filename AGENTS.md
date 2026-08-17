@@ -93,10 +93,10 @@ TypeScriptパスマッピングを使用:
 
 `packages/utils/src/ai/`に配置:
 
-1. **ThemeClient**（`ai/index.ts`）: Vercel AI SDK を利用した単一のエントリーポイント。コンストラクタで `provider` を明示指定し、`model` は省略可能（省略時は `DEFAULT_MODELS` の値を使用）。**モデル名から条件分岐でプロバイダーを判定してはならない**
-   - `provider: "openai"`（デフォルトモデル: `gpt-5.6-luna`）
-   - `provider: "google"`（デフォルトモデル: `gemini-3.7-flash`）
-   - `provider: "anthropic"`（デフォルトモデル: `claude-haiku-4-5`）
+1. **ThemeClient** — `ai/index.ts` に定義。Vercel AI SDK を利用した単一のエントリーポイント。コンストラクタで `provider` を明示指定し、`model` を省略した場合は `DEFAULT_MODELS` の値を使用する。**モデル名から条件分岐でプロバイダーを判定してはならない**
+   - `provider: "openai"` — デフォルトモデルは `gpt-5.6-luna`
+   - `provider: "google"` — デフォルトモデルは `gemini-3.7-flash`
+   - `provider: "anthropic"` — デフォルトモデルは `claude-haiku-4-5`
 
 2. **テーマ生成フロー**:
    - LLMがプロンプトに基づいてCSS変数を生成
@@ -131,7 +131,7 @@ TypeScriptパスマッピングを使用:
 
 ### クライアントサイドの安全性
 
-APIキーはVercel AI SDKが環境変数から読み込みます。クライアントサイドにAPIキーを渡すと露出するため、テーマ生成はサーバーサイド（Server ComponentsやRoute Handler）で実行してください。
+APIキーはVercel AI SDKが環境変数から読み込みます。クライアントサイドにAPIキーを渡すと露出するため、テーマ生成はServer ComponentsやRoute Handlerなどのサーバーサイドで実行してください。
 
 ### サーバーサイドレンダリング
 
