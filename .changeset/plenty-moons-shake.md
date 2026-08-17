@@ -1,5 +1,6 @@
 ---
 "@ginga-ui/core": minor
+"@ginga-ui/utils": minor
 ---
 
 CodeBlock コンポーネントを追加し、Card と Anchor のスタイルを見直し
@@ -19,3 +20,12 @@ AlertDialog / Drawer / Popover / Alert / Badge / Toast コンポーネントを�
 - Toast: react-aria の UNSTABLE\_ Toast API をラップ。`toast.show` / `info` / `success` / `warning` / `danger` / `close` の関数 API と、4隅に配置可能な ToastRegion を提供
 
 stylelint で `font-weight` を 400 / 700、長さの rem を 0.125rem 刻みに制限し、違反箇所を修正
+
+ThemeClient のプロバイダー指定方法を変更し、デフォルトモデルを更新(破壊的変更)
+
+- `new ThemeClient({ model })` → `new ThemeClient({ provider, model? })` に変更。`provider` は `"openai"` / `"google"` / `"anthropic"` の必須指定
+- モデル名のプレフィックス(`gpt-` / `o1` / `claude-` / `gemini-`)によるプロバイダー自動判定を廃止。新世代モデル(`gpt-5.6-*` や `o3` 等)が `Unsupported model` になる問題を解消
+- `model` を省略した場合のデフォルトモデルを更新: openai は `gpt-5.6-luna`、google は `gemini-3.7-flash`、anthropic は `claude-haiku-4-5`
+- `ThemeProvider` 型と `DEFAULT_MODELS` / `PROVIDERS` を新たにエクスポート
+- ドキュメントサイト・README・Storybook のモデル例リストを最新世代に更新
+- AI SDK を同世代の最新版に更新(`ai` 7.0.58 / `@ai-sdk/openai` 4.0.36 / `@ai-sdk/google` 4.0.39 / `@ai-sdk/anthropic` 4.0.36)
