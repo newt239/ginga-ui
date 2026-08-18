@@ -9,27 +9,29 @@ import { generateIntermediateColors } from "../lib/color";
 import { SYSTEM_PROMPT } from "./const";
 import { themeVariablesSchema, type ThemeVariables } from "./schema";
 
-export const PROVIDERS = {
-  openai,
-  google,
-  anthropic,
-} as const;
-
-export type ThemeProvider = keyof typeof PROVIDERS;
+export * from "./browser";
 
 export const DEFAULT_MODELS = {
   openai: "gpt-5.6-luna",
   google: "gemini-3.7-flash",
   anthropic: "claude-haiku-4-5",
-} as const satisfies Record<ThemeProvider, string>;
+  browser: "text",
+} as const;
+
+export type ThemeProvider = keyof typeof DEFAULT_MODELS;
+
+export const PROVIDERS = Object.keys(DEFAULT_MODELS) as ThemeProvider[];
 
 export type ThemeClientConstructorProps = {
   provider: ThemeProvider;
   model?: string;
 };
 
+export type DownloadProgressCallback = (progress: number) => void;
+
 export type GenerateThemeOptions = {
   maxRetries?: number;
+  onDownloadProgress?: DownloadProgressCallback;
 };
 
 export class ThemeClient {
@@ -38,14 +40,16 @@ export class ThemeClient {
   private maxRetries: number = 3;
 
   constructor({ provider, model }: ThemeClientConstructorProps) {
-    if (!(provider in PROVIDERS)) {
+    if (!PROVIDERS.includes(provider)) {
       throw new Error(`Unsupported provider: ${provider}`);
     }
     this.provider = provider;
     this.model = model ?? DEFAULT_MODELS[provider];
   }
 
-  private getLanguageModel() {
+  private async getLanguageModel(
+    onDownloadProgress?: DownloadProgressCallback
+  ) {
     switch (this.provider) {
       case "openai":
         return openai(this.model);
@@ -53,6 +57,14 @@ export class ThemeClient {
         return google(this.model);
       case "anthropic":
         return anthropic(this.model);
+      case "browser": {
+        const { browserAI } = await import("@browser-ai/core");
+        const model = browserAI("text");
+        if (onDownloadProgress) {
+          await model.createSessionWithProgress(onDownloadProgress);
+        }
+        return model;
+      }
     }
   }
 
@@ -61,10 +73,19 @@ export class ThemeClient {
       this.maxRetries = options.maxRetries;
     }
 
+    let model;
+    try {
+      model = await this.getLanguageModel(options?.onDownloadProgress);
+    } catch (e) {
+      const errorMessage =
+        e instanceof Error ? e.message : "Failed to prepare language model";
+      return { type: "error", CSSCode: errorMessage } as const;
+    }
+
     for (let i = 0; i < this.maxRetries; i++) {
       try {
         const { object } = await generateObject({
-          model: this.getLanguageModel(),
+          model,
           schema: themeVariablesSchema,
           system: SYSTEM_PROMPT,
           prompt,
