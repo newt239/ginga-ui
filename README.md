@@ -65,7 +65,7 @@ You can generate with your own theme by using `ThemeClient` class powered by [Ve
 - Anthropic: `ANTHROPIC_API_KEY`
 - Google: `GOOGLE_API_KEY` or `GOOGLE_GENERATIVE_AI_API_KEY`
 
-Set these environment variables in your `.env` file or deployment environment.
+Set these environment variables in your `.env` file or deployment environment. `provider: "browser"` needs no API key.
 
 ### Basic Usage
 
@@ -115,13 +115,40 @@ export default async function Home() {
 
 Specify the provider explicitly with `provider`. If `model` is omitted, the default model for that provider is used.
 
-| Provider  | `provider`    | Default model      | Other examples                            |
-| --------- | ------------- | ------------------ | ----------------------------------------- |
-| OpenAI    | `"openai"`    | `gpt-5.6-luna`     | `gpt-5.6-terra`, `gpt-5.6-sol`            |
-| Google    | `"google"`    | `gemini-3.7-flash` | `gemini-3.5-flash-lite`, `gemini-2.5-pro` |
-| Anthropic | `"anthropic"` | `claude-haiku-4-5` | `claude-sonnet-5`, `claude-opus-5`        |
+| Provider    | `provider`    | Default model      | Other examples                            |
+| ----------- | ------------- | ------------------ | ----------------------------------------- |
+| OpenAI      | `"openai"`    | `gpt-5.6-luna`     | `gpt-5.6-terra`, `gpt-5.6-sol`            |
+| Google      | `"google"`    | `gemini-3.7-flash` | `gemini-3.5-flash-lite`, `gemini-2.5-pro` |
+| Anthropic   | `"anthropic"` | `claude-haiku-4-5` | `claude-sonnet-5`, `claude-opus-5`        |
+| Gemini Nano | `"browser"`   | -                  | -                                         |
 
 You can use any model supported by the [Vercel AI SDK](https://sdk.vercel.ai/providers/ai-sdk-providers).
+
+### Gemini Nano
+
+`provider: "browser"` runs [Gemini Nano](https://developer.chrome.com/docs/ai/built-in), the model shipped with Chrome and Edge. It needs no API key and no network request, but it only works in the browser, so call it from a Client Component instead of a Server Component. `model` is ignored.
+
+```tsx
+"use client";
+
+import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
+
+const generate = async () => {
+  const availability = await getBrowserAIAvailability();
+
+  if (availability === "unavailable") {
+    return;
+  }
+
+  const themeClient = new ThemeClient({ provider: "browser" });
+
+  const { CSSCode } = await themeClient.generateTheme("deep sea", {
+    onDownloadProgress: (progress) => console.log(progress),
+  });
+};
+```
+
+`getBrowserAIAvailability()` returns `"unavailable"` / `"downloadable"` / `"downloading"` / `"available"`. Fall back to a cloud provider when it is `"unavailable"`. The first run downloads several gigabytes of model data, so report the progress with `onDownloadProgress`.
 
 #### Examples
 
@@ -144,10 +171,10 @@ const themeClient = new ThemeClient({
 
 ### `ThemeClient` Constructor Options
 
-| Name       | Description                                                   | Default Value                 | Required |
-| ---------- | ------------------------------------------------------------- | ----------------------------- | -------- |
-| `provider` | LLM provider to use. `"openai"` / `"google"` / `"anthropic"`. | -                             | Yes      |
-| `model`    | Model name to use for theme generation.                       | Default model of the provider | No       |
+| Name       | Description                                                                 | Default Value                 | Required |
+| ---------- | --------------------------------------------------------------------------- | ----------------------------- | -------- |
+| `provider` | LLM provider to use. `"openai"` / `"google"` / `"anthropic"` / `"browser"`. | -                             | Yes      |
+| `model`    | Model name to use for theme generation.                                     | Default model of the provider | No       |
 
 ## Variables
 
