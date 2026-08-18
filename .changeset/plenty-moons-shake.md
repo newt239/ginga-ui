@@ -29,3 +29,5 @@ ThemeClient のプロバイダー指定方法を変更し、デフォルトモ�
 - `ThemeProvider` 型と `DEFAULT_MODELS` / `PROVIDERS` を新たにエクスポート
 - ドキュメントサイト・README・Storybook のモデル例リストを最新世代に更新
 - AI SDK を同世代の最新版に更新。`ai` 7.0.58 / `@ai-sdk/openai` 4.0.36 / `@ai-sdk/google` 4.0.39 / `@ai-sdk/anthropic` 4.0.36
+
+ThemeClient に Gemini Nano を使う `provider: "browser"` を追加
