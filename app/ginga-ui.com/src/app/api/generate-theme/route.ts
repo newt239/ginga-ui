@@ -1,7 +1,9 @@
 import { ThemeClient, type ThemeProvider } from "@ginga-ui/utils";
 import { NextRequest, NextResponse } from "next/server";
 
-const ENV_KEYS: Record<ThemeProvider, string> = {
+type ServerThemeProvider = Exclude<ThemeProvider, "browser">;
+
+const ENV_KEYS: Record<ServerThemeProvider, string> = {
   openai: "OPENAI_API_KEY",
   google: "GOOGLE_GENERATIVE_AI_API_KEY",
   anthropic: "ANTHROPIC_API_KEY",
@@ -18,7 +20,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const envKey = ENV_KEYS[provider as ThemeProvider];
+    const envKey = ENV_KEYS[provider as ServerThemeProvider];
 
     if (!envKey) {
       return NextResponse.json(
