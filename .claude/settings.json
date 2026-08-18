@@ -1,0 +1,54 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run:*)",
+      "Bash(grep:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh issue *)",
+      "Bash(gh pr *)"
+    ],
+    "deny": [
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Read(.env)",
+      "Read(*.env)",
+      "Read(.env.local)",
+      "Bash(cat *.env)",
+      "Bash(cat *.env.local)",
+      "Bash(head *.env)",
+      "Bash(head *.env.local)",
+      "Bash(tail *.env)",
+      "Bash(tail *.env.local)",
+      "Bash(less *.env)",
+      "Bash(less *.env.local)",
+      "Bash(more *.env)",
+      "Bash(more *.env.local)",
+      "Bash(grep *.env)",
+      "Bash(grep *.env.local)",
+      "Bash(sed *.env)",
+      "Bash(sed *.env.local)",
+      "Bash(awk *.env)",
+      "Bash(awk *.env.local)",
+      "Bash(vim *.env)",
+      "Bash(vim *.env.local)",
+      "Bash(nano *.env)",
+      "Bash(nano *.env.local)",
+      "Bash(bat *.env)",
+      "Bash(bat *.env.local)"
+    ],
+    "ask": [
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(rm:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledPlugins": {
+    "github@claude-plugins-official": true
+  }
+}
