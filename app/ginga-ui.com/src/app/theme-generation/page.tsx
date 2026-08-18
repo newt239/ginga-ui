@@ -16,7 +16,8 @@ export default async function ThemeGenerationPage() {
       <section className={styles.demoSection}>
         <Heading level="h2">ライブデモ</Heading>
         <Paragraph>
-          下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。
+          下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。プロバイダーに「Gemini
+          Nano」を選んだ場合はAPIキーが不要で、生成はすべてブラウザ内で完結します。
         </Paragraph>
         <ThemeGenerator />
       </section>
@@ -109,10 +110,109 @@ export default async function RootLayout({
         />
       </section>
 
+      <section className={styles.browserSection}>
+        <Heading level="h2">ブラウザ内での使用（Gemini Nano）</Heading>
+        <Paragraph>
+          <code className={styles.inlineCode}>
+            provider: &quot;browser&quot;
+          </code>
+          を指定すると、ChromeやEdgeが搭載するGemini
+          Nanoでテーマを生成します。APIキーもサーバーへの通信も不要で、生成はすべて端末上で完結します。この指定のときだけはServer
+          ComponentではなくClient
+          Componentから呼び出してください。ブラウザ内でしか動作しないためです。
+        </Paragraph>
+        <Paragraph>
+          利用できるかどうかは
+          <code className={styles.inlineCode}>getBrowserAIAvailability()</code>
+          で判定できます。戻り値は
+          <code className={styles.inlineCode}>
+            &quot;unavailable&quot;
+          </code> /{" "}
+          <code className={styles.inlineCode}>&quot;downloadable&quot;</code> /{" "}
+          <code className={styles.inlineCode}>&quot;downloading&quot;</code> /{" "}
+          <code className={styles.inlineCode}>&quot;available&quot;</code>
+          で、未対応環境ではクラウドのプロバイダーにフォールバックしてください。初回利用時はモデルのダウンロードに数GBの通信が発生するため、
+          <code className={styles.inlineCode}>onDownloadProgress</code>
+          で進捗を表示することを推奨します。
+        </Paragraph>
+        <CodeBlock
+          code={`"use client";
+
+import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
+import { useState } from "react";
+
+export function BrowserThemeButton() {
+  const [css, setCss] = useState("");
+
+  const generate = async () => {
+    const availability = await getBrowserAIAvailability();
+
+    if (availability === "unavailable") {
+      return;
+    }
+
+    const themeClient = new ThemeClient({ provider: "browser" });
+
+    const { CSSCode } = await themeClient.generateTheme("深海の静けさ", {
+      onDownloadProgress: (progress) => {
+        console.log(\`ダウンロード中: \${Math.round(progress * 100)}%\`);
+      },
+    });
+
+    setCss(CSSCode);
+  };
+
+  return (
+    <>
+      <button onClick={generate}>テーマを生成</button>
+      <style>{css}</style>
+    </>
+  );
+}`}
+          highlightedCode={await highlightCode(
+            `"use client";
+
+import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
+import { useState } from "react";
+
+export function BrowserThemeButton() {
+  const [css, setCss] = useState("");
+
+  const generate = async () => {
+    const availability = await getBrowserAIAvailability();
+
+    if (availability === "unavailable") {
+      return;
+    }
+
+    const themeClient = new ThemeClient({ provider: "browser" });
+
+    const { CSSCode } = await themeClient.generateTheme("深海の静けさ", {
+      onDownloadProgress: (progress) => {
+        console.log(\`ダウンロード中: \${Math.round(progress * 100)}%\`);
+      },
+    });
+
+    setCss(CSSCode);
+  };
+
+  return (
+    <>
+      <button onClick={generate}>テーマを生成</button>
+      <style>{css}</style>
+    </>
+  );
+}`,
+            "tsx"
+          )}
+        />
+      </section>
+
       <section className={styles.providersSection}>
         <Heading level="h2">サポートされているLLMプロバイダー</Heading>
         <Paragraph>
-          ThemeClientは3つの主要なLLMプロバイダーをサポートしています。
+          ThemeClientは3つのクラウドLLMプロバイダーと、ブラウザ内蔵のGemini
+          Nanoをサポートしています。
           <code className={styles.inlineCode}>provider</code>
           で使用するプロバイダーを指定し、
           <code className={styles.inlineCode}>model</code>
@@ -179,6 +279,21 @@ export default async function RootLayout({
             <li>
               <code className={styles.inlineCode}>claude-opus-5</code> —
               最高品質
+            </li>
+          </ul>
+
+          <Heading level="h3" className={styles.nextSubsection}>
+            Gemini Nano —{" "}
+            <code className={styles.inlineCode}>
+              provider: &quot;browser&quot;
+            </code>
+          </Heading>
+          <ul className={styles.providersList}>
+            <li>
+              <code className={styles.inlineCode}>gemini-nano</code> —
+              APIキー不要、ブラウザ内で実行。
+              <code className={styles.inlineCode}>model</code>
+              の指定は不要です
             </li>
           </ul>
         </div>

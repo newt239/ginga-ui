@@ -97,6 +97,7 @@ TypeScriptパスマッピングを使用:
    - `provider: "openai"` — デフォルトモデルは `gpt-5.6-luna`
    - `provider: "google"` — デフォルトモデルは `gemini-3.7-flash`
    - `provider: "anthropic"` — デフォルトモデルは `claude-haiku-4-5`
+   - `provider: "browser"` — Gemini Nano。APIキー不要でブラウザ内でのみ動作するため、Client Component から呼ぶ。`@browser-ai/core` は動的 import して読み込む
 
 2. **テーマ生成フロー**:
    - LLMがプロンプトに基づいてCSS変数を生成
@@ -105,6 +106,7 @@ TypeScriptパスマッピングを使用:
    - 最大リトライ回数に達した場合は色を調整してコントラストを強制
    - プライマリ・セカンダリカラーの中間色スケール（0-9）を生成
    - `<style>`タグで適用可能なCSSコードを返す
+   - `getBrowserAIAvailability()` で Gemini Nano が使えるかを判定できる
 
 3. **CSS変数システム**:
    - コア変数: `--color-primary`、`--color-secondary`、`--color-background`、`--width-border`、`--size-radius`、`--font-family`
@@ -131,7 +133,7 @@ TypeScriptパスマッピングを使用:
 
 ### クライアントサイドの安全性
 
-APIキーはVercel AI SDKが環境変数から読み込みます。クライアントサイドにAPIキーを渡すと露出するため、テーマ生成はServer ComponentsやRoute Handlerなどのサーバーサイドで実行してください。
+APIキーはVercel AI SDKが環境変数から読み込みます。クライアントサイドにAPIキーを渡すと露出するため、テーマ生成はServer ComponentsやRoute Handlerなどのサーバーサイドで実行してください。ただし `provider: "browser"` はAPIキーを必要とせずブラウザ内でのみ動作するため、Client Componentから呼び出します。
 
 ### サーバーサイドレンダリング
 

@@ -145,6 +145,9 @@ importers:
       '@ai-sdk/openai':
         specifier: 4.0.37
         version: 4.0.37(zod@4.4.3)
+      '@browser-ai/core':
+        specifier: 3.0.0
+        version: 3.0.0(ai@7.0.59(zod@4.4.3))
       ai:
         specifier: 7.0.59
         version: 7.0.59(zod@4.4.3)
@@ -264,6 +267,11 @@ packages:
   '@babel/types@7.29.8':
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
+
+  '@browser-ai/core@3.0.0':
+    resolution: {integrity: sha512-Ncfa6gW6BgDzLrNaCARqZ6vJAVPf4skiAzmJWi2l9Nfzjs8bQy2dt8X4cJROHAVJvf3aM4aUsW3aKtWTANRF5w==}
+    peerDependencies:
+      ai: ^7.0.0
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -783,6 +791,9 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
+
+  '@mediapipe/tasks-text@0.10.35':
+    resolution: {integrity: sha512-BlRWXZAHakqtAos8hNgSU0jy4mh60R9ewzwckS3q2nV7Q/7L65otCtoDrgslRBhlfbElfcHbHQXKRahlMRCf4Q==}
 
   '@napi-rs/wasm-runtime@1.1.6':
     resolution: {integrity: sha512-ZLv/JdUfkvOy9eCnnBaGfiO+XimbjebAeO+MRQqD/B+FR1tnRN0tpKSJHRbE8sFfS6aqsXZ67TQjfwfsxULVbg==}
@@ -4365,6 +4376,11 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
+  '@browser-ai/core@3.0.0(ai@7.0.59(zod@4.4.3))':
+    dependencies:
+      '@mediapipe/tasks-text': 0.10.35
+      ai: 7.0.59(zod@4.4.3)
+
   '@cacheable/memory@2.2.0':
     dependencies:
       '@cacheable/utils': 2.5.0
@@ -4882,6 +4898,8 @@ snapshots:
       '@types/mdx': 2.0.14
       '@types/react': 19.2.18
       react: 19.2.8
+
+  '@mediapipe/tasks-text@0.10.35': {}
 
   '@napi-rs/wasm-runtime@1.1.6(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
     dependencies:
