@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Type check
-        run: npx tsc --noEmit
+        run: pnpm exec tsc --noEmit
       - name: Oxlint
         run: pnpm run lint
       - name: Oxfmt

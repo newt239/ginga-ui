@@ -17,7 +17,7 @@
 実装後の必須作業として、以下のコマンドを実行してください。
 
 ```bash
-npx tsc --noEmit && pnpm run lint && pnpm run format && pnpm run stylelint
+pnpm exec tsc --noEmit && pnpm run lint && pnpm run format && pnpm run stylelint
 ```
 
 型エラーやリントエラーが出た場合は、コミット前に必ず修正してください。
@@ -49,7 +49,7 @@ Ginga UIは、LLMを活用したテーマ生成機能を持つReact UIコンポ�
 - **Lint**: `pnpm lint`（型を考慮したoxlintを使用）
 - **フォーマット**: `pnpm format`（oxfmtを使用）
 - **スタイルLint**: `pnpm stylelint`（CSS用）
-- **型チェック**: `npx tsc --noEmit`
+- **型チェック**: `pnpm exec tsc --noEmit`
 
 ### ドキュメント・ストーリー
 
