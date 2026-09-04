@@ -2,6 +2,7 @@ packages:
   - packages/**
   - app/**
 minimumReleaseAge: 10080
+minimumReleaseAgeExcludePrune: true
 saveExact: true
 allowBuilds:
   esbuild: true
