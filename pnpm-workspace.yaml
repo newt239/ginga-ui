@@ -1,10 +1,9 @@
 packages:
-  - packages/**/**
+  - packages/**
   - app/**
 minimumReleaseAge: 10080
+minimumReleaseAgeExcludePrune: true
 saveExact: true
 allowBuilds:
   esbuild: true
   sharp: true
-overrides:
-  fast-uri: 3.1.5
