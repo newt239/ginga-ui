@@ -31,6 +31,9 @@ dist-ssr
 # Vercel
 .vercel
 
+# Next.js が生成・管理するため追跡しない
+next-env.d.ts
+
 # Storybook
 storybook-static/
 
