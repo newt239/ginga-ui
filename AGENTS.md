@@ -71,7 +71,7 @@ pnpmワークスペースとTurborepoを使用したモノレポ構成:
   - アクセシビリティのためReact Aria Componentsを使用
   - 各コンポーネントには専用のCSSファイルがエクスポートされる
 - **`packages/utils/`**: AI テーマ生成クライアントを含む共有ユーティリティ
-- **`app/ginga-ui.com/`**: ドキュメントウェブサイト（Next.js）
+- **`apps/ginga-ui.com/`**: ドキュメントウェブサイト（Next.js）
 
 ### パスエイリアス
 

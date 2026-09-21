@@ -13,6 +13,6 @@
     "packages/utils": {
       "project": ["src/**/*.ts"]
     },
-    "app/ginga-ui.com": {}
+    "apps/ginga-ui.com": {}
   }
 }

@@ -38,7 +38,7 @@
     "format": "oxfmt .",
     "stylelint": "stylelint \"./**/*.css\" --fix",
     "knip": "knip",
-    "docs": "pnpm --prefix app/ginga-ui.com dev",
+    "docs": "pnpm --prefix apps/ginga-ui.com dev",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
