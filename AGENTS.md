@@ -54,7 +54,7 @@ Ginga UIは、LLMを活用したテーマ生成機能を持つReact UIコンポ�
 ### ドキュメント・ストーリー
 
 - **Storybook**: `pnpm storybook`（Storybook開発サーバーを起動）
-- **ドキュメントサイト**: `pnpm docs`（ドキュメントサイトを起動）
+- **ドキュメントサイト**: `pnpm run docs`（ドキュメントサイトを起動）
 
 ### クリーン
 
