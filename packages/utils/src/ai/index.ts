@@ -1,6 +1,6 @@
-import { anthropic } from "@ai-sdk/anthropic";
-import { google } from "@ai-sdk/google";
-import { openai } from "@ai-sdk/openai";
+import { anthropic, createAnthropic } from "@ai-sdk/anthropic";
+import { createGoogleGenerativeAI, google } from "@ai-sdk/google";
+import { createOpenAI, openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import chroma from "chroma-js";
 
@@ -25,6 +25,7 @@ export const PROVIDERS = Object.keys(DEFAULT_MODELS) as ThemeProvider[];
 export type ThemeClientConstructorProps = {
   provider: ThemeProvider;
   model?: string;
+  apiKey?: string;
 };
 
 export type DownloadProgressCallback = (progress: number) => void;
@@ -37,14 +38,16 @@ export type GenerateThemeOptions = {
 export class ThemeClient {
   private provider: ThemeProvider;
   private model: string;
+  private apiKey?: string;
   private maxRetries: number = 3;
 
-  constructor({ provider, model }: ThemeClientConstructorProps) {
+  constructor({ provider, model, apiKey }: ThemeClientConstructorProps) {
     if (!PROVIDERS.includes(provider)) {
       throw new Error(`Unsupported provider: ${provider}`);
     }
     this.provider = provider;
     this.model = model ?? DEFAULT_MODELS[provider];
+    this.apiKey = apiKey;
   }
 
   private async getLanguageModel(
@@ -52,11 +55,17 @@ export class ThemeClient {
   ) {
     switch (this.provider) {
       case "openai":
-        return openai(this.model);
+        return this.apiKey
+          ? createOpenAI({ apiKey: this.apiKey })(this.model)
+          : openai(this.model);
       case "google":
-        return google(this.model);
+        return this.apiKey
+          ? createGoogleGenerativeAI({ apiKey: this.apiKey })(this.model)
+          : google(this.model);
       case "anthropic":
-        return anthropic(this.model);
+        return this.apiKey
+          ? createAnthropic({ apiKey: this.apiKey })(this.model)
+          : anthropic(this.model);
       case "browser": {
         const { browserAI } = await import("@browser-ai/core");
         const model = browserAI("text");

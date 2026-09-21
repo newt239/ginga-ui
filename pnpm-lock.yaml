@@ -146,8 +146,8 @@ importers:
         specifier: 6.32.2
         version: 6.32.2
       node:
-        specifier: runtime:26.8.1
-        version: runtime:26.8.1
+        specifier: runtime:24.21.0
+        version: runtime:24.21.0
       oxfmt:
         specifier: 0.65.0
         version: 0.65.0
@@ -188,7 +188,7 @@ importers:
         specifier: 8.2.2
         version: 8.2.2(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
 
-  app/ginga-ui.com:
+  apps/ginga-ui.com:
     dependencies:
       '@ginga-ui/core':
         specifier: workspace:*
@@ -2335,9 +2335,6 @@ packages:
   '@types/estree@1.0.9':
     resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
 
-  '@types/hast@3.0.4':
-    resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
-
   '@types/hast@3.0.5':
     resolution: {integrity: sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g==}
 
@@ -2644,11 +2641,6 @@ packages:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
-
-  acorn@8.17.0:
-    resolution: {integrity: sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
 
   acorn@8.18.0:
     resolution: {integrity: sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ==}
@@ -3557,7 +3549,7 @@ packages:
     resolution: {integrity: sha512-wRNIrw4DmVLKQlbgOMdkMx27Wrpzes2hh5Jtbi2bjPd+4wJstWIqP5A+lscnqbm0xxmT5Bpg8Lec5ItEBwx6BQ==}
     engines: {node: '>=18'}
 
-  node@runtime:26.8.1:
+  node@runtime:24.21.0:
     resolution:
       type: variations
       variants:
@@ -3565,9 +3557,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-LU0HWYDdrNqgWeJ+wfHFU6TdQmIr2edB4eTDSBcwFAM=
+            integrity: sha256-rseyRkr7mfB4wZywbSAdVDvTsxHLoHEoK84bF8l+WLs=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-aix-ppc64.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-aix-ppc64.tar.gz
           targets:
             - cpu: ppc64
               os: aix
@@ -3575,9 +3567,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-bld/0Nnbd224IwZinkQanazkFnAmIq690XHJ36pB9NI=
+            integrity: sha256-vtfupTJeEQjzLOUijd1qXw8IpJnuQqp0Qq6lg3AvYFc=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-darwin-arm64.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-darwin-arm64.tar.gz
           targets:
             - cpu: arm64
               os: darwin
@@ -3585,9 +3577,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-/pxtv5yOG0RDgD114qIDZuQg2uZQx0fbsRayKXV1G68=
+            integrity: sha256-FGLLOzBGuBXPjqQ209pFDsGp8R2sflpGsK2lMF1+gJc=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-darwin-x64.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-darwin-x64.tar.gz
           targets:
             - cpu: x64
               os: darwin
@@ -3595,9 +3587,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-1flzzpdeS9A+bCA4Jg9+kgFhWqjh7ik8cvjcwqbZ/ds=
+            integrity: sha256-ckKCw7Q67JmKqVJzgEZbRdIp4CG1gDX19PYwleq/5dU=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-arm64.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-arm64.tar.gz
           targets:
             - cpu: arm64
               os: linux
@@ -3605,9 +3597,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-otDRIQjis89WkbFgVLG2xdhH0wbm8I1m/cY2PpmMejk=
+            integrity: sha256-UcXVMGbukpILYXg7A7Buy5nzZhFg97Fcp36EdBFaZ7w=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-ppc64le.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-ppc64le.tar.gz
           targets:
             - cpu: ppc64le
               os: linux
@@ -3615,9 +3607,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-72un7U4iqWAp1ppcq5GvjnnlwUPI1jPECYOATcrJgi8=
+            integrity: sha256-Xy+jdCLgx13jXBaG/lHXgyTywqj+LMI5pB2cAAop2Tg=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-s390x.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-s390x.tar.gz
           targets:
             - cpu: s390x
               os: linux
@@ -3625,9 +3617,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-erg+reDp7r2bo1IxuI0iWuXHKrVWlaPXqWEVocRe2Vw=
+            integrity: sha256-PWNAX8ZaDS0pdsHwvC/Se7C9ByEkaecFqsPwOuWrTJw=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-x64-musl.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-x64-musl.tar.gz
           targets:
             - cpu: x64
               os: linux
@@ -3636,9 +3628,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-srdmYPpN7U4LKkHuPAxlHNUuqBcOrZHrrB4UesPVVkM=
+            integrity: sha256-bh24fvWLiBnl1UAu/xU2SRsY7djre+5e94l4duiNxf8=
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-x64.tar.gz
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-x64.tar.gz
           targets:
             - cpu: x64
               os: linux
@@ -3646,10 +3638,10 @@ packages:
             archive: zip
             bin:
               node: node.exe
-            integrity: sha256-CdYgBaqdyo/Nm9zoGW9ap4Pu44GNWvdAietylxA8AtQ=
-            prefix: node-v26.8.1-win-arm64
+            integrity: sha256-h3mxveHTn41CDjtXqmV7OYka9DTT3kSpGQRM7AZ4WSE=
+            prefix: node-v24.21.0-win-arm64
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-win-arm64.zip
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-win-arm64.zip
           targets:
             - cpu: arm64
               os: win32
@@ -3657,10 +3649,10 @@ packages:
             archive: zip
             bin:
               node: node.exe
-            integrity: sha256-V2k9jpPRsE57feRqylPs1j6XVk5z3jamhCjX/wjYNYc=
-            prefix: node-v26.8.1-win-x64
+            integrity: sha256-FY92hbRN5R9sDfHRU1JsvNPhvHOajfxgdyHO913p5UE=
+            prefix: node-v24.21.0-win-x64
             type: binary
-            url: https://nodejs.org/download/release/v26.8.1/node-v26.8.1-win-x64.zip
+            url: https://nodejs.org/download/release/v24.21.0/node-v24.21.0-win-x64.zip
           targets:
             - cpu: x64
               os: win32
@@ -3668,9 +3660,9 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-D+eK/etKTSc7FKu9S5RsdyiFxYmUydI7HIrgpZovilM=
+            integrity: sha256-MEiwgR4VjKDYZytZyDmGF2PhREkpgNjSmzad/uRXR+Q=
             type: binary
-            url: https://unofficial-builds.nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-arm64-musl.tar.gz
+            url: https://unofficial-builds.nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-arm64-musl.tar.gz
           targets:
             - cpu: arm64
               os: linux
@@ -3679,14 +3671,14 @@ packages:
             archive: tarball
             bin:
               node: bin/node
-            integrity: sha256-ExNaaiEG+dER+ptIyIAe0RmtQ+fh0A3hfXepxEiZqto=
+            integrity: sha256-AacT402pjntNKjGR7nyj+T3QOE0aLvI8N5shYe5uEzo=
             type: binary
-            url: https://unofficial-builds.nodejs.org/download/release/v26.8.1/node-v26.8.1-linux-x64-musl.tar.gz
+            url: https://unofficial-builds.nodejs.org/download/release/v24.21.0/node-v24.21.0-linux-x64-musl.tar.gz
           targets:
             - cpu: x64
               os: linux
               libc: musl
-    version: 26.8.1
+    version: 24.21.0
     hasBin: true
 
   normalize-path@3.0.0:
@@ -5049,9 +5041,9 @@ snapshots:
     dependencies:
       '@types/estree': 1.0.9
       '@types/estree-jsx': 1.0.5
-      '@types/hast': 3.0.4
+      '@types/hast': 3.0.5
       '@types/mdx': 2.0.14
-      acorn: 8.17.0
+      acorn: 8.18.0
       collapse-white-space: 2.1.0
       devlop: 1.1.0
       estree-util-is-identifier-name: 3.0.0
@@ -5060,7 +5052,7 @@ snapshots:
       hast-util-to-jsx-runtime: 2.3.6(supports-color@10.2.2)
       markdown-extensions: 2.0.0
       recma-build-jsx: 1.0.0
-      recma-jsx: 1.0.1(acorn@8.17.0)
+      recma-jsx: 1.0.1(acorn@8.18.0)
       recma-stringify: 1.0.0
       rehype-recma: 1.0.0(supports-color@10.2.2)
       remark-mdx: 3.1.1(supports-color@10.2.2)
@@ -5967,10 +5959,6 @@ snapshots:
 
   '@types/estree@1.0.9': {}
 
-  '@types/hast@3.0.4':
-    dependencies:
-      '@types/unist': 3.0.3
-
   '@types/hast@3.0.5':
     dependencies:
       '@types/unist': 3.0.3
@@ -6159,11 +6147,9 @@ snapshots:
 
   '@yuku-toolchain/types@0.8.0': {}
 
-  acorn-jsx@5.3.2(acorn@8.17.0):
+  acorn-jsx@5.3.2(acorn@8.18.0):
     dependencies:
-      acorn: 8.17.0
-
-  acorn@8.17.0: {}
+      acorn: 8.18.0
 
   acorn@8.18.0: {}
 
@@ -7005,8 +6991,8 @@ snapshots:
 
   micromark-extension-mdxjs@3.0.0:
     dependencies:
-      acorn: 8.17.0
-      acorn-jsx: 5.3.2(acorn@8.17.0)
+      acorn: 8.18.0
+      acorn-jsx: 5.3.2(acorn@8.18.0)
       micromark-extension-mdx-expression: 3.0.1
       micromark-extension-mdx-jsx: 3.0.2
       micromark-extension-mdx-md: 2.0.0
@@ -7197,7 +7183,7 @@ snapshots:
 
   node-releases@2.0.51: {}
 
-  node@runtime:26.8.1: {}
+  node@runtime:24.21.0: {}
 
   normalize-path@3.0.0: {}
 
@@ -7539,10 +7525,10 @@ snapshots:
       estree-util-build-jsx: 3.0.1
       vfile: 6.0.3
 
-  recma-jsx@1.0.1(acorn@8.17.0):
+  recma-jsx@1.0.1(acorn@8.18.0):
     dependencies:
-      acorn: 8.17.0
-      acorn-jsx: 5.3.2(acorn@8.17.0)
+      acorn: 8.18.0
+      acorn-jsx: 5.3.2(acorn@8.18.0)
       estree-util-to-js: 2.0.0
       recma-parse: 1.0.0
       recma-stringify: 1.0.0

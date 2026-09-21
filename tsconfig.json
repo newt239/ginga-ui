@@ -20,7 +20,7 @@
     "esModuleInterop": true,
     "paths": {
       "@ginga-ui/*": ["./packages/*/src"],
-      "#/*": ["./app/ginga-ui.com/src/*"]
+      "#/*": ["./apps/ginga-ui.com/src/*"]
     },
     "declaration": true
   },

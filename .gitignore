@@ -28,6 +28,12 @@ dist-ssr
 .env
 .env.local
 
+# Vercel
+.vercel
+
+# Next.js が生成・管理するため追跡しない
+next-env.d.ts
+
 # Storybook
 storybook-static/
 

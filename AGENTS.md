@@ -54,7 +54,7 @@ Ginga UIは、LLMを活用したテーマ生成機能を持つReact UIコンポ�
 ### ドキュメント・ストーリー
 
 - **Storybook**: `pnpm storybook`（Storybook開発サーバーを起動）
-- **ドキュメントサイト**: `pnpm docs`（ドキュメントサイトを起動）
+- **ドキュメントサイト**: `pnpm run docs`（ドキュメントサイトを起動）
 
 ### クリーン
 
@@ -71,7 +71,7 @@ pnpmワークスペースとTurborepoを使用したモノレポ構成:
   - アクセシビリティのためReact Aria Componentsを使用
   - 各コンポーネントには専用のCSSファイルがエクスポートされる
 - **`packages/utils/`**: AI テーマ生成クライアントを含む共有ユーティリティ
-- **`app/ginga-ui.com/`**: ドキュメントウェブサイト（Next.js）
+- **`apps/ginga-ui.com/`**: ドキュメントウェブサイト（Next.js）
 
 ### パスエイリアス
 
