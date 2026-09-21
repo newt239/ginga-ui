@@ -1,5 +1,11 @@
 # @ginga-ui/utils
 
+## 0.15.0
+
+### Minor Changes
+
+- a112a11: ThemeClient のコンストラクタで apiKey を直接指定できるようにしました。指定しない場合は従来どおり環境変数が使われます。
+
 ## 0.14.0
 
 ### Minor Changes
