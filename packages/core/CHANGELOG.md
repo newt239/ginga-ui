@@ -1,5 +1,12 @@
 # @ginga-ui/core
 
+## 0.15.0
+
+### Patch Changes
+
+- Updated dependencies [a112a11]
+  - @ginga-ui/utils@0.15.0
+
 ## 0.14.0
 
 ### Minor Changes
