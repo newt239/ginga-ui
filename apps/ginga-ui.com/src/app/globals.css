@@ -81,19 +81,9 @@ body {
 }
 
 .docs-logo-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  flex-shrink: 0;
   width: 2rem;
   height: 2rem;
-  color: var(--color-on-accent);
-  background-color: var(--color-accent);
-  border-radius: var(--radius-sm);
-
-  & svg {
-    width: 1.25rem;
-    height: 1.25rem;
-  }
 }
 
 .docs-mobile-header {
@@ -109,7 +99,6 @@ body {
   height: 100vh;
   padding: 1.5rem 1rem 2rem;
   overflow-y: auto;
-  background-color: var(--color-surface);
 
   & > .docs-logo {
     margin-left: 0.5rem;
@@ -160,8 +149,95 @@ body {
     &[aria-current="page"] {
       font-weight: 700;
       color: var(--color-accent);
-      background-color: var(--color-accent-subtle);
+      background-color: var(--color-accent-subtle-hover);
     }
+  }
+}
+
+.docs-spinner {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-left: auto;
+  color: var(--color-text-muted);
+  animation: docs-spin 0.8s linear infinite;
+}
+
+.docs-credit {
+  padding: 0 0.75rem;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+
+  & a {
+    display: inline;
+    min-height: 0;
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.25rem;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.docs-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.docs-skeleton > * {
+  background-color: var(--color-surface-hover);
+  border-radius: var(--radius-sm);
+  animation: docs-pulse 1.4s ease-in-out infinite;
+}
+
+.docs-skeleton-title {
+  width: 40%;
+  height: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.docs-skeleton-line {
+  width: 100%;
+  height: 1rem;
+}
+
+.docs-skeleton-line-short {
+  width: 60%;
+}
+
+.docs-skeleton-block {
+  height: 12rem;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-lg);
+}
+
+@keyframes docs-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes docs-pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docs-spinner {
+    animation-duration: 2.4s;
+  }
+
+  .docs-skeleton > * {
+    animation: none;
   }
 }
 

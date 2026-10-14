@@ -4,6 +4,7 @@ import { useId } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ExternalLink } from "lucide-react";
+import { PendingIndicator } from "./pending-indicator";
 import { CATEGORIES, getComponentsByCategory } from "#/data/components";
 import type { ComponentCategory } from "#/data/components";
 
@@ -37,6 +38,7 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
         onClick={onNavigate}
       >
         {label}
+        <PendingIndicator />
       </Link>
     </li>
   );
@@ -84,6 +86,18 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
           </li>
         </ul>
       </section>
+      <p className="docs-credit">
+        ロゴ:{" "}
+        <a
+          href="https://github.com/jdecked/twemoji"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Twemoji
+          <span className="visually-hidden">（新しいタブで開く）</span>
+        </a>{" "}
+        (CC-BY 4.0)
+      </p>
     </nav>
   );
 }
