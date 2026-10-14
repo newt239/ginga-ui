@@ -1,6 +1,7 @@
 .ginga-code-block {
   box-sizing: border-box;
   width: 100%;
+  container-type: inline-size;
   overflow: hidden;
   font-family: var(--font-family);
   color: var(--color-text);
@@ -18,20 +19,30 @@
 }
 
 .ginga-code-block-filename {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--font-family-mono);
   font-size: 0.875rem;
   color: var(--color-text-muted);
+  white-space: nowrap;
 }
 
 .ginga-code-block-tab-list {
   display: flex;
-  flex-wrap: wrap;
+  flex: 1;
+  flex-wrap: nowrap;
   gap: 0.25rem;
+  min-width: 0;
   margin-left: -0.75rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
 .ginga-code-block-tab {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   min-height: var(--size-control-sm);
   padding: 0 0.75rem;
@@ -56,7 +67,7 @@
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
-    outline-offset: var(--focus-ring-offset);
+    outline-offset: calc(var(--focus-ring-width) * -1);
   }
 }
 
@@ -71,11 +82,27 @@
 }
 
 .ginga-code-block-copy-button {
+  flex-shrink: 0;
   margin-left: auto;
   color: var(--color-text-muted);
 
   &[data-hovered] {
     color: var(--color-text);
+  }
+}
+
+@container (width < 30rem) {
+  .ginga-code-block-copy-button:has(svg) {
+    padding-inline: 0.5rem;
+
+    .ginga-code-block-copy-label {
+      position: absolute;
+      width: 0.125rem;
+      height: 0.125rem;
+      overflow: hidden;
+      white-space: nowrap;
+      clip-path: inset(50%);
+    }
   }
 }
 

@@ -77,7 +77,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       onPress={handleCopy}
       startIcon={copied ? copiedIcon : copyIcon}
     >
-      <span aria-live="polite">{copied ? copiedLabel : copyLabel}</span>
+      <span className="ginga-code-block-copy-label" aria-live="polite">
+        {copied ? copiedLabel : copyLabel}
+      </span>
     </Button>
   );
 
