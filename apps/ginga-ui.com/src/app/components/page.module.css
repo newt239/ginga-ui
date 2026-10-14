@@ -1,7 +1,57 @@
-.tabsContainer {
-  margin-top: 2rem;
+.tabs {
+  margin-top: 2.5rem;
 }
 
-.componentLink {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text);
   text-decoration: none;
+  outline-offset: var(--focus-ring-offset);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+
+  &:hover {
+    background-color: var(--color-surface-hover);
+  }
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cardArrow {
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--color-text-muted);
+  transition: var(--transition);
+
+  .card:hover & {
+    color: var(--color-accent);
+    transform: translateX(0.25rem);
+  }
+}
+
+.cardDescription {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
 }

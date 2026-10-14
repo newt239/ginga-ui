@@ -2,45 +2,32 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 800px;
+  max-width: 40rem;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
 }
 
-.warningBox {
-  padding: 1rem;
-  background-color: var(--color-primary-1);
-  border: 1px solid var(--color-primary-3);
-  border-radius: var(--size-radius);
+.container .field {
+  margin-bottom: 0;
 }
 
-.warningText {
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.fieldLabel {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-.errorBox {
-  padding: 1rem;
-  color: var(--color-primary);
-  background-color: var(--color-primary-1);
-  border: 1px solid var(--color-primary);
-  border-radius: var(--size-radius);
+.submit {
+  align-self: flex-start;
 }
 
 .resultContainer {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .resultTitle {
-  margin-bottom: 1rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
 }
 
 .resultDescription {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
 }

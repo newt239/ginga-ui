@@ -1,15 +1,12 @@
 import Link from "next/link";
+import { Heading, Tab, TabList, TabPanel, Tabs } from "@ginga-ui/core";
+import { ArrowRight } from "lucide-react";
 import {
-  Heading,
-  Paragraph,
-  Card,
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs,
-} from "@ginga-ui/core";
-import { CATEGORIES, getComponentsByCategory } from "#/data/components";
-import type { ComponentCategory, ComponentMetadata } from "#/data/components";
+  CATEGORIES,
+  COMPONENTS,
+  getComponentsByCategory,
+} from "#/data/components";
+import type { ComponentCategory } from "#/data/components";
 import styles from "./page.module.css";
 
 export default function ComponentsPage() {
@@ -23,46 +20,46 @@ export default function ComponentsPage() {
   return (
     <article>
       <Heading level="h1">全コンポーネント</Heading>
-      <Paragraph>
-        Ginga
-        UIが提供する全25個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。
-      </Paragraph>
+      <p className="docs-lead">
+        Ginga UIが提供する全{COMPONENTS.length}
+        個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。
+      </p>
 
-      <div className={styles.tabsContainer}>
-        <Tabs>
-          <TabList aria-label="コンポーネントカテゴリ">
-            {categories.map(([category, { label }]) => (
-              <Tab key={category} id={category}>
-                {label}
-              </Tab>
-            ))}
-          </TabList>
+      <Tabs className={styles.tabs}>
+        <TabList aria-label="コンポーネントカテゴリ">
+          {categories.map(([category, { label }]) => (
+            <Tab key={category} id={category}>
+              {label}
+            </Tab>
+          ))}
+        </TabList>
 
-          {categories.map(([category]) => {
-            const components = getComponentsByCategory(category);
-
-            return (
-              <TabPanel key={category} id={category}>
-                <div className="component-grid">
-                  {components.map((component: ComponentMetadata) => (
-                    <Link
-                      key={component.id}
-                      href={`/components/${component.id}`}
-                      className={styles.componentLink}
-                    >
-                      <Card className="component-card">
-                        <Heading level="h3">{component.name}</Heading>
-                        <Paragraph>{component.description}</Paragraph>
-                        <span className="view-details">詳細を見る →</span>
-                      </Card>
-                    </Link>
-                  ))}
-                </div>
-              </TabPanel>
-            );
-          })}
-        </Tabs>
-      </div>
+        {categories.map(([category]) => (
+          <TabPanel key={category} id={category}>
+            <ul className={styles.grid}>
+              {getComponentsByCategory(category).map((component) => (
+                <li key={component.id}>
+                  <Link
+                    href={`/components/${component.id}`}
+                    className={styles.card}
+                  >
+                    <span className={styles.cardTitle}>
+                      {component.name}
+                      <ArrowRight
+                        className={styles.cardArrow}
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className={styles.cardDescription}>
+                      {component.description}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </TabPanel>
+        ))}
+      </Tabs>
     </article>
   );
 }

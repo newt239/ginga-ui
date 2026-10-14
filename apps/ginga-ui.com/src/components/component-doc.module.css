@@ -1,15 +1,22 @@
-.installSection {
-  margin-top: 3rem;
-}
-
 .exampleSection {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 
 .examplePreview {
-  padding: 2rem;
-  margin-top: 1rem;
-  background-color: var(--color-primary-0);
-  border: 1px solid var(--color-primary-2);
-  border-radius: var(--size-radius);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 10rem;
+  padding: 2.5rem 2rem;
+  margin-top: 1.25rem;
+  outline: var(--border-width) solid var(--color-surface-strong);
+  outline-offset: calc(var(--border-width) * -1);
+  background-color: var(--color-background);
+  border-radius: var(--radius-lg);
+
+  & > * {
+    max-width: 100%;
+  }
 }

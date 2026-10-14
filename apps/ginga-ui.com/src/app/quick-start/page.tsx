@@ -1,7 +1,6 @@
 import { Anchor, Heading, Paragraph } from "@ginga-ui/core";
 import { CodeBlock } from "#/components/code-block";
 import { highlightCode } from "#/lib/shiki";
-import styles from "./page.module.css";
 
 export default async function QuickStartPage() {
   return (
@@ -12,7 +11,7 @@ export default async function QuickStartPage() {
         UIを使い始めるための簡単なガイドです。わずか3ステップで、美しいUIコンポーネントを使い始められます。
       </Paragraph>
 
-      <section className={styles.installSection}>
+      <section className="docs-section">
         <Heading level="h2">1. インストール</Heading>
         <Paragraph>
           パッケージマネージャーを使ってGinga UIをインストールします。
@@ -24,9 +23,7 @@ export default async function QuickStartPage() {
             "bash"
           )}
         />
-        <Paragraph className={styles.npmNote}>
-          npmやyarnを使用している場合:
-        </Paragraph>
+        <Paragraph>npmやyarnを使用している場合:</Paragraph>
         <CodeBlock
           code={`npm install @ginga-ui/core
 # または
@@ -40,12 +37,12 @@ yarn add @ginga-ui/core`,
         />
       </section>
 
-      <section className={styles.cssSection}>
+      <section className="docs-section">
         <Heading level="h2">2. CSS変数のインポート</Heading>
         <Paragraph>
           各コンポーネントのCSSはインポート時に自動で読み込まれます。ルートコンポーネントでは、テーマのCSS変数定義のみをインポートします。Next.js
           App Routerの場合は
-          <code className={styles.inlineCode}>layout.tsx</code>
+          <code>layout.tsx</code>
           に記述します。
         </Paragraph>
         <CodeBlock
@@ -57,11 +54,11 @@ yarn add @ginga-ui/core`,
         />
       </section>
 
-      <section className={styles.usageSection}>
+      <section className="docs-section">
         <Heading level="h2">3. コンポーネントを使う</Heading>
         <Paragraph>
           コンポーネントを
-          <code className={styles.inlineCode}>@ginga-ui/core</code>
+          <code>@ginga-ui/core</code>
           からインポートして使用します。
         </Paragraph>
         <CodeBlock
@@ -95,15 +92,13 @@ export default function App() {
         />
       </section>
 
-      <section className={styles.nextExample}>
+      <section className="docs-section">
         <Heading level="h2">Next.js App Routerでの完全な例</Heading>
         <Paragraph>
           Next.js 13以降のApp Routerを使用する場合の完全なセットアップ例です。
         </Paragraph>
 
-        <Heading level="h3" className={styles.nextSubsection}>
-          app/layout.tsx
-        </Heading>
+        <Heading level="h3">app/layout.tsx</Heading>
         <CodeBlock
           code={`import { ThemeClient } from "@ginga-ui/utils";
 import "@ginga-ui/core/variables.css";
@@ -154,9 +149,7 @@ export default async function RootLayout({
           )}
         />
 
-        <Heading level="h3" className={styles.nextSubsection}>
-          app/page.tsx
-        </Heading>
+        <Heading level="h3">app/page.tsx</Heading>
         <CodeBlock
           code={`import { Heading, Paragraph, Button } from "@ginga-ui/core";
 
@@ -186,9 +179,9 @@ export default function Home() {
         />
       </section>
 
-      <section className={styles.nextSteps}>
+      <section className="docs-section">
         <Heading level="h2">次のステップ</Heading>
-        <ul className={styles.nextStepsList}>
+        <ul>
           <li>
             <Anchor href="/components">全コンポーネント</Anchor>
             を確認して、利用可能なUIパーツを探索

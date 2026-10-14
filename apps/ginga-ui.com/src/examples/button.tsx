@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@ginga-ui/core";
+import { Button, Input } from "@ginga-ui/core";
 
 export function BasicExample() {
   return (
@@ -16,7 +16,25 @@ export function VariantsExample() {
       <Button variant="filled">Filled</Button>
       <Button variant="light">Light</Button>
       <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
       <Button variant="reverse">Reverse</Button>
+    </div>
+  );
+}
+
+export function SizesExample() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: "1rem",
+        flexWrap: "wrap",
+        alignItems: "center",
+      }}
+    >
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
     </div>
   );
 }
@@ -49,18 +67,14 @@ export function FormExample() {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
-        maxWidth: "300px",
+        maxWidth: "20rem",
       }}
     >
-      <input
+      <Input
         type="text"
         name="name"
         placeholder="名前を入力"
-        style={{
-          padding: "0.5rem",
-          borderRadius: "var(--size-radius)",
-          border: "var(--width-border) solid var(--color-primary-2)",
-        }}
+        aria-label="名前"
       />
       <Button type="submit" variant="filled">
         送信

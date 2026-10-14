@@ -26,9 +26,9 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
   return (
     <article>
       <Heading level="h1">{component.name}</Heading>
-      <Paragraph>{component.description}</Paragraph>
+      <p className="docs-lead">{component.description}</p>
 
-      <section className={styles.installSection}>
+      <section className="docs-section">
         <Heading level="h2">インストール</Heading>
         <CodeBlock
           code={installCode}

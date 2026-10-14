@@ -23,14 +23,14 @@ export const CATEGORIES: Record<
   layout: { label: "レイアウト", order: 5 },
 };
 
-const COMPONENTS: ComponentMetadata[] = [
+export const COMPONENTS: ComponentMetadata[] = [
   // Forms
   {
     id: "button",
     name: "Button",
     category: "forms",
     description:
-      "ユーザーアクションをトリガーするボタンコンポーネント。4種類のバリアント(filled、light、outline、reverse)をサポート。",
+      "ユーザーアクションをトリガーするボタンコンポーネント。5種類のバリアント(filled、light、outline、ghost、reverse)と3種類のサイズ(sm、md、lg)をサポート。",
   },
   {
     id: "checkbox",

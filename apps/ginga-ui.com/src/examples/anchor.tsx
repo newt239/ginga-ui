@@ -28,9 +28,21 @@ export function DisabledExample() {
 export function ButtonVariantExample() {
   return (
     <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-      <Anchor href="https://example.com">デフォルトリンク</Anchor>
       <Anchor href="https://example.com" variant="button">
-        ボタンスタイルのリンク
+        Filled
+      </Anchor>
+      <Anchor href="https://example.com" variant="button" buttonVariant="light">
+        Light
+      </Anchor>
+      <Anchor
+        href="https://example.com"
+        variant="button"
+        buttonVariant="outline"
+      >
+        Outline
+      </Anchor>
+      <Anchor href="https://example.com" variant="button" buttonVariant="ghost">
+        Ghost
       </Anchor>
     </div>
   );
