@@ -17,8 +17,55 @@
 
 .ginga-code-block-filename {
   font-family: var(--font-family-mono);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
+}
+
+.ginga-code-block-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-left: -0.75rem;
+}
+
+.ginga-code-block-tab {
+  display: flex;
+  align-items: center;
+  min-height: var(--size-control-sm);
+  padding: 0 0.75rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  outline: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+
+  &[data-hovered] {
+    color: var(--color-text);
+    background-color: var(--color-surface-hover);
+  }
+
+  &[data-selected] {
+    font-weight: 700;
+    color: var(--color-text);
+    background-color: var(--color-surface-strong);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+.ginga-code-block-tab-panel {
+  outline: none;
+  border-radius: var(--radius-sm);
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: calc(var(--focus-ring-width) * -1);
+  }
 }
 
 .ginga-code-block-copy-button {
