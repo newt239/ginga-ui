@@ -9,8 +9,6 @@ import {
   TabPanel as AriaTabPanel,
   Tabs as AriaTabs,
 } from "react-aria-components";
-
-import { CheckIcon, CopyIcon } from "../../icons";
 import { Button } from "../button";
 import "./index.css";
 
@@ -29,6 +27,8 @@ export type CodeBlockProps = React.HTMLAttributes<HTMLDivElement> & {
   filesLabel?: string;
   copyLabel?: string;
   copiedLabel?: string;
+  copyIcon?: React.ReactNode;
+  copiedIcon?: React.ReactNode;
 };
 
 const CodeContent: React.FC<{ file: CodeBlockFile }> = ({ file }) => (
@@ -48,6 +48,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   filesLabel = "Files",
   copyLabel = "Copy",
   copiedLabel = "Copied!",
+  copyIcon,
+  copiedIcon,
   className,
   children,
   ...props
@@ -73,8 +75,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       size="sm"
       className="ginga-code-block-copy-button"
       onPress={handleCopy}
+      startIcon={copied ? copiedIcon : copyIcon}
     >
-      {copied ? <CheckIcon /> : <CopyIcon />}
       <span aria-live="polite">{copied ? copiedLabel : copyLabel}</span>
     </Button>
   );

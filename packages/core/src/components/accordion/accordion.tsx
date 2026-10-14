@@ -8,8 +8,6 @@ import {
   DisclosurePanel,
   Heading as AriaHeading,
 } from "react-aria-components";
-
-import { ChevronDownIcon } from "../../icons";
 import "./index.css";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
@@ -42,12 +40,14 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
 
 export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton> & {
   level?: 2 | 3 | 4 | 5 | 6;
+  icon?: React.ReactNode;
 };
 
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   children,
   className,
   level = 3,
+  icon,
   ...props
 }) => {
   return (
@@ -64,7 +64,11 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
                 ? children(renderProps)
                 : children}
             </span>
-            <ChevronDownIcon className="ginga-accordion-icon" />
+            {icon && (
+              <span className="ginga-accordion-icon" aria-hidden="true">
+                {icon}
+              </span>
+            )}
           </>
         )}
       </AriaButton>

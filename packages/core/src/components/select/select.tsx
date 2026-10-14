@@ -1,5 +1,7 @@
 "use client";
 
+import { createContext, useContext } from "react";
+
 import { cn } from "@ginga-ui/utils";
 import {
   Label as AriaLabel,
@@ -11,7 +13,6 @@ import {
   SelectValue as AriaSelectValue,
 } from "react-aria-components";
 
-import { CheckIcon, ChevronDownIcon } from "../../icons";
 import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
@@ -24,7 +25,11 @@ export type SelectProps = OmitStrict<
   disabled?: boolean;
   required?: boolean;
   children?: React.ReactNode;
+  icon?: React.ReactNode;
+  checkIcon?: React.ReactNode;
 };
+
+const SelectCheckIconContext = createContext<React.ReactNode>(null);
 
 export const Select: React.FC<SelectProps> = ({
   children,
@@ -32,6 +37,8 @@ export const Select: React.FC<SelectProps> = ({
   label,
   disabled,
   required,
+  icon,
+  checkIcon,
   ...props
 }) => {
   return (
@@ -44,10 +51,16 @@ export const Select: React.FC<SelectProps> = ({
       <AriaLabel className="ginga-select-label">{label}</AriaLabel>
       <AriaButton className="ginga-select-button">
         <AriaSelectValue className="ginga-select-value" />
-        <ChevronDownIcon className="ginga-select-icon" />
+        {icon && (
+          <span className="ginga-select-icon" aria-hidden="true">
+            {icon}
+          </span>
+        )}
       </AriaButton>
       <AriaPopover className="ginga-select-popover">
-        <AriaListBox className="ginga-select-listbox">{children}</AriaListBox>
+        <SelectCheckIconContext.Provider value={checkIcon}>
+          <AriaListBox className="ginga-select-listbox">{children}</AriaListBox>
+        </SelectCheckIconContext.Provider>
       </AriaPopover>
     </AriaSelect>
   );
@@ -63,6 +76,7 @@ export const SelectItem: React.FC<SelectItemProps> = ({
   textValue,
   ...props
 }) => {
+  const checkIcon = useContext(SelectCheckIconContext);
   return (
     <AriaListBoxItem
       className={cn("ginga-select-item", className)}
@@ -76,8 +90,10 @@ export const SelectItem: React.FC<SelectItemProps> = ({
           <span className="ginga-select-item-label">
             {typeof children === "function" ? children(renderProps) : children}
           </span>
-          {renderProps.isSelected && (
-            <CheckIcon className="ginga-select-item-check" />
+          {renderProps.isSelected && checkIcon && (
+            <span className="ginga-select-item-check" aria-hidden="true">
+              {checkIcon}
+            </span>
           )}
         </>
       )}

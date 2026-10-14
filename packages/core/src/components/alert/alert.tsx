@@ -2,10 +2,9 @@
 
 import { cn } from "@ginga-ui/utils";
 
-import { STATUS_ICONS } from "../../icons";
 import "./index.css";
 
-import type { StatusVariant } from "../../icons";
+export type StatusVariant = "info" | "success" | "warning" | "danger";
 
 export type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
   variant?: StatusVariant;
@@ -19,16 +18,15 @@ export const Alert: React.FC<AlertProps> = ({
   children,
   ...props
 }) => {
-  const DefaultIcon = STATUS_ICONS[variant];
   return (
     <div
       className={cn("ginga-alert", className)}
       data-variant={variant}
       {...props}
     >
-      {icon !== null && (
+      {icon && (
         <span className="ginga-alert-icon" aria-hidden="true">
-          {icon ?? <DefaultIcon />}
+          {icon}
         </span>
       )}
       <div className="ginga-alert-body">{children}</div>

@@ -8,6 +8,7 @@ import {
   Modal,
 } from "@ginga-ui/core";
 import styles from "./alert-dialog.module.css";
+import { CircleAlert, TriangleAlert } from "lucide-react";
 
 export function BasicExample() {
   return (
@@ -15,7 +16,9 @@ export function BasicExample() {
       <Button variant="filled">ファイルを削除</Button>
       <Modal>
         <AlertDialog variant="danger">
-          <AlertDialogTitle>ファイルの削除</AlertDialogTitle>
+          <AlertDialogTitle icon={<CircleAlert />}>
+            ファイルの削除
+          </AlertDialogTitle>
           <p>この操作は取り消せません。本当に削除しますか?</p>
           <div className={styles.actions}>
             <Button slot="close" variant="outline">
@@ -37,7 +40,9 @@ export function WarningExample() {
       <Button variant="outline">ログアウト</Button>
       <Modal>
         <AlertDialog variant="warning">
-          <AlertDialogTitle>ログアウトの確認</AlertDialogTitle>
+          <AlertDialogTitle icon={<TriangleAlert />}>
+            ログアウトの確認
+          </AlertDialogTitle>
           <p>保存されていない変更は失われます。ログアウトしますか?</p>
           <div className={styles.actions}>
             <Button slot="close" variant="outline">
