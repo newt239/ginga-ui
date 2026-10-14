@@ -3,10 +3,7 @@
   flex-direction: column;
   gap: 1.5rem;
   max-width: 40rem;
-  padding: 2rem;
   margin-top: 1.5rem;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
 }
 
 .container .field {

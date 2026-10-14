@@ -8,13 +8,9 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  min-height: 10rem;
-  padding: 2.5rem 2rem;
-  margin-top: 1.25rem;
-  outline: var(--border-width) solid var(--color-surface-strong);
-  outline-offset: calc(var(--border-width) * -1);
-  background-color: var(--color-background);
-  border-radius: var(--radius-lg);
+  min-height: 8rem;
+  padding: 2rem 0;
+  margin-top: 0.5rem;
 
   & > * {
     max-width: 100%;

@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogTitle,
   DialogTrigger,
+  Input,
   Modal,
 } from "@ginga-ui/core";
 
@@ -68,32 +69,16 @@ export function FormExample() {
                 marginTop: "1rem",
               }}
             >
-              <input
-                type="text"
-                placeholder="名前"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
-              />
-              <input
+              <Input type="text" aria-label="名前" placeholder="名前" />
+              <Input
                 type="email"
+                aria-label="メールアドレス"
                 placeholder="メールアドレス"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
               />
-              <input
+              <Input
                 type="password"
+                aria-label="パスワード"
                 placeholder="パスワード"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
               />
             </div>
             <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>

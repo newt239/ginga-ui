@@ -121,11 +121,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       title: "カードスタイル",
       description: "カードのようなスタイリングの例です。",
     },
-    {
-      name: "NestedExample",
-      title: "ネスト",
-      description: "ボックスをネストして複雑なレイアウトを作成します。",
-    },
   ],
   button: [
     {

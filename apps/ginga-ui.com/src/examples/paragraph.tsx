@@ -55,11 +55,11 @@ export function CustomStyleExample() {
       <Paragraph
         style={{
           padding: "1rem",
-          backgroundColor: "var(--color-primary-1)",
-          borderLeft: "4px solid var(--color-primary)",
+          backgroundColor: "var(--color-accent-subtle)",
+          borderRadius: "var(--radius-md)",
         }}
       >
-        背景色とボーダーを持つ段落です。重要な情報を強調表示できます。
+        背景色を持つ段落です。重要な情報を強調表示できます。
       </Paragraph>
     </div>
   );
