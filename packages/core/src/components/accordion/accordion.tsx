@@ -6,7 +6,10 @@ import {
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
+  Heading as AriaHeading,
 } from "react-aria-components";
+
+import { ChevronDownIcon } from "../../icons";
 import "./index.css";
 
 export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
@@ -37,21 +40,35 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   );
 };
 
-export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton>;
+export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton> & {
+  level?: 2 | 3 | 4 | 5 | 6;
+};
 
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   children,
   className,
+  level = 3,
   ...props
 }) => {
   return (
-    <AriaButton
-      slot="trigger"
-      className={cn("ginga-accordion-trigger", className)}
-      {...props}
-    >
-      {children}
-    </AriaButton>
+    <AriaHeading level={level} className="ginga-accordion-heading">
+      <AriaButton
+        slot="trigger"
+        className={cn("ginga-accordion-trigger", className)}
+        {...props}
+      >
+        {(renderProps) => (
+          <>
+            <span className="ginga-accordion-trigger-label">
+              {typeof children === "function"
+                ? children(renderProps)
+                : children}
+            </span>
+            <ChevronDownIcon className="ginga-accordion-icon" />
+          </>
+        )}
+      </AriaButton>
+    </AriaHeading>
   );
 };
 
@@ -69,7 +86,7 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
       className={cn("ginga-accordion-content", className)}
       {...props}
     >
-      {children}
+      <div className="ginga-accordion-content-inner">{children}</div>
     </DisclosurePanel>
   );
 };

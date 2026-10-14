@@ -1,39 +1,48 @@
 .ginga-code-block {
   overflow: hidden;
   font-family: var(--font-family);
-  color: var(--color-secondary-9);
-  background-color: var(--color-background);
-  border: 1px solid var(--color-primary-2);
-  border-radius: calc(var(--size-radius) * 0.5);
+  color: var(--color-text);
+  outline: var(--border-width) solid transparent;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
 }
 
 .ginga-code-block-header {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.75rem 1rem;
-  background-color: var(--color-primary-1);
-  border-bottom: 1px solid var(--color-primary-2);
+  min-height: 2.75rem;
+  padding: 0.375rem 0.5rem 0 1.25rem;
 }
 
 .ginga-code-block-filename {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--color-secondary);
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
 }
 
 .ginga-code-block-copy-button {
   margin-left: auto;
-  font-size: 0.875rem;
+  color: var(--color-text-muted);
+
+  &[data-hovered] {
+    color: var(--color-text);
+  }
 }
 
 .ginga-code-block-content {
   overflow-x: auto;
 
   & pre {
-    padding: 1rem;
+    padding: 0.25rem 1.25rem 1.25rem;
     margin: 0;
+    font-family: var(--font-family-mono);
     font-size: 0.875rem;
-    line-height: 1.6;
+    line-height: 1.75;
+    background-color: transparent !important;
+  }
+
+  & code {
+    font-family: inherit;
   }
 }

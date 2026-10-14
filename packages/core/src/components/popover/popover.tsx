@@ -45,7 +45,13 @@ export const Popover: React.FC<PopoverProps> = ({
     >
       {showArrow && (
         <AriaOverlayArrow className="ginga-popover-arrow">
-          <svg width={12} height={12} viewBox="0 0 12 12" aria-hidden="true">
+          <svg
+            width={12}
+            height={12}
+            viewBox="0 0 12 12"
+            aria-hidden="true"
+            focusable="false"
+          >
             <path d="M0 0 L6 6 L12 0" />
           </svg>
         </AriaOverlayArrow>

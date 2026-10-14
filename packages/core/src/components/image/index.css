@@ -1,11 +1,12 @@
 .ginga-image {
-  width: 100%;
+  display: block;
+  max-width: 100%;
   height: auto;
-  border-radius: calc(var(--size-radius));
+  border-radius: var(--radius-lg);
 
   &[data-variant="avatar"] {
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 9999px;
+    border-radius: 50%;
   }
 }

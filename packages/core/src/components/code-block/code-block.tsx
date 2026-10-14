@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { cn } from "@ginga-ui/utils";
 
+import { CheckIcon, CopyIcon } from "../../icons";
 import { Button } from "../button";
 import "./index.css";
 
@@ -39,10 +40,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           <span className="ginga-code-block-filename">{filename}</span>
         )}
         <Button
-          variant="light"
+          variant="ghost"
+          size="sm"
           className="ginga-code-block-copy-button"
           onPress={handleCopy}
         >
+          {copied ? <CheckIcon /> : <CopyIcon />}
           <span aria-live="polite">{copied ? copiedLabel : copyLabel}</span>
         </Button>
       </div>

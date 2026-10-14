@@ -4,81 +4,87 @@
     "label output"
     "track track";
   grid-template-columns: 1fr auto;
-  max-width: 300px;
+  row-gap: 0.25rem;
+  width: 100%;
+  max-width: 20rem;
   font-family: var(--font-family);
-  color: var(--color-secondary);
-
-  .ginga-slider-label {
-    grid-area: label;
-  }
+  font-size: 0.875rem;
+  color: var(--color-text);
 
   .ginga-slider-output {
     grid-area: output;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-text-muted);
   }
 
   .ginga-slider-track {
     position: relative;
     grid-area: track;
+    width: 100%;
+    height: 1.5rem;
 
     &::before {
       position: absolute;
-      display: block;
+      top: 50%;
+      right: 0;
+      left: 0;
+      height: 0.375rem;
       content: "";
-      background-color: var(--color-primary-9);
+      background-color: var(--color-surface-strong);
+      border-radius: var(--radius-pill);
+      transform: translateY(-50%);
     }
+  }
+
+  .ginga-slider-fill {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 0.375rem;
+    background-color: var(--color-accent);
+    border-radius: var(--radius-pill);
+    transform: translateY(-50%);
   }
 
   .ginga-slider-thumb {
-    width: 1rem;
-    height: 1rem;
-    cursor: pointer;
-    forced-color-adjust: none;
-    background: var(--color-primary-9);
-    border: var(--width-border) solid var(--color-primary-9);
-    border-radius: calc(var(--size-radius) * 0.5);
+    top: calc(50% - 0.625rem);
+    box-sizing: border-box;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: grab;
+    background-color: var(--color-background);
+    border: var(--border-width) solid var(--color-accent);
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+    transition: background-color var(--duration) var(--easing);
+
+    &[data-hovered] {
+      background-color: var(--color-accent-subtle);
+    }
 
     &[data-dragging] {
-      background: var(--color-primary-7);
+      cursor: grabbing;
+      background-color: var(--color-accent);
     }
 
     &[data-focus-visible] {
-      outline: 2px solid var(--color-primary-7);
-    }
-  }
-
-  &[data-orientation="horizontal"] {
-    flex-direction: column;
-    width: 300px;
-
-    .ginga-slider-track {
-      width: 100%;
-      height: 30px;
-
-      &::before {
-        top: 50%;
-        width: 100%;
-        height: 3px;
-        transform: translateY(-90%);
-      }
-    }
-
-    .ginga-slider-thumb {
-      top: 50%;
+      outline: var(--focus-ring-width) solid var(--color-focus);
+      outline-offset: var(--focus-ring-offset);
     }
   }
 
   &[data-disabled] {
-    color: var(--color-secondary-5);
-    pointer-events: none;
+    color: var(--color-text-muted);
     cursor: not-allowed;
 
-    .ginga-slider-track::before {
-      background-color: var(--color-secondary-5);
+    .ginga-slider-fill {
+      background-color: var(--color-control-border);
     }
 
     .ginga-slider-thumb {
-      background-color: var(--color-secondary-5);
-      border-color: var(--color-secondary-5);
+      cursor: not-allowed;
+      border-color: var(--color-control-border);
     }
   }
 }

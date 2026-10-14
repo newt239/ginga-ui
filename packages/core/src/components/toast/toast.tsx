@@ -9,12 +9,15 @@ import {
   UNSTABLE_ToastQueue as AriaToastQueue,
   UNSTABLE_ToastRegion as AriaToastRegion,
 } from "react-aria-components";
+
+import { CloseIcon, STATUS_ICONS } from "../../icons";
 import "./index.css";
 
+import type { StatusVariant } from "../../icons";
 import type { OmitStrict } from "@ginga-ui/utils";
 import type { ToastRegionProps as AriaToastRegionProps } from "react-aria-components";
 
-export type ToastVariant = "info" | "success" | "warning" | "danger";
+export type ToastVariant = StatusVariant;
 
 export type ToastContentValue = {
   title: string;
@@ -80,31 +83,39 @@ export const ToastRegion: React.FC<ToastRegionProps> = ({
       data-placement={placement}
       {...props}
     >
-      {({ toast: queuedToast }) => (
-        <AriaToast
-          toast={queuedToast}
-          className="ginga-toast"
-          data-variant={queuedToast.content.variant ?? "info"}
-        >
-          <AriaToastContent className="ginga-toast-content">
-            <AriaText slot="title" className="ginga-toast-title">
-              {queuedToast.content.title}
-            </AriaText>
-            {queuedToast.content.description && (
-              <AriaText slot="description" className="ginga-toast-description">
-                {queuedToast.content.description}
-              </AriaText>
-            )}
-          </AriaToastContent>
-          <AriaButton
-            slot="close"
-            className="ginga-toast-close"
-            aria-label="閉じる"
+      {({ toast: queuedToast }) => {
+        const variant = queuedToast.content.variant ?? "info";
+        const Icon = STATUS_ICONS[variant];
+        return (
+          <AriaToast
+            toast={queuedToast}
+            className="ginga-toast"
+            data-variant={variant}
           >
-            ×
-          </AriaButton>
-        </AriaToast>
-      )}
+            <Icon className="ginga-toast-icon" />
+            <AriaToastContent className="ginga-toast-content">
+              <AriaText slot="title" className="ginga-toast-title">
+                {queuedToast.content.title}
+              </AriaText>
+              {queuedToast.content.description && (
+                <AriaText
+                  slot="description"
+                  className="ginga-toast-description"
+                >
+                  {queuedToast.content.description}
+                </AriaText>
+              )}
+            </AriaToastContent>
+            <AriaButton
+              slot="close"
+              className="ginga-toast-close"
+              aria-label="閉じる"
+            >
+              <CloseIcon />
+            </AriaButton>
+          </AriaToast>
+        );
+      }}
     </AriaToastRegion>
   );
 };

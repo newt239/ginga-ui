@@ -6,18 +6,29 @@ import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
+export type ButtonVariant =
+  | "filled"
+  | "light"
+  | "outline"
+  | "ghost"
+  | "reverse";
+
+export type ButtonSize = "sm" | "md" | "lg";
+
 export type ButtonProps = OmitStrict<
   React.ComponentProps<typeof AriaButton>,
   "isDisabled"
 > & {
   disabled?: boolean;
-  variant?: "filled" | "light" | "outline" | "reverse";
+  variant?: ButtonVariant;
+  size?: ButtonSize;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   className,
-  variant,
+  variant = "filled",
+  size = "md",
   disabled = false,
   ...props
 }) => {
@@ -25,6 +36,7 @@ export const Button: React.FC<ButtonProps> = ({
     <AriaButton
       className={cn("ginga-button", className)}
       data-variant={variant}
+      data-size={size}
       isDisabled={disabled}
       {...props}
     >

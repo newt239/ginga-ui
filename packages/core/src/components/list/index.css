@@ -1,17 +1,27 @@
 .ginga-list {
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
+  margin: 0 0 1em;
   font-family: var(--font-family);
-  color: var(--color-secondary-9);
+  color: var(--color-text);
+
+  &[data-type="ordered"] {
+    list-style-type: decimal;
+  }
+
+  &[data-type="unordered"] {
+    list-style-type: disc;
+  }
 }
 
-.ginga-orderedList {
-  list-style-type: decimal;
-}
+.ginga-list-item {
+  padding-left: 0.25rem;
+  line-height: 1.8;
 
-.ginga-unorderedList {
-  list-style-type: disc;
-}
+  &::marker {
+    color: var(--color-text-muted);
+  }
 
-.ginga-listItem {
-  line-height: 1.5;
+  & + & {
+    margin-top: 0.25rem;
+  }
 }

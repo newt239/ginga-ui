@@ -1,111 +1,114 @@
 .ginga-button {
-  display: flex;
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-shrink: 0;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  min-height: var(--size-control-md);
+  padding: 0 1.125rem;
   margin: 0;
   font-family: var(--font-family);
   font-size: 1rem;
-  vertical-align: middle;
-  color: var(--color-background);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-on-accent);
   text-align: center;
+  white-space: nowrap;
   text-decoration: none;
   appearance: none;
   cursor: pointer;
+  user-select: none;
   outline: none;
-  background-color: var(--color-primary-9);
-  border: none;
-  border-radius: calc(var(--size-radius) * 0.5);
-  transition: all 0.2s;
+  background-color: var(--color-accent);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+
+  & svg {
+    flex-shrink: 0;
+    width: 1.125em;
+    height: 1.125em;
+  }
 
   &[data-hovered] {
-    background-color: var(--color-primary-8);
+    background-color: var(--color-accent-hover);
   }
 
   &[data-pressed] {
-    background-color: var(--color-primary-7);
-  }
-
-  &[data-disabled] {
-    color: var(--color-secondary-6);
-    pointer-events: none;
-    cursor: not-allowed;
-    background-color: var(--color-secondary-1);
-    border-color: var(--color-secondary-1);
+    transform: scale(0.98);
   }
 
   &[data-focus-visible] {
-    outline: 2px solid var(--color-primary-5);
-    outline-offset: -1px;
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  &[data-size="sm"] {
+    gap: 0.375rem;
+    min-height: var(--size-control-sm);
+    padding: 0 0.75rem;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+  }
+
+  &[data-size="lg"] {
+    gap: 0.625rem;
+    min-height: var(--size-control-lg);
+    padding: 0 1.5rem;
+    font-size: 1.125rem;
   }
 
   &[data-variant="light"] {
-    color: var(--color-primary-9);
-    background-color: var(--color-primary-1);
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
 
     &[data-hovered] {
-      background-color: var(--color-primary-2);
-    }
-
-    &[data-pressed] {
-      background-color: var(--color-primary-3);
+      background-color: var(--color-accent-subtle-hover);
     }
   }
 
   &[data-variant="outline"] {
-    color: var(--color-primary-9);
-    background: var(--color-background);
-    border: 1px solid var(--color-primary-9);
+    color: var(--color-accent);
+    background-color: transparent;
+    border-color: var(--color-accent);
 
     &[data-hovered] {
-      background-color: var(--color-primary-1);
+      background-color: var(--color-accent-subtle);
     }
+  }
 
-    &[data-pressed] {
-      background-color: var(--color-primary-2);
+  &[data-variant="ghost"] {
+    color: var(--color-text);
+    background-color: transparent;
+
+    &[data-hovered] {
+      background-color: var(--color-surface-hover);
     }
   }
 
   &[data-variant="reverse"] {
-    color: var(--color-primary-9);
+    color: var(--color-accent);
     background-color: var(--color-background);
 
     &[data-hovered] {
-      background-color: var(--color-primary-0);
+      background-color: var(--color-accent-subtle);
     }
+  }
 
-    &[data-pressed] {
-      background-color: var(--color-primary-1);
-    }
+  &[data-disabled] {
+    color: var(--color-text-muted);
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: var(--color-surface-strong);
+    border-color: transparent;
   }
 }
 
 .ginga-button-group {
   display: inline-flex;
-}
-
-.ginga-button-group-item {
-  position: relative;
-  margin: 0 !important;
-}
-
-.ginga-button-group-item:not([data-position="first"]) {
-  margin-left: -1px !important;
-  border-top-left-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.ginga-button-group-item:not([data-position="last"]) {
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-
-/* フォーカスされたボタン/ホバーされたボタンが兄弟ボタンの上に表示されるようにする */
-.ginga-button-group-item:hover,
-.ginga-button-group-item[data-focus-visible] {
-  z-index: 1;
-}
-
-.ginga-button-group-item[data-pressed] {
-  z-index: 2;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
 }

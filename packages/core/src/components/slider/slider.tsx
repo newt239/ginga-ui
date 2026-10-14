@@ -52,7 +52,15 @@ export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
 }) => {
   return (
     <AriaSliderTrack className={cn("ginga-slider-track", className)} {...props}>
-      {children}
+      {(renderProps) => (
+        <>
+          <span
+            className="ginga-slider-fill"
+            style={{ width: `${renderProps.state.getThumbPercent(0) * 100}%` }}
+          />
+          {typeof children === "function" ? children(renderProps) : children}
+        </>
+      )}
     </AriaSliderTrack>
   );
 };

@@ -90,7 +90,7 @@ export const Table = <T extends object>({
       {showHeader && (
         <AriaTableHeader className={"ginga-table-header"}>
           {selectionMode !== "none" && (
-            <AriaColumn className={"ginga-column"}>
+            <AriaColumn className={"ginga-table-column"}>
               <Checkbox
                 aria-label="Select all rows"
                 selected={selectedRows.size === data.length}
@@ -105,7 +105,7 @@ export const Table = <T extends object>({
           {columns.map((column) => (
             <AriaColumn
               key={column.key}
-              className={"ginga-column"}
+              className={"ginga-table-column"}
               isRowHeader={column.isRowHeader}
             >
               {column.header}
@@ -117,11 +117,11 @@ export const Table = <T extends object>({
         {data.map((row, rowIndex) => (
           <AriaRow
             key={rowIndex}
-            className={"ginga-row"}
+            className={"ginga-table-row"}
             data-selected={selectedRows.has(rowIndex)}
           >
             {selectionMode !== "none" && (
-              <AriaCell className={"ginga-cell"}>
+              <AriaCell className={"ginga-table-cell"}>
                 <Checkbox
                   aria-label={`Select row ${rowIndex + 1}`}
                   selected={selectedRows.has(rowIndex)}
@@ -131,7 +131,7 @@ export const Table = <T extends object>({
               </AriaCell>
             )}
             {columns.map((column) => (
-              <AriaCell key={column.key} className={"ginga-cell"}>
+              <AriaCell key={column.key} className={"ginga-table-cell"}>
                 {renderCell(row, column)}
               </AriaCell>
             ))}
