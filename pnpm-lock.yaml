@@ -217,9 +217,6 @@ importers:
       react:
         specifier: 19.3.0
         version: 19.3.0
-      react-aria-components:
-        specifier: 1.21.1
-        version: 1.21.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       storybook:
         specifier: 10.6.1
         version: 10.6.1(@types/react@19.3.0)(react@19.3.0)

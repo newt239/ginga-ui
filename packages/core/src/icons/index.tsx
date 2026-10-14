@@ -45,7 +45,7 @@ export const CopyIcon = createIcon(
   </>
 );
 
-export const InfoIcon = createIcon(
+const InfoIcon = createIcon(
   "InfoIcon",
   <>
     <circle cx="12" cy="12" r="10" />
@@ -53,7 +53,7 @@ export const InfoIcon = createIcon(
   </>
 );
 
-export const SuccessIcon = createIcon(
+const SuccessIcon = createIcon(
   "SuccessIcon",
   <>
     <circle cx="12" cy="12" r="10" />
@@ -61,7 +61,7 @@ export const SuccessIcon = createIcon(
   </>
 );
 
-export const WarningIcon = createIcon(
+const WarningIcon = createIcon(
   "WarningIcon",
   <>
     <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
@@ -69,7 +69,7 @@ export const WarningIcon = createIcon(
   </>
 );
 
-export const DangerIcon = createIcon(
+const DangerIcon = createIcon(
   "DangerIcon",
   <>
     <circle cx="12" cy="12" r="10" />
