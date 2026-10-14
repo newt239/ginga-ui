@@ -26,6 +26,19 @@ export function CustomRangeExample() {
   );
 }
 
+export function RangeExample() {
+  return (
+    <Slider defaultValue={[20, 80]}>
+      <div>価格帯</div>
+      <SliderOutput />
+      <SliderTrack>
+        <SliderThumb index={0} />
+        <SliderThumb index={1} />
+      </SliderTrack>
+    </Slider>
+  );
+}
+
 export function WithStepsExample() {
   return (
     <Slider defaultValue={50} step={10}>

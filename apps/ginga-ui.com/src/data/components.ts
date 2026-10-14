@@ -63,7 +63,8 @@ export const COMPONENTS: ComponentMetadata[] = [
     id: "slider",
     name: "Slider",
     category: "forms",
-    description: "数値を範囲内で選択するスライダーコンポーネント。",
+    description:
+      "数値を範囲内で選択するスライダーコンポーネント。開始点と終了点を指定する範囲選択にも対応。",
   },
   {
     id: "switch",
