@@ -6,10 +6,10 @@
   align-items: center;
   justify-content: center;
   min-height: var(--size-control-md);
-  padding: 0 1.125rem;
+  padding: 0 1.25rem;
   margin: 0;
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-on-accent);
@@ -48,16 +48,16 @@
   &[data-size="sm"] {
     gap: 0.375rem;
     min-height: var(--size-control-sm);
-    padding: 0 0.75rem;
-    font-size: 0.875rem;
+    padding: 0 0.875rem;
+    font-size: 1rem;
     border-radius: var(--radius-sm);
   }
 
   &[data-size="lg"] {
     gap: 0.625rem;
     min-height: var(--size-control-lg);
-    padding: 0 1.5rem;
-    font-size: 1.125rem;
+    padding: 0 1.75rem;
+    font-size: 1.25rem;
   }
 
   &[data-variant="light"] {
