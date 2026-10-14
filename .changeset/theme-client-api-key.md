@@ -11,6 +11,7 @@ ThemeClient のコンストラクタで apiKey を直接指定できるように
 - Button に `ghost` バリアントと `size` (`sm` / `md` / `lg`) を追加
 - Anchor の `variant="button"` で `buttonVariant` と `size` を指定できるように変更し、通常リンクは破線の下線に変更
 - Alert / Toast / AlertDialog に種別アイコンを追加し、Alert に `icon` を追加
+- CodeBlock に `files` を追加し、複数ファイルをタブで切り替えられるように変更
 - `SelectItem` を export し、Select の矢印・Accordion の開閉アイコンを SVG に変更
 - Heading のサイズ指定が効いていなかった不具合を修正
 - 破壊的変更: List のクラス名を `ginga-list-item` などに、Table のクラス名を `ginga-table-row` / `ginga-table-column` / `ginga-table-cell` に、Select のラベルのクラス名を `ginga-select-label` に変更。AccordionTrigger は見出し要素 (既定は h3) で包まれるように変更
