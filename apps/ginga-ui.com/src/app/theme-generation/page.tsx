@@ -1,7 +1,6 @@
 import { Heading, Paragraph } from "@ginga-ui/core";
 import { ThemeGenerator } from "#/components/theme-generator";
-import { CodeBlock } from "#/components/code-block";
-import { highlightCode } from "#/lib/shiki";
+import { HighlightedCodeBlock } from "#/components/highlighted-code-block";
 import styles from "./page.module.css";
 
 export default async function ThemeGenerationPage() {
@@ -14,7 +13,9 @@ export default async function ThemeGenerationPage() {
       </Paragraph>
 
       <section className="docs-section">
-        <Heading level="h2">ライブデモ</Heading>
+        <Heading level="h2" id="live-demo">
+          ライブデモ
+        </Heading>
         <Paragraph>
           下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。プロバイダーに「Gemini
           Nano」を選んだ場合はAPIキーが不要で、生成はすべてブラウザ内で完結します。
@@ -23,35 +24,34 @@ export default async function ThemeGenerationPage() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2">サーバーサイドでの使用（推奨）</Heading>
+        <Heading level="h2" id="server-side">
+          サーバーサイドでの使用（推奨）
+        </Heading>
         <Paragraph>
           本番環境では、サーバーサイドでテーマを生成することを強く推奨します。これによりAPIキーが露出せず、SEOやパフォーマンスも向上します。
         </Paragraph>
 
-        <Heading level="h3">環境変数の設定</Heading>
+        <Heading level="h3" id="environment-variables">
+          環境変数の設定
+        </Heading>
         <Paragraph>
           まず、使用するLLMプロバイダーのAPIキーを環境変数に設定します。
         </Paragraph>
-        <CodeBlock
-          code={`# .env.local
-OPENAI_API_KEY=sk-...
+        <HighlightedCodeBlock
+          filename=".env.local"
+          code={`OPENAI_API_KEY=sk-...
 # または
 GOOGLE_GENERATIVE_AI_API_KEY=...
 # または
 ANTHROPIC_API_KEY=...`}
-          highlightedCode={await highlightCode(
-            `# .env.local
-OPENAI_API_KEY=sk-...
-# または
-GOOGLE_GENERATIVE_AI_API_KEY=...
-# または
-ANTHROPIC_API_KEY=...`,
-            "bash"
-          )}
+          lang="bash"
         />
 
-        <Heading level="h3">Next.js App Routerでの実装例</Heading>
-        <CodeBlock
+        <Heading level="h3" id="nextjs-example">
+          Next.js App Routerでの実装例
+        </Heading>
+        <HighlightedCodeBlock
+          filename="app/layout.tsx"
           code={`import { ThemeClient } from "@ginga-ui/utils";
 
 export default async function RootLayout({
@@ -76,38 +76,14 @@ export default async function RootLayout({
     </html>
   );
 }`}
-          highlightedCode={await highlightCode(
-            `import { ThemeClient } from "@ginga-ui/utils";
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const themeClient = new ThemeClient({
-    provider: "openai",
-  });
-
-  const { CSSCode } = await themeClient.generateTheme(
-    "宇宙の神秘"
-  );
-
-  return (
-    <html lang="ja">
-      <body>
-        <style>{CSSCode}</style>
-        {children}
-      </body>
-    </html>
-  );
-}`,
-            "tsx"
-          )}
+          lang="tsx"
         />
       </section>
 
       <section className="docs-section">
-        <Heading level="h2">ブラウザ内での使用（Gemini Nano）</Heading>
+        <Heading level="h2" id="browser">
+          ブラウザ内での使用（Gemini Nano）
+        </Heading>
         <Paragraph>
           <code>provider: &quot;browser&quot;</code>
           を指定すると、ChromeやEdgeが搭載するGemini
@@ -127,7 +103,8 @@ export default async function RootLayout({
           <code>onDownloadProgress</code>
           で進捗を表示することを推奨します。
         </Paragraph>
-        <CodeBlock
+        <HighlightedCodeBlock
+          filename="components/browser-theme-button.tsx"
           code={`"use client";
 
 import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
@@ -161,47 +138,14 @@ export function BrowserThemeButton() {
     </>
   );
 }`}
-          highlightedCode={await highlightCode(
-            `"use client";
-
-import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
-import { useState } from "react";
-
-export function BrowserThemeButton() {
-  const [css, setCss] = useState("");
-
-  const generate = async () => {
-    const availability = await getBrowserAIAvailability();
-
-    if (availability === "unavailable") {
-      return;
-    }
-
-    const themeClient = new ThemeClient({ provider: "browser" });
-
-    const { CSSCode } = await themeClient.generateTheme("深海の静けさ", {
-      onDownloadProgress: (progress) => {
-        console.log(\`ダウンロード中: \${Math.round(progress * 100)}%\`);
-      },
-    });
-
-    setCss(CSSCode);
-  };
-
-  return (
-    <>
-      <button onClick={generate}>テーマを生成</button>
-      <style>{css}</style>
-    </>
-  );
-}`,
-            "tsx"
-          )}
+          lang="tsx"
         />
       </section>
 
       <section className="docs-section">
-        <Heading level="h2">サポートされているLLMプロバイダー</Heading>
+        <Heading level="h2" id="providers">
+          サポートされているLLMプロバイダー
+        </Heading>
         <Paragraph>
           ThemeClientは3つのクラウドLLMプロバイダーと、ブラウザ内蔵のGemini
           Nanoをサポートしています。
@@ -213,7 +157,7 @@ export function BrowserThemeButton() {
         </Paragraph>
 
         <div>
-          <Heading level="h3">
+          <Heading level="h3" id="provider-openai">
             OpenAI — <code>provider: &quot;openai&quot;</code>
           </Heading>
           <ul>
@@ -228,7 +172,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3">
+          <Heading level="h3" id="provider-google">
             Google Gemini — <code>provider: &quot;google&quot;</code>
           </Heading>
           <ul>
@@ -243,7 +187,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3">
+          <Heading level="h3" id="provider-anthropic">
             Anthropic Claude — <code>provider: &quot;anthropic&quot;</code>
           </Heading>
           <ul>
@@ -258,7 +202,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3">
+          <Heading level="h3" id="provider-browser">
             Gemini Nano — <code>provider: &quot;browser&quot;</code>
           </Heading>
           <ul>
@@ -272,7 +216,9 @@ export function BrowserThemeButton() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2">生成されるCSS変数</Heading>
+        <Heading level="h2" id="css-variables">
+          生成されるCSS変数
+        </Heading>
         <Paragraph>
           ThemeClientは以下のCSS変数を生成します。これらは自動的にコントラスト比が検証され、アクセシビリティ基準（WCAG
           AA）を満たすように調整されます。
