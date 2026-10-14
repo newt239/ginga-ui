@@ -30,7 +30,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "Button",
     category: "forms",
     description:
-      "ユーザーアクションをトリガーするボタンコンポーネント。5種類のバリアント(filled、light、outline、ghost、reverse)と3種類のサイズ(sm、md、lg)をサポート。",
+      "ユーザーアクションをトリガーするボタンコンポーネント。5種類のバリアント(filled、light、outline、ghost、reverse)と3種類のサイズ(sm、md、lg)、ラベル前後のアイコン指定をサポート。",
   },
   {
     id: "checkbox",

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Input } from "@ginga-ui/core";
+import { ArrowRight, ChevronDown, Download, Plus, Send } from "lucide-react";
 import styles from "./button.module.css";
 
 export function BasicExample() {
@@ -29,6 +30,20 @@ export function SizesExample() {
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
+    </div>
+  );
+}
+
+export function WithIconExample() {
+  return (
+    <div className={styles.variantRow}>
+      <Button startIcon={<Download />}>ダウンロード</Button>
+      <Button variant="light" endIcon={<ArrowRight />}>
+        次へ
+      </Button>
+      <Button variant="outline" startIcon={<Plus />} endIcon={<ChevronDown />}>
+        追加
+      </Button>
     </div>
   );
 }
@@ -65,7 +80,7 @@ export function FormExample() {
         placeholder="名前を入力"
         aria-label="名前"
       />
-      <Button type="submit" variant="filled">
+      <Button type="submit" variant="filled" startIcon={<Send />}>
         送信
       </Button>
     </form>

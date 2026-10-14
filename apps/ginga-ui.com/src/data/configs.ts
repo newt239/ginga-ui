@@ -166,6 +166,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: "sizeプロップでsm、md、lgの3種類のサイズを指定できます。",
     },
     {
+      name: "WithIconExample",
+      title: "アイコン付き",
+      description:
+        "startIcon と endIcon で、ラベルの前後にアイコンを表示できます。",
+    },
+    {
       name: "DisabledExample",
       title: "無効化",
       description: "disabledプロップでボタンを無効化できます。",
