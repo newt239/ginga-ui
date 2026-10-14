@@ -62,48 +62,50 @@ export const Table = <T extends object>({
   };
 
   return (
-    <AriaTable
-      className={cn("ginga-table", className)}
-      aria-label={ariaLabel}
-      data-striped={striped || undefined}
-      selectionMode={selectionMode}
-      selectedKeys={selectedKeys}
-      onSelectionChange={handleSelectionChange}
-    >
-      {showHeader && (
-        <AriaTableHeader className="ginga-table-header">
-          {selectionMode !== "none" && (
-            <AriaColumn className="ginga-table-column ginga-table-selection">
-              {selectionMode === "multiple" && <Checkbox slot="selection" />}
-            </AriaColumn>
-          )}
-          {columns.map((column) => (
-            <AriaColumn
-              key={column.key}
-              className="ginga-table-column"
-              isRowHeader={column.isRowHeader}
-            >
-              {column.header}
-            </AriaColumn>
-          ))}
-        </AriaTableHeader>
-      )}
-      <AriaTableBody className="ginga-table-body">
-        {data.map((row, rowIndex) => (
-          <AriaRow key={rowIndex} id={rowIndex} className="ginga-table-row">
+    <div className="ginga-table-container">
+      <AriaTable
+        className={cn("ginga-table", className)}
+        aria-label={ariaLabel}
+        data-striped={striped || undefined}
+        selectionMode={selectionMode}
+        selectedKeys={selectedKeys}
+        onSelectionChange={handleSelectionChange}
+      >
+        {showHeader && (
+          <AriaTableHeader className="ginga-table-header">
             {selectionMode !== "none" && (
-              <AriaCell className="ginga-table-cell ginga-table-selection">
-                <Checkbox slot="selection" />
-              </AriaCell>
+              <AriaColumn className="ginga-table-column ginga-table-selection">
+                {selectionMode === "multiple" && <Checkbox slot="selection" />}
+              </AriaColumn>
             )}
             {columns.map((column) => (
-              <AriaCell key={column.key} className="ginga-table-cell">
-                {renderCell(row, column)}
-              </AriaCell>
+              <AriaColumn
+                key={column.key}
+                className="ginga-table-column"
+                isRowHeader={column.isRowHeader}
+              >
+                {column.header}
+              </AriaColumn>
             ))}
-          </AriaRow>
-        ))}
-      </AriaTableBody>
-    </AriaTable>
+          </AriaTableHeader>
+        )}
+        <AriaTableBody className="ginga-table-body">
+          {data.map((row, rowIndex) => (
+            <AriaRow key={rowIndex} id={rowIndex} className="ginga-table-row">
+              {selectionMode !== "none" && (
+                <AriaCell className="ginga-table-cell ginga-table-selection">
+                  <Checkbox slot="selection" />
+                </AriaCell>
+              )}
+              {columns.map((column) => (
+                <AriaCell key={column.key} className="ginga-table-cell">
+                  {renderCell(row, column)}
+                </AriaCell>
+              ))}
+            </AriaRow>
+          ))}
+        </AriaTableBody>
+      </AriaTable>
+    </div>
   );
 };

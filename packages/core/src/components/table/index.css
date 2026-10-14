@@ -1,3 +1,10 @@
+.ginga-table-container {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
 .ginga-table {
   width: 100%;
   font-family: var(--font-family);
