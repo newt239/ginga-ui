@@ -1,7 +1,16 @@
-import { Heading, Paragraph } from "@ginga-ui/core";
+import { Heading, Paragraph, Table } from "@ginga-ui/core";
 import { ThemeGenerator } from "#/components/theme-generator";
 import { HighlightedCodeBlock } from "#/components/highlighted-code-block";
 import styles from "./page.module.css";
+
+const CSS_VARIABLES = [
+  { name: "--color-primary", description: "アクセントカラー" },
+  { name: "--color-secondary", description: "テキストカラー" },
+  { name: "--color-background", description: "背景色" },
+  { name: "--width-border", description: "ボーダー幅" },
+  { name: "--size-radius", description: "ボーダー半径" },
+  { name: "--font-family", description: "フォントファミリー" },
+];
 
 export default async function ThemeGenerationPage() {
   return (
@@ -225,52 +234,23 @@ export function BrowserThemeButton() {
         </Paragraph>
 
         <div className={styles.tableContainer}>
-          <table className={styles.cssTable}>
-            <thead>
-              <tr>
-                <th>変数名</th>
-                <th>説明</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <code>--color-primary</code>
-                </td>
-                <td>アクセントカラー</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>--color-secondary</code>
-                </td>
-                <td>テキストカラー</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>--color-background</code>
-                </td>
-                <td>背景色</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>--width-border</code>
-                </td>
-                <td>ボーダー幅</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>--size-radius</code>
-                </td>
-                <td>ボーダー半径</td>
-              </tr>
-              <tr>
-                <td>
-                  <code>--font-family</code>
-                </td>
-                <td>フォントファミリー</td>
-              </tr>
-            </tbody>
-          </table>
+          <Table
+            data={CSS_VARIABLES.map(({ name, description }) => ({
+              name: <code>{name}</code>,
+              description,
+            }))}
+            columns={[
+              {
+                key: "name",
+                header: "変数名",
+                accessor: "name",
+                isRowHeader: true,
+              },
+              { key: "description", header: "説明", accessor: "description" },
+            ]}
+            striped
+            aria-label="CSS 変数の一覧"
+          />
         </div>
 
         <Paragraph>

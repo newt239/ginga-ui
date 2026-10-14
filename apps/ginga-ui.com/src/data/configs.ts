@@ -524,6 +524,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: "シンプルなテーブルの使用例です。",
     },
     {
+      name: "StripedExample",
+      title: "縞模様",
+      description:
+        "striped を指定すると、偶数行に背景色が付いて行を目で追いやすくなります。",
+    },
+    {
       name: "WithSelectionExample",
       title: "行選択",
       description: "行を選択できるテーブルです。",

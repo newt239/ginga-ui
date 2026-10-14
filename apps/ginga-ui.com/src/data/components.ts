@@ -148,7 +148,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     id: "table",
     name: "Table",
     category: "display",
-    description: "表形式のデータを表示。行選択機能をサポート。",
+    description: "表形式のデータを表示。行選択と縞模様の表示をサポート。",
   },
   {
     id: "tab",

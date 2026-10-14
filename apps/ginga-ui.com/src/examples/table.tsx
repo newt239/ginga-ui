@@ -66,6 +66,17 @@ export function BasicExample() {
   );
 }
 
+export function StripedExample() {
+  return (
+    <Table
+      data={sampleData}
+      columns={columns}
+      striped
+      aria-label="縞模様のファイル一覧"
+    />
+  );
+}
+
 export function WithSelectionExample() {
   return (
     <Table
