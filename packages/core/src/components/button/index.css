@@ -99,7 +99,6 @@
 
   &[data-disabled] {
     color: var(--color-text-muted);
-    pointer-events: none;
     cursor: not-allowed;
     background-color: var(--color-surface-strong);
     border-color: transparent;
