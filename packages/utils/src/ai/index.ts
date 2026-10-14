@@ -1,7 +1,7 @@
 import { anthropic, createAnthropic } from "@ai-sdk/anthropic";
 import { createGoogleGenerativeAI, google } from "@ai-sdk/google";
 import { createOpenAI, openai } from "@ai-sdk/openai";
-import { generateObject } from "ai";
+import { generateText, Output } from "ai";
 import chroma from "chroma-js";
 
 import { generateIntermediateColors } from "../lib/color";
@@ -93,9 +93,9 @@ export class ThemeClient {
 
     for (let i = 0; i < this.maxRetries; i++) {
       try {
-        const { object } = await generateObject({
+        const { output: object } = await generateText({
           model,
-          schema: themeVariablesSchema,
+          output: Output.object({ schema: themeVariablesSchema }),
           system: SYSTEM_PROMPT,
           prompt,
         });
