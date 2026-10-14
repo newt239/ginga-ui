@@ -1,10 +1,11 @@
 "use client";
 
 import { Paragraph } from "@ginga-ui/core";
+import styles from "./paragraph.module.css";
 
 export function BasicExample() {
   return (
-    <Paragraph>
+    <Paragraph className={styles.basicParagraph}>
       これは基本的な段落コンポーネントです。テキストコンテンツを表示するために使用します。
     </Paragraph>
   );
@@ -12,7 +13,7 @@ export function BasicExample() {
 
 export function MultipleExample() {
   return (
-    <div>
+    <div className={styles.multipleParagraphs}>
       <Paragraph>
         最初の段落です。Paragraphコンポーネントは、適切な行間とマージンで読みやすいテキストを表示します。
       </Paragraph>
@@ -28,7 +29,7 @@ export function MultipleExample() {
 
 export function LongTextExample() {
   return (
-    <Paragraph>
+    <Paragraph className={styles.longParagraph}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -42,24 +43,18 @@ export function LongTextExample() {
 
 export function CustomStyleExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <Paragraph style={{ fontSize: "1.125rem" }}>
+    <div className={styles.customStack}>
+      <Paragraph className={styles.largeParagraph}>
         大きめのフォントサイズの段落です。
       </Paragraph>
-      <Paragraph style={{ color: "var(--color-primary)" }}>
+      <Paragraph className={styles.accentParagraph}>
         プライマリカラーのテキストです。
       </Paragraph>
-      <Paragraph style={{ textAlign: "center" }}>
+      <Paragraph className={styles.centeredParagraph}>
         中央揃えの段落です。
       </Paragraph>
-      <Paragraph
-        style={{
-          padding: "1rem",
-          backgroundColor: "var(--color-primary-1)",
-          borderLeft: "4px solid var(--color-primary)",
-        }}
-      >
-        背景色とボーダーを持つ段落です。重要な情報を強調表示できます。
+      <Paragraph className={styles.highlightedParagraph}>
+        背景色を持つ段落です。重要な情報を強調表示できます。
       </Paragraph>
     </div>
   );

@@ -1,76 +1,77 @@
 .ginga-switch {
-  display: flex;
-  gap: 0.5rem;
+  display: inline-flex;
+  gap: 0.625rem;
   align-items: center;
+  min-height: 1.5rem;
   font-family: var(--font-family);
   font-size: 1rem;
-  color: var(--color-secondary);
+  color: var(--color-text);
   cursor: pointer;
 
   .ginga-switch-indicator {
-    width: 2rem;
-    height: 1rem;
-    background: var(--color-background);
-    border: var(--width-border) solid var(--color-primary-9);
-    border-radius: calc(var(--size-radius) * 0.5);
-    transition: all 0.2s;
+    box-sizing: border-box;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    padding: 0.25rem;
+    outline: var(--border-width) solid transparent;
+    outline-offset: calc(var(--border-width) * -1);
+    background-color: var(--color-control-border);
+    border-radius: var(--radius-pill);
+    transition: var(--transition);
 
     &::before {
       display: block;
-      width: 0.75rem;
-      height: 0.75rem;
-      margin: 0.125rem;
+      width: 1rem;
+      height: 1rem;
       content: "";
-      background: var(--color-primary-9);
-      border-radius: calc(var(--size-radius) * 0.5);
-      transition: all 0.2s;
+      background-color: var(--color-background);
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
     }
   }
 
-  &[data-pressed] .ginga-switch-indicator {
-    border-color: var(--color-primary-8);
+  &[data-hovered] .ginga-switch-indicator {
+    background-color: var(--color-text-muted);
+  }
+
+  &[data-selected] .ginga-switch-indicator {
+    background-color: var(--color-accent);
 
     &::before {
-      background: var(--color-primary-8);
+      transform: translateX(1rem);
     }
   }
 
-  &[data-selected] {
-    .ginga-switch-indicator {
-      background: var(--color-primary-9);
-      border-color: var(--color-primary-9);
-
-      &::before {
-        background: var(--color-background);
-        transform: translateX(1rem);
-      }
-    }
-
-    &[data-pressed] {
-      .ginga-switch-indicator {
-        background: var(--color-primary-8);
-        border-color: var(--color-primary-8);
-      }
-    }
+  &[data-selected][data-hovered] .ginga-switch-indicator {
+    background-color: var(--color-accent-hover);
   }
 
   &[data-focus-visible] .ginga-switch-indicator {
-    outline: 2px solid var(--color-primary-9);
-    outline-offset: 2px;
+    outline-width: var(--focus-ring-width);
+    outline-color: var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
   }
 
   &[data-disabled] {
-    color: var(--color-secondary-5);
-    pointer-events: none;
+    color: var(--color-text-muted);
     cursor: not-allowed;
 
     .ginga-switch-indicator {
-      background: var(--color-secondary-1);
-      border-color: var(--color-secondary-5);
-
-      &::before {
-        background: var(--color-secondary-5);
-      }
+      background-color: var(--color-surface-strong);
     }
+  }
+}
+
+@media (forced-colors: active) {
+  .ginga-switch .ginga-switch-indicator::before {
+    background-color: canvastext;
+  }
+
+  .ginga-switch[data-selected] .ginga-switch-indicator {
+    background-color: highlight;
   }
 }

@@ -25,18 +25,114 @@
   --color-black: #000;
   --color-background: #fff;
   --color-info: #1677ff;
-  --color-info-light: #e6f4ff;
-  --color-info-dark: #003eb3;
-  --color-success: #52c41a;
-  --color-success-light: #f6ffed;
-  --color-success-dark: #237804;
-  --color-warning: #faad14;
-  --color-warning-light: #fffbe6;
-  --color-warning-dark: #ad6800;
-  --color-danger: #ff4d4f;
-  --color-danger-light: #fff1f0;
-  --color-danger-dark: #a8071a;
+  --color-info-light: #ebf3ff;
+  --color-info-dark: #0041a8;
+  --color-success: #2f9e1a;
+  --color-success-light: #edf8e8;
+  --color-success-dark: #1d6609;
+  --color-warning: #e09200;
+  --color-warning-light: #fff6e0;
+  --color-warning-dark: #7a4a00;
+  --color-danger: #e5383b;
+  --color-danger-light: #fdeeee;
+  --color-danger-dark: #a1101c;
   --size-radius: 1rem;
-  --width-border: 2px;
+  --width-border: 0.125rem;
   --font-family: sans-serif;
+  --font-family-mono:
+    ui-monospace, sfmono-regular, menlo, consolas, "Liberation Mono", monospace;
+  --color-text: var(--color-secondary-9);
+  --color-text-muted: color-mix(
+    in oklab,
+    var(--color-text) 75%,
+    var(--color-background)
+  );
+  --color-accent: color-mix(
+    in oklab,
+    var(--color-primary) 70%,
+    var(--color-text)
+  );
+  --color-accent-hover: color-mix(
+    in oklab,
+    var(--color-accent) 85%,
+    var(--color-text)
+  );
+  --color-on-accent: var(--color-background);
+  --color-accent-subtle: color-mix(
+    in oklab,
+    var(--color-primary) 10%,
+    var(--color-background)
+  );
+  --color-accent-subtle-hover: color-mix(
+    in oklab,
+    var(--color-primary) 18%,
+    var(--color-background)
+  );
+  --color-surface: color-mix(
+    in oklab,
+    var(--color-text) 4%,
+    var(--color-background)
+  );
+  --color-surface-hover: color-mix(
+    in oklab,
+    var(--color-text) 8%,
+    var(--color-background)
+  );
+  --color-surface-strong: color-mix(
+    in oklab,
+    var(--color-text) 12%,
+    var(--color-background)
+  );
+  --color-control-border: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--color-text), var(--color-primary) 30%) 55%,
+    var(--color-background)
+  );
+  --color-focus: var(--color-accent);
+  --color-overlay: rgb(0 0 0 / 40%);
+  --border-width: max(0.125rem, var(--width-border));
+  --radius-sm: calc(var(--size-radius) * 0.5);
+  --radius-md: calc(var(--size-radius) * 0.75);
+  --radius-lg: var(--size-radius);
+  --radius-pill: 625rem;
+  --focus-ring-width: 0.125rem;
+  --focus-ring-offset: 0.125rem;
+  --size-control-sm: 2rem;
+  --size-control-md: 2.5rem;
+  --size-control-lg: 3rem;
+  --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 8%);
+  --shadow-overlay:
+    0 0.75rem 2rem -0.5rem rgb(0 0 0 / 20%),
+    0 0.25rem 0.5rem -0.25rem rgb(0 0 0 / 8%);
+  --duration: 0.2s;
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition:
+    background-color var(--duration) var(--easing),
+    color var(--duration) var(--easing),
+    border-color var(--duration) var(--easing),
+    opacity var(--duration) var(--easing),
+    transform var(--duration) var(--easing);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --color-text-muted: color-mix(
+      in oklab,
+      var(--color-text) 90%,
+      var(--color-background)
+    );
+    --color-accent: color-mix(
+      in oklab,
+      var(--color-primary) 50%,
+      var(--color-text)
+    );
+    --color-control-border: var(--color-text);
+    --focus-ring-width: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration: 0s;
+  }
 }

@@ -1,0 +1,33 @@
+.basicCard {
+  width: min(100%, 28rem);
+}
+
+.withFooterCard {
+  width: min(100%, 28rem);
+}
+
+.plans {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: min(100%, 40rem);
+}
+
+.plan {
+  flex: 1 1 15rem;
+}
+
+.planPrice {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.planFeatures {
+  padding-left: 1.25rem;
+  margin: 1rem 0 0;
+  line-height: 2;
+}
+
+.simpleCard {
+  width: min(100%, 28rem);
+}

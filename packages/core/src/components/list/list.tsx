@@ -18,11 +18,8 @@ export const List: React.FC<ListProps> = ({
 
   return (
     <Component
-      className={cn(
-        "ginga-list",
-        type === "ordered" ? "ginga-orderedList" : "ginga-unorderedList",
-        className
-      )}
+      className={cn("ginga-list", className)}
+      data-type={type}
       {...props}
     />
   );
@@ -31,6 +28,6 @@ export const List: React.FC<ListProps> = ({
 export type ListItemProps = React.HTMLAttributes<HTMLLIElement>;
 
 export const ListItem: React.FC<ListItemProps> = ({ className, ...props }) => {
-  return <li className={cn("ginga-listItem", className)} {...props} />;
+  return <li className={cn("ginga-list-item", className)} {...props} />;
 };
 ListItem.displayName = "ListItem";

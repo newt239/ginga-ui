@@ -1,10 +1,11 @@
 "use client";
 
 import { Heading } from "@ginga-ui/core";
+import styles from "./heading.module.css";
 
 export function BasicExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.basicStack}>
       <Heading level="h1">見出し1 - 最も大きな見出し</Heading>
       <Heading level="h2">見出し2 - セクションの見出し</Heading>
       <Heading level="h3">見出し3 - サブセクションの見出し</Heading>
@@ -14,7 +15,7 @@ export function BasicExample() {
 
 export function AllLevelsExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.allLevelsStack}>
       <Heading level="h1">見出しレベル 1</Heading>
       <Heading level="h2">見出しレベル 2</Heading>
       <Heading level="h3">見出しレベル 3</Heading>
@@ -27,7 +28,7 @@ export function AllLevelsExample() {
 
 export function PageStructureExample() {
   return (
-    <article>
+    <article className={styles.article}>
       <Heading level="h1">記事タイトル</Heading>
       <p>この記事の導入部分です。</p>
 
@@ -45,20 +46,14 @@ export function PageStructureExample() {
 
 export function CustomStyleExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <Heading level="h2" style={{ color: "var(--color-primary)" }}>
+    <div className={styles.customStack}>
+      <Heading level="h2" className={styles.accentHeading}>
         プライマリカラーの見出し
       </Heading>
-      <Heading level="h3" style={{ textAlign: "center" }}>
+      <Heading level="h3" className={styles.centeredHeading}>
         中央揃えの見出し
       </Heading>
-      <Heading
-        level="h2"
-        style={{
-          borderBottom: "2px solid var(--color-primary)",
-          paddingBottom: "0.5rem",
-        }}
-      >
+      <Heading level="h2" className={styles.underlinedHeading}>
         下線付き見出し
       </Heading>
     </div>

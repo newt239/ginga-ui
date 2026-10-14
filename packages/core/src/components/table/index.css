@@ -1,53 +1,68 @@
 .ginga-table {
   width: 100%;
   font-family: var(--font-family);
-  color: var(--color-secondary-9);
-  border-collapse: collapse;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-secondary-2);
-  border-radius: calc(var(--size-radius) * 0.5);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  border-spacing: 0;
+  border-collapse: separate;
 }
 
-.ginga-table-header {
-  background-color: var(--color-secondary-1);
-}
-
-.ginga-column {
-  padding: 0.75rem;
+.ginga-table-column {
+  padding: 0.75rem 1rem;
   font-weight: 700;
+  color: var(--color-text-muted);
   text-align: left;
-  border-bottom: 2px solid var(--color-secondary-2);
+  white-space: nowrap;
+  outline: none;
+  background-color: var(--color-surface);
+
+  &:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
+
+  &:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: calc(var(--focus-ring-width) * -1);
+  }
 }
 
-.ginga-table-body {
-  background-color: var(--color-background);
+.ginga-table-row {
+  outline: none;
+  transition: var(--transition);
+
+  &[data-hovered] {
+    background-color: var(--color-surface);
+  }
+
+  &[data-selected="true"] {
+    background-color: var(--color-accent-subtle);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: calc(var(--focus-ring-width) * -1);
+  }
 }
 
-.ginga-row {
-  border-bottom: 1px solid var(--color-secondary-2);
-}
+.ginga-table-cell {
+  padding: 0.875rem 1rem;
+  line-height: 1.5;
+  outline: none;
 
-.ginga-row:last-child {
-  border-bottom: none;
-}
+  &:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  }
 
-.ginga-row:hover {
-  background-color: var(--color-secondary-1);
-}
+  &:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
 
-.ginga-cell {
-  padding: 0.75rem;
-}
-
-.ginga-row[data-selected="true"] {
-  background-color: var(--color-primary-1);
-}
-
-.ginga-row[data-selected="true"]:hover {
-  background-color: var(--color-primary-2);
-}
-
-.ginga-row:focus-visible {
-  outline: 2px solid var(--color-primary-6);
-  outline-offset: -2px;
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: calc(var(--focus-ring-width) * -1);
+  }
 }

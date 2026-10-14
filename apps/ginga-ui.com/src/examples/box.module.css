@@ -1,0 +1,38 @@
+.basicBox {
+  width: min(100%, 32rem);
+  padding: 1rem;
+  background-color: var(--color-accent-subtle);
+  border-radius: var(--radius-md);
+}
+
+.layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: min(100%, 40rem);
+}
+
+.layoutItem {
+  flex: 1 1 10rem;
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.cardStyleBox {
+  width: min(100%, 32rem);
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+}
+
+.cardStyleTitle {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cardStyleText {
+  margin: 0;
+  color: var(--color-text-muted);
+}

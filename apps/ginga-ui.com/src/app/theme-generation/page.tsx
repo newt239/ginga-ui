@@ -1,7 +1,6 @@
 import { Heading, Paragraph } from "@ginga-ui/core";
 import { ThemeGenerator } from "#/components/theme-generator";
-import { CodeBlock } from "#/components/code-block";
-import { highlightCode } from "#/lib/shiki";
+import { HighlightedCodeBlock } from "#/components/highlighted-code-block";
 import styles from "./page.module.css";
 
 export default async function ThemeGenerationPage() {
@@ -13,8 +12,10 @@ export default async function ThemeGenerationPage() {
         UIの最大の特徴は、LLMを活用した自動テーマ生成機能です。プロンプトを入力するだけで、AIがCSS変数を生成してサイト全体のデザインを変更できます。
       </Paragraph>
 
-      <section className={styles.demoSection}>
-        <Heading level="h2">ライブデモ</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="live-demo">
+          ライブデモ
+        </Heading>
         <Paragraph>
           下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。プロバイダーに「Gemini
           Nano」を選んだ場合はAPIキーが不要で、生成はすべてブラウザ内で完結します。
@@ -22,40 +23,35 @@ export default async function ThemeGenerationPage() {
         <ThemeGenerator />
       </section>
 
-      <section className={styles.serverSideSection}>
-        <Heading level="h2">サーバーサイドでの使用（推奨）</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="server-side">
+          サーバーサイドでの使用（推奨）
+        </Heading>
         <Paragraph>
           本番環境では、サーバーサイドでテーマを生成することを強く推奨します。これによりAPIキーが露出せず、SEOやパフォーマンスも向上します。
         </Paragraph>
 
-        <Heading level="h3" className={styles.envSubsection}>
+        <Heading level="h3" id="environment-variables">
           環境変数の設定
         </Heading>
         <Paragraph>
           まず、使用するLLMプロバイダーのAPIキーを環境変数に設定します。
         </Paragraph>
-        <CodeBlock
-          code={`# .env.local
-OPENAI_API_KEY=sk-...
+        <HighlightedCodeBlock
+          filename=".env.local"
+          code={`OPENAI_API_KEY=sk-...
 # または
 GOOGLE_GENERATIVE_AI_API_KEY=...
 # または
 ANTHROPIC_API_KEY=...`}
-          highlightedCode={await highlightCode(
-            `# .env.local
-OPENAI_API_KEY=sk-...
-# または
-GOOGLE_GENERATIVE_AI_API_KEY=...
-# または
-ANTHROPIC_API_KEY=...`,
-            "bash"
-          )}
+          lang="bash"
         />
 
-        <Heading level="h3" className={styles.nextSubsection}>
+        <Heading level="h3" id="nextjs-example">
           Next.js App Routerでの実装例
         </Heading>
-        <CodeBlock
+        <HighlightedCodeBlock
+          filename="app/layout.tsx"
           code={`import { ThemeClient } from "@ginga-ui/utils";
 
 export default async function RootLayout({
@@ -80,42 +76,16 @@ export default async function RootLayout({
     </html>
   );
 }`}
-          highlightedCode={await highlightCode(
-            `import { ThemeClient } from "@ginga-ui/utils";
-
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const themeClient = new ThemeClient({
-    provider: "openai",
-  });
-
-  const { CSSCode } = await themeClient.generateTheme(
-    "宇宙の神秘"
-  );
-
-  return (
-    <html lang="ja">
-      <body>
-        <style>{CSSCode}</style>
-        {children}
-      </body>
-    </html>
-  );
-}`,
-            "tsx"
-          )}
+          lang="tsx"
         />
       </section>
 
-      <section className={styles.browserSection}>
-        <Heading level="h2">ブラウザ内での使用（Gemini Nano）</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="browser">
+          ブラウザ内での使用（Gemini Nano）
+        </Heading>
         <Paragraph>
-          <code className={styles.inlineCode}>
-            provider: &quot;browser&quot;
-          </code>
+          <code>provider: &quot;browser&quot;</code>
           を指定すると、ChromeやEdgeが搭載するGemini
           Nanoでテーマを生成します。APIキーもサーバーへの通信も不要で、生成はすべて端末上で完結します。この指定のときだけはServer
           ComponentではなくClient
@@ -123,19 +93,18 @@ export default async function RootLayout({
         </Paragraph>
         <Paragraph>
           利用できるかどうかは
-          <code className={styles.inlineCode}>getBrowserAIAvailability()</code>
+          <code>getBrowserAIAvailability()</code>
           で判定できます。戻り値は
-          <code className={styles.inlineCode}>
-            &quot;unavailable&quot;
-          </code> /{" "}
-          <code className={styles.inlineCode}>&quot;downloadable&quot;</code> /{" "}
-          <code className={styles.inlineCode}>&quot;downloading&quot;</code> /{" "}
-          <code className={styles.inlineCode}>&quot;available&quot;</code>
+          <code>&quot;unavailable&quot;</code> /{" "}
+          <code>&quot;downloadable&quot;</code> /{" "}
+          <code>&quot;downloading&quot;</code> /{" "}
+          <code>&quot;available&quot;</code>
           で、未対応環境ではクラウドのプロバイダーにフォールバックしてください。初回利用時はモデルのダウンロードに数GBの通信が発生するため、
-          <code className={styles.inlineCode}>onDownloadProgress</code>
+          <code>onDownloadProgress</code>
           で進捗を表示することを推奨します。
         </Paragraph>
-        <CodeBlock
+        <HighlightedCodeBlock
+          filename="components/browser-theme-button.tsx"
           code={`"use client";
 
 import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
@@ -169,138 +138,87 @@ export function BrowserThemeButton() {
     </>
   );
 }`}
-          highlightedCode={await highlightCode(
-            `"use client";
-
-import { getBrowserAIAvailability, ThemeClient } from "@ginga-ui/utils";
-import { useState } from "react";
-
-export function BrowserThemeButton() {
-  const [css, setCss] = useState("");
-
-  const generate = async () => {
-    const availability = await getBrowserAIAvailability();
-
-    if (availability === "unavailable") {
-      return;
-    }
-
-    const themeClient = new ThemeClient({ provider: "browser" });
-
-    const { CSSCode } = await themeClient.generateTheme("深海の静けさ", {
-      onDownloadProgress: (progress) => {
-        console.log(\`ダウンロード中: \${Math.round(progress * 100)}%\`);
-      },
-    });
-
-    setCss(CSSCode);
-  };
-
-  return (
-    <>
-      <button onClick={generate}>テーマを生成</button>
-      <style>{css}</style>
-    </>
-  );
-}`,
-            "tsx"
-          )}
+          lang="tsx"
         />
       </section>
 
-      <section className={styles.providersSection}>
-        <Heading level="h2">サポートされているLLMプロバイダー</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="providers">
+          サポートされているLLMプロバイダー
+        </Heading>
         <Paragraph>
           ThemeClientは3つのクラウドLLMプロバイダーと、ブラウザ内蔵のGemini
           Nanoをサポートしています。
-          <code className={styles.inlineCode}>provider</code>
+          <code>provider</code>
           で使用するプロバイダーを指定し、
-          <code className={styles.inlineCode}>model</code>
+          <code>model</code>
           で任意のモデルを指定できます。model
           を省略した場合は各プロバイダーのデフォルトモデルが使われます。
         </Paragraph>
 
-        <div className={styles.providersContent}>
-          <Heading level="h3">
-            OpenAI —{" "}
-            <code className={styles.inlineCode}>
-              provider: &quot;openai&quot;
-            </code>
+        <div>
+          <Heading level="h3" id="provider-openai">
+            OpenAI — <code>provider: &quot;openai&quot;</code>
           </Heading>
-          <ul className={styles.providersList}>
+          <ul>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-luna</code> —
-              デフォルト、高速・低コスト
+              <code>gpt-6-luna</code> — デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-terra</code> —
-              バランス型
+              <code>gpt-6.1-sol</code> — バランス型
             </li>
             <li>
-              <code className={styles.inlineCode}>gpt-5.6-sol</code> — 最高品質
+              <code>gpt-6-astra</code> — 最高品質
             </li>
           </ul>
 
-          <Heading level="h3" className={styles.nextSubsection}>
-            Google Gemini —{" "}
-            <code className={styles.inlineCode}>
-              provider: &quot;google&quot;
-            </code>
+          <Heading level="h3" id="provider-google">
+            Google Gemini — <code>provider: &quot;google&quot;</code>
           </Heading>
-          <ul className={styles.providersList}>
+          <ul>
             <li>
-              <code className={styles.inlineCode}>gemini-3.7-flash</code> —
-              デフォルト、高速・低コスト
+              <code>gemini-3.8-flash</code> — デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>gemini-3.5-flash-lite</code> —
-              最軽量
+              <code>gemini-3.5-flash-lite</code> — 最軽量
             </li>
             <li>
-              <code className={styles.inlineCode}>gemini-2.5-pro</code> — 高品質
+              <code>gemini-4-argon</code> — 高品質
             </li>
           </ul>
 
-          <Heading level="h3" className={styles.nextSubsection}>
-            Anthropic Claude —{" "}
-            <code className={styles.inlineCode}>
-              provider: &quot;anthropic&quot;
-            </code>
+          <Heading level="h3" id="provider-anthropic">
+            Anthropic Claude — <code>provider: &quot;anthropic&quot;</code>
           </Heading>
-          <ul className={styles.providersList}>
+          <ul>
             <li>
-              <code className={styles.inlineCode}>claude-haiku-4-5</code> —
-              デフォルト、高速・低コスト
+              <code>claude-haiku-5-5</code> — デフォルト、高速・低コスト
             </li>
             <li>
-              <code className={styles.inlineCode}>claude-sonnet-5</code> —
-              バランス型
+              <code>claude-sonnet-5-5</code> — バランス型
             </li>
             <li>
-              <code className={styles.inlineCode}>claude-opus-5</code> —
-              最高品質
+              <code>claude-opus-5-5</code> — 最高品質
             </li>
           </ul>
 
-          <Heading level="h3" className={styles.nextSubsection}>
-            Gemini Nano —{" "}
-            <code className={styles.inlineCode}>
-              provider: &quot;browser&quot;
-            </code>
+          <Heading level="h3" id="provider-browser">
+            Gemini Nano — <code>provider: &quot;browser&quot;</code>
           </Heading>
-          <ul className={styles.providersList}>
+          <ul>
             <li>
-              <code className={styles.inlineCode}>gemini-nano</code> —
-              APIキー不要、ブラウザ内で実行。
-              <code className={styles.inlineCode}>model</code>
+              <code>gemini-nano</code> — APIキー不要、ブラウザ内で実行。
+              <code>model</code>
               の指定は不要です
             </li>
           </ul>
         </div>
       </section>
 
-      <section className={styles.cssVarsSection}>
-        <Heading level="h2">生成されるCSS変数</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="css-variables">
+          生成されるCSS変数
+        </Heading>
         <Paragraph>
           ThemeClientは以下のCSS変数を生成します。これらは自動的にコントラスト比が検証され、アクセシビリティ基準（WCAG
           AA）を満たすように調整されます。
@@ -309,53 +227,53 @@ export function BrowserThemeButton() {
         <div className={styles.tableContainer}>
           <table className={styles.cssTable}>
             <thead>
-              <tr className={styles.tableHead}>
-                <th className={styles.tableHeader}>変数名</th>
-                <th className={styles.tableHeader}>説明</th>
+              <tr>
+                <th>変数名</th>
+                <th>説明</th>
               </tr>
             </thead>
             <tbody>
-              <tr className={styles.tableRow}>
-                <td className={styles.tableCell}>
+              <tr>
+                <td>
                   <code>--color-primary</code>
                 </td>
-                <td className={styles.tableCell}>アクセントカラー</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td className={styles.tableCell}>
-                  <code>--color-secondary</code>
-                </td>
-                <td className={styles.tableCell}>テキストカラー</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td className={styles.tableCell}>
-                  <code>--color-background</code>
-                </td>
-                <td className={styles.tableCell}>背景色</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td className={styles.tableCell}>
-                  <code>--width-border</code>
-                </td>
-                <td className={styles.tableCell}>ボーダー幅</td>
-              </tr>
-              <tr className={styles.tableRow}>
-                <td className={styles.tableCell}>
-                  <code>--size-radius</code>
-                </td>
-                <td className={styles.tableCell}>ボーダー半径</td>
+                <td>アクセントカラー</td>
               </tr>
               <tr>
-                <td className={styles.tableCell}>
+                <td>
+                  <code>--color-secondary</code>
+                </td>
+                <td>テキストカラー</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>--color-background</code>
+                </td>
+                <td>背景色</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>--width-border</code>
+                </td>
+                <td>ボーダー幅</td>
+              </tr>
+              <tr>
+                <td>
+                  <code>--size-radius</code>
+                </td>
+                <td>ボーダー半径</td>
+              </tr>
+              <tr>
+                <td>
                   <code>--font-family</code>
                 </td>
-                <td className={styles.tableCell}>フォントファミリー</td>
+                <td>フォントファミリー</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <Paragraph className={styles.scaleNote}>
+        <Paragraph>
           さらに、プライマリカラーとセカンダリカラーには、背景色との中間色を含む0-9のカラースケールが自動生成されます。
         </Paragraph>
       </section>

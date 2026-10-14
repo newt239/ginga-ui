@@ -1,60 +1,75 @@
 .ginga-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
+  font-family: var(--font-family);
 }
 
 .ginga-accordion-item {
-  margin-bottom: 0.25rem;
-  border: var(--width-border) solid var(--color-primary-9);
-  border-radius: calc(var(--size-radius) * 0.5);
+  overflow: hidden;
+  color: var(--color-text);
+  outline: var(--border-width) solid transparent;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+}
+
+.ginga-accordion-heading {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .ginga-accordion-trigger {
   display: flex;
+  gap: 1rem;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1rem;
+  min-height: var(--size-control-lg);
+  padding: 0.75rem 1.25rem;
   font-family: var(--font-family);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-primary-9);
+  line-height: 1.5;
+  color: inherit;
   text-align: left;
   cursor: pointer;
+  outline: none;
   background: none;
   border: none;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+
+  &[data-hovered] {
+    background-color: var(--color-surface-hover);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: calc(var(--focus-ring-width) * -1);
+  }
+
+  &[data-disabled] {
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+  }
 }
 
 .ginga-accordion-icon {
-  position: relative;
   flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
-  transition: transform 0.2s ease;
-}
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-text-muted);
+  transition: var(--transition);
 
-.ginga-accordion-icon::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0.5rem;
-  height: 0.5rem;
-  content: "";
-  border-right: var(--width-border) solid currentcolor;
-  border-bottom: var(--width-border) solid currentcolor;
-  transition: transform 0.2s ease;
-}
-
-.ginga-accordion-content {
-  height: 0;
-  padding: 0 1rem;
-  overflow: hidden;
-  font-family: var(--font-family);
-  font-size: 1rem;
-  color: var(--color-secondary-9);
-  transition: all 0.2s ease;
-
-  &[aria-hidden="false"] {
-    height: auto;
-    padding: 1rem;
+  .ginga-accordion-item[data-expanded] & {
+    transform: rotate(180deg);
   }
+}
+
+.ginga-accordion-content-inner {
+  padding: 0 1.25rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-muted);
 }

@@ -52,3 +52,15 @@ export const WithHighlightedChildren: Story = {
 export const CustomLabels: Story = {
   args: { code: sampleCode, copyLabel: "コピー", copiedLabel: "コピー完了!" },
 };
+
+export const MultipleFiles: Story = {
+  args: {
+    files: [
+      { filename: "app.tsx", code: sampleCode },
+      {
+        filename: "app.module.css",
+        code: `.container {\n  display: flex;\n  gap: 1rem;\n}`,
+      },
+    ],
+  },
+};

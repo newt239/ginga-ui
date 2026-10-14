@@ -1,0 +1,6 @@
+.alertStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min(100%, 32rem);
+}

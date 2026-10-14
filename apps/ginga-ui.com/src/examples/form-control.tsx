@@ -1,10 +1,12 @@
 "use client";
 
-import { FormControl, Input } from "@ginga-ui/core";
+import { Button, FormControl, Input } from "@ginga-ui/core";
+
+import styles from "./form-control.module.css";
 
 export function BasicExample() {
   return (
-    <FormControl title="ユーザー名">
+    <FormControl className={styles.basicField} title="ユーザー名">
       <Input placeholder="ユーザー名を入力" />
     </FormControl>
   );
@@ -12,7 +14,11 @@ export function BasicExample() {
 
 export function WithIdExample() {
   return (
-    <FormControl title="メールアドレス" htmlFor="email-input">
+    <FormControl
+      className={styles.idField}
+      title="メールアドレス"
+      htmlFor="email-input"
+    >
       <Input id="email-input" type="email" placeholder="example@email.com" />
     </FormControl>
   );
@@ -20,7 +26,7 @@ export function WithIdExample() {
 
 export function MultipleFieldsExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+    <div className={styles.fieldList}>
       <FormControl title="名前">
         <Input placeholder="山田 太郎" />
       </FormControl>
@@ -37,11 +43,11 @@ export function MultipleFieldsExample() {
 export function FormExample() {
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
         alert("フォーム送信!");
       }}
-      style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
     >
       <FormControl title="お名前" htmlFor="name">
         <Input id="name" required />
@@ -49,19 +55,9 @@ export function FormExample() {
       <FormControl title="メールアドレス" htmlFor="email">
         <Input id="email" type="email" required />
       </FormControl>
-      <button
-        type="submit"
-        style={{
-          padding: "0.75rem",
-          backgroundColor: "var(--color-primary)",
-          color: "var(--color-background)",
-          border: "none",
-          borderRadius: "var(--size-radius)",
-          cursor: "pointer",
-        }}
-      >
+      <Button type="submit" variant="filled">
         送信
-      </button>
+      </Button>
     </form>
   );
 }

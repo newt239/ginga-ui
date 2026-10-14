@@ -1,18 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button, Input, Select } from "@ginga-ui/core";
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+  Button,
+  FormControl,
+  Input,
+  Select,
+  SelectItem,
+} from "@ginga-ui/core";
 import type { BrowserAIAvailability, ThemeProvider } from "@ginga-ui/utils";
-import { ListBoxItem } from "react-aria-components";
+import { CircleAlert, Info, TriangleAlert } from "lucide-react";
 import { CodeBlock } from "./code-block";
 import styles from "./theme-generator.module.css";
 
 type ServerThemeProvider = Exclude<ThemeProvider, "browser">;
 
 const MODELS: Record<ServerThemeProvider, string[]> = {
-  openai: ["gpt-5.6-luna", "gpt-5.6-terra", "gpt-5.6-sol"],
-  google: ["gemini-3.7-flash", "gemini-3.5-flash-lite", "gemini-2.5-pro"],
-  anthropic: ["claude-haiku-4-5", "claude-sonnet-5", "claude-opus-5"],
+  openai: ["gpt-6-luna", "gpt-6.1-sol", "gpt-6-astra"],
+  google: ["gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-4-argon"],
+  anthropic: ["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"],
 };
 
 const AVAILABILITY_MESSAGES: Record<BrowserAIAvailability, string> = {
@@ -147,43 +156,45 @@ export function ThemeGenerator() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.warningBox}>
-        <p className={styles.warningText}>
-          {isBrowserProvider ? (
-            <>
-              💡<strong>ブラウザ内で完結します:</strong>
-              Gemini
-              Nanoを使うため、APIキーの入力もサーバーへの通信も不要です。生成はすべて端末上で実行されます。
-            </>
-          ) : (
-            <>
-              ⚠️
-              <strong>セキュリティ上の注意:</strong>
-              このデモで入力したAPIキーはサーバーサイドのRoute
-              Handlerへ送信され、テーマ生成にのみ使用されます。保存はされません。本番環境ではAPIキーをクライアントから受け取らず、サーバーサイドの環境変数から読み込んでください。
-            </>
-          )}
-        </p>
-      </div>
+      {isBrowserProvider ? (
+        <Alert variant="info" icon={<Info />}>
+          <AlertTitle>ブラウザ内で完結します</AlertTitle>
+          <AlertDescription>
+            Gemini
+            Nanoを使うため、APIキーの入力もサーバーへの通信も不要です。生成はすべて端末上で実行されます。
+          </AlertDescription>
+        </Alert>
+      ) : (
+        <Alert variant="warning" icon={<TriangleAlert />}>
+          <AlertTitle>セキュリティ上の注意</AlertTitle>
+          <AlertDescription>
+            このデモで入力したAPIキーはサーバーサイドのRoute
+            Handlerへ送信され、テーマ生成にのみ使用されます。保存はされません。本番環境ではAPIキーをクライアントから受け取らず、サーバーサイドの環境変数から読み込んでください。
+          </AlertDescription>
+        </Alert>
+      )}
 
       <Select
         label="LLMプロバイダー"
         selectedKey={provider}
         onSelectionChange={(key) => handleProviderChange(key as ThemeProvider)}
       >
-        <ListBoxItem id="openai">OpenAI</ListBoxItem>
-        <ListBoxItem id="google">Google Gemini</ListBoxItem>
-        <ListBoxItem id="anthropic">Anthropic Claude</ListBoxItem>
-        <ListBoxItem id="browser">Gemini Nano</ListBoxItem>
+        <SelectItem id="openai">OpenAI</SelectItem>
+        <SelectItem id="google">Google Gemini</SelectItem>
+        <SelectItem id="anthropic">Anthropic Claude</SelectItem>
+        <SelectItem id="browser">Gemini Nano</SelectItem>
       </Select>
 
       {isBrowserProvider ? (
         availability && (
-          <div className={styles.warningBox}>
-            <p className={styles.warningText}>
+          <Alert
+            variant={availability === "unavailable" ? "warning" : "info"}
+            icon={availability === "unavailable" ? <TriangleAlert /> : <Info />}
+          >
+            <AlertDescription>
               {AVAILABILITY_MESSAGES[availability]}
-            </p>
-          </div>
+            </AlertDescription>
+          </Alert>
         )
       ) : (
         <>
@@ -193,16 +204,17 @@ export function ThemeGenerator() {
             onSelectionChange={(key) => setModel(key as string)}
           >
             {MODELS[provider].map((m) => (
-              <ListBoxItem key={m} id={m}>
+              <SelectItem key={m} id={m}>
                 {m}
-              </ListBoxItem>
+              </SelectItem>
             ))}
           </Select>
 
-          <div>
-            <label htmlFor="api-key-input" className={styles.fieldLabel}>
-              APIキー
-            </label>
+          <FormControl
+            title="APIキー"
+            htmlFor="api-key-input"
+            className={styles.field}
+          >
             <Input
               id="api-key-input"
               type="password"
@@ -210,24 +222,27 @@ export function ThemeGenerator() {
               onChange={(e) => setApiKey(e.target.value)}
               placeholder="sk-..."
             />
-          </div>
+          </FormControl>
         </>
       )}
 
-      <div>
-        <label htmlFor="theme-prompt-input" className={styles.fieldLabel}>
-          テーマプロンプト
-        </label>
+      <FormControl
+        title="テーマプロンプト"
+        htmlFor="theme-prompt-input"
+        className={styles.field}
+      >
         <Input
           id="theme-prompt-input"
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="例: 森の中の静けさ、サイバーパンク、ダークモード"
         />
-      </div>
+      </FormControl>
 
       <Button
         variant="filled"
+        size="lg"
+        className={styles.submit}
         onPress={handleGenerate}
         disabled={
           !prompt ||
@@ -239,9 +254,10 @@ export function ThemeGenerator() {
       </Button>
 
       {error && (
-        <div className={styles.errorBox}>
-          <strong>エラー:</strong> {error}
-        </div>
+        <Alert variant="danger" icon={<CircleAlert />} role="alert">
+          <AlertTitle>エラー</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       )}
 
       {cssCode && (

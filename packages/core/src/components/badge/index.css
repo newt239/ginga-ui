@@ -2,22 +2,22 @@
   display: inline-flex;
   gap: 0.25rem;
   align-items: center;
-  padding: 0.125rem 0.5rem;
+  padding: 0.125rem 0.625rem;
   font-family: var(--font-family);
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.25rem;
   white-space: nowrap;
-  border-radius: calc(var(--size-radius) * 0.5);
+  border-radius: var(--radius-pill);
 
   &[data-variant="primary"] {
-    color: var(--color-primary-9);
-    background-color: var(--color-primary-1);
+    color: var(--color-accent);
+    background-color: var(--color-accent-subtle);
   }
 
   &[data-variant="secondary"] {
-    color: var(--color-secondary-9);
-    background-color: var(--color-secondary-1);
+    color: var(--color-text);
+    background-color: var(--color-surface-strong);
   }
 
   &[data-variant="info"] {

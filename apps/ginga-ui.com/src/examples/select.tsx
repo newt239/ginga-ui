@@ -1,14 +1,13 @@
 "use client";
 
-import { Select } from "@ginga-ui/core";
-import { ListBoxItem } from "react-aria-components";
+import { Select, SelectItem } from "@ginga-ui/core";
 
 export function BasicExample() {
   return (
     <Select defaultSelectedKey="cat" label="好きな動物">
-      <ListBoxItem id="cat">猫</ListBoxItem>
-      <ListBoxItem id="dog">犬</ListBoxItem>
-      <ListBoxItem id="bird">鳥</ListBoxItem>
+      <SelectItem id="cat">猫</SelectItem>
+      <SelectItem id="dog">犬</SelectItem>
+      <SelectItem id="bird">鳥</SelectItem>
     </Select>
   );
 }
@@ -16,12 +15,12 @@ export function BasicExample() {
 export function DisabledOptionsExample() {
   return (
     <Select defaultSelectedKey="dog" label="ペットを選択">
-      <ListBoxItem id="dog">犬</ListBoxItem>
-      <ListBoxItem id="cat">猫</ListBoxItem>
-      <ListBoxItem id="hamster" isDisabled>
+      <SelectItem id="dog">犬</SelectItem>
+      <SelectItem id="cat">猫</SelectItem>
+      <SelectItem id="hamster" isDisabled>
         ハムスター(在庫切れ)
-      </ListBoxItem>
-      <ListBoxItem id="parrot">オウム</ListBoxItem>
+      </SelectItem>
+      <SelectItem id="parrot">オウム</SelectItem>
     </Select>
   );
 }
@@ -29,9 +28,9 @@ export function DisabledOptionsExample() {
 export function DisabledExample() {
   return (
     <Select disabled defaultSelectedKey="cat" label="好きな動物">
-      <ListBoxItem id="cat">猫</ListBoxItem>
-      <ListBoxItem id="dog">犬</ListBoxItem>
-      <ListBoxItem id="bird">鳥</ListBoxItem>
+      <SelectItem id="cat">猫</SelectItem>
+      <SelectItem id="dog">犬</SelectItem>
+      <SelectItem id="bird">鳥</SelectItem>
     </Select>
   );
 }
@@ -43,9 +42,9 @@ export function ControlledExample() {
       defaultSelectedKey="beginner"
       onSelectionChange={(key) => console.log("選択:", key)}
     >
-      <ListBoxItem id="beginner">初心者</ListBoxItem>
-      <ListBoxItem id="intermediate">中級者</ListBoxItem>
-      <ListBoxItem id="advanced">上級者</ListBoxItem>
+      <SelectItem id="beginner">初心者</SelectItem>
+      <SelectItem id="intermediate">中級者</SelectItem>
+      <SelectItem id="advanced">上級者</SelectItem>
     </Select>
   );
 }

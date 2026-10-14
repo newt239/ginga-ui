@@ -1,0 +1,19 @@
+.basicField {
+  width: min(100%, 24rem);
+}
+
+.idField {
+  width: min(100%, 24rem);
+}
+
+.fieldList {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 24rem);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 24rem);
+}

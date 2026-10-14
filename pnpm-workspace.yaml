@@ -2,6 +2,9 @@ packages:
   - packages/**
   - apps/**
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - "pnpm*"
+  - "@pnpm/exe*"
 minimumReleaseAgeExcludePrune: true
 saveExact: true
 allowBuilds:

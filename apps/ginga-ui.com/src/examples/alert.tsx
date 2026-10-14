@@ -1,6 +1,7 @@
 "use client";
 
 import { Alert, AlertDescription, AlertTitle } from "@ginga-ui/core";
+import styles from "./alert.module.css";
 
 export function BasicExample() {
   return (
@@ -15,7 +16,7 @@ export function BasicExample() {
 
 export function VariantsExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+    <div className={styles.alertStack}>
       <Alert variant="info">
         <AlertTitle>情報</AlertTitle>
         <AlertDescription>新しいバージョンが利用可能です。</AlertDescription>

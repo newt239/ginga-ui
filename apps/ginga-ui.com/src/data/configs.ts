@@ -83,7 +83,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
     {
       name: "ButtonVariantExample",
       title: "ボタンスタイル",
-      description: "ボタンのようなスタイルでリンクを表示します。",
+      description:
+        'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
     },
   ],
   badge: [
@@ -120,11 +121,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       title: "カードスタイル",
       description: "カードのようなスタイリングの例です。",
     },
-    {
-      name: "NestedExample",
-      title: "ネスト",
-      description: "ボックスをネストして複雑なレイアウトを作成します。",
-    },
   ],
   button: [
     {
@@ -136,7 +132,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "VariantsExample",
       title: "バリエーション",
       description:
-        "4種類のバリアント(filled、light、outline、reverse)を表示します。",
+        "5種類のバリアント(filled、light、outline、ghost、reverse)を表示します。",
+    },
+    {
+      name: "SizesExample",
+      title: "サイズ",
+      description: "sizeプロップでsm、md、lgの3種類のサイズを指定できます。",
     },
     {
       name: "DisabledExample",

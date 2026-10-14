@@ -1,37 +1,53 @@
-.ginga-dialog-trigger {
-  position: relative;
-  display: inline-block;
-}
-
 .ginga-modal {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 100;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0 0 0 / 50%);
+  padding: 1rem;
+  background-color: var(--color-overlay);
+
+  &[data-entering] {
+    animation: ginga-modal-fade var(--duration) var(--easing);
+  }
+
+  &[data-exiting] {
+    animation: ginga-modal-fade var(--duration) var(--easing) reverse;
+  }
 }
 
 .ginga-dialog {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   max-width: 32rem;
-  padding: 1.5rem;
-  color: var(--color-secondary-9);
+  max-height: calc(100vh - 2rem);
+  padding: 1.75rem;
+  overflow-y: auto;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  outline: var(--border-width) solid transparent;
   background-color: var(--color-background);
-  border-radius: calc(var(--size-radius) * 0.5);
-  box-shadow:
-    0 4px 6px -1px rgb(0 0 0 / 10%),
-    0 2px 4px -1px rgb(0 0 0 / 6%);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-overlay);
 }
 
 .ginga-dialog-title {
-  margin-bottom: 1rem;
+  margin: 0 0 0.75rem;
   font-family: var(--font-family);
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
+  line-height: 1.4;
+}
+
+@keyframes ginga-modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -29,7 +29,7 @@ export const Switch: React.FC<SwitchProps> = ({
       className={cn("ginga-switch", className)}
       {...props}
     >
-      <div className={"ginga-switch-indicator"} />
+      <span className="ginga-switch-indicator" />
       {children}
     </AriaSwitch>
   );

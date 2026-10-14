@@ -5,8 +5,11 @@ import {
   Dialog,
   DialogTitle,
   DialogTrigger,
+  Input,
   Modal,
 } from "@ginga-ui/core";
+
+import styles from "./dialog.module.css";
 
 export function BasicExample() {
   return (
@@ -33,7 +36,7 @@ export function ConfirmationExample() {
         <Dialog>
           <DialogTitle>削除の確認</DialogTitle>
           <p>本当にアカウントを削除しますか? この操作は取り消せません。</p>
-          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+          <div className={styles.confirmActions}>
             <Button slot="close" variant="outline">
               キャンセル
             </Button>
@@ -60,43 +63,20 @@ export function FormExample() {
             }}
           >
             <DialogTitle>アカウント作成</DialogTitle>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                marginTop: "1rem",
-              }}
-            >
-              <input
-                type="text"
-                placeholder="名前"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
-              />
-              <input
+            <div className={styles.formFields}>
+              <Input type="text" aria-label="名前" placeholder="名前" />
+              <Input
                 type="email"
+                aria-label="メールアドレス"
                 placeholder="メールアドレス"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
               />
-              <input
+              <Input
                 type="password"
+                aria-label="パスワード"
                 placeholder="パスワード"
-                style={{
-                  padding: "0.5rem",
-                  border: "1px solid var(--color-primary-3)",
-                  borderRadius: "var(--size-radius)",
-                }}
               />
             </div>
-            <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+            <div className={styles.formActions}>
               <Button slot="close" variant="outline">
                 キャンセル
               </Button>

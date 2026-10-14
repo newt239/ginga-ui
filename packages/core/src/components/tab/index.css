@@ -1,80 +1,84 @@
 .ginga-tabs {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
   font-family: var(--font-family);
-  color: var(--color-secondary-9);
-
-  &[data-orientation="horizontal"] {
-    .ginga-tab-list {
-      border-bottom: var(--width-border) solid var(--color-secondary-5);
-    }
-  }
+  color: var(--color-text);
 
   &[data-orientation="vertical"] {
     flex-direction: row;
+    align-items: flex-start;
 
     .ginga-tab-list {
       flex-direction: column;
-      border-right: var(--width-border) solid var(--color-secondary-5);
-    }
-
-    .ginga-tab {
-      &[data-selected] {
-        color: var(--color-primary-9);
-        border: none;
-        border-right: var(--width-border) solid var(--color-primary-9);
-      }
+      align-items: stretch;
     }
   }
 }
 
 .ginga-tab-list {
-  display: flex;
-  border: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-self: flex-start;
+  max-width: 100%;
+  padding: 0.25rem;
+  outline: var(--border-width) solid transparent;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
 }
 
 .ginga-tab {
-  position: relative;
-  padding: 0.5rem 1rem;
-  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  white-space: nowrap;
   cursor: pointer;
   outline: none;
-  forced-color-adjust: none;
-  transition: color 0.2s;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
 
-  &[data-hovered],
-  &[data-focused] {
-    color: var(--color-primary-9);
+  &[data-hovered] {
+    color: var(--color-text);
+    background-color: var(--color-surface-hover);
   }
 
   &[data-selected] {
-    color: var(--color-primary-9);
-    border: none;
-    border-bottom: var(--width-border) solid var(--color-primary-9);
+    color: var(--color-on-accent);
+    background-color: var(--color-accent);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
   }
 
   &[data-disabled] {
-    color: var(--color-secondary-5);
-    pointer-events: none;
+    color: var(--color-text-muted);
     cursor: not-allowed;
-  }
-
-  &[data-focus-visible]::after {
-    position: absolute;
-    inset: 4px;
-    content: "";
-    border: var(--width-border) solid var(--color-primary-9);
-    border-radius: 4px;
+    opacity: 0.6;
   }
 }
 
 .ginga-tab-panel {
-  padding: 10px;
-  margin-top: 4px;
+  flex: 1;
+  min-width: 0;
   outline: none;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 
   &[data-focus-visible] {
-    outline: 2px solid var(--color-primary-9);
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+@media (forced-colors: active) {
+  .ginga-tab[data-selected] {
+    color: highlighttext;
+    background-color: highlight;
   }
 }

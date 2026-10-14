@@ -117,9 +117,9 @@ Specify the provider explicitly with `provider`. If `model` is omitted, the defa
 
 | Provider    | `provider`    | Default model      | Other examples                            |
 | ----------- | ------------- | ------------------ | ----------------------------------------- |
-| OpenAI      | `"openai"`    | `gpt-5.6-luna`     | `gpt-5.6-terra`, `gpt-5.6-sol`            |
-| Google      | `"google"`    | `gemini-3.7-flash` | `gemini-3.5-flash-lite`, `gemini-2.5-pro` |
-| Anthropic   | `"anthropic"` | `claude-haiku-4-5` | `claude-sonnet-5`, `claude-opus-5`        |
+| OpenAI      | `"openai"`    | `gpt-6-luna`       | `gpt-6.1-sol`, `gpt-6-astra`              |
+| Google      | `"google"`    | `gemini-3.8-flash` | `gemini-3.5-flash-lite`, `gemini-4-argon` |
+| Anthropic   | `"anthropic"` | `claude-haiku-5-5` | `claude-sonnet-5-5`, `claude-opus-5-5`    |
 | Gemini Nano | `"browser"`   | -                  | -                                         |
 
 You can use any model supported by the [Vercel AI SDK](https://sdk.vercel.ai/providers/ai-sdk-providers).
@@ -165,7 +165,7 @@ Use an explicit model:
 ```tsx
 const themeClient = new ThemeClient({
   provider: "anthropic",
-  model: "claude-opus-5",
+  model: "claude-opus-5-5",
 });
 ```
 

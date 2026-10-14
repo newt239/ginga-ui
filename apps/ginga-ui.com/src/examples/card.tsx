@@ -9,10 +9,11 @@ import {
   CardTitle,
   Button,
 } from "@ginga-ui/core";
+import styles from "./card.module.css";
 
 export function BasicExample() {
   return (
-    <Card>
+    <Card className={styles.basicCard}>
       <CardHeader>
         <CardTitle>カードタイトル</CardTitle>
         <CardDescription>
@@ -28,7 +29,7 @@ export function BasicExample() {
 
 export function WithFooterExample() {
   return (
-    <Card>
+    <Card className={styles.withFooterCard}>
       <CardHeader>
         <CardTitle>プロジェクトを作成</CardTitle>
         <CardDescription>
@@ -48,15 +49,15 @@ export function WithFooterExample() {
 
 export function MultipleCardsExample() {
   return (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-      <Card style={{ flex: "1 1 300px" }}>
+    <div className={styles.plans}>
+      <Card className={styles.plan}>
         <CardHeader>
           <CardTitle>無料プラン</CardTitle>
           <CardDescription>個人利用に最適</CardDescription>
         </CardHeader>
         <CardContent>
-          <div style={{ fontSize: "2rem", fontWeight: "bold" }}>¥0</div>
-          <ul style={{ marginTop: "1rem", lineHeight: 2 }}>
+          <div className={styles.planPrice}>¥0</div>
+          <ul className={styles.planFeatures}>
             <li>5プロジェクトまで</li>
             <li>コミュニティサポート</li>
             <li>基本機能</li>
@@ -67,14 +68,14 @@ export function MultipleCardsExample() {
         </CardFooter>
       </Card>
 
-      <Card style={{ flex: "1 1 300px" }}>
+      <Card className={styles.plan}>
         <CardHeader>
           <CardTitle>プロプラン</CardTitle>
           <CardDescription>チームでの利用に</CardDescription>
         </CardHeader>
         <CardContent>
-          <div style={{ fontSize: "2rem", fontWeight: "bold" }}>¥2,980/月</div>
-          <ul style={{ marginTop: "1rem", lineHeight: 2 }}>
+          <div className={styles.planPrice}>¥2,980/月</div>
+          <ul className={styles.planFeatures}>
             <li>無制限プロジェクト</li>
             <li>優先サポート</li>
             <li>高度な機能</li>
@@ -90,7 +91,7 @@ export function MultipleCardsExample() {
 
 export function SimpleExample() {
   return (
-    <Card>
+    <Card className={styles.simpleCard}>
       <CardContent>
         シンプルなカード。ヘッダーやフッターなしでも使用できます。
       </CardContent>

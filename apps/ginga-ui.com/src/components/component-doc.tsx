@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { CodeBlock } from "#/components/code-block";
 import { getComponentById } from "#/data/components";
 import { EXAMPLE_CONFIGS } from "#/data/configs";
-import { getExampleCode } from "#/lib/get-example-code";
+import { getExampleSource } from "#/lib/get-example-code";
 import { highlightCode } from "#/lib/shiki";
 import styles from "./component-doc.module.css";
 
@@ -26,10 +26,12 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
   return (
     <article>
       <Heading level="h1">{component.name}</Heading>
-      <Paragraph>{component.description}</Paragraph>
+      <p className="docs-lead">{component.description}</p>
 
-      <section className={styles.installSection}>
-        <Heading level="h2">インストール</Heading>
+      <section className="docs-section">
+        <Heading level="h2" id="install">
+          インストール
+        </Heading>
         <CodeBlock
           code={installCode}
           highlightedCode={await highlightCode(installCode, "tsx")}
@@ -41,6 +43,9 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
   );
 }
 
+const toKebabCase = (value: string) =>
+  value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+
 type ExampleProps = {
   id: string;
   name: string;
@@ -49,21 +54,40 @@ type ExampleProps = {
 
 export async function Example({ id, name, children }: ExampleProps) {
   const config = EXAMPLE_CONFIGS[id]?.find((c) => c.name === name);
-  const code = await getExampleCode(id, name);
-  const highlightedCode = await highlightCode(code, "tsx");
+  const source = await getExampleSource(id, name);
+  const files = [
+    {
+      filename: `${id}.tsx`,
+      code: source.tsx,
+      highlightedCode: await highlightCode(source.tsx, "tsx"),
+    },
+    ...(source.css
+      ? [
+          {
+            filename: `${id}.module.css`,
+            code: source.css,
+            highlightedCode: await highlightCode(source.css, "css"),
+          },
+        ]
+      : []),
+  ];
 
   return (
     <section className={styles.exampleSection}>
       {config ? (
         <>
-          <Heading level="h2">{config.title}</Heading>
+          <Heading level="h2" id={toKebabCase(name)}>
+            {config.title}
+          </Heading>
           <Paragraph>{config.description}</Paragraph>
         </>
       ) : null}
 
-      <div className={styles.examplePreview}>{children}</div>
+      <div className={styles.examplePreview} data-toc-ignore>
+        {children}
+      </div>
 
-      <CodeBlock code={code} highlightedCode={highlightedCode} />
+      <CodeBlock files={files} />
     </section>
   );
 }

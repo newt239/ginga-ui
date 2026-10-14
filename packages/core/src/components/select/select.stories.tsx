@@ -1,6 +1,4 @@
-import { ListBoxItem } from "react-aria-components";
-
-import { Select } from "./select";
+import { Select, SelectItem } from "./select";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -16,9 +14,9 @@ type Story = StoryObj<typeof Select>;
 export const Basic: Story = {
   render: () => (
     <Select defaultSelectedKey="cat" label="Favorite Animal">
-      <ListBoxItem id="cat">Cat</ListBoxItem>
-      <ListBoxItem id="dog">Dog</ListBoxItem>
-      <ListBoxItem id="bird">Bird</ListBoxItem>
+      <SelectItem id="cat">Cat</SelectItem>
+      <SelectItem id="dog">Dog</SelectItem>
+      <SelectItem id="bird">Bird</SelectItem>
     </Select>
   ),
 };
@@ -27,12 +25,12 @@ export const Basic: Story = {
 export const WithDisabledOptions: Story = {
   render: () => (
     <Select defaultSelectedKey="dog" label="Select a Pet">
-      <ListBoxItem id="dog">Dog</ListBoxItem>
-      <ListBoxItem id="cat">Cat</ListBoxItem>
-      <ListBoxItem id="hamster" isDisabled>
+      <SelectItem id="dog">Dog</SelectItem>
+      <SelectItem id="cat">Cat</SelectItem>
+      <SelectItem id="hamster" isDisabled>
         Hamster (Out of Stock)
-      </ListBoxItem>
-      <ListBoxItem id="parrot">Parrot</ListBoxItem>
+      </SelectItem>
+      <SelectItem id="parrot">Parrot</SelectItem>
     </Select>
   ),
 };
@@ -41,24 +39,24 @@ export const WithDisabledOptions: Story = {
 export const WithDescriptions: Story = {
   render: () => (
     <Select defaultSelectedKey="beginner" label="Skill Level">
-      <ListBoxItem id="beginner" textValue="Beginner">
+      <SelectItem id="beginner" textValue="Beginner">
         <div>
           <span>Beginner</span>
           <span>Just starting out</span>
         </div>
-      </ListBoxItem>
-      <ListBoxItem id="intermediate" textValue="Intermediate">
+      </SelectItem>
+      <SelectItem id="intermediate" textValue="Intermediate">
         <div>
           <span>Intermediate</span>
           <span>Comfortable with basics</span>
         </div>
-      </ListBoxItem>
-      <ListBoxItem id="advanced" textValue="Advanced">
+      </SelectItem>
+      <SelectItem id="advanced" textValue="Advanced">
         <div>
           <span>Advanced</span>
           <span>Expert level knowledge</span>
         </div>
-      </ListBoxItem>
+      </SelectItem>
     </Select>
   ),
 };
@@ -67,9 +65,9 @@ export const WithDescriptions: Story = {
 export const Disabled: Story = {
   render: () => (
     <Select disabled defaultSelectedKey="cat" label="Favorite Animal">
-      <ListBoxItem id="cat">Cat</ListBoxItem>
-      <ListBoxItem id="dog">Dog</ListBoxItem>
-      <ListBoxItem id="bird">Bird</ListBoxItem>
+      <SelectItem id="cat">Cat</SelectItem>
+      <SelectItem id="dog">Dog</SelectItem>
+      <SelectItem id="bird">Bird</SelectItem>
     </Select>
   ),
 };

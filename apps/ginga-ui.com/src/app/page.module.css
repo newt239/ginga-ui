@@ -1,33 +1,19 @@
-.hero {
-  /* デフォルトのセクションスタイル */
-}
-
-.heroLead {
+.title {
   margin-bottom: 2rem;
-  font-size: 1.25rem;
+  font-size: clamp(2.5rem, 1.75rem + 3vw, 3.5rem);
+  letter-spacing: -0.03em;
 }
 
-.buttonGroup {
+.visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.featuresSection {
-  margin-top: 4rem;
-}
-
-.featuresGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 0.75rem;
   margin-top: 2rem;
-}
-
-.gettingStartedSection {
-  margin-top: 4rem;
-}
-
-.gettingStartedContent {
-  margin-top: 1.5rem;
 }

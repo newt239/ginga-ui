@@ -1,0 +1,18 @@
+.basicInput {
+  width: min(100%, 24rem);
+}
+
+.typeList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(100%, 24rem);
+}
+
+.disabledInput {
+  width: min(100%, 24rem);
+}
+
+.valueInput {
+  width: min(100%, 24rem);
+}
