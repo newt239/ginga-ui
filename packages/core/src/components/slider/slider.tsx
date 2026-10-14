@@ -9,8 +9,7 @@ import {
 } from "react-aria-components";
 import "./index.css";
 
-export type SliderProps = React.HTMLAttributes<HTMLInputElement> &
-  React.ComponentProps<typeof AriaSlider>;
+export type SliderProps = React.ComponentProps<typeof AriaSlider>;
 
 export const Slider: React.FC<SliderProps> = ({
   children,
@@ -52,15 +51,24 @@ export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
 }) => {
   return (
     <AriaSliderTrack className={cn("ginga-slider-track", className)} {...props}>
-      {(renderProps) => (
-        <>
-          <span
-            className="ginga-slider-fill"
-            style={{ width: `${renderProps.state.getThumbPercent(0) * 100}%` }}
-          />
-          {typeof children === "function" ? children(renderProps) : children}
-        </>
-      )}
+      {(renderProps) => {
+        const { state } = renderProps;
+        const isRange = state.values.length > 1;
+        const start = isRange ? state.getThumbPercent(0) : 0;
+        const end = state.getThumbPercent(isRange ? 1 : 0);
+        return (
+          <>
+            <span
+              className="ginga-slider-fill"
+              style={{
+                left: `${start * 100}%`,
+                width: `${(end - start) * 100}%`,
+              }}
+            />
+            {typeof children === "function" ? children(renderProps) : children}
+          </>
+        );
+      }}
     </AriaSliderTrack>
   );
 };

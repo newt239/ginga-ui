@@ -40,7 +40,6 @@
   .ginga-slider-fill {
     position: absolute;
     top: 50%;
-    left: 0;
     height: 0.375rem;
     background-color: var(--color-accent);
     border-radius: var(--radius-pill);
@@ -48,7 +47,7 @@
   }
 
   .ginga-slider-thumb {
-    top: calc(50% - 0.625rem);
+    top: 50%;
     box-sizing: border-box;
     width: 1.25rem;
     height: 1.25rem;
