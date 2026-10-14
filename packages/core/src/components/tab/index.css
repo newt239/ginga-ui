@@ -1,7 +1,9 @@
 .ginga-tabs {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
   font-family: var(--font-family);
   color: var(--color-text);
 

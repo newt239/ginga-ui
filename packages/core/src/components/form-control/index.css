@@ -1,7 +1,9 @@
 .ginga-form-control {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
   margin-bottom: 1.25rem;
 }
 

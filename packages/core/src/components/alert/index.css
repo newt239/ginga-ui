@@ -1,7 +1,9 @@
 .ginga-alert {
+  box-sizing: border-box;
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
+  width: 100%;
   padding: 1rem 1.25rem;
   font-family: var(--font-family);
   outline: var(--border-width) solid transparent;

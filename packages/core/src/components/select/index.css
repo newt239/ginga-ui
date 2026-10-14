@@ -1,7 +1,9 @@
 .ginga-select {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
   font-family: var(--font-family);
   color: var(--color-text);
 }
