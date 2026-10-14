@@ -109,10 +109,12 @@ const PopoverInner: React.FC<PopoverProps> = ({
               data-placement={actualPlacement}
               {...arrowProps}
               style={{
-                position: "absolute",
-                [actualPlacement]: "calc(100% - var(--border-width))",
-                transform: isVertical ? "translateX(-50%)" : "translateY(-50%)",
                 ...arrowProps.style,
+                position: "absolute",
+                [actualPlacement]: "100%",
+                [isVertical ? "marginLeft" : "marginTop"]:
+                  "calc(var(--border-width) * -1)",
+                transform: isVertical ? "translateX(-50%)" : "translateY(-50%)",
               }}
             >
               <svg
