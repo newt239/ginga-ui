@@ -1,12 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Orbit } from "lucide-react";
 
 export function Logo() {
   return (
     <Link href="/" className="docs-logo">
-      <span className="docs-logo-mark" aria-hidden="true">
-        <Orbit />
-      </span>
+      <Image
+        src="/shooting-star.svg"
+        alt=""
+        width={32}
+        height={32}
+        className="docs-logo-mark"
+        priority
+      />
       Ginga UI
     </Link>
   );
