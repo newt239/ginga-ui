@@ -107,6 +107,13 @@ export const COMPONENTS: ComponentMetadata[] = [
     description: "ステータスやラベルを表示する小さなバッジ。",
   },
   {
+    id: "code-block",
+    name: "CodeBlock",
+    category: "display",
+    description:
+      "コードを表示しコピーボタンを備えたブロック。ファイル名の表示と、複数ファイルのタブ切り替えに対応。",
+  },
+  {
     id: "card",
     name: "Card",
     category: "display",

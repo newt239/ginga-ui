@@ -87,6 +87,32 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
     },
   ],
+  "code-block": [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description:
+        "code に渡した文字列を表示し、コピーボタンでクリップボードにコピーできます。",
+    },
+    {
+      name: "FilenameExample",
+      title: "ファイル名",
+      description:
+        "filename を指定すると、コードの上にファイル名を表示します。",
+    },
+    {
+      name: "FilesExample",
+      title: "複数ファイル",
+      description:
+        "files に複数のファイルを渡すと、タブで切り替えて表示できます。",
+    },
+    {
+      name: "WithIconExample",
+      title: "アイコン付きのコピーボタン",
+      description:
+        "copyIcon と copiedIcon で、コピーボタンにアイコンを表示できます。",
+    },
+  ],
   badge: [
     {
       name: "BasicExample",
