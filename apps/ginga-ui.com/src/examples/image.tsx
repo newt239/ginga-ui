@@ -1,37 +1,38 @@
 "use client";
 
 import { Image } from "@ginga-ui/core";
+import styles from "./image.module.css";
 
 export function BasicExample() {
   return (
     <Image
       src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
       alt="美しい山の風景"
-      style={{ maxWidth: "100%", height: "auto" }}
+      className={styles.basicImage}
     />
   );
 }
 
 export function AvatarExample() {
   return (
-    <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+    <div className={styles.avatars}>
       <Image
         src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
         alt="ユーザーアバター"
         variant="avatar"
-        style={{ width: "64px", height: "64px" }}
+        className={styles.avatarSmall}
       />
       <Image
         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
         alt="ユーザーアバター"
         variant="avatar"
-        style={{ width: "96px", height: "96px" }}
+        className={styles.avatarMedium}
       />
       <Image
         src="https://images.unsplash.com/photo-1599566150163-29194dcaad36"
         alt="ユーザーアバター"
         variant="avatar"
-        style={{ width: "128px", height: "128px" }}
+        className={styles.avatarLarge}
       />
     </div>
   );
@@ -39,16 +40,16 @@ export function AvatarExample() {
 
 export function SizesExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.sizes}>
       <Image
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
         alt="小サイズ"
-        style={{ width: "200px", height: "auto" }}
+        className={styles.smallImage}
       />
       <Image
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
         alt="中サイズ"
-        style={{ width: "400px", height: "auto" }}
+        className={styles.mediumImage}
       />
     </div>
   );
@@ -59,11 +60,7 @@ export function RoundedExample() {
     <Image
       src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4"
       alt="角丸の画像"
-      style={{
-        maxWidth: "100%",
-        height: "auto",
-        borderRadius: "1rem",
-      }}
+      className={styles.roundedImage}
     />
   );
 }

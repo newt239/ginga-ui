@@ -1,0 +1,36 @@
+.basicParagraph {
+  width: min(100%, 32rem);
+}
+
+.multipleParagraphs {
+  width: min(100%, 32rem);
+}
+
+.longParagraph {
+  width: min(100%, 32rem);
+}
+
+.customStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(100%, 32rem);
+}
+
+.largeParagraph {
+  font-size: 1.125rem;
+}
+
+.accentParagraph {
+  color: var(--color-accent);
+}
+
+.centeredParagraph {
+  text-align: center;
+}
+
+.highlightedParagraph {
+  padding: 1rem;
+  background-color: var(--color-accent-subtle);
+  border-radius: var(--radius-md);
+}

@@ -1,0 +1,35 @@
+.basicStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.allLevelsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article {
+  width: min(100%, 32rem);
+}
+
+.customStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(100%, 32rem);
+}
+
+.accentHeading {
+  color: var(--color-accent);
+}
+
+.centeredHeading {
+  text-align: center;
+}
+
+.underlinedHeading {
+  padding-bottom: 0.5rem;
+  border-bottom: var(--border-width) solid var(--color-accent);
+}

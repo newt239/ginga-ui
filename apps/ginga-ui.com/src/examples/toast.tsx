@@ -2,6 +2,8 @@
 
 import { Button, toast, ToastRegion } from "@ginga-ui/core";
 
+import styles from "./toast.module.css";
+
 export function BasicExample() {
   return (
     <>
@@ -15,7 +17,7 @@ export function BasicExample() {
 
 export function VariantsExample() {
   return (
-    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+    <div className={styles.variantList}>
       <Button
         variant="outline"
         onPress={() => toast.info("新しいバージョンが利用可能です")}

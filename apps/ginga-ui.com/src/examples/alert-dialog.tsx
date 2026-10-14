@@ -7,6 +7,7 @@ import {
   DialogTrigger,
   Modal,
 } from "@ginga-ui/core";
+import styles from "./alert-dialog.module.css";
 
 export function BasicExample() {
   return (
@@ -16,7 +17,7 @@ export function BasicExample() {
         <AlertDialog variant="danger">
           <AlertDialogTitle>ファイルの削除</AlertDialogTitle>
           <p>この操作は取り消せません。本当に削除しますか?</p>
-          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+          <div className={styles.actions}>
             <Button slot="close" variant="outline">
               キャンセル
             </Button>
@@ -38,7 +39,7 @@ export function WarningExample() {
         <AlertDialog variant="warning">
           <AlertDialogTitle>ログアウトの確認</AlertDialogTitle>
           <p>保存されていない変更は失われます。ログアウトしますか?</p>
-          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+          <div className={styles.actions}>
             <Button slot="close" variant="outline">
               キャンセル
             </Button>
@@ -60,7 +61,7 @@ export function PlainExample() {
         <AlertDialog>
           <AlertDialogTitle>利用規約の更新</AlertDialogTitle>
           <p>利用規約が更新されました。続行するには同意が必要です。</p>
-          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+          <div className={styles.actions}>
             <Button slot="close" variant="outline">
               あとで
             </Button>

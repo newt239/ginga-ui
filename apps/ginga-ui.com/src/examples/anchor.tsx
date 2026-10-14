@@ -1,6 +1,7 @@
 "use client";
 
 import { Anchor } from "@ginga-ui/core";
+import styles from "./anchor.module.css";
 
 export function BasicExample() {
   return <Anchor href="https://example.com">リンクをクリック</Anchor>;
@@ -16,7 +17,7 @@ export function ExternalExample() {
 
 export function DisabledExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.linkStack}>
       <Anchor href="https://example.com">通常のリンク</Anchor>
       <Anchor href="https://example.com" disabled>
         無効化されたリンク
@@ -27,7 +28,7 @@ export function DisabledExample() {
 
 export function ButtonVariantExample() {
   return (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+    <div className={styles.buttonRow}>
       <Anchor href="https://example.com" variant="button">
         Filled
       </Anchor>

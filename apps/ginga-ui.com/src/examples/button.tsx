@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Input } from "@ginga-ui/core";
+import styles from "./button.module.css";
 
 export function BasicExample() {
   return (
@@ -12,7 +13,7 @@ export function BasicExample() {
 
 export function VariantsExample() {
   return (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+    <div className={styles.variantRow}>
       <Button variant="filled">Filled</Button>
       <Button variant="light">Light</Button>
       <Button variant="outline">Outline</Button>
@@ -24,14 +25,7 @@ export function VariantsExample() {
 
 export function SizesExample() {
   return (
-    <div
-      style={{
-        display: "flex",
-        gap: "1rem",
-        flexWrap: "wrap",
-        alignItems: "center",
-      }}
-    >
+    <div className={styles.sizeRow}>
       <Button size="sm">Small</Button>
       <Button size="md">Medium</Button>
       <Button size="lg">Large</Button>
@@ -41,7 +35,7 @@ export function SizesExample() {
 
 export function DisabledExample() {
   return (
-    <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+    <div className={styles.disabledRow}>
       <Button variant="filled" disabled>
         Disabled Filled
       </Button>
@@ -63,12 +57,7 @@ export function FormExample() {
         const formData = new FormData(e.currentTarget);
         alert(`送信: ${formData.get("name")}`);
       }}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "1rem",
-        maxWidth: "20rem",
-      }}
+      className={styles.form}
     >
       <Input
         type="text"

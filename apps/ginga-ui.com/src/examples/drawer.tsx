@@ -7,6 +7,7 @@ import {
   DrawerContent,
   DrawerTitle,
 } from "@ginga-ui/core";
+import styles from "./drawer.module.css";
 
 export function BasicExample() {
   return (
@@ -27,7 +28,7 @@ export function BasicExample() {
 
 export function PlacementsExample() {
   return (
-    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+    <div className={styles.placementRow}>
       {(["left", "right", "top", "bottom"] as const).map((placement) => (
         <DialogTrigger key={placement}>
           <Button variant="outline">{placement}</Button>

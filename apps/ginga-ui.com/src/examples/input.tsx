@@ -2,13 +2,21 @@
 
 import { Input } from "@ginga-ui/core";
 
+import styles from "./input.module.css";
+
 export function BasicExample() {
-  return <Input aria-label="テキスト" placeholder="テキストを入力..." />;
+  return (
+    <Input
+      className={styles.basicInput}
+      aria-label="テキスト"
+      placeholder="テキストを入力..."
+    />
+  );
 }
 
 export function TypesExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.typeList}>
       <Input type="text" aria-label="テキスト" placeholder="テキスト" />
       <Input
         type="email"
@@ -24,6 +32,7 @@ export function TypesExample() {
 export function DisabledExample() {
   return (
     <Input
+      className={styles.disabledInput}
       disabled
       aria-label="無効化された入力フィールド"
       placeholder="無効化された入力フィールド"
@@ -33,6 +42,10 @@ export function DisabledExample() {
 
 export function WithValueExample() {
   return (
-    <Input aria-label="初期値の例" defaultValue="初期値が設定されています" />
+    <Input
+      className={styles.valueInput}
+      aria-label="初期値の例"
+      defaultValue="初期値が設定されています"
+    />
   );
 }

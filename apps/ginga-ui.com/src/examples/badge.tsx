@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge } from "@ginga-ui/core";
+import styles from "./badge.module.css";
 
 export function BasicExample() {
   return <Badge>New</Badge>;
@@ -8,7 +9,7 @@ export function BasicExample() {
 
 export function VariantsExample() {
   return (
-    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+    <div className={styles.badgeRow}>
       <Badge variant="primary">Primary</Badge>
       <Badge variant="secondary">Secondary</Badge>
       <Badge variant="info">Info</Badge>
@@ -21,7 +22,7 @@ export function VariantsExample() {
 
 export function WithTextExample() {
   return (
-    <p style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
+    <p className={styles.notification}>
       通知が届いています
       <Badge variant="danger">3</Badge>
     </p>

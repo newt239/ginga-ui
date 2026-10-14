@@ -9,6 +9,8 @@ import {
   Modal,
 } from "@ginga-ui/core";
 
+import styles from "./dialog.module.css";
+
 export function BasicExample() {
   return (
     <DialogTrigger>
@@ -34,7 +36,7 @@ export function ConfirmationExample() {
         <Dialog>
           <DialogTitle>削除の確認</DialogTitle>
           <p>本当にアカウントを削除しますか? この操作は取り消せません。</p>
-          <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+          <div className={styles.confirmActions}>
             <Button slot="close" variant="outline">
               キャンセル
             </Button>
@@ -61,14 +63,7 @@ export function FormExample() {
             }}
           >
             <DialogTitle>アカウント作成</DialogTitle>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1rem",
-                marginTop: "1rem",
-              }}
-            >
+            <div className={styles.formFields}>
               <Input type="text" aria-label="名前" placeholder="名前" />
               <Input
                 type="email"
@@ -81,7 +76,7 @@ export function FormExample() {
                 placeholder="パスワード"
               />
             </div>
-            <div style={{ display: "flex", gap: "0.5rem", marginTop: "1rem" }}>
+            <div className={styles.formActions}>
               <Button slot="close" variant="outline">
                 キャンセル
               </Button>

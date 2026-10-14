@@ -1,0 +1,25 @@
+.variantRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sizeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.disabledRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: min(100%, 20rem);
+}

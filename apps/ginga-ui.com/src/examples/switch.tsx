@@ -2,6 +2,8 @@
 
 import { Switch } from "@ginga-ui/core";
 
+import styles from "./switch.module.css";
+
 export function BasicExample() {
   return <Switch>通知を許可</Switch>;
 }
@@ -12,7 +14,7 @@ export function SelectedExample() {
 
 export function DisabledExample() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <div className={styles.disabledList}>
       <Switch disabled>無効化(オフ)</Switch>
       <Switch disabled selected>
         無効化(オン)

@@ -2,6 +2,8 @@
 
 import { Button, Popover, PopoverTrigger } from "@ginga-ui/core";
 
+import styles from "./popover.module.css";
+
 export function BasicExample() {
   return (
     <PopoverTrigger>
@@ -15,7 +17,7 @@ export function BasicExample() {
 
 export function PlacementsExample() {
   return (
-    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+    <div className={styles.placementList}>
       {(["top", "bottom", "left", "right"] as const).map((placement) => (
         <PopoverTrigger key={placement}>
           <Button variant="outline">{placement}</Button>
