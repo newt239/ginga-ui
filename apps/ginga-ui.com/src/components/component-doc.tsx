@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { CodeBlock } from "#/components/code-block";
 import { getComponentById } from "#/data/components";
 import { EXAMPLE_CONFIGS } from "#/data/configs";
-import { getExampleCode } from "#/lib/get-example-code";
+import { getExampleSource } from "#/lib/get-example-code";
 import { highlightCode } from "#/lib/shiki";
 import styles from "./component-doc.module.css";
 
@@ -49,8 +49,23 @@ type ExampleProps = {
 
 export async function Example({ id, name, children }: ExampleProps) {
   const config = EXAMPLE_CONFIGS[id]?.find((c) => c.name === name);
-  const code = await getExampleCode(id, name);
-  const highlightedCode = await highlightCode(code, "tsx");
+  const source = await getExampleSource(id, name);
+  const files = [
+    {
+      filename: `${id}.tsx`,
+      code: source.tsx,
+      highlightedCode: await highlightCode(source.tsx, "tsx"),
+    },
+    ...(source.css
+      ? [
+          {
+            filename: `${id}.module.css`,
+            code: source.css,
+            highlightedCode: await highlightCode(source.css, "css"),
+          },
+        ]
+      : []),
+  ];
 
   return (
     <section className={styles.exampleSection}>
@@ -63,7 +78,7 @@ export async function Example({ id, name, children }: ExampleProps) {
 
       <div className={styles.examplePreview}>{children}</div>
 
-      <CodeBlock code={code} highlightedCode={highlightedCode} />
+      <CodeBlock files={files} />
     </section>
   );
 }
