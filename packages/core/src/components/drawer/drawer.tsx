@@ -91,9 +91,14 @@ const NonModalDrawerInner: React.FC<
 
   useEffect(() => {
     const root = document.documentElement;
+    const { width, height } = document.body.getBoundingClientRect();
+    root.style.setProperty("--ginga-drawer-page-width", `${width}px`);
+    root.style.setProperty("--ginga-drawer-page-height", `${height}px`);
     root.dataset.gingaDrawerInset = placement;
     return () => {
       delete root.dataset.gingaDrawerInset;
+      root.style.removeProperty("--ginga-drawer-page-width");
+      root.style.removeProperty("--ginga-drawer-page-height");
     };
   }, [placement]);
 

@@ -232,7 +232,7 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "NotDismissableExample",
       title: "外側クリックで閉じない",
       description:
-        "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はドロワーと同じ幅の余白がページに付き、本文が隠れません。",
+        "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はページの幅を保ったままドロワーの幅だけ余白が付くので、スクロールすればドロワーの下に隠れた部分も表示できます。",
     },
   ],
   "form-control": [
@@ -441,6 +441,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "CustomRangeExample",
       title: "カスタム範囲",
       description: "カスタムの最小値・最大値を持つスライダーです。",
+    },
+    {
+      name: "RangeExample",
+      title: "範囲指定",
+      description:
+        "defaultValue に配列を渡し SliderThumb を 2 つ置くと、開始点と終了点を指定できる範囲スライダーになります。",
     },
     {
       name: "WithStepsExample",

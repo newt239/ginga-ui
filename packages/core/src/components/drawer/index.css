@@ -3,12 +3,19 @@
   --ginga-drawer-height: min(16rem, 90vh);
 }
 
-html[data-ginga-drawer-inset="left"] body {
-  margin-left: var(--ginga-drawer-width);
+html[data-ginga-drawer-inset] body {
+  box-sizing: border-box;
+  width: var(--ginga-drawer-page-width);
+  min-height: var(--ginga-drawer-page-height);
 }
 
-html[data-ginga-drawer-inset="right"] body {
-  margin-right: var(--ginga-drawer-width);
+html[data-ginga-drawer-inset="left"],
+html[data-ginga-drawer-inset="right"] {
+  min-width: calc(var(--ginga-drawer-page-width) + var(--ginga-drawer-width));
+}
+
+html[data-ginga-drawer-inset="left"] body {
+  margin-left: var(--ginga-drawer-width);
 }
 
 html[data-ginga-drawer-inset="top"] body {
