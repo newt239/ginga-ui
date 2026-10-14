@@ -18,11 +18,15 @@ import styles from "./theme-generator.module.css";
 
 type ServerThemeProvider = Exclude<ThemeProvider, "browser">;
 
+type GenerationMode = "free" | "own-key" | "browser";
+
 const MODELS: Record<ServerThemeProvider, string[]> = {
   openai: ["gpt-6-luna", "gpt-6.1-sol", "gpt-6-astra"],
   google: ["gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-4-argon"],
   anthropic: ["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"],
 };
+
+const FREE_PROMPT_MAX_LENGTH = 200;
 
 const AVAILABILITY_MESSAGES: Record<BrowserAIAvailability, string> = {
   unavailable:
@@ -33,10 +37,17 @@ const AVAILABILITY_MESSAGES: Record<BrowserAIAvailability, string> = {
   available: "Gemini Nanoが利用可能です。APIキーもサーバー通信も不要です。",
 };
 
-type GenerateResult = { type: "success" | "error"; CSSCode: string };
+type GenerateResult = {
+  type: "success" | "error";
+  CSSCode: string;
+  remaining?: number;
+};
+
+type FreeQuota = { model: string; limit: number; remaining: number };
 
 export function ThemeGenerator() {
-  const [provider, setProvider] = useState<ThemeProvider>("openai");
+  const [mode, setMode] = useState<GenerationMode>("free");
+  const [provider, setProvider] = useState<ServerThemeProvider>("openai");
   const [model, setModel] = useState(MODELS.openai[0]);
   const [apiKey, setApiKey] = useState("");
   const [prompt, setPrompt] = useState("");
@@ -46,8 +57,26 @@ export function ThemeGenerator() {
   const [availability, setAvailability] =
     useState<BrowserAIAvailability | null>(null);
   const [downloadProgress, setDownloadProgress] = useState<number | null>(null);
+  const [freeQuota, setFreeQuota] = useState<FreeQuota | null>(null);
 
-  const isBrowserProvider = provider === "browser";
+  const isBrowserProvider = mode === "browser";
+  const isFreeMode = mode === "free";
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void (async () => {
+      const response = await fetch("/api/generate-theme");
+      if (!response.ok || cancelled) {
+        return;
+      }
+      setFreeQuota(await response.json());
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!isBrowserProvider || availability !== null) {
@@ -85,13 +114,16 @@ export function ThemeGenerator() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        model,
-        prompt,
-        apiKey,
-        provider,
-      }),
+      body: JSON.stringify(
+        isFreeMode ? { prompt } : { model, prompt, apiKey, provider }
+      ),
     });
+
+    if (response.status === 429) {
+      setFreeQuota((current) =>
+        current ? { ...current, remaining: 0 } : current
+      );
+    }
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -102,11 +134,11 @@ export function ThemeGenerator() {
   };
 
   const handleGenerate = async () => {
-    if (!prompt || (!isBrowserProvider && !apiKey)) {
+    if (!prompt || (mode === "own-key" && !apiKey)) {
       setError(
-        isBrowserProvider
-          ? "プロンプトを入力してください"
-          : "APIキーとプロンプトを入力してください"
+        mode === "own-key"
+          ? "APIキーとプロンプトを入力してください"
+          : "プロンプトを入力してください"
       );
       return;
     }
@@ -118,6 +150,12 @@ export function ThemeGenerator() {
       const result = isBrowserProvider
         ? await generateInBrowser()
         : await generateOnServer();
+
+      if (result.remaining !== undefined) {
+        setFreeQuota((current) =>
+          current ? { ...current, remaining: result.remaining ?? 0 } : current
+        );
+      }
 
       if (result.type === "success") {
         setCssCode(result.CSSCode);
@@ -138,10 +176,19 @@ export function ThemeGenerator() {
     }
   };
 
-  const handleProviderChange = (newProvider: ThemeProvider) => {
+  const handleProviderChange = (newProvider: ServerThemeProvider) => {
     setProvider(newProvider);
-    if (newProvider !== "browser") {
-      setModel(MODELS[newProvider][0]);
+    setModel(MODELS[newProvider][0]);
+  };
+
+  const isUnavailable = () => {
+    switch (mode) {
+      case "free":
+        return freeQuota?.remaining === 0;
+      case "own-key":
+        return !apiKey;
+      case "browser":
+        return availability === "unavailable";
     }
   };
 
@@ -156,48 +203,54 @@ export function ThemeGenerator() {
 
   return (
     <div className={styles.container}>
-      {isBrowserProvider ? (
-        <Alert variant="info" icon={<Info />}>
-          <AlertTitle>ブラウザ内で完結します</AlertTitle>
+      <Select
+        label="実行方法"
+        selectedKey={mode}
+        onSelectionChange={(key) => setMode(key as GenerationMode)}
+      >
+        <SelectItem id="free">無料枠（APIキー不要）</SelectItem>
+        <SelectItem id="own-key">自分のAPIキー</SelectItem>
+        <SelectItem id="browser">Gemini Nano（ブラウザ内）</SelectItem>
+      </Select>
+
+      {mode === "free" && (
+        <Alert
+          variant={freeQuota?.remaining === 0 ? "warning" : "info"}
+          icon={freeQuota?.remaining === 0 ? <TriangleAlert /> : <Info />}
+        >
+          <AlertTitle>APIキーなしで試せます</AlertTitle>
           <AlertDescription>
-            Gemini
-            Nanoを使うため、APIキーの入力もサーバーへの通信も不要です。生成はすべて端末上で実行されます。
-          </AlertDescription>
-        </Alert>
-      ) : (
-        <Alert variant="warning" icon={<TriangleAlert />}>
-          <AlertTitle>セキュリティ上の注意</AlertTitle>
-          <AlertDescription>
-            このデモで入力したAPIキーはサーバーサイドのRoute
-            Handlerへ送信され、テーマ生成にのみ使用されます。保存はされません。本番環境ではAPIキーをクライアントから受け取らず、サーバーサイドの環境変数から読み込んでください。
+            サーバーに登録したAPIキーで{freeQuota?.model ?? "OpenAIのモデル"}
+            を呼び出します。利用者全体で直近24時間に
+            {freeQuota?.limit ?? 100}
+            回までです。入力したプロンプトと生成結果はサーバーに記録されます。
+            {freeQuota && `残り${freeQuota.remaining}回。`}
           </AlertDescription>
         </Alert>
       )}
 
-      <Select
-        label="LLMプロバイダー"
-        selectedKey={provider}
-        onSelectionChange={(key) => handleProviderChange(key as ThemeProvider)}
-      >
-        <SelectItem id="openai">OpenAI</SelectItem>
-        <SelectItem id="google">Google Gemini</SelectItem>
-        <SelectItem id="anthropic">Anthropic Claude</SelectItem>
-        <SelectItem id="browser">Gemini Nano</SelectItem>
-      </Select>
-
-      {isBrowserProvider ? (
-        availability && (
-          <Alert
-            variant={availability === "unavailable" ? "warning" : "info"}
-            icon={availability === "unavailable" ? <TriangleAlert /> : <Info />}
-          >
+      {mode === "own-key" && (
+        <>
+          <Alert variant="warning" icon={<TriangleAlert />}>
+            <AlertTitle>セキュリティ上の注意</AlertTitle>
             <AlertDescription>
-              {AVAILABILITY_MESSAGES[availability]}
+              このデモで入力したAPIキーはサーバーサイドのRoute
+              Handlerへ送信され、テーマ生成にのみ使用されます。保存はされません。本番環境ではAPIキーをクライアントから受け取らず、サーバーサイドの環境変数から読み込んでください。
             </AlertDescription>
           </Alert>
-        )
-      ) : (
-        <>
+
+          <Select
+            label="LLMプロバイダー"
+            selectedKey={provider}
+            onSelectionChange={(key) =>
+              handleProviderChange(key as ServerThemeProvider)
+            }
+          >
+            <SelectItem id="openai">OpenAI</SelectItem>
+            <SelectItem id="google">Google Gemini</SelectItem>
+            <SelectItem id="anthropic">Anthropic Claude</SelectItem>
+          </Select>
+
           <Select
             label="モデル"
             selectedKey={model}
@@ -226,6 +279,30 @@ export function ThemeGenerator() {
         </>
       )}
 
+      {mode === "browser" && (
+        <>
+          <Alert variant="info" icon={<Info />}>
+            <AlertTitle>ブラウザ内で完結します</AlertTitle>
+            <AlertDescription>
+              Gemini
+              Nanoを使うため、APIキーの入力もサーバーへの通信も不要です。生成はすべて端末上で実行されます。
+            </AlertDescription>
+          </Alert>
+          {availability && (
+            <Alert
+              variant={availability === "unavailable" ? "warning" : "info"}
+              icon={
+                availability === "unavailable" ? <TriangleAlert /> : <Info />
+              }
+            >
+              <AlertDescription>
+                {AVAILABILITY_MESSAGES[availability]}
+              </AlertDescription>
+            </Alert>
+          )}
+        </>
+      )}
+
       <FormControl
         title="テーマプロンプト"
         htmlFor="theme-prompt-input"
@@ -236,6 +313,7 @@ export function ThemeGenerator() {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="例: 森の中の静けさ、サイバーパンク、ダークモード"
+          maxLength={isFreeMode ? FREE_PROMPT_MAX_LENGTH : undefined}
         />
       </FormControl>
 
@@ -245,11 +323,7 @@ export function ThemeGenerator() {
         className={styles.submit}
         startIcon={<Sparkles />}
         onPress={handleGenerate}
-        disabled={
-          !prompt ||
-          loading ||
-          (isBrowserProvider ? availability === "unavailable" : !apiKey)
-        }
+        disabled={!prompt || loading || isUnavailable()}
       >
         {buttonLabel()}
       </Button>

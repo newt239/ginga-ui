@@ -26,7 +26,7 @@ export default async function ThemeGenerationPage() {
           ライブデモ
         </Heading>
         <Paragraph>
-          下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。プロバイダーに「Gemini
+          下のフォームでプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。「無料枠」ではAPIキーなしで試せますが、利用者全体で直近24時間に100回までに制限しています。「自分のAPIキー」では好きなプロバイダーとモデルを選べます。「Gemini
           Nano」を選んだ場合はAPIキーが不要で、生成はすべてブラウザ内で完結します。
         </Paragraph>
         <ThemeGenerator />
