@@ -52,10 +52,10 @@
   },
   "dependencies": {
     "@ginga-ui/utils": "workspace:*",
-    "react-aria-components": "1.20.0"
+    "react-aria-components": "1.21.1"
   },
   "devDependencies": {
-    "react": "19.2.8"
+    "react": "19.3.0"
   },
   "peerDependencies": {
     "react": ">=18"
