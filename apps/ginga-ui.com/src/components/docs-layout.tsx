@@ -1,6 +1,7 @@
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
 import { SidebarNav } from "./sidebar";
+import { TableOfContents } from "./table-of-contents";
 
 export function DocsLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,6 +20,9 @@ export function DocsLayout({ children }: { children: React.ReactNode }) {
       <main id="main-content" className="docs-main" tabIndex={-1}>
         {children}
       </main>
+      <aside className="docs-toc-container" data-toc-ignore>
+        <TableOfContents />
+      </aside>
     </div>
   );
 }

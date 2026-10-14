@@ -29,7 +29,9 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
       <p className="docs-lead">{component.description}</p>
 
       <section className="docs-section">
-        <Heading level="h2">インストール</Heading>
+        <Heading level="h2" id="install">
+          インストール
+        </Heading>
         <CodeBlock
           code={installCode}
           highlightedCode={await highlightCode(installCode, "tsx")}
@@ -40,6 +42,9 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
     </article>
   );
 }
+
+const toKebabCase = (value: string) =>
+  value.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 
 type ExampleProps = {
   id: string;
@@ -71,12 +76,16 @@ export async function Example({ id, name, children }: ExampleProps) {
     <section className={styles.exampleSection}>
       {config ? (
         <>
-          <Heading level="h2">{config.title}</Heading>
+          <Heading level="h2" id={toKebabCase(name)}>
+            {config.title}
+          </Heading>
           <Paragraph>{config.description}</Paragraph>
         </>
       ) : null}
 
-      <div className={styles.examplePreview}>{children}</div>
+      <div className={styles.examplePreview} data-toc-ignore>
+        {children}
+      </div>
 
       <CodeBlock files={files} />
     </section>

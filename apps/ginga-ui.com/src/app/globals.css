@@ -3,6 +3,7 @@
     var(--font-inter), var(--font-noto-sans-jp), "Hiragino Sans", sans-serif;
   --font-family-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --docs-sidebar-width: 17rem;
+  --docs-toc-width: 15rem;
   --docs-content-width: 52rem;
 }
 
@@ -64,7 +65,9 @@ body {
 
 .docs-layout {
   display: grid;
-  grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
+  grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr) var(
+      --docs-toc-width
+    );
   min-height: 100vh;
 }
 
@@ -275,6 +278,7 @@ body {
   width: 100%;
   max-width: calc(var(--docs-content-width) + 6rem);
   padding: 4rem 3rem 6rem;
+  margin-inline: auto;
   outline: none;
 }
 
@@ -336,6 +340,71 @@ body {
 
 .docs-main .shiki {
   background-color: transparent !important;
+}
+
+.docs-toc-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 4rem 1.5rem 2rem 0;
+  overflow-y: auto;
+}
+
+.docs-toc {
+  font-size: 0.875rem;
+  line-height: 1.5;
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  & li[data-level="3"] {
+    padding-left: 0.75rem;
+  }
+
+  & a {
+    display: block;
+    padding: 0.375rem 0.75rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--color-text);
+      background-color: var(--color-surface-hover);
+    }
+
+    &[aria-current="location"] {
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+  }
+}
+
+.docs-toc-title {
+  padding: 0 0.75rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
+@media (width <= 80rem) {
+  .docs-layout {
+    grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
+  }
+
+  .docs-toc-container {
+    display: none;
+  }
 }
 
 @media (width <= 56rem) {
