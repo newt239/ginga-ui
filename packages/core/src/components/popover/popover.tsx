@@ -110,7 +110,7 @@ const PopoverInner: React.FC<PopoverProps> = ({
               {...arrowProps}
               style={{
                 position: "absolute",
-                [actualPlacement]: "100%",
+                [actualPlacement]: "calc(100% - var(--border-width))",
                 transform: isVertical ? "translateX(-50%)" : "translateY(-50%)",
                 ...arrowProps.style,
               }}
