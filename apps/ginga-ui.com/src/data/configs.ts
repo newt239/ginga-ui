@@ -232,7 +232,7 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "NotDismissableExample",
       title: "外側クリックで閉じない",
       description:
-        "dismissableプロップにfalseを渡すと、外側のクリックやESCキーでは閉じなくなります。",
+        "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はドロワーと同じ幅の余白がページに付き、本文が隠れません。",
     },
   ],
   "form-control": [

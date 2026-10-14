@@ -123,7 +123,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "Drawer",
     category: "display",
     description:
-      "画面の端からスライドインするドロワー。4方向(left、right、top、bottom)に対応。",
+      "画面の端からスライドインするドロワー。4方向(left、right、top、bottom)に対応し、ページを操作したまま開いておける非モーダル表示もサポート。",
   },
   {
     id: "image",
