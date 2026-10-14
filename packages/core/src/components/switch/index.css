@@ -18,8 +18,10 @@
     padding: 0.25rem;
     outline: var(--border-width) solid transparent;
     outline-offset: calc(var(--border-width) * -1);
+    --ginga-switch-radius: min(var(--size-radius), 0.75rem);
+
     background-color: var(--color-control-border);
-    border-radius: var(--radius-pill);
+    border-radius: var(--ginga-switch-radius);
     transition: var(--transition);
 
     &::before {
@@ -28,7 +30,7 @@
       height: 1rem;
       content: "";
       background-color: var(--color-background);
-      border-radius: 50%;
+      border-radius: max(0rem, calc(var(--ginga-switch-radius) - 0.25rem));
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
     }
