@@ -94,9 +94,9 @@ TypeScriptパスマッピングを使用:
 `packages/utils/src/ai/`に配置:
 
 1. **ThemeClient** — `ai/index.ts` に定義。Vercel AI SDK を利用した単一のエントリーポイント。コンストラクタで `provider` を明示指定し、`model` を省略した場合は `DEFAULT_MODELS` の値を使用する。**モデル名から条件分岐でプロバイダーを判定してはならない**
-   - `provider: "openai"` — デフォルトモデルは `gpt-5.6-luna`
-   - `provider: "google"` — デフォルトモデルは `gemini-3.7-flash`
-   - `provider: "anthropic"` — デフォルトモデルは `claude-haiku-4-5`
+   - `provider: "openai"` — デフォルトモデルは `gpt-6-luna`
+   - `provider: "google"` — デフォルトモデルは `gemini-3.8-flash`
+   - `provider: "anthropic"` — デフォルトモデルは `claude-haiku-5-5`
    - `provider: "browser"` — Gemini Nano。APIキー不要でブラウザ内でのみ動作するため、Client Component から呼ぶ。`@browser-ai/core` は動的 import して読み込む
 
 2. **テーマ生成フロー**:

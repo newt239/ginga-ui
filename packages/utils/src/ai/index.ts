@@ -12,9 +12,9 @@ import { themeVariablesSchema, type ThemeVariables } from "./schema";
 export * from "./browser";
 
 export const DEFAULT_MODELS = {
-  openai: "gpt-5.6-luna",
-  google: "gemini-3.7-flash",
-  anthropic: "claude-haiku-4-5",
+  openai: "gpt-6-luna",
+  google: "gemini-3.8-flash",
+  anthropic: "claude-haiku-5-5",
   browser: "text",
 } as const;
 
