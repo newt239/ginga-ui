@@ -29,3 +29,4 @@ ThemeClient のデフォルトモデルを各プロバイダーの最新シリ�
 - Alert・Tabs・Paragraph・Card・Box・List・CodeBlock・FormControl・Input・Select を既定で横幅いっぱいに表示
 - 破壊的変更: コンポーネントに内蔵していたアイコンを廃止。Accordion・Select・Alert・AlertDialog・Toast・CodeBlock のアイコンは props (`icon`、`checkIcon`、`closeIcon`、`copyIcon` など) で指定する。Checkbox のチェックマークと Toast の閉じるボタンは、指定しない場合 CSS で描画する
 - 破壊的変更: Popover の props を `placement`・`offset`・`crossOffset`・`shouldFlip`・`showArrow` などに絞った
+- 狭い画面幅への対応: Tab のタブ列と CodeBlock のファイル名の列を折り返さず横スクロールさせ、Table は横スクロールできるコンテナ (`ginga-table-container`) で包むように変更。CodeBlock は幅が狭いときコピーボタンをアイコンのみで表示
