@@ -16,6 +16,8 @@ export type AnchorProps = OmitStrict<
   buttonVariant?: ButtonVariant;
   size?: ButtonSize;
   disabled?: boolean;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 
 export const Anchor: React.FC<AnchorProps> = ({
@@ -23,7 +25,10 @@ export const Anchor: React.FC<AnchorProps> = ({
   buttonVariant = "filled",
   size = "md",
   disabled,
+  startIcon,
+  endIcon,
   className,
+  children,
   ...props
 }) => {
   if (variant === "button") {
@@ -34,7 +39,15 @@ export const Anchor: React.FC<AnchorProps> = ({
         isDisabled={disabled}
         className={cn("ginga-button", className)}
         {...props}
-      />
+      >
+        {(renderProps) => (
+          <>
+            {startIcon}
+            {typeof children === "function" ? children(renderProps) : children}
+            {endIcon}
+          </>
+        )}
+      </AriaLink>
     );
   }
 
@@ -43,6 +56,8 @@ export const Anchor: React.FC<AnchorProps> = ({
       isDisabled={disabled}
       className={cn("ginga-anchor", className)}
       {...props}
-    />
+    >
+      {children}
+    </AriaLink>
   );
 };
