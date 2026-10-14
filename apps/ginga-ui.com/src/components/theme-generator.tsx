@@ -208,9 +208,9 @@ export function ThemeGenerator() {
         selectedKey={mode}
         onSelectionChange={(key) => setMode(key as GenerationMode)}
       >
-        <SelectItem id="free">無料枠（APIキー不要）</SelectItem>
+        <SelectItem id="free">無料枠</SelectItem>
         <SelectItem id="own-key">自分のAPIキー</SelectItem>
-        <SelectItem id="browser">Gemini Nano（ブラウザ内）</SelectItem>
+        <SelectItem id="browser">Gemini Nano</SelectItem>
       </Select>
 
       {mode === "free" && (
