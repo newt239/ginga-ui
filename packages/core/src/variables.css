@@ -85,7 +85,7 @@
   );
   --color-control-border: color-mix(
     in oklab,
-    var(--color-text) 60%,
+    color-mix(in oklab, var(--color-text), var(--color-primary) 30%) 55%,
     var(--color-background)
   );
   --color-focus: var(--color-accent);
