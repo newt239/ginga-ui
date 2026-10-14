@@ -1,24 +1,27 @@
 .ginga-popover {
   z-index: 50;
+  box-sizing: border-box;
   min-width: 8rem;
-  outline: var(--border-width) solid transparent;
   background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-control-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-overlay);
+  transition:
+    opacity var(--duration) var(--easing),
+    transform var(--duration) var(--easing);
 
-  &[data-entering] {
-    animation: ginga-popover-enter var(--duration) var(--easing);
-  }
-
-  &[data-exiting] {
-    animation: ginga-popover-exit var(--duration) var(--easing);
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.95);
   }
 }
 
 .ginga-popover-arrow {
   svg {
     display: block;
+    overflow: visible;
     fill: var(--color-background);
+    stroke: var(--color-control-border);
+    stroke-width: var(--border-width);
   }
 
   &[data-placement="bottom"] svg {
@@ -41,28 +44,4 @@
   line-height: 1.75;
   color: var(--color-text);
   outline: none;
-}
-
-@keyframes ginga-popover-enter {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes ginga-popover-exit {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
 }

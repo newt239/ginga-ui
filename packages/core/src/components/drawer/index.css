@@ -1,3 +1,31 @@
+:root {
+  --ginga-drawer-width: min(20rem, 90vw);
+  --ginga-drawer-height: min(16rem, 90vh);
+}
+
+html[data-ginga-drawer-inset] body {
+  box-sizing: border-box;
+  width: var(--ginga-drawer-page-width);
+  min-height: var(--ginga-drawer-page-height);
+}
+
+html[data-ginga-drawer-inset="left"],
+html[data-ginga-drawer-inset="right"] {
+  min-width: calc(var(--ginga-drawer-page-width) + var(--ginga-drawer-width));
+}
+
+html[data-ginga-drawer-inset="left"] body {
+  margin-left: var(--ginga-drawer-width);
+}
+
+html[data-ginga-drawer-inset="top"] body {
+  margin-top: var(--ginga-drawer-height);
+}
+
+html[data-ginga-drawer-inset="bottom"] body {
+  margin-bottom: var(--ginga-drawer-height);
+}
+
 .ginga-drawer-overlay {
   position: fixed;
   top: 0;
@@ -26,8 +54,7 @@
   &[data-placement="left"] .ginga-drawer {
     top: 0;
     left: 0;
-    width: 20rem;
-    max-width: 90vw;
+    width: var(--ginga-drawer-width);
     height: 100%;
 
     &[data-entering] {
@@ -42,8 +69,7 @@
   &[data-placement="right"] .ginga-drawer {
     top: 0;
     right: 0;
-    width: 20rem;
-    max-width: 90vw;
+    width: var(--ginga-drawer-width);
     height: 100%;
 
     &[data-entering] {
@@ -59,8 +85,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 16rem;
-    max-height: 90vh;
+    height: var(--ginga-drawer-height);
 
     &[data-entering] {
       animation: ginga-drawer-slide-top var(--duration) var(--easing);
@@ -75,8 +100,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 16rem;
-    max-height: 90vh;
+    height: var(--ginga-drawer-height);
 
     &[data-entering] {
       animation: ginga-drawer-slide-bottom var(--duration) var(--easing);
@@ -84,6 +108,40 @@
 
     &[data-exiting] {
       animation: ginga-drawer-slide-bottom var(--duration) var(--easing) reverse;
+    }
+  }
+}
+
+.ginga-drawer-overlay[data-non-modal] {
+  pointer-events: none;
+  background-color: transparent;
+
+  .ginga-drawer {
+    pointer-events: auto;
+    transition: transform var(--duration) var(--easing);
+  }
+
+  &[data-placement="left"] .ginga-drawer {
+    @starting-style {
+      transform: translateX(-100%);
+    }
+  }
+
+  &[data-placement="right"] .ginga-drawer {
+    @starting-style {
+      transform: translateX(100%);
+    }
+  }
+
+  &[data-placement="top"] .ginga-drawer {
+    @starting-style {
+      transform: translateY(-100%);
+    }
+  }
+
+  &[data-placement="bottom"] .ginga-drawer {
+    @starting-style {
+      transform: translateY(100%);
     }
   }
 }

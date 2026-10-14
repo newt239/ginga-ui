@@ -30,7 +30,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "Button",
     category: "forms",
     description:
-      "ユーザーアクションをトリガーするボタンコンポーネント。5種類のバリアント(filled、light、outline、ghost、reverse)と3種類のサイズ(sm、md、lg)をサポート。",
+      "ユーザーアクションをトリガーするボタンコンポーネント。5種類のバリアント(filled、light、outline、ghost、reverse)と3種類のサイズ(sm、md、lg)、ラベル前後のアイコン指定をサポート。",
   },
   {
     id: "checkbox",
@@ -63,7 +63,8 @@ export const COMPONENTS: ComponentMetadata[] = [
     id: "slider",
     name: "Slider",
     category: "forms",
-    description: "数値を範囲内で選択するスライダーコンポーネント。",
+    description:
+      "数値を範囲内で選択するスライダーコンポーネント。開始点と終了点を指定する範囲選択にも対応。",
   },
   {
     id: "switch",
@@ -106,6 +107,13 @@ export const COMPONENTS: ComponentMetadata[] = [
     description: "ステータスやラベルを表示する小さなバッジ。",
   },
   {
+    id: "code-block",
+    name: "CodeBlock",
+    category: "display",
+    description:
+      "コードを表示しコピーボタンを備えたブロック。ファイル名の表示と、複数ファイルのタブ切り替えに対応。",
+  },
+  {
     id: "card",
     name: "Card",
     category: "display",
@@ -123,7 +131,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "Drawer",
     category: "display",
     description:
-      "画面の端からスライドインするドロワー。4方向(left、right、top、bottom)に対応。",
+      "画面の端からスライドインするドロワー。4方向(left、right、top、bottom)に対応し、ページを操作したまま開いておける非モーダル表示もサポート。",
   },
   {
     id: "image",
@@ -148,7 +156,7 @@ export const COMPONENTS: ComponentMetadata[] = [
     id: "table",
     name: "Table",
     category: "display",
-    description: "表形式のデータを表示。行選択機能をサポート。",
+    description: "表形式のデータを表示。行選択と縞模様の表示をサポート。",
   },
   {
     id: "tab",

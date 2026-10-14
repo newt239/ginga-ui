@@ -1,6 +1,7 @@
 import { Select, SelectItem } from "./select";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import { Check, ChevronDown } from "lucide-react";
 
 const meta: Meta<typeof Select> = {
   title: "Forms/Select",
@@ -13,7 +14,12 @@ type Story = StoryObj<typeof Select>;
 
 export const Basic: Story = {
   render: () => (
-    <Select defaultSelectedKey="cat" label="Favorite Animal">
+    <Select
+      icon={<ChevronDown />}
+      checkIcon={<Check />}
+      defaultSelectedKey="cat"
+      label="Favorite Animal"
+    >
       <SelectItem id="cat">Cat</SelectItem>
       <SelectItem id="dog">Dog</SelectItem>
       <SelectItem id="bird">Bird</SelectItem>
@@ -24,7 +30,12 @@ export const Basic: Story = {
 // 無効なオプションを含むセレクト
 export const WithDisabledOptions: Story = {
   render: () => (
-    <Select defaultSelectedKey="dog" label="Select a Pet">
+    <Select
+      icon={<ChevronDown />}
+      checkIcon={<Check />}
+      defaultSelectedKey="dog"
+      label="Select a Pet"
+    >
       <SelectItem id="dog">Dog</SelectItem>
       <SelectItem id="cat">Cat</SelectItem>
       <SelectItem id="hamster" isDisabled>
@@ -38,7 +49,12 @@ export const WithDisabledOptions: Story = {
 // 説明付きのオプションを持つセレクト
 export const WithDescriptions: Story = {
   render: () => (
-    <Select defaultSelectedKey="beginner" label="Skill Level">
+    <Select
+      icon={<ChevronDown />}
+      checkIcon={<Check />}
+      defaultSelectedKey="beginner"
+      label="Skill Level"
+    >
       <SelectItem id="beginner" textValue="Beginner">
         <div>
           <span>Beginner</span>
@@ -64,7 +80,13 @@ export const WithDescriptions: Story = {
 // 無効化されたセレクト
 export const Disabled: Story = {
   render: () => (
-    <Select disabled defaultSelectedKey="cat" label="Favorite Animal">
+    <Select
+      icon={<ChevronDown />}
+      checkIcon={<Check />}
+      disabled
+      defaultSelectedKey="cat"
+      label="Favorite Animal"
+    >
       <SelectItem id="cat">Cat</SelectItem>
       <SelectItem id="dog">Dog</SelectItem>
       <SelectItem id="bird">Bird</SelectItem>

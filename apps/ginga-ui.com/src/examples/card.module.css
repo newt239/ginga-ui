@@ -1,16 +1,16 @@
 .basicCard {
-  width: min(100%, 28rem);
+  width: 100%;
 }
 
 .withFooterCard {
-  width: min(100%, 28rem);
+  width: 100%;
 }
 
 .plans {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  width: min(100%, 40rem);
+  width: 100%;
 }
 
 .plan {
@@ -29,5 +29,5 @@
 }
 
 .simpleCard {
-  width: min(100%, 28rem);
+  width: 100%;
 }

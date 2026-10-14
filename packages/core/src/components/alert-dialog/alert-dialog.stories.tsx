@@ -3,6 +3,7 @@ import { DialogTrigger, Modal } from "../dialog";
 import { AlertDialog, AlertDialogTitle } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
+import { CircleAlert, TriangleAlert } from "lucide-react";
 
 const meta: Meta<typeof AlertDialog> = {
   title: "Display/AlertDialog",
@@ -19,7 +20,9 @@ export const Basic: Story = {
       <Button>ファイルを削除</Button>
       <Modal>
         <AlertDialog variant="danger">
-          <AlertDialogTitle>ファイルの削除</AlertDialogTitle>
+          <AlertDialogTitle icon={<CircleAlert />}>
+            ファイルの削除
+          </AlertDialogTitle>
           <p>この操作は取り消せません。本当に削除しますか？</p>
           <div
             style={{
@@ -45,7 +48,9 @@ export const Warning: Story = {
       <Button variant="outline">ログアウト</Button>
       <Modal>
         <AlertDialog variant="warning">
-          <AlertDialogTitle>ログアウトの確認</AlertDialogTitle>
+          <AlertDialogTitle icon={<TriangleAlert />}>
+            ログアウトの確認
+          </AlertDialogTitle>
           <p>保存されていない変更は失われます。ログアウトしますか？</p>
           <div
             style={{

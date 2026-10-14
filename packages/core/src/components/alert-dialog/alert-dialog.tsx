@@ -1,17 +1,14 @@
 "use client";
 
-import { createContext, useContext } from "react";
-
 import { cn } from "@ginga-ui/utils";
 import {
   Dialog as AriaDialog,
   Heading as AriaHeading,
 } from "react-aria-components";
 
-import { STATUS_ICONS } from "../../icons";
 import "./index.css";
 
-import type { StatusVariant } from "../../icons";
+import type { StatusVariant } from "../alert";
 import type { OmitStrict } from "@ginga-ui/utils";
 
 export type AlertDialogProps = OmitStrict<
@@ -21,10 +18,6 @@ export type AlertDialogProps = OmitStrict<
   variant?: StatusVariant;
 };
 
-const AlertDialogVariantContext = createContext<StatusVariant | undefined>(
-  undefined
-);
-
 export const AlertDialog: React.FC<AlertDialogProps> = ({
   children,
   className,
@@ -32,35 +25,38 @@ export const AlertDialog: React.FC<AlertDialogProps> = ({
   ...props
 }) => {
   return (
-    <AlertDialogVariantContext.Provider value={variant}>
-      <AriaDialog
-        role="alertdialog"
-        className={cn("ginga-alert-dialog", className)}
-        data-variant={variant}
-        {...props}
-      >
-        {children}
-      </AriaDialog>
-    </AlertDialogVariantContext.Provider>
+    <AriaDialog
+      role="alertdialog"
+      className={cn("ginga-alert-dialog", className)}
+      data-variant={variant}
+      {...props}
+    >
+      {children}
+    </AriaDialog>
   );
 };
 
-export type AlertDialogTitleProps = React.ComponentProps<typeof AriaHeading>;
+export type AlertDialogTitleProps = React.ComponentProps<typeof AriaHeading> & {
+  icon?: React.ReactNode;
+};
 
 export const AlertDialogTitle: React.FC<AlertDialogTitleProps> = ({
   children,
   className,
+  icon,
   ...props
 }) => {
-  const variant = useContext(AlertDialogVariantContext);
-  const Icon = variant ? STATUS_ICONS[variant] : null;
   return (
     <AriaHeading
       slot="title"
       className={cn("ginga-alert-dialog-title", className)}
       {...props}
     >
-      {Icon && <Icon className="ginga-alert-dialog-icon" />}
+      {icon && (
+        <span className="ginga-alert-dialog-icon" aria-hidden="true">
+          {icon}
+        </span>
+      )}
       {children}
     </AriaHeading>
   );

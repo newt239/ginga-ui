@@ -1,4 +1,5 @@
 import { Anchor, Heading } from "@ginga-ui/core";
+import { ArrowRight, LayoutGrid, Sparkles } from "lucide-react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -18,7 +19,12 @@ export default function Home() {
         priority
       />
       <div className={styles.actions}>
-        <Anchor href="/quick-start" variant="button" size="lg">
+        <Anchor
+          href="/quick-start"
+          variant="button"
+          size="lg"
+          endIcon={<ArrowRight />}
+        >
           クイックスタート
         </Anchor>
         <Anchor
@@ -26,6 +32,7 @@ export default function Home() {
           variant="button"
           buttonVariant="light"
           size="lg"
+          startIcon={<Sparkles />}
         >
           テーマ生成
         </Anchor>
@@ -34,6 +41,7 @@ export default function Home() {
           variant="button"
           buttonVariant="ghost"
           size="lg"
+          startIcon={<LayoutGrid />}
         >
           全コンポーネント
         </Anchor>

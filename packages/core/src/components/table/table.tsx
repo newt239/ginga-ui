@@ -14,6 +14,8 @@ import {
 } from "react-aria-components";
 import "./index.css";
 
+import type { Selection } from "react-aria-components";
+
 export interface TableColumn<T> {
   key: string;
   header: string;
@@ -26,6 +28,7 @@ export interface TableProps<T> {
   columns: TableColumn<T>[];
   className?: string;
   showHeader?: boolean;
+  striped?: boolean;
   selectionMode?: "none" | "single" | "multiple";
   onSelectionChange?: (selectedRows: T[]) => void;
   "aria-label": string;
@@ -36,41 +39,18 @@ export const Table = <T extends object>({
   columns,
   className,
   showHeader = true,
+  striped = false,
   selectionMode = "none",
   onSelectionChange,
   "aria-label": ariaLabel,
 }: TableProps<T>) => {
-  const [selectedRows, setSelectedRows] = useState<Set<number>>(new Set());
+  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
 
-  const handleSelectionChange = (index: number) => {
-    const newSelection = new Set(selectedRows);
-    if (selectionMode === "single") {
-      if (selectedRows.has(index)) {
-        newSelection.clear();
-      } else {
-        newSelection.clear();
-        newSelection.add(index);
-      }
-    } else {
-      if (selectedRows.has(index)) {
-        newSelection.delete(index);
-      } else {
-        newSelection.add(index);
-      }
-    }
-    setSelectedRows(newSelection);
-    onSelectionChange?.(Array.from(newSelection).map((i) => data[i]));
-  };
-
-  const handleHeaderCheckboxChange = () => {
-    if (selectedRows.size === data.length) {
-      setSelectedRows(new Set());
-      onSelectionChange?.([]);
-    } else {
-      const allIndexes = new Set(data.map((_, index) => index));
-      setSelectedRows(allIndexes);
-      onSelectionChange?.(data);
-    }
+  const handleSelectionChange = (keys: Selection) => {
+    setSelectedKeys(keys);
+    onSelectionChange?.(
+      keys === "all" ? data : data.filter((_, index) => keys.has(index))
+    );
   };
 
   const renderCell = (row: T, column: TableColumn<T>) => {
@@ -82,62 +62,50 @@ export const Table = <T extends object>({
   };
 
   return (
-    <AriaTable
-      className={cn("ginga-table", className)}
-      aria-label={ariaLabel}
-      selectionMode={selectionMode}
-    >
-      {showHeader && (
-        <AriaTableHeader className={"ginga-table-header"}>
-          {selectionMode !== "none" && (
-            <AriaColumn className={"ginga-table-column"}>
-              <Checkbox
-                aria-label="Select all rows"
-                selected={selectedRows.size === data.length}
-                slot="selection"
-                indeterminate={
-                  selectedRows.size > 0 && selectedRows.size < data.length
-                }
-                onChange={handleHeaderCheckboxChange}
-              />
-            </AriaColumn>
-          )}
-          {columns.map((column) => (
-            <AriaColumn
-              key={column.key}
-              className={"ginga-table-column"}
-              isRowHeader={column.isRowHeader}
-            >
-              {column.header}
-            </AriaColumn>
-          ))}
-        </AriaTableHeader>
-      )}
-      <AriaTableBody className={"ginga-table-body"}>
-        {data.map((row, rowIndex) => (
-          <AriaRow
-            key={rowIndex}
-            className={"ginga-table-row"}
-            data-selected={selectedRows.has(rowIndex)}
-          >
+    <div className="ginga-table-container">
+      <AriaTable
+        className={cn("ginga-table", className)}
+        aria-label={ariaLabel}
+        data-striped={striped || undefined}
+        selectionMode={selectionMode}
+        selectedKeys={selectedKeys}
+        onSelectionChange={handleSelectionChange}
+      >
+        {showHeader && (
+          <AriaTableHeader className="ginga-table-header">
             {selectionMode !== "none" && (
-              <AriaCell className={"ginga-table-cell"}>
-                <Checkbox
-                  aria-label={`Select row ${rowIndex + 1}`}
-                  selected={selectedRows.has(rowIndex)}
-                  slot="selection"
-                  onChange={() => handleSelectionChange(rowIndex)}
-                />
-              </AriaCell>
+              <AriaColumn className="ginga-table-column ginga-table-selection">
+                {selectionMode === "multiple" && <Checkbox slot="selection" />}
+              </AriaColumn>
             )}
             {columns.map((column) => (
-              <AriaCell key={column.key} className={"ginga-table-cell"}>
-                {renderCell(row, column)}
-              </AriaCell>
+              <AriaColumn
+                key={column.key}
+                className="ginga-table-column"
+                isRowHeader={column.isRowHeader}
+              >
+                {column.header}
+              </AriaColumn>
             ))}
-          </AriaRow>
-        ))}
-      </AriaTableBody>
-    </AriaTable>
+          </AriaTableHeader>
+        )}
+        <AriaTableBody className="ginga-table-body">
+          {data.map((row, rowIndex) => (
+            <AriaRow key={rowIndex} id={rowIndex} className="ginga-table-row">
+              {selectionMode !== "none" && (
+                <AriaCell className="ginga-table-cell ginga-table-selection">
+                  <Checkbox slot="selection" />
+                </AriaCell>
+              )}
+              {columns.map((column) => (
+                <AriaCell key={column.key} className="ginga-table-cell">
+                  {renderCell(row, column)}
+                </AriaCell>
+              ))}
+            </AriaRow>
+          ))}
+        </AriaTableBody>
+      </AriaTable>
+    </div>
   );
 };

@@ -10,10 +10,9 @@ import {
   UNSTABLE_ToastRegion as AriaToastRegion,
 } from "react-aria-components";
 
-import { CloseIcon, STATUS_ICONS } from "../../icons";
 import "./index.css";
 
-import type { StatusVariant } from "../../icons";
+import type { StatusVariant } from "../alert";
 import type { OmitStrict } from "@ginga-ui/utils";
 import type { ToastRegionProps as AriaToastRegionProps } from "react-aria-components";
 
@@ -23,10 +22,12 @@ export type ToastContentValue = {
   title: string;
   description?: string;
   variant?: ToastVariant;
+  icon?: React.ReactNode;
 };
 
 export type ToastOptions = {
   description?: string;
+  icon?: React.ReactNode;
   timeout?: number;
   onClose?: () => void;
 };
@@ -39,9 +40,9 @@ const show = (
   title: string,
   options: ToastOptions & { variant?: ToastVariant } = {}
 ): string => {
-  const { description, variant, timeout, onClose } = options;
+  const { description, icon, variant, timeout, onClose } = options;
   return defaultQueue.add(
-    { title, description, variant },
+    { title, description, icon, variant },
     {
       timeout,
       onClose,
@@ -68,12 +69,16 @@ export type ToastRegionProps = OmitStrict<
 > & {
   queue?: AriaToastQueue<ToastContentValue>;
   placement?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+  closeIcon?: React.ReactNode;
+  closeLabel?: string;
 };
 
 export const ToastRegion: React.FC<ToastRegionProps> = ({
   className,
   queue = defaultQueue,
   placement = "bottom-right",
+  closeIcon,
+  closeLabel = "閉じる",
   ...props
 }) => {
   return (
@@ -85,14 +90,18 @@ export const ToastRegion: React.FC<ToastRegionProps> = ({
     >
       {({ toast: queuedToast }) => {
         const variant = queuedToast.content.variant ?? "info";
-        const Icon = STATUS_ICONS[variant];
+        const { icon } = queuedToast.content;
         return (
           <AriaToast
             toast={queuedToast}
             className="ginga-toast"
             data-variant={variant}
           >
-            <Icon className="ginga-toast-icon" />
+            {icon && (
+              <span className="ginga-toast-icon" aria-hidden="true">
+                {icon}
+              </span>
+            )}
             <AriaToastContent className="ginga-toast-content">
               <AriaText slot="title" className="ginga-toast-title">
                 {queuedToast.content.title}
@@ -109,9 +118,11 @@ export const ToastRegion: React.FC<ToastRegionProps> = ({
             <AriaButton
               slot="close"
               className="ginga-toast-close"
-              aria-label="閉じる"
+              aria-label={closeLabel}
             >
-              <CloseIcon />
+              {closeIcon ?? (
+                <span className="ginga-toast-close-mark" aria-hidden="true" />
+              )}
             </AriaButton>
           </AriaToast>
         );

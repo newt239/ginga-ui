@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, FormControl, Input } from "@ginga-ui/core";
+import { Send } from "lucide-react";
 
 import styles from "./form-control.module.css";
 
@@ -55,7 +56,7 @@ export function FormExample() {
       <FormControl title="メールアドレス" htmlFor="email">
         <Input id="email" type="email" required />
       </FormControl>
-      <Button type="submit" variant="filled">
+      <Button type="submit" variant="filled" startIcon={<Send />}>
         送信
       </Button>
     </form>

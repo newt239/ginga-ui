@@ -1,13 +1,16 @@
 "use client";
 
 import { Button, Popover, PopoverTrigger } from "@ginga-ui/core";
+import { Info } from "lucide-react";
 
 import styles from "./popover.module.css";
 
 export function BasicExample() {
   return (
     <PopoverTrigger>
-      <Button variant="filled">詳細を表示</Button>
+      <Button variant="filled" startIcon={<Info />}>
+        詳細を表示
+      </Button>
       <Popover>
         <p>これはポップオーバーの内容です。</p>
       </Popover>

@@ -1,7 +1,9 @@
 .ginga-select {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
   font-family: var(--font-family);
   color: var(--color-text);
 }
@@ -61,6 +63,7 @@
 }
 
 .ginga-select-icon {
+  display: flex;
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
@@ -69,6 +72,11 @@
 
   .ginga-select[data-open] & {
     transform: rotate(180deg);
+  }
+
+  & svg {
+    width: 100%;
+    height: 100%;
   }
 }
 
@@ -132,9 +140,15 @@
 }
 
 .ginga-select-item-check {
+  display: flex;
   flex-shrink: 0;
   width: 1rem;
   height: 1rem;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 @keyframes ginga-select-enter {

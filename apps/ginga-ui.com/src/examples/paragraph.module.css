@@ -1,20 +1,20 @@
 .basicParagraph {
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .multipleParagraphs {
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .longParagraph {
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .customStack {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .largeParagraph {

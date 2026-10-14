@@ -11,14 +11,14 @@
 }
 
 .article {
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .customStack {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: min(100%, 32rem);
+  width: 100%;
 }
 
 .accentHeading {

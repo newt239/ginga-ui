@@ -1,3 +1,5 @@
+import { Check, Copy } from "lucide-react";
+
 import { CodeBlock } from "./code-block";
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -16,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof CodeBlock>;
 
 export const Default: Story = {
-  args: { code: sampleCode },
+  args: { code: sampleCode, copyIcon: <Copy />, copiedIcon: <Check /> },
 };
 
 export const WithFilename: Story = {

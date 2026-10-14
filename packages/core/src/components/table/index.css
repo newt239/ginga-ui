@@ -1,3 +1,10 @@
+.ginga-table-container {
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
 .ginga-table {
   width: 100%;
   font-family: var(--font-family);
@@ -10,11 +17,12 @@
 .ginga-table-column {
   padding: 0.75rem 1rem;
   font-weight: 700;
-  color: var(--color-text-muted);
+  vertical-align: middle;
+  color: var(--color-text);
   text-align: left;
   white-space: nowrap;
   outline: none;
-  background-color: var(--color-surface);
+  background-color: var(--color-surface-strong);
 
   &:first-child {
     border-radius: var(--radius-sm) 0 0 var(--radius-sm);
@@ -32,15 +40,6 @@
 
 .ginga-table-row {
   outline: none;
-  transition: var(--transition);
-
-  &[data-hovered] {
-    background-color: var(--color-surface);
-  }
-
-  &[data-selected="true"] {
-    background-color: var(--color-accent-subtle);
-  }
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
@@ -48,10 +47,25 @@
   }
 }
 
+:where(.ginga-table[data-striped]) .ginga-table-row:nth-child(even) {
+  --ginga-table-row-background: var(--color-surface);
+}
+
+.ginga-table-row[data-hovered] {
+  --ginga-table-row-background: var(--color-surface-hover);
+}
+
+.ginga-table-row[data-selected] {
+  --ginga-table-row-background: var(--color-accent-subtle);
+}
+
 .ginga-table-cell {
   padding: 0.875rem 1rem;
   line-height: 1.5;
+  vertical-align: middle;
   outline: none;
+  background-color: var(--ginga-table-row-background, transparent);
+  transition: background-color var(--duration) var(--easing);
 
   &:first-child {
     border-radius: var(--radius-sm) 0 0 var(--radius-sm);
@@ -64,5 +78,14 @@
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
     outline-offset: calc(var(--focus-ring-width) * -1);
+  }
+}
+
+.ginga-table-selection {
+  width: 1.25rem;
+  padding-block: 0;
+
+  .ginga-checkbox {
+    display: flex;
   }
 }

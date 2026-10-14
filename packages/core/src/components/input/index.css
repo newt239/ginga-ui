@@ -1,5 +1,6 @@
 .ginga-input {
   box-sizing: border-box;
+  width: 100%;
   min-height: var(--size-control-md);
   padding: 0.5rem 0.875rem;
   margin: 0;

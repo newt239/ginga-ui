@@ -1,4 +1,5 @@
 import { CodeBlock as CoreCodeBlock } from "@ginga-ui/core";
+import { Check, Copy } from "lucide-react";
 
 type HighlightedFile = {
   filename: string;
@@ -28,6 +29,8 @@ export function CodeBlock(props: CodeBlockProps) {
     copyLabel: "コピーする",
     copiedLabel: "コピー済み",
     filesLabel: "ファイル",
+    copyIcon: <Copy />,
+    copiedIcon: <Check />,
   };
 
   if (props.files) {

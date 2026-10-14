@@ -12,7 +12,7 @@ import {
   SelectItem,
 } from "@ginga-ui/core";
 import type { BrowserAIAvailability, ThemeProvider } from "@ginga-ui/utils";
-import { CircleAlert, Info, TriangleAlert } from "lucide-react";
+import { CircleAlert, Info, Sparkles, TriangleAlert } from "lucide-react";
 import { CodeBlock } from "./code-block";
 import styles from "./theme-generator.module.css";
 
@@ -243,6 +243,7 @@ export function ThemeGenerator() {
         variant="filled"
         size="lg"
         className={styles.submit}
+        startIcon={<Sparkles />}
         onPress={handleGenerate}
         disabled={
           !prompt ||

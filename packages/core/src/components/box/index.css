@@ -1,4 +1,6 @@
 .ginga-box {
+  box-sizing: border-box;
+  width: 100%;
   font-family: var(--font-family);
   color: var(--color-text);
 }

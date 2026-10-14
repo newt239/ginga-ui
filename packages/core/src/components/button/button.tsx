@@ -22,6 +22,8 @@ export type ButtonProps = OmitStrict<
   disabled?: boolean;
   variant?: ButtonVariant;
   size?: ButtonSize;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 
 export const Button: React.FC<ButtonProps> = ({
@@ -30,6 +32,8 @@ export const Button: React.FC<ButtonProps> = ({
   variant = "filled",
   size = "md",
   disabled = false,
+  startIcon,
+  endIcon,
   ...props
 }) => {
   return (
@@ -40,7 +44,13 @@ export const Button: React.FC<ButtonProps> = ({
       isDisabled={disabled}
       {...props}
     >
-      {children}
+      {(renderProps) => (
+        <>
+          {startIcon}
+          {typeof children === "function" ? children(renderProps) : children}
+          {endIcon}
+        </>
+      )}
     </AriaButton>
   );
 };

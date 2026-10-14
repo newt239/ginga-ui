@@ -1,5 +1,5 @@
 .basicBox {
-  width: min(100%, 32rem);
+  width: 100%;
   padding: 1rem;
   background-color: var(--color-accent-subtle);
   border-radius: var(--radius-md);
@@ -9,7 +9,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  width: min(100%, 40rem);
+  width: 100%;
 }
 
 .layoutItem {
@@ -20,7 +20,7 @@
 }
 
 .cardStyleBox {
-  width: min(100%, 32rem);
+  width: 100%;
   padding: 1.5rem;
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);

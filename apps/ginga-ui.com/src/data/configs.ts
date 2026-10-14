@@ -87,6 +87,32 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
     },
   ],
+  "code-block": [
+    {
+      name: "BasicExample",
+      title: "基本的な使い方",
+      description:
+        "code に渡した文字列を表示し、コピーボタンでクリップボードにコピーできます。",
+    },
+    {
+      name: "FilenameExample",
+      title: "ファイル名",
+      description:
+        "filename を指定すると、コードの上にファイル名を表示します。",
+    },
+    {
+      name: "FilesExample",
+      title: "複数ファイル",
+      description:
+        "files に複数のファイルを渡すと、タブで切り替えて表示できます。",
+    },
+    {
+      name: "WithIconExample",
+      title: "アイコン付きのコピーボタン",
+      description:
+        "copyIcon と copiedIcon で、コピーボタンにアイコンを表示できます。",
+    },
+  ],
   badge: [
     {
       name: "BasicExample",
@@ -138,6 +164,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "SizesExample",
       title: "サイズ",
       description: "sizeプロップでsm、md、lgの3種類のサイズを指定できます。",
+    },
+    {
+      name: "WithIconExample",
+      title: "アイコン付き",
+      description:
+        "startIcon と endIcon で、ラベルの前後にアイコンを表示できます。",
     },
     {
       name: "DisabledExample",
@@ -232,7 +264,7 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "NotDismissableExample",
       title: "外側クリックで閉じない",
       description:
-        "dismissableプロップにfalseを渡すと、外側のクリックやESCキーでは閉じなくなります。",
+        "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はページの幅を保ったままドロワーの幅だけ余白が付くので、スクロールすればドロワーの下に隠れた部分も表示できます。",
     },
   ],
   "form-control": [
@@ -443,6 +475,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: "カスタムの最小値・最大値を持つスライダーです。",
     },
     {
+      name: "RangeExample",
+      title: "範囲指定",
+      description:
+        "defaultValue に配列を渡し SliderThumb を 2 つ置くと、開始点と終了点を指定できる範囲スライダーになります。",
+    },
+    {
       name: "WithStepsExample",
       title: "ステップ付き",
       description: "ステップを指定したスライダーです。",
@@ -522,6 +560,12 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "BasicExample",
       title: "基本的な使い方",
       description: "シンプルなテーブルの使用例です。",
+    },
+    {
+      name: "StripedExample",
+      title: "縞模様",
+      description:
+        "striped を指定すると、偶数行に背景色が付いて行を目で追いやすくなります。",
     },
     {
       name: "WithSelectionExample",

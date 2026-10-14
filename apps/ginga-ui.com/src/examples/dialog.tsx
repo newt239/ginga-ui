@@ -8,18 +8,29 @@ import {
   Input,
   Modal,
 } from "@ginga-ui/core";
+import {
+  Check,
+  Megaphone,
+  PanelTop,
+  Plus,
+  Trash2,
+  UserPlus,
+  X,
+} from "lucide-react";
 
 import styles from "./dialog.module.css";
 
 export function BasicExample() {
   return (
     <DialogTrigger>
-      <Button variant="filled">ダイアログを開く</Button>
+      <Button variant="filled" startIcon={<PanelTop />}>
+        ダイアログを開く
+      </Button>
       <Modal>
         <Dialog>
           <DialogTitle>ようこそ</DialogTitle>
           <p>これは基本的なダイアログです。</p>
-          <Button slot="close" variant="outline">
+          <Button slot="close" variant="outline" startIcon={<X />}>
             閉じる
           </Button>
         </Dialog>
@@ -31,7 +42,9 @@ export function BasicExample() {
 export function ConfirmationExample() {
   return (
     <DialogTrigger>
-      <Button variant="filled">アカウントを削除</Button>
+      <Button variant="filled" startIcon={<Trash2 />}>
+        アカウントを削除
+      </Button>
       <Modal>
         <Dialog>
           <DialogTitle>削除の確認</DialogTitle>
@@ -53,7 +66,9 @@ export function ConfirmationExample() {
 export function FormExample() {
   return (
     <DialogTrigger>
-      <Button variant="filled">サインアップ</Button>
+      <Button variant="filled" startIcon={<UserPlus />}>
+        サインアップ
+      </Button>
       <Modal>
         <Dialog>
           <form
@@ -80,7 +95,7 @@ export function FormExample() {
               <Button slot="close" variant="outline">
                 キャンセル
               </Button>
-              <Button type="submit" variant="filled">
+              <Button type="submit" variant="filled" startIcon={<Plus />}>
                 作成
               </Button>
             </div>
@@ -94,7 +109,9 @@ export function FormExample() {
 export function AlertExample() {
   return (
     <DialogTrigger>
-      <Button variant="outline">重要なお知らせ</Button>
+      <Button variant="outline" startIcon={<Megaphone />}>
+        重要なお知らせ
+      </Button>
       <Modal>
         <Dialog>
           <DialogTitle>システムメンテナンス</DialogTitle>
@@ -102,7 +119,7 @@ export function AlertExample() {
             2024年12月20日 2:00-4:00にシステムメンテナンスを実施します。
             この間、サービスがご利用いただけません。
           </p>
-          <Button slot="close" variant="filled">
+          <Button slot="close" variant="filled" startIcon={<Check />}>
             了解
           </Button>
         </Dialog>
