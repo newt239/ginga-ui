@@ -26,7 +26,7 @@ export default async function ThemeGenerationPage() {
           ライブデモ
         </Heading>
         <Paragraph>
-          下のフォームでAPIキーとプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。プロバイダーに「Gemini
+          下のフォームでプロンプトを入力して、リアルタイムでテーマ生成を試すことができます。「無料枠」ではAPIキーなしで試せますが、利用者全体で直近24時間に100回までに制限しています。「自分のAPIキー」では好きなプロバイダーとモデルを選べます。「Gemini
           Nano」を選んだ場合はAPIキーが不要で、生成はすべてブラウザ内で完結します。
         </Paragraph>
         <ThemeGenerator />
@@ -34,7 +34,7 @@ export default async function ThemeGenerationPage() {
 
       <section className="docs-section">
         <Heading level="h2" id="server-side">
-          サーバーサイドでの使用（推奨）
+          サーバーサイドでの使用
         </Heading>
         <Paragraph>
           本番環境では、サーバーサイドでテーマを生成することを強く推奨します。これによりAPIキーが露出せず、SEOやパフォーマンスも向上します。
@@ -91,7 +91,7 @@ export default async function RootLayout({
 
       <section className="docs-section">
         <Heading level="h2" id="browser">
-          ブラウザ内での使用（Gemini Nano）
+          ブラウザ内での使用
         </Heading>
         <Paragraph>
           <code>provider: &quot;browser&quot;</code>
@@ -229,8 +229,7 @@ export function BrowserThemeButton() {
           生成されるCSS変数
         </Heading>
         <Paragraph>
-          ThemeClientは以下のCSS変数を生成します。これらは自動的にコントラスト比が検証され、アクセシビリティ基準（WCAG
-          AA）を満たすように調整されます。
+          ThemeClientは以下のCSS変数を生成します。これらは自動的にコントラスト比が検証され、アクセシビリティ基準を満たすように調整されます。
         </Paragraph>
 
         <div className={styles.tableContainer}>
