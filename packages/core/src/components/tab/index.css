@@ -19,19 +19,24 @@
 }
 
 .ginga-tab-list {
+  box-sizing: border-box;
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.25rem;
   align-self: flex-start;
   max-width: 100%;
   padding: 0.25rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
   outline: var(--border-width) solid transparent;
+  scrollbar-width: thin;
   background-color: var(--color-surface);
   border-radius: var(--radius-md);
 }
 
 .ginga-tab {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   min-height: 2.25rem;
   padding: 0 1rem;
@@ -56,7 +61,7 @@
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
-    outline-offset: var(--focus-ring-offset);
+    outline-offset: calc(var(--focus-ring-width) * -1);
   }
 
   &[data-disabled] {
