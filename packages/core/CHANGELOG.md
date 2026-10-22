@@ -1,5 +1,16 @@
 # @ginga-ui/core
 
+## 0.16.0
+
+### Minor Changes
+
+- 707a8d2: - Questionnaire・Trace・SegmentedControl コンポーネントを追加
+  - CodeBlock の見た目を刷新し、コピーボタンをアイコン表示に変更
+
+### Patch Changes
+
+- @ginga-ui/utils@0.16.0
+
 ## 0.15.0
 
 ### Minor Changes
