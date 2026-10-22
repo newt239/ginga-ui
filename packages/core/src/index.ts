@@ -25,3 +25,4 @@ export * from "./components/switch";
 export * from "./components/tab";
 export * from "./components/table";
 export * from "./components/toast";
+export * from "./components/trace";
