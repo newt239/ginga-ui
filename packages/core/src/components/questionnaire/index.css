@@ -5,6 +5,7 @@
   gap: 1rem;
   width: 100%;
   max-width: 30rem;
+  container-type: inline-size;
   font-family: var(--font-family);
   color: var(--color-text);
 }
@@ -161,7 +162,7 @@
   min-height: var(--size-control-md);
 }
 
-.ginga-questionnaire-previous {
+.ginga-questionnaire-actions > .ginga-questionnaire-previous {
   margin-right: auto;
 }
 
@@ -173,6 +174,25 @@
   white-space: nowrap;
   pointer-events: none;
   transform: translateX(-50%);
+}
+
+@container (width < 28rem) {
+  .ginga-questionnaire-choice {
+    gap: 0.5rem;
+    padding: 0.625rem 0.75rem;
+  }
+
+  .ginga-questionnaire-actions {
+    flex-wrap: wrap;
+  }
+
+  .ginga-questionnaire-progress {
+    position: static;
+    flex-basis: 100%;
+    order: -1;
+    text-align: center;
+    transform: none;
+  }
 }
 
 @media (forced-colors: active) {
