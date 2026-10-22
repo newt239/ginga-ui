@@ -72,6 +72,8 @@ pnpmワークスペースとTurborepoを使用したモノレポ構成:
   - 各コンポーネントには専用のCSSファイルがエクスポートされる
 - **`packages/utils/`**: AI テーマ生成クライアントを含む共有ユーティリティ
 - **`apps/ginga-ui.com/`**: ドキュメントウェブサイト（Next.js）
+  - 英語を接頭辞なし、日本語を `/ja` で配信する。ページは `src/app/[locale]/` 配下に置き、`src/proxy.ts` が接頭辞なしのパスを `/en` へ rewrite する
+  - UI 文言は `src/i18n/dictionaries/{ja,en}.ts`、コード例は `src/examples/{ja,en}/<id>.tsx`、長文ページは `src/content/{ja,en}/` に言語別で置く
 
 ### パスエイリアス
 
@@ -112,6 +114,8 @@ TypeScriptパスマッピングを使用:
    - コア変数: `--color-primary`、`--color-secondary`、`--color-background`、`--width-border`、`--size-radius`、`--font-family`
    - 生成されるスケール: `--color-primary-0`から`--color-primary-9`（セカンダリも同様）
    - カラースケールは背景色とメインカラーの間を補間
+   - 既定値は `:where(:root)` で詳細度 0 にしてあり、`prefers-color-scheme: dark` または `<html data-theme="dark">` でダーク用の値に切り替わる（`data-theme="light"` でライトに固定）。生成テーマの `:root {…}` は詳細度で必ず勝つため、ダーク時もテーマ生成の結果が優先される
+   - ステータス色の `-light` / `-dark` は `color-mix` で背景色と文字色から作るので、ダーク時や生成テーマでも追従する
 
 ### パブリッシング
 
