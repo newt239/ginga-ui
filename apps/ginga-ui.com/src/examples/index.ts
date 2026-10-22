@@ -20,13 +20,16 @@ import * as enInput from "./en/input";
 import * as enList from "./en/list";
 import * as enParagraph from "./en/paragraph";
 import * as enPopover from "./en/popover";
+import * as enQuestionnaire from "./en/questionnaire";
 import * as enRadio from "./en/radio";
+import * as enSegmentedControl from "./en/segmented-control";
 import * as enSelect from "./en/select";
 import * as enSlider from "./en/slider";
 import * as enSwitch from "./en/switch";
 import * as enTab from "./en/tab";
 import * as enTable from "./en/table";
 import * as enToast from "./en/toast";
+import * as enTrace from "./en/trace";
 import * as jaAccordion from "./ja/accordion";
 import * as jaAlert from "./ja/alert";
 import * as jaAlertDialog from "./ja/alert-dialog";
@@ -46,13 +49,16 @@ import * as jaInput from "./ja/input";
 import * as jaList from "./ja/list";
 import * as jaParagraph from "./ja/paragraph";
 import * as jaPopover from "./ja/popover";
+import * as jaQuestionnaire from "./ja/questionnaire";
 import * as jaRadio from "./ja/radio";
+import * as jaSegmentedControl from "./ja/segmented-control";
 import * as jaSelect from "./ja/select";
 import * as jaSlider from "./ja/slider";
 import * as jaSwitch from "./ja/switch";
 import * as jaTab from "./ja/tab";
 import * as jaTable from "./ja/table";
 import * as jaToast from "./ja/toast";
+import * as jaTrace from "./ja/trace";
 
 type ExampleModule = Record<string, ComponentType>;
 
@@ -77,13 +83,16 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     list: enList,
     paragraph: enParagraph,
     popover: enPopover,
+    questionnaire: enQuestionnaire,
     radio: enRadio,
+    "segmented-control": enSegmentedControl,
     select: enSelect,
     slider: enSlider,
     switch: enSwitch,
     tab: enTab,
     table: enTable,
     toast: enToast,
+    trace: enTrace,
   },
   ja: {
     accordion: jaAccordion,
@@ -105,12 +114,15 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     list: jaList,
     paragraph: jaParagraph,
     popover: jaPopover,
+    questionnaire: jaQuestionnaire,
     radio: jaRadio,
+    "segmented-control": jaSegmentedControl,
     select: jaSelect,
     slider: jaSlider,
     switch: jaSwitch,
     tab: jaTab,
     table: jaTable,
     toast: jaToast,
+    trace: jaTrace,
   },
 };

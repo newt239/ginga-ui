@@ -658,6 +658,74 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
   ],
+  questionnaire: [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Pass the list of questions to items and render a QuestionnaireItem for each. Read the answers from FormData in onSubmit.",
+        ja: "質問の配列を items に渡し、各質問を QuestionnaireItem で描画します。回答は onSubmit で FormData から取り出します。",
+      },
+    },
+    {
+      name: "MultipleExample",
+      title: { en: "Multiple choice", ja: "複数選択" },
+      description: {
+        en: "Specify multiple on an item to accept several answers. Use getAll to read them.",
+        ja: "QuestionnaireItem に multiple を指定すると複数の回答を選べます。値は getAll で取り出します。",
+      },
+    },
+    {
+      name: "SkipExample",
+      title: { en: "Skipping", ja: "スキップ" },
+      description: {
+        en: "QuestionnaireSkip appears on items without required, letting users leave them unanswered.",
+        ja: "required を指定しない質問では QuestionnaireSkip が表示され、未回答のまま先へ進めます。",
+      },
+    },
+    {
+      name: "ShortcutsExample",
+      title: { en: "Keyboard shortcuts", ja: "キーボードショートカット" },
+      description: {
+        en: "Specify shortcuts to select choices with letter or number keys.",
+        ja: "shortcuts を指定すると、英字または数字のキーで選択肢を選べます。",
+      },
+    },
+  ],
+  "segmented-control": [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Place SegmentedControlItem elements inside and give each an id. Specify the initial selection with defaultValue.",
+        ja: "SegmentedControlItem を並べ、それぞれに id を指定します。初期値は defaultValue で指定します。",
+      },
+    },
+    {
+      name: "IconExample",
+      title: { en: "Icons only", ja: "アイコンのみ" },
+      description: {
+        en: "When an item shows only an icon, give it an aria-label.",
+        ja: "アイコンだけを表示する場合は、各項目に aria-label を指定してください。",
+      },
+    },
+    {
+      name: "SizeExample",
+      title: { en: "Size", ja: "サイズ" },
+      description: {
+        en: "Two sizes are available: sm and md.",
+        ja: "sm と md の2種類のサイズを指定できます。",
+      },
+    },
+    {
+      name: "ControlledExample",
+      title: { en: "Controlled", ja: "制御された選択" },
+      description: {
+        en: "Use value and onChange to manage the selection in state.",
+        ja: "value と onChange で選択状態を外部から制御します。",
+      },
+    },
+  ],
   select: [
     {
       name: "BasicExample",
@@ -825,6 +893,40 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "Specify the timeout option to close the toast automatically. The timer pauses while it is hovered or focused.",
         ja: "timeoutオプションを指定すると自動的に閉じます。ホバーやフォーカス中はタイマーが一時停止します。",
+      },
+    },
+  ],
+  trace: [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Each TraceLine combines an icon and a title.",
+        ja: "TraceLine にアイコンとタイトルを組み合わせて1行を作ります。",
+      },
+    },
+    {
+      name: "StatusExample",
+      title: { en: "Status", ja: "ステータス" },
+      description: {
+        en: "Specify running, error, or pending with status. Write the state in the title as well, since color alone does not convey it.",
+        ja: "status で running・error・pending を指定できます。色だけでは伝わらないため、タイトルの文言でも状態を示してください。",
+      },
+    },
+    {
+      name: "CollapsibleExample",
+      title: { en: "Expandable lines", ja: "展開できる行" },
+      description: {
+        en: "Wrap a line in TraceCollapsible to show details such as command output.",
+        ja: "TraceCollapsible で包むと、コマンドの出力などの詳細を展開して表示できます。",
+      },
+    },
+    {
+      name: "LinkExample",
+      title: { en: "Links", ja: "リンク" },
+      description: {
+        en: "Wrap a TraceLine in a link to make it navigate.",
+        ja: "TraceLine をリンクで包むと、行から別のページへ移動できます。",
       },
     },
   ],

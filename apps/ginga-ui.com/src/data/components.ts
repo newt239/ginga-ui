@@ -64,6 +64,24 @@ export const COMPONENTS: ComponentMetadata[] = [
     },
   },
   {
+    id: "questionnaire",
+    name: "Questionnaire",
+    category: "forms",
+    description: {
+      en: "A multi-step form that asks one question at a time. Supports single choice, multiple choice, free text, skipping, and keyboard shortcuts.",
+      ja: "質問を1つずつ表示して回答を集める複数ステップのフォーム。単一選択・複数選択・自由入力・スキップ・キーボードショートカットに対応。",
+    },
+  },
+  {
+    id: "segmented-control",
+    name: "SegmentedControl",
+    category: "forms",
+    description: {
+      en: "A row of buttons for choosing one option from a few. Suited to switching views or settings with two to five choices.",
+      ja: "少数の選択肢から1つを選ぶボタンの並び。2〜5個程度の表示切り替えや設定の選択に向く。",
+    },
+  },
+  {
     id: "select",
     name: "Select",
     category: "forms",
@@ -229,6 +247,15 @@ export const COMPONENTS: ComponentMetadata[] = [
   },
 
   // Typography
+  {
+    id: "trace",
+    name: "Trace",
+    category: "display",
+    description: {
+      en: "A list of lines showing the steps an AI agent took, such as reasoning, tool calls, and sources. Lines can show a status and expand to reveal details.",
+      ja: "AI エージェントの思考・ツール呼び出し・参照元などの手順を1行ずつ並べるリスト。行ごとにステータスを示し、展開して詳細を表示できる。",
+    },
+  },
   {
     id: "heading",
     name: "Heading",
