@@ -30,6 +30,8 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const RESTORE_THEME_SCRIPT = `try{const t=localStorage.getItem("ginga-docs-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}`;
+
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
@@ -58,7 +60,11 @@ export default async function RootLayout({
     <html
       lang={locale}
       className={`${inter.variable} ${notoSansJP.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: RESTORE_THEME_SCRIPT }} />
+      </head>
       <body>
         <style id="dynamic-theme"></style>
         <Providers locale={locale}>

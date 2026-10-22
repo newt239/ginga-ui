@@ -18,5 +18,11 @@
     "react-aria-components": "1.21.1",
     "react-dom": "19.3.0",
     "shiki": "4.5.0"
-  }
+  },
+  "browserslist": [
+    "chrome >= 123",
+    "edge >= 123",
+    "firefox >= 120",
+    "safari >= 17.5"
+  ]
 }

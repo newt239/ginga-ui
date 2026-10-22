@@ -354,6 +354,11 @@ body {
 
 .docs-main .shiki {
   background-color: transparent !important;
+
+  &,
+  & span {
+    color: light-dark(var(--shiki-light), var(--shiki-dark));
+  }
 }
 
 .docs-toc-container {
