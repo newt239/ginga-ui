@@ -1,6 +1,12 @@
+"use client";
+
+import { useDictionary } from "#/i18n/locale-context";
+
 export function PageSkeleton() {
+  const { layout } = useDictionary();
+
   return (
-    <output className="docs-skeleton" aria-label="読み込み中">
+    <output className="docs-skeleton" aria-label={layout.loading}>
       <div className="docs-skeleton-title" />
       <div className="docs-skeleton-line" />
       <div className="docs-skeleton-line docs-skeleton-line-short" />

@@ -30,3 +30,7 @@ ThemeClient のデフォルトモデルを各プロバイダーの最新シリ�
 - 破壊的変更: コンポーネントに内蔵していたアイコンを廃止。Accordion・Select・Alert・AlertDialog・Toast・CodeBlock のアイコンは props (`icon`、`checkIcon`、`closeIcon`、`copyIcon` など) で指定する。Checkbox のチェックマークと Toast の閉じるボタンは、指定しない場合 CSS で描画する
 - 破壊的変更: Popover の props を `placement`・`offset`・`crossOffset`・`shouldFlip`・`showArrow` などに絞った
 - 狭い画面幅への対応: Tab のタブ列と CodeBlock のファイル名の列を折り返さず横スクロールさせ、Table は横スクロールできるコンテナ (`ginga-table-container`) で包むように変更。CodeBlock は幅が狭いときコピーボタンをアイコンのみで表示
+- コンポーネントの既定スタイルにダークモードを追加。OS の設定 (`prefers-color-scheme`) に追従し、`<html data-theme="light|dark">` で固定もできる。テーマ生成の結果はダークモードより優先される
+- ステータス色 (`--color-info-light` など) を背景色と文字色から `color-mix` で作るように変更し、ダークモードや生成テーマでも読めるようにした
+- Select の `icon` を指定しない場合も、CSS で描いたシェブロンをトリガーに表示するように変更
+- ThemeClient が生成する CSS に、背景色の明るさから判定した `color-scheme` を含めるように変更

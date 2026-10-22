@@ -78,6 +78,21 @@
     width: 100%;
     height: 100%;
   }
+
+  &:empty {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:empty::before {
+    box-sizing: border-box;
+    width: 0.5rem;
+    height: 0.5rem;
+    content: "";
+    border: solid currentcolor;
+    border-width: 0 0.125rem 0.125rem 0;
+    transform: translateY(-25%) rotate(45deg);
+  }
 }
 
 .ginga-select-popover {

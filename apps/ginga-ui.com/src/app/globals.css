@@ -79,6 +79,7 @@ body {
   font-weight: 700;
   color: var(--color-text);
   letter-spacing: -0.01em;
+  white-space: nowrap;
   text-decoration: none;
   border-radius: var(--radius-sm);
 }
@@ -102,10 +103,23 @@ body {
   height: 100vh;
   padding: 1.5rem 1rem 2rem;
   overflow-y: auto;
+}
+
+.docs-sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
 
   & > .docs-logo {
     margin-left: 0.5rem;
   }
+}
+
+.docs-header-actions {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 
 .docs-nav {
@@ -340,6 +354,11 @@ body {
 
 .docs-main .shiki {
   background-color: transparent !important;
+
+  &,
+  & span {
+    color: light-dark(var(--shiki-light), var(--shiki-dark));
+  }
 }
 
 .docs-toc-container {

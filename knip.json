@@ -12,6 +12,8 @@
     "packages/utils": {
       "project": ["src/**/*.ts"]
     },
-    "apps/ginga-ui.com": {}
+    "apps/ginga-ui.com": {
+      "entry": ["src/examples/{en,ja}/*.tsx"]
+    }
   }
 }

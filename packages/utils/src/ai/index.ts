@@ -191,7 +191,13 @@ export class ThemeClient {
       variables["--color-secondary"]
     ).map((c, i) => ({ key: `--color-secondary-${i}`, value: c }));
 
+    const colorScheme =
+      chroma(variables["--color-background"]).luminance() < 0.18
+        ? "dark"
+        : "light";
+
     const allVariables = {
+      "color-scheme": colorScheme,
       ...variables,
       ...Object.fromEntries(primaryColors.map((c) => [c.key, c.value])),
       ...Object.fromEntries(secondaryColors.map((c) => [c.key, c.value])),

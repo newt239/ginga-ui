@@ -11,10 +11,7 @@
   "dependencies": {
     "@ginga-ui/core": "workspace:*",
     "@ginga-ui/utils": "workspace:*",
-    "@mdx-js/loader": "3.1.1",
-    "@mdx-js/react": "3.1.1",
     "@neondatabase/serverless": "1.2.0",
-    "@next/mdx": "16.4.0",
     "lucide-react": "1.52.0",
     "next": "16.4.0",
     "react": "19.3.0",
@@ -22,7 +19,10 @@
     "react-dom": "19.3.0",
     "shiki": "4.5.0"
   },
-  "devDependencies": {
-    "@types/mdx": "2.0.14"
-  }
+  "browserslist": [
+    "chrome >= 123",
+    "edge >= 123",
+    "firefox >= 120",
+    "safari >= 17.5"
+  ]
 }
