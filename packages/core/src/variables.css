@@ -1,4 +1,6 @@
-:root {
+:where(:root) {
+  color-scheme: light;
+
   --color-primary: #1677ff;
   --color-primary-0: #e3f4ff;
   --color-primary-1: #cce4ff;
@@ -25,17 +27,49 @@
   --color-black: #000;
   --color-background: #fff;
   --color-info: #1677ff;
-  --color-info-light: #ebf3ff;
-  --color-info-dark: #0041a8;
+  --color-info-light: color-mix(
+    in oklab,
+    var(--color-info) 12%,
+    var(--color-background)
+  );
+  --color-info-dark: color-mix(
+    in oklab,
+    var(--color-info) 60%,
+    var(--color-text)
+  );
   --color-success: #2f9e1a;
-  --color-success-light: #edf8e8;
-  --color-success-dark: #1d6609;
+  --color-success-light: color-mix(
+    in oklab,
+    var(--color-success) 12%,
+    var(--color-background)
+  );
+  --color-success-dark: color-mix(
+    in oklab,
+    var(--color-success) 60%,
+    var(--color-text)
+  );
   --color-warning: #e09200;
-  --color-warning-light: #fff6e0;
-  --color-warning-dark: #7a4a00;
+  --color-warning-light: color-mix(
+    in oklab,
+    var(--color-warning) 12%,
+    var(--color-background)
+  );
+  --color-warning-dark: color-mix(
+    in oklab,
+    var(--color-warning) 60%,
+    var(--color-text)
+  );
   --color-danger: #e5383b;
-  --color-danger-light: #fdeeee;
-  --color-danger-dark: #a1101c;
+  --color-danger-light: color-mix(
+    in oklab,
+    var(--color-danger) 12%,
+    var(--color-background)
+  );
+  --color-danger-dark: color-mix(
+    in oklab,
+    var(--color-danger) 60%,
+    var(--color-text)
+  );
   --size-radius: 1rem;
   --width-border: 0.125rem;
   --font-family: sans-serif;
@@ -112,6 +146,82 @@
     border-color var(--duration) var(--easing),
     opacity var(--duration) var(--easing),
     transform var(--duration) var(--easing);
+}
+
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-theme="light"])) {
+    color-scheme: dark;
+
+    --color-primary: #4c9aff;
+    --color-primary-0: #14243a;
+    --color-primary-1: #172f52;
+    --color-primary-2: #1b3d6e;
+    --color-primary-3: #204c8b;
+    --color-primary-4: #265ca8;
+    --color-primary-5: #2d6dc6;
+    --color-primary-6: #367ee2;
+    --color-primary-7: #4c9aff;
+    --color-primary-8: #74b1ff;
+    --color-primary-9: #9cc7ff;
+    --color-secondary: #fff;
+    --color-secondary-0: #1a1d21;
+    --color-secondary-1: #212529;
+    --color-secondary-2: #2b3035;
+    --color-secondary-3: #343a40;
+    --color-secondary-4: #495057;
+    --color-secondary-5: #6c757d;
+    --color-secondary-6: #868e96;
+    --color-secondary-7: #adb5bd;
+    --color-secondary-8: #dee2e6;
+    --color-secondary-9: #f1f3f5;
+    --color-background: #121417;
+    --color-info: #4c9aff;
+    --color-success: #51c23a;
+    --color-warning: #f5ac1f;
+    --color-danger: #ff6266;
+    --color-overlay: rgb(0 0 0 / 60%);
+    --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 40%);
+    --shadow-overlay:
+      0 0.75rem 2rem -0.5rem rgb(0 0 0 / 60%),
+      0 0.25rem 0.5rem -0.25rem rgb(0 0 0 / 40%);
+  }
+}
+
+:where(:root[data-theme="dark"]) {
+  color-scheme: dark;
+
+  --color-primary: #4c9aff;
+  --color-primary-0: #14243a;
+  --color-primary-1: #172f52;
+  --color-primary-2: #1b3d6e;
+  --color-primary-3: #204c8b;
+  --color-primary-4: #265ca8;
+  --color-primary-5: #2d6dc6;
+  --color-primary-6: #367ee2;
+  --color-primary-7: #4c9aff;
+  --color-primary-8: #74b1ff;
+  --color-primary-9: #9cc7ff;
+  --color-secondary: #fff;
+  --color-secondary-0: #1a1d21;
+  --color-secondary-1: #212529;
+  --color-secondary-2: #2b3035;
+  --color-secondary-3: #343a40;
+  --color-secondary-4: #495057;
+  --color-secondary-5: #6c757d;
+  --color-secondary-6: #868e96;
+  --color-secondary-7: #adb5bd;
+  --color-secondary-8: #dee2e6;
+  --color-secondary-9: #f1f3f5;
+  --color-background: #121417;
+  --color-info: #4c9aff;
+  --color-success: #51c23a;
+  --color-warning: #f5ac1f;
+  --color-danger: #ff6266;
+  --color-overlay: rgb(0 0 0 / 60%);
+  --shadow-sm: 0 0.125rem 0.25rem rgb(0 0 0 / 40%);
+  --shadow-overlay:
+    0 0.75rem 2rem -0.5rem rgb(0 0 0 / 60%),
+    0 0.25rem 0.5rem -0.25rem rgb(0 0 0 / 40%);
 }
 
 @media (prefers-contrast: more) {

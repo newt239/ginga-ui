@@ -133,7 +133,7 @@
   transition: var(--transition);
 
   &[data-hovered] {
-    background-color: rgb(0 0 0 / 8%);
+    background-color: var(--color-surface-hover);
   }
 
   &[data-focus-visible] {
