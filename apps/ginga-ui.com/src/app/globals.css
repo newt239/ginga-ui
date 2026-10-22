@@ -19,6 +19,12 @@ html {
   text-size-adjust: 100%;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-family);
@@ -348,7 +354,7 @@ body {
   margin-top: 4rem;
 }
 
-.docs-main .ginga-code-block {
+.docs-main .ginga-code-block:not([data-attached]) {
   margin: 1rem 0 1.5rem;
 }
 

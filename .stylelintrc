@@ -4,6 +4,10 @@
   "rules": {
     "selector-class-pattern": null,
     "no-descending-specificity": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global"] }
+    ],
     "font-weight-notation": "numeric",
     "declaration-property-value-allowed-list": {
       "font-weight": ["400", "700"]

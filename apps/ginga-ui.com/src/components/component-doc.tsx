@@ -97,11 +97,12 @@ async function Example({ id, name, locale, children }: ExampleProps) {
         </>
       ) : null}
 
-      <div className={styles.examplePreview} data-toc-ignore>
-        {children}
+      <div className={styles.example}>
+        <div className={styles.examplePreview} data-toc-ignore>
+          {children}
+        </div>
+        <CodeBlock files={files} variant="attached" />
       </div>
-
-      <CodeBlock files={files} />
     </section>
   );
 }
