@@ -1,0 +1,23 @@
+.attached {
+  border-top: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border-radius: 0;
+
+  & :global(.ginga-code-block-content) {
+    max-height: 30rem;
+    overflow-y: auto;
+  }
+
+  & :global(.shiki code) {
+    counter-reset: line;
+  }
+
+  & :global(.shiki .line)::before {
+    display: inline-block;
+    width: 1.5rem;
+    margin-right: 1.5rem;
+    color: var(--color-text-muted);
+    text-align: right;
+    content: counter(line);
+    counter-increment: line;
+  }
+}

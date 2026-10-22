@@ -2,17 +2,30 @@
   margin-top: 3.5rem;
 }
 
+.example {
+  margin-top: 1rem;
+  overflow: hidden;
+  border: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border-radius: var(--radius-lg);
+}
+
 .examplePreview {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  min-height: 8rem;
-  padding: 2rem 0;
-  margin-top: 0.5rem;
+  min-height: 22rem;
+  padding: 2.5rem;
 
   & > * {
     max-width: 100%;
+  }
+}
+
+@media (width < 40rem) {
+  .examplePreview {
+    min-height: 16rem;
+    padding: 2rem 1rem;
   }
 }

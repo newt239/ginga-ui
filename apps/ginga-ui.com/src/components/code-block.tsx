@@ -3,6 +3,7 @@
 import { CodeBlock as CoreCodeBlock } from "@ginga-ui/core";
 import { Check, Copy } from "lucide-react";
 import { useDictionary } from "#/i18n/locale-context";
+import styles from "./code-block.module.css";
 
 type HighlightedFile = {
   filename: string;
@@ -10,7 +11,9 @@ type HighlightedFile = {
   highlightedCode?: string;
 };
 
-type CodeBlockProps =
+type CodeBlockVariant = "default" | "attached";
+
+type CodeBlockProps = { variant?: CodeBlockVariant } & (
   | {
       code: string;
       highlightedCode?: string;
@@ -22,14 +25,18 @@ type CodeBlockProps =
       code?: undefined;
       highlightedCode?: undefined;
       filename?: undefined;
-    };
+    }
+);
 
 const renderHighlighted = (html?: string) =>
   html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : undefined;
 
 export function CodeBlock(props: CodeBlockProps) {
   const { codeBlock } = useDictionary();
-  const labels = {
+  const attached = props.variant === "attached";
+  const sharedProps = {
+    className: attached ? styles.attached : undefined,
+    "data-attached": attached || undefined,
     copyLabel: codeBlock.copy,
     copiedLabel: codeBlock.copied,
     filesLabel: codeBlock.files,
@@ -40,7 +47,7 @@ export function CodeBlock(props: CodeBlockProps) {
   if (props.files) {
     return (
       <CoreCodeBlock
-        {...labels}
+        {...sharedProps}
         files={props.files.map((file) => ({
           filename: file.filename,
           code: file.code,
@@ -51,7 +58,7 @@ export function CodeBlock(props: CodeBlockProps) {
   }
 
   return (
-    <CoreCodeBlock {...labels} code={props.code} filename={props.filename}>
+    <CoreCodeBlock {...sharedProps} code={props.code} filename={props.filename}>
       {renderHighlighted(props.highlightedCode)}
     </CoreCodeBlock>
   );

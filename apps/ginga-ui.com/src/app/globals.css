@@ -348,7 +348,7 @@ body {
   margin-top: 4rem;
 }
 
-.docs-main .ginga-code-block {
+.docs-main .ginga-code-block:not([data-attached]) {
   margin: 1rem 0 1.5rem;
 }
 
