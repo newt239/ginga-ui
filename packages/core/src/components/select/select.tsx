@@ -51,11 +51,9 @@ export const Select: React.FC<SelectProps> = ({
       <AriaLabel className="ginga-select-label">{label}</AriaLabel>
       <AriaButton className="ginga-select-button">
         <AriaSelectValue className="ginga-select-value" />
-        {icon && (
-          <span className="ginga-select-icon" aria-hidden="true">
-            {icon}
-          </span>
-        )}
+        <span className="ginga-select-icon" aria-hidden="true">
+          {icon}
+        </span>
       </AriaButton>
       <AriaPopover className="ginga-select-popover">
         <SelectCheckIconContext.Provider value={checkIcon}>
