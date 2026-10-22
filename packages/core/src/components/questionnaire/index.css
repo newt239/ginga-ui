@@ -1,0 +1,188 @@
+.ginga-questionnaire {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 30rem;
+  font-family: var(--font-family);
+  color: var(--color-text);
+}
+
+.ginga-questionnaire-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.ginga-questionnaire-title {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ginga-questionnaire-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ginga-questionnaire-choice {
+  box-sizing: border-box;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border: var(--border-width) solid var(--color-surface-strong);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+
+  &[data-hovered] {
+    background-color: var(--color-surface);
+  }
+
+  &[data-selected] {
+    background-color: var(--color-accent-subtle);
+    border-color: var(--color-accent);
+  }
+
+  &[data-focus-visible] {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  &[data-invalid] {
+    border-color: var(--color-danger-dark);
+  }
+
+  &[data-disabled] {
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    background-color: var(--color-surface);
+  }
+}
+
+.ginga-questionnaire-choice-indicator {
+  box-sizing: border-box;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.125rem;
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-control-border);
+  border-radius: 50%;
+  transition: var(--transition);
+
+  &[data-multiple] {
+    border-radius: calc(var(--radius-sm) / 2);
+  }
+
+  .ginga-questionnaire-choice[data-selected] & {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: inset 0 0 0 0.25rem var(--color-background);
+  }
+
+  .ginga-questionnaire-choice[data-selected] &[data-multiple] {
+    box-shadow: none;
+
+    &::after {
+      box-sizing: border-box;
+      width: 0.375rem;
+      height: 0.625rem;
+      margin-top: -0.125rem;
+      content: "";
+      border: solid var(--color-on-accent);
+      border-width: 0 0.125rem 0.125rem 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.ginga-questionnaire-choice-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.ginga-questionnaire-choice-label {
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.ginga-questionnaire-choice-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.ginga-questionnaire-choice-shortcut {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.25rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border-radius: var(--radius-sm);
+}
+
+.ginga-questionnaire-error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-danger-dark);
+}
+
+.ginga-questionnaire-actions {
+  position: relative;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: var(--size-control-md);
+}
+
+.ginga-questionnaire-previous {
+  margin-right: auto;
+}
+
+.ginga-questionnaire-progress {
+  position: absolute;
+  left: 50%;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+@media (forced-colors: active) {
+  .ginga-questionnaire-choice[data-selected] {
+    border-color: highlight;
+  }
+
+  .ginga-questionnaire-choice[data-selected]
+    .ginga-questionnaire-choice-indicator {
+    background-color: highlight;
+    border-color: highlight;
+  }
+}
