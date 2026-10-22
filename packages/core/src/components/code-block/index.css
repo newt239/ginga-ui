@@ -1,7 +1,7 @@
 .ginga-code-block {
+  position: relative;
   box-sizing: border-box;
   width: 100%;
-  container-type: inline-size;
   overflow: hidden;
   font-family: var(--font-family);
   color: var(--color-text);
@@ -15,17 +15,34 @@
   gap: 0.5rem;
   align-items: center;
   min-height: 2.75rem;
-  padding: 0.375rem 0.5rem 0 1.25rem;
+  padding: 0.375rem 0.5rem;
+  border-bottom: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+
+  &:not(:has(.ginga-code-block-filename, .ginga-code-block-tab-list)) {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    min-height: 0;
+    padding: 0;
+    border: none;
+  }
 }
 
 .ginga-code-block-filename {
+  display: flex;
+  align-items: center;
   min-width: 0;
+  min-height: var(--size-control-sm);
+  padding: 0 0.75rem;
   overflow: hidden;
   text-overflow: ellipsis;
   font-family: var(--font-family-mono);
   font-size: 0.875rem;
-  color: var(--color-text-muted);
+  font-weight: 700;
+  color: var(--color-text);
   white-space: nowrap;
+  background-color: var(--color-surface-strong);
+  border-radius: var(--radius-sm);
 }
 
 .ginga-code-block-tab-list {
@@ -34,7 +51,6 @@
   flex-wrap: nowrap;
   gap: 0.25rem;
   min-width: 0;
-  margin-left: -0.75rem;
   overflow-x: auto;
   overscroll-behavior-x: contain;
   scrollbar-width: thin;
@@ -89,11 +105,10 @@
   &[data-hovered] {
     color: var(--color-text);
   }
-}
 
-@container (width < 30rem) {
-  .ginga-code-block-copy-button:has(svg) {
-    padding-inline: 0.5rem;
+  &:has(svg) {
+    width: var(--size-control-sm);
+    padding-inline: 0;
 
     .ginga-code-block-copy-label {
       position: absolute;
@@ -110,7 +125,7 @@
   overflow-x: auto;
 
   & pre {
-    padding: 0.25rem 1.25rem 1.25rem;
+    padding: 1rem 1.25rem;
     margin: 0;
     font-family: var(--font-family-mono);
     font-size: 0.875rem;
@@ -121,4 +136,12 @@
   & code {
     font-family: inherit;
   }
+}
+
+.ginga-code-block:not(
+    :has(.ginga-code-block-filename, .ginga-code-block-tab-list)
+  )
+  .ginga-code-block-content
+  pre {
+  padding-right: 3.5rem;
 }
