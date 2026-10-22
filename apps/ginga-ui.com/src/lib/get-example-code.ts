@@ -1,6 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+import type { Locale } from "#/i18n/locales";
+
 export type ExampleSource = {
   componentId: string;
   tsx: string;
@@ -92,11 +94,15 @@ function extractImports(source: string, functionCode: string) {
 }
 
 export async function getExampleSource(
+  locale: Locale,
   componentId: string,
   exampleName: string
 ): Promise<ExampleSource> {
-  const tsxSource = await readOptional(
-    path.join(EXAMPLES_DIR, `${componentId}.tsx`)
+  const tsxSource = (
+    await readOptional(path.join(EXAMPLES_DIR, locale, `${componentId}.tsx`))
+  )?.replaceAll(
+    `"../${componentId}.module.css"`,
+    `"./${componentId}.module.css"`
   );
   if (!tsxSource) {
     console.error(`Failed to read example code: ${componentId}/${exampleName}`);

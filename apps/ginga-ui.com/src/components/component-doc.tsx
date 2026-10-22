@@ -3,34 +3,38 @@ import { notFound } from "next/navigation";
 import { CodeBlock } from "#/components/code-block";
 import { getComponentById } from "#/data/components";
 import { EXAMPLE_CONFIGS } from "#/data/configs";
+import { EXAMPLES } from "#/examples";
+import { getDictionary } from "#/i18n/dictionaries";
 import { getExampleSource } from "#/lib/get-example-code";
 import { highlightCode } from "#/lib/shiki";
 import styles from "./component-doc.module.css";
 
-import type { ReactNode } from "react";
+import type { Locale } from "#/i18n/locales";
 
 type ComponentDocProps = {
   id: string;
-  children: ReactNode;
+  locale: Locale;
 };
 
-export async function ComponentDoc({ id, children }: ComponentDocProps) {
+export async function ComponentDoc({ id, locale }: ComponentDocProps) {
   const component = getComponentById(id);
+  const examples = EXAMPLES[locale][id];
 
-  if (!component) {
+  if (!component || !examples) {
     notFound();
   }
 
+  const { components } = getDictionary(locale);
   const installCode = `import { ${component.name} } from "@ginga-ui/core";`;
 
   return (
     <article>
       <Heading level="h1">{component.name}</Heading>
-      <p className="docs-lead">{component.description}</p>
+      <p className="docs-lead">{component.description[locale]}</p>
 
       <section className="docs-section">
         <Heading level="h2" id="install">
-          インストール
+          {components.install}
         </Heading>
         <CodeBlock
           code={installCode}
@@ -38,7 +42,16 @@ export async function ComponentDoc({ id, children }: ComponentDocProps) {
         />
       </section>
 
-      {children}
+      {(EXAMPLE_CONFIGS[id] ?? []).map(({ name }) => {
+        const ExampleComponent = examples[name];
+        if (!ExampleComponent) return null;
+
+        return (
+          <Example key={name} id={id} name={name} locale={locale}>
+            <ExampleComponent />
+          </Example>
+        );
+      })}
     </article>
   );
 }
@@ -49,12 +62,13 @@ const toKebabCase = (value: string) =>
 type ExampleProps = {
   id: string;
   name: string;
-  children: ReactNode;
+  locale: Locale;
+  children: React.ReactNode;
 };
 
-export async function Example({ id, name, children }: ExampleProps) {
+async function Example({ id, name, locale, children }: ExampleProps) {
   const config = EXAMPLE_CONFIGS[id]?.find((c) => c.name === name);
-  const source = await getExampleSource(id, name);
+  const source = await getExampleSource(locale, id, name);
   const files = [
     {
       filename: `${id}.tsx`,
@@ -77,9 +91,9 @@ export async function Example({ id, name, children }: ExampleProps) {
       {config ? (
         <>
           <Heading level="h2" id={toKebabCase(name)}>
-            {config.title}
+            {config.title[locale]}
           </Heading>
-          <Paragraph>{config.description}</Paragraph>
+          <Paragraph>{config.description[locale]}</Paragraph>
         </>
       ) : null}
 

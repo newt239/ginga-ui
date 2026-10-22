@@ -1,20 +1,37 @@
+import { getDictionary } from "#/i18n/dictionaries";
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
 import { SidebarNav } from "./sidebar";
+import { SiteSettings } from "./site-settings";
 import { TableOfContents } from "./table-of-contents";
 
-export function DocsLayout({ children }: { children: React.ReactNode }) {
+import type { Locale } from "#/i18n/locales";
+
+type DocsLayoutProps = {
+  locale: Locale;
+  children: React.ReactNode;
+};
+
+export function DocsLayout({ locale, children }: DocsLayoutProps) {
+  const dictionary = getDictionary(locale);
+
   return (
     <div className="docs-layout">
       <a href="#main-content" className="skip-link">
-        本文へスキップ
+        {dictionary.layout.skipToContent}
       </a>
       <header className="docs-mobile-header">
         <Logo />
-        <MobileNav />
+        <div className="docs-header-actions">
+          <SiteSettings />
+          <MobileNav />
+        </div>
       </header>
       <aside className="docs-sidebar">
-        <Logo />
+        <div className="docs-sidebar-header">
+          <Logo />
+          <SiteSettings />
+        </div>
         <SidebarNav />
       </aside>
       <main id="main-content" className="docs-main" tabIndex={-1}>

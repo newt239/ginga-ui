@@ -5,22 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ExternalLink } from "lucide-react";
 import { PendingIndicator } from "./pending-indicator";
-import { CATEGORIES, getComponentsByCategory } from "#/data/components";
-import type { ComponentCategory } from "#/data/components";
-
-const GETTING_STARTED_LINKS = [
-  { href: "/", label: "概要" },
-  { href: "/quick-start", label: "クイックスタート" },
-  { href: "/theme-generation", label: "テーマ生成" },
-  { href: "/components", label: "全コンポーネント" },
-];
-
-const SORTED_CATEGORIES = (
-  Object.entries(CATEGORIES) as [
-    ComponentCategory,
-    { label: string; order: number },
-  ][]
-).sort(([, a], [, b]) => a.order - b.order);
+import { getComponentsByCategory, SORTED_CATEGORIES } from "#/data/components";
+import { useDictionary, useLocale } from "#/i18n/locale-context";
+import { localizePath } from "#/i18n/locales";
 
 type SidebarNavProps = {
   onNavigate?: () => void;
@@ -29,6 +16,15 @@ type SidebarNavProps = {
 export function SidebarNav({ onNavigate }: SidebarNavProps) {
   const pathname = usePathname();
   const idPrefix = useId();
+  const locale = useLocale();
+  const { nav } = useDictionary();
+
+  const gettingStartedLinks = [
+    { href: "/", label: nav.overview },
+    { href: "/quick-start", label: nav.quickStart },
+    { href: "/theme-generation", label: nav.themeGeneration },
+    { href: "/components", label: nav.allComponents },
+  ].map((link) => ({ ...link, href: localizePath(link.href, locale) }));
 
   const renderLink = (href: string, label: string) => (
     <li key={href}>
@@ -44,11 +40,11 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
   );
 
   return (
-    <nav className="docs-nav" aria-label="ドキュメント">
+    <nav className="docs-nav" aria-label={nav.label}>
       <section aria-labelledby={`${idPrefix}-getting-started`}>
-        <h2 id={`${idPrefix}-getting-started`}>はじめに</h2>
+        <h2 id={`${idPrefix}-getting-started`}>{nav.gettingStarted}</h2>
         <ul>
-          {GETTING_STARTED_LINKS.map(({ href, label }) =>
+          {gettingStartedLinks.map(({ href, label }) =>
             renderLink(href, label)
           )}
         </ul>
@@ -60,10 +56,13 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
 
         return (
           <section key={category} aria-labelledby={`${idPrefix}-${category}`}>
-            <h2 id={`${idPrefix}-${category}`}>{label}</h2>
+            <h2 id={`${idPrefix}-${category}`}>{label[locale]}</h2>
             <ul>
               {components.map((component) =>
-                renderLink(`/components/${component.id}`, component.name)
+                renderLink(
+                  localizePath(`/components/${component.id}`, locale),
+                  component.name
+                )
               )}
             </ul>
           </section>
@@ -71,7 +70,7 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
       })}
 
       <section aria-labelledby={`${idPrefix}-resources`}>
-        <h2 id={`${idPrefix}-resources`}>リソース</h2>
+        <h2 id={`${idPrefix}-resources`}>{nav.resources}</h2>
         <ul>
           <li>
             <a
@@ -81,20 +80,20 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
             >
               GitHub
               <ExternalLink className="docs-nav-external" aria-hidden="true" />
-              <span className="visually-hidden">（新しいタブで開く）</span>
+              <span className="visually-hidden">{nav.opensInNewTab}</span>
             </a>
           </li>
         </ul>
       </section>
       <p className="docs-credit">
-        ロゴ:{" "}
+        {nav.logoCredit}{" "}
         <a
           href="https://github.com/jdecked/twemoji"
           target="_blank"
           rel="noreferrer"
         >
           Twemoji
-          <span className="visually-hidden">（新しいタブで開く）</span>
+          <span className="visually-hidden">{nav.opensInNewTab}</span>
         </a>{" "}
         (CC-BY 4.0)
       </p>

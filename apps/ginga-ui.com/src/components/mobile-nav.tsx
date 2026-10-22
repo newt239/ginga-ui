@@ -9,16 +9,18 @@ import {
   DrawerTitle,
 } from "@ginga-ui/core";
 import { Menu, X } from "lucide-react";
+import { useDictionary } from "#/i18n/locale-context";
 import { SidebarNav } from "./sidebar";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { nav } = useDictionary();
 
   return (
     <DialogTrigger isOpen={isOpen} onOpenChange={setIsOpen}>
       <Button
         variant="ghost"
-        aria-label="メニューを開く"
+        aria-label={nav.openMenu}
         className="docs-icon-button"
       >
         <Menu />
@@ -26,11 +28,11 @@ export function MobileNav() {
       <Drawer placement="left">
         <DrawerContent className="docs-drawer">
           <div className="docs-drawer-header">
-            <DrawerTitle>メニュー</DrawerTitle>
+            <DrawerTitle>{nav.menu}</DrawerTitle>
             <Button
               variant="ghost"
               slot="close"
-              aria-label="メニューを閉じる"
+              aria-label={nav.closeMenu}
               className="docs-icon-button"
             >
               <X />

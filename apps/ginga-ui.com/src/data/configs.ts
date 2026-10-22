@@ -1,586 +1,873 @@
+import type { Locale } from "#/i18n/locales";
+
 type ExampleConfig = {
   name: string;
-  title: string;
-  description: string;
+  title: Record<Locale, string>;
+  description: Record<Locale, string>;
 };
 
 export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
   accordion: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "最もシンプルなアコーディオンの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "The simplest accordion example.",
+        ja: "最もシンプルなアコーディオンの使用例です。",
+      },
     },
     {
       name: "MultipleExpansionExample",
-      title: "複数展開",
-      description: "複数のアコーディオンアイテムを同時に展開できます。",
+      title: { en: "Multiple expansion", ja: "複数展開" },
+      description: {
+        en: "Multiple accordion items can be expanded at the same time.",
+        ja: "複数のアコーディオンアイテムを同時に展開できます。",
+      },
     },
     {
       name: "DefaultClosedExample",
-      title: "デフォルト閉じた状態",
-      description: "初期状態で全て閉じているアコーディオンです。",
+      title: { en: "Closed by default", ja: "デフォルト閉じた状態" },
+      description: {
+        en: "An accordion with all items closed initially.",
+        ja: "初期状態で全て閉じているアコーディオンです。",
+      },
     },
     {
       name: "ControlledExample",
-      title: "制御されたアコーディオン",
-      description: "状態を外部から制御するアコーディオンです。",
+      title: { en: "Controlled accordion", ja: "制御されたアコーディオン" },
+      description: {
+        en: "An accordion whose state is controlled externally.",
+        ja: "状態を外部から制御するアコーディオンです。",
+      },
     },
   ],
   alert: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "タイトルと説明文を持つシンプルなアラートです。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple alert with a title and description.",
+        ja: "タイトルと説明文を持つシンプルなアラートです。",
+      },
     },
     {
       name: "VariantsExample",
-      title: "バリアント",
-      description:
-        "info、success、warning、dangerの4種類のバリアントを指定できます。",
+      title: { en: "Variants", ja: "バリアント" },
+      description: {
+        en: "Four variants are available: info, success, warning, and danger.",
+        ja: "info、success、warning、dangerの4種類のバリアントを指定できます。",
+      },
     },
     {
       name: "DescriptionOnlyExample",
-      title: "説明文のみ",
-      description:
-        "タイトルを省略して説明文だけを表示できます。動的に挿入して通知する場合はrole属性にalertを渡すか、Toastの利用を検討してください。",
+      title: { en: "Description only", ja: "説明文のみ" },
+      description: {
+        en: "You can omit the title and show only the description. When inserting it dynamically as a notification, pass alert to the role attribute or consider using Toast.",
+        ja: "タイトルを省略して説明文だけを表示できます。動的に挿入して通知する場合はrole属性にalertを渡すか、Toastの利用を検討してください。",
+      },
     },
   ],
   "alert-dialog": [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description:
-        "破壊的な操作の確認を求めるアラートダイアログです。外側をクリックしても閉じず、明示的な選択を求めます。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "An alert dialog that asks for confirmation of a destructive action. It does not close when clicking outside and requires an explicit choice.",
+        ja: "破壊的な操作の確認を求めるアラートダイアログです。外側をクリックしても閉じず、明示的な選択を求めます。",
+      },
     },
     {
       name: "WarningExample",
-      title: "警告バリアント",
-      description: "variantプロップでタイトル色とアクセントを変更できます。",
+      title: { en: "Warning variant", ja: "警告バリアント" },
+      description: {
+        en: "Use the variant prop to change the title color and accent.",
+        ja: "variantプロップでタイトル色とアクセントを変更できます。",
+      },
     },
     {
       name: "PlainExample",
-      title: "バリアントなし",
-      description: "variantを指定しない場合は通常の配色で表示されます。",
+      title: { en: "No variant", ja: "バリアントなし" },
+      description: {
+        en: "Without a variant, the dialog uses the default colors.",
+        ja: "variantを指定しない場合は通常の配色で表示されます。",
+      },
     },
   ],
   anchor: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなリンクの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple link example.",
+        ja: "シンプルなリンクの使用例です。",
+      },
     },
     {
       name: "ExternalExample",
-      title: "外部リンク",
-      description: "外部サイトへのリンクを新しいタブで開きます。",
+      title: { en: "External link", ja: "外部リンク" },
+      description: {
+        en: "Opens a link to an external site in a new tab.",
+        ja: "外部サイトへのリンクを新しいタブで開きます。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "disabledプロップでリンクを無効化できます。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "Use the disabled prop to disable the link.",
+        ja: "disabledプロップでリンクを無効化できます。",
+      },
     },
     {
       name: "ButtonVariantExample",
-      title: "ボタンスタイル",
-      description:
-        'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
+      title: { en: "Button style", ja: "ボタンスタイル" },
+      description: {
+        en: 'Use variant="button" to make the link look like a button. buttonVariant and size accept the same variants and sizes as Button.',
+        ja: 'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
+      },
     },
   ],
   "code-block": [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description:
-        "code に渡した文字列を表示し、コピーボタンでクリップボードにコピーできます。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Displays the string passed to code, which can be copied to the clipboard with the copy button.",
+        ja: "code に渡した文字列を表示し、コピーボタンでクリップボードにコピーできます。",
+      },
     },
     {
       name: "FilenameExample",
-      title: "ファイル名",
-      description:
-        "filename を指定すると、コードの上にファイル名を表示します。",
+      title: { en: "Filename", ja: "ファイル名" },
+      description: {
+        en: "Specify filename to show the file name above the code.",
+        ja: "filename を指定すると、コードの上にファイル名を表示します。",
+      },
     },
     {
       name: "FilesExample",
-      title: "複数ファイル",
-      description:
-        "files に複数のファイルを渡すと、タブで切り替えて表示できます。",
+      title: { en: "Multiple files", ja: "複数ファイル" },
+      description: {
+        en: "Pass multiple files to files to switch between them with tabs.",
+        ja: "files に複数のファイルを渡すと、タブで切り替えて表示できます。",
+      },
     },
     {
       name: "WithIconExample",
-      title: "アイコン付きのコピーボタン",
-      description:
-        "copyIcon と copiedIcon で、コピーボタンにアイコンを表示できます。",
+      title: { en: "Copy button with icons", ja: "アイコン付きのコピーボタン" },
+      description: {
+        en: "Use copyIcon and copiedIcon to show icons in the copy button.",
+        ja: "copyIcon と copiedIcon で、コピーボタンにアイコンを表示できます。",
+      },
     },
   ],
   badge: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなバッジの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple badge example.",
+        ja: "シンプルなバッジの使用例です。",
+      },
     },
     {
       name: "VariantsExample",
-      title: "バリアント",
-      description:
-        "primary、secondary、info、success、warning、dangerの6種類のバリアントを指定できます。",
+      title: { en: "Variants", ja: "バリアント" },
+      description: {
+        en: "Six variants are available: primary, secondary, info, success, warning, and danger.",
+        ja: "primary、secondary、info、success、warning、dangerの6種類のバリアントを指定できます。",
+      },
     },
     {
       name: "WithTextExample",
-      title: "テキストと組み合わせる",
-      description: "テキストの横に件数などを表示できます。",
+      title: { en: "With text", ja: "テキストと組み合わせる" },
+      description: {
+        en: "Show a count or similar value next to text.",
+        ja: "テキストの横に件数などを表示できます。",
+      },
     },
   ],
   box: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなボックスの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple box example.",
+        ja: "シンプルなボックスの使用例です。",
+      },
     },
     {
       name: "LayoutExample",
-      title: "レイアウト",
-      description: "Flexboxを使用したレイアウトの例です。",
+      title: { en: "Layout", ja: "レイアウト" },
+      description: {
+        en: "A layout example using Flexbox.",
+        ja: "Flexboxを使用したレイアウトの例です。",
+      },
     },
     {
       name: "CardStyleExample",
-      title: "カードスタイル",
-      description: "カードのようなスタイリングの例です。",
+      title: { en: "Card style", ja: "カードスタイル" },
+      description: {
+        en: "An example of card-like styling.",
+        ja: "カードのようなスタイリングの例です。",
+      },
     },
   ],
   button: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "最もシンプルなボタンの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "The simplest button example.",
+        ja: "最もシンプルなボタンの使用例です。",
+      },
     },
     {
       name: "VariantsExample",
-      title: "バリエーション",
-      description:
-        "5種類のバリアント(filled、light、outline、ghost、reverse)を表示します。",
+      title: { en: "Variants", ja: "バリエーション" },
+      description: {
+        en: "Shows the five variants (filled, light, outline, ghost, reverse).",
+        ja: "5種類のバリアント(filled、light、outline、ghost、reverse)を表示します。",
+      },
     },
     {
       name: "SizesExample",
-      title: "サイズ",
-      description: "sizeプロップでsm、md、lgの3種類のサイズを指定できます。",
+      title: { en: "Sizes", ja: "サイズ" },
+      description: {
+        en: "Use the size prop to choose from three sizes: sm, md, and lg.",
+        ja: "sizeプロップでsm、md、lgの3種類のサイズを指定できます。",
+      },
     },
     {
       name: "WithIconExample",
-      title: "アイコン付き",
-      description:
-        "startIcon と endIcon で、ラベルの前後にアイコンを表示できます。",
+      title: { en: "With icons", ja: "アイコン付き" },
+      description: {
+        en: "Use startIcon and endIcon to show icons before and after the label.",
+        ja: "startIcon と endIcon で、ラベルの前後にアイコンを表示できます。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "disabledプロップでボタンを無効化できます。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "Use the disabled prop to disable the button.",
+        ja: "disabledプロップでボタンを無効化できます。",
+      },
     },
     {
       name: "FormExample",
-      title: "フォームでの使用",
-      description: "フォーム送信ボタンとしての使用例です。",
+      title: { en: "In a form", ja: "フォームでの使用" },
+      description: {
+        en: "An example of using the button to submit a form.",
+        ja: "フォーム送信ボタンとしての使用例です。",
+      },
     },
   ],
   card: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "ヘッダーとコンテンツを持つ基本的なカードです。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A basic card with a header and content.",
+        ja: "ヘッダーとコンテンツを持つ基本的なカードです。",
+      },
     },
     {
       name: "WithFooterExample",
-      title: "フッター付き",
-      description: "フッターを持つカードの例です。",
+      title: { en: "With footer", ja: "フッター付き" },
+      description: {
+        en: "An example of a card with a footer.",
+        ja: "フッターを持つカードの例です。",
+      },
     },
     {
       name: "MultipleCardsExample",
-      title: "複数のカード",
-      description: "グリッドレイアウトで複数のカードを表示します。",
+      title: { en: "Multiple cards", ja: "複数のカード" },
+      description: {
+        en: "Displays multiple cards in a grid layout.",
+        ja: "グリッドレイアウトで複数のカードを表示します。",
+      },
     },
     {
       name: "SimpleExample",
-      title: "シンプルなカード",
-      description: "ヘッダーなしのシンプルなカードです。",
+      title: { en: "Simple card", ja: "シンプルなカード" },
+      description: {
+        en: "A simple card without a header.",
+        ja: "ヘッダーなしのシンプルなカードです。",
+      },
     },
   ],
   checkbox: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "単一のチェックボックスの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "An example of a single checkbox.",
+        ja: "単一のチェックボックスの使用例です。",
+      },
     },
     {
       name: "SelectedExample",
-      title: "選択済み",
-      description: "初期状態で選択されているチェックボックスです。",
+      title: { en: "Selected", ja: "選択済み" },
+      description: {
+        en: "A checkbox that is selected initially.",
+        ja: "初期状態で選択されているチェックボックスです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "無効化されたチェックボックスの例です。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "An example of a disabled checkbox.",
+        ja: "無効化されたチェックボックスの例です。",
+      },
     },
     {
       name: "CheckboxGroupExample",
-      title: "チェックボックスグループ",
-      description: "複数のチェックボックスをグループ化した例です。",
+      title: { en: "Checkbox group", ja: "チェックボックスグループ" },
+      description: {
+        en: "An example of grouping multiple checkboxes.",
+        ja: "複数のチェックボックスをグループ化した例です。",
+      },
     },
   ],
   dialog: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなダイアログの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple dialog example.",
+        ja: "シンプルなダイアログの使用例です。",
+      },
     },
     {
       name: "ConfirmationExample",
-      title: "確認ダイアログ",
-      description: "ユーザーの確認を求めるダイアログです。",
+      title: { en: "Confirmation dialog", ja: "確認ダイアログ" },
+      description: {
+        en: "A dialog that asks the user for confirmation.",
+        ja: "ユーザーの確認を求めるダイアログです。",
+      },
     },
     {
       name: "FormExample",
-      title: "フォーム付き",
-      description: "ダイアログ内にフォームを配置した例です。",
+      title: { en: "With a form", ja: "フォーム付き" },
+      description: {
+        en: "An example of a form inside a dialog.",
+        ja: "ダイアログ内にフォームを配置した例です。",
+      },
     },
     {
       name: "AlertExample",
-      title: "アラート",
-      description: "シンプルなアラートダイアログです。",
+      title: { en: "Alert", ja: "アラート" },
+      description: {
+        en: "A simple alert dialog.",
+        ja: "シンプルなアラートダイアログです。",
+      },
     },
   ],
   drawer: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "画面の右端からスライドインするドロワーです。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A drawer that slides in from the right edge of the screen.",
+        ja: "画面の右端からスライドインするドロワーです。",
+      },
     },
     {
       name: "PlacementsExample",
-      title: "表示位置",
-      description:
-        "placementプロップでleft、right、top、bottomの4方向を指定できます。",
+      title: { en: "Placement", ja: "表示位置" },
+      description: {
+        en: "Use the placement prop to choose from four directions: left, right, top, and bottom.",
+        ja: "placementプロップでleft、right、top、bottomの4方向を指定できます。",
+      },
     },
     {
       name: "NotDismissableExample",
-      title: "外側クリックで閉じない",
-      description:
-        "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はページの幅を保ったままドロワーの幅だけ余白が付くので、スクロールすればドロワーの下に隠れた部分も表示できます。",
+      title: {
+        en: "Not dismissed by outside click",
+        ja: "外側クリックで閉じない",
+      },
+      description: {
+        en: "Pass false to dismissable to keep the drawer open without dimming the background, so the page stays interactive. It does not close when clicking outside; close it with the close button or the Esc key. While it is open, the page keeps its width and gains padding equal to the drawer's width, so you can scroll to reveal content hidden beneath the drawer.",
+        ja: "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はページの幅を保ったままドロワーの幅だけ余白が付くので、スクロールすればドロワーの下に隠れた部分も表示できます。",
+      },
     },
   ],
   "form-control": [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "ラベル付きフォームコントロールの例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "An example of a form control with a label.",
+        ja: "ラベル付きフォームコントロールの例です。",
+      },
     },
     {
       name: "WithIdExample",
-      title: "ID指定",
-      description: "明示的にIDを指定した例です。",
+      title: { en: "Custom ID", ja: "ID指定" },
+      description: {
+        en: "An example with an explicitly specified ID.",
+        ja: "明示的にIDを指定した例です。",
+      },
     },
     {
       name: "MultipleFieldsExample",
-      title: "複数のフィールド",
-      description: "複数のフォームコントロールを配置した例です。",
+      title: { en: "Multiple fields", ja: "複数のフィールド" },
+      description: {
+        en: "An example with multiple form controls.",
+        ja: "複数のフォームコントロールを配置した例です。",
+      },
     },
     {
       name: "FormExample",
-      title: "フォーム",
-      description: "完全なフォームの例です。",
+      title: { en: "Form", ja: "フォーム" },
+      description: {
+        en: "A complete form example.",
+        ja: "完全なフォームの例です。",
+      },
     },
   ],
   heading: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルな見出しの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple heading example.",
+        ja: "シンプルな見出しの使用例です。",
+      },
     },
     {
       name: "AllLevelsExample",
-      title: "全レベル",
-      description: "h1からh6までの全レベルの見出しを表示します。",
+      title: { en: "All levels", ja: "全レベル" },
+      description: {
+        en: "Shows headings at every level from h1 to h6.",
+        ja: "h1からh6までの全レベルの見出しを表示します。",
+      },
     },
     {
       name: "PageStructureExample",
-      title: "ページ構造",
-      description: "適切な見出し階層を持つページ構造の例です。",
+      title: { en: "Page structure", ja: "ページ構造" },
+      description: {
+        en: "An example of a page structure with a proper heading hierarchy.",
+        ja: "適切な見出し階層を持つページ構造の例です。",
+      },
     },
     {
       name: "CustomStyleExample",
-      title: "カスタムスタイル",
-      description: "カスタムスタイルを適用した見出しです。",
+      title: { en: "Custom style", ja: "カスタムスタイル" },
+      description: {
+        en: "A heading with custom styles applied.",
+        ja: "カスタムスタイルを適用した見出しです。",
+      },
     },
   ],
   image: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルな画像の使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple image example.",
+        ja: "シンプルな画像の使用例です。",
+      },
     },
     {
       name: "AvatarExample",
-      title: "アバター",
-      description: "アバター画像の例です。",
+      title: { en: "Avatar", ja: "アバター" },
+      description: {
+        en: "An example of an avatar image.",
+        ja: "アバター画像の例です。",
+      },
     },
     {
       name: "SizesExample",
-      title: "サイズ",
-      description: "様々なサイズの画像を表示します。",
+      title: { en: "Sizes", ja: "サイズ" },
+      description: {
+        en: "Displays images in various sizes.",
+        ja: "様々なサイズの画像を表示します。",
+      },
     },
     {
       name: "RoundedExample",
-      title: "角丸",
-      description: "角丸の画像を表示します。",
+      title: { en: "Rounded corners", ja: "角丸" },
+      description: {
+        en: "Displays an image with rounded corners.",
+        ja: "角丸の画像を表示します。",
+      },
     },
   ],
   input: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなテキスト入力フィールドです。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple text input field.",
+        ja: "シンプルなテキスト入力フィールドです。",
+      },
     },
     {
       name: "TypesExample",
-      title: "様々なタイプ",
-      description:
-        "email、password、numberなど様々なタイプの入力フィールドです。",
+      title: { en: "Input types", ja: "様々なタイプ" },
+      description: {
+        en: "Input fields of various types, such as email, password, and number.",
+        ja: "email、password、numberなど様々なタイプの入力フィールドです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "無効化された入力フィールドです。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "A disabled input field.",
+        ja: "無効化された入力フィールドです。",
+      },
     },
     {
       name: "WithValueExample",
-      title: "初期値あり",
-      description: "初期値を持つ入力フィールドです。",
+      title: { en: "With initial value", ja: "初期値あり" },
+      description: {
+        en: "An input field with an initial value.",
+        ja: "初期値を持つ入力フィールドです。",
+      },
     },
   ],
   list: [
     {
       name: "UnorderedExample",
-      title: "順序なしリスト",
-      description: "順序なしリスト(ul)の使用例です。",
+      title: { en: "Unordered list", ja: "順序なしリスト" },
+      description: {
+        en: "An example of an unordered list (ul).",
+        ja: "順序なしリスト(ul)の使用例です。",
+      },
     },
     {
       name: "OrderedExample",
-      title: "順序付きリスト",
-      description: "順序付きリスト(ol)の使用例です。",
+      title: { en: "Ordered list", ja: "順序付きリスト" },
+      description: {
+        en: "An example of an ordered list (ol).",
+        ja: "順序付きリスト(ol)の使用例です。",
+      },
     },
     {
       name: "NestedExample",
-      title: "ネストされたリスト",
-      description: "リストをネストして階層構造を作成します。",
+      title: { en: "Nested list", ja: "ネストされたリスト" },
+      description: {
+        en: "Nest lists to create a hierarchy.",
+        ja: "リストをネストして階層構造を作成します。",
+      },
     },
     {
       name: "MixedExample",
-      title: "混合リスト",
-      description: "順序付きと順序なしを組み合わせたリストです。",
+      title: { en: "Mixed list", ja: "混合リスト" },
+      description: {
+        en: "A list that combines ordered and unordered lists.",
+        ja: "順序付きと順序なしを組み合わせたリストです。",
+      },
     },
   ],
   paragraph: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルな段落の使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple paragraph example.",
+        ja: "シンプルな段落の使用例です。",
+      },
     },
     {
       name: "MultipleExample",
-      title: "複数の段落",
-      description: "複数の段落を表示します。",
+      title: { en: "Multiple paragraphs", ja: "複数の段落" },
+      description: {
+        en: "Displays multiple paragraphs.",
+        ja: "複数の段落を表示します。",
+      },
     },
     {
       name: "LongTextExample",
-      title: "長文",
-      description: "長い文章を含む段落の例です。",
+      title: { en: "Long text", ja: "長文" },
+      description: {
+        en: "An example of a paragraph containing long text.",
+        ja: "長い文章を含む段落の例です。",
+      },
     },
     {
       name: "CustomStyleExample",
-      title: "カスタムスタイル",
-      description: "カスタムスタイルを適用した段落です。",
+      title: { en: "Custom style", ja: "カスタムスタイル" },
+      description: {
+        en: "A paragraph with custom styles applied.",
+        ja: "カスタムスタイルを適用した段落です。",
+      },
     },
   ],
   popover: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description:
-        "トリガーの下に表示されるシンプルなポップオーバーです。フォーカス管理とキーボード操作に対応しています。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple popover shown below its trigger. Supports focus management and keyboard interaction.",
+        ja: "トリガーの下に表示されるシンプルなポップオーバーです。フォーカス管理とキーボード操作に対応しています。",
+      },
     },
     {
       name: "PlacementsExample",
-      title: "表示位置",
-      description:
-        "placementプロップでtop、bottom、left、rightなどの表示位置を指定できます。",
+      title: { en: "Placement", ja: "表示位置" },
+      description: {
+        en: "Use the placement prop to set the position, such as top, bottom, left, or right.",
+        ja: "placementプロップでtop、bottom、left、rightなどの表示位置を指定できます。",
+      },
     },
     {
       name: "WithoutArrowExample",
-      title: "矢印なし",
-      description: "showArrowプロップにfalseを渡すと矢印を非表示にできます。",
+      title: { en: "Without arrow", ja: "矢印なし" },
+      description: {
+        en: "Pass false to the showArrow prop to hide the arrow.",
+        ja: "showArrowプロップにfalseを渡すと矢印を非表示にできます。",
+      },
     },
   ],
   radio: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなラジオグループの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple radio group example.",
+        ja: "シンプルなラジオグループの使用例です。",
+      },
     },
     {
       name: "DefaultValueExample",
-      title: "デフォルト値",
-      description: "初期選択値を持つラジオグループです。",
+      title: { en: "Default value", ja: "デフォルト値" },
+      description: {
+        en: "A radio group with an initially selected value.",
+        ja: "初期選択値を持つラジオグループです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "一部のオプションが無効化されたラジオグループです。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "A radio group with some options disabled.",
+        ja: "一部のオプションが無効化されたラジオグループです。",
+      },
     },
     {
       name: "ControlledExample",
-      title: "制御されたラジオグループ",
-      description: "状態を外部から制御するラジオグループです。",
+      title: { en: "Controlled radio group", ja: "制御されたラジオグループ" },
+      description: {
+        en: "A radio group whose state is controlled externally.",
+        ja: "状態を外部から制御するラジオグループです。",
+      },
     },
   ],
   select: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなセレクトボックスの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple select box example.",
+        ja: "シンプルなセレクトボックスの使用例です。",
+      },
     },
     {
       name: "DisabledOptionsExample",
-      title: "無効化されたオプション",
-      description: "一部のオプションが無効化されたセレクトボックスです。",
+      title: { en: "Disabled options", ja: "無効化されたオプション" },
+      description: {
+        en: "A select box with some options disabled.",
+        ja: "一部のオプションが無効化されたセレクトボックスです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "セレクトボックス全体を無効化した例です。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "An example of disabling the entire select box.",
+        ja: "セレクトボックス全体を無効化した例です。",
+      },
     },
     {
       name: "ControlledExample",
-      title: "制御されたセレクト",
-      description: "状態を外部から制御するセレクトボックスです。",
+      title: { en: "Controlled select", ja: "制御されたセレクト" },
+      description: {
+        en: "A select box whose state is controlled externally.",
+        ja: "状態を外部から制御するセレクトボックスです。",
+      },
     },
   ],
   slider: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなスライダーの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple slider example.",
+        ja: "シンプルなスライダーの使用例です。",
+      },
     },
     {
       name: "CustomRangeExample",
-      title: "カスタム範囲",
-      description: "カスタムの最小値・最大値を持つスライダーです。",
+      title: { en: "Custom range", ja: "カスタム範囲" },
+      description: {
+        en: "A slider with custom minimum and maximum values.",
+        ja: "カスタムの最小値・最大値を持つスライダーです。",
+      },
     },
     {
       name: "RangeExample",
-      title: "範囲指定",
-      description:
-        "defaultValue に配列を渡し SliderThumb を 2 つ置くと、開始点と終了点を指定できる範囲スライダーになります。",
+      title: { en: "Range selection", ja: "範囲指定" },
+      description: {
+        en: "Pass an array to defaultValue and place two SliderThumb elements to create a range slider with start and end points.",
+        ja: "defaultValue に配列を渡し SliderThumb を 2 つ置くと、開始点と終了点を指定できる範囲スライダーになります。",
+      },
     },
     {
       name: "WithStepsExample",
-      title: "ステップ付き",
-      description: "ステップを指定したスライダーです。",
+      title: { en: "With steps", ja: "ステップ付き" },
+      description: {
+        en: "A slider with a specified step.",
+        ja: "ステップを指定したスライダーです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "無効化されたスライダーです。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "A disabled slider.",
+        ja: "無効化されたスライダーです。",
+      },
     },
   ],
   switch: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなスイッチの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple switch example.",
+        ja: "シンプルなスイッチの使用例です。",
+      },
     },
     {
       name: "SelectedExample",
-      title: "選択済み",
-      description: "初期状態でオンになっているスイッチです。",
+      title: { en: "Selected", ja: "選択済み" },
+      description: {
+        en: "A switch that is on initially.",
+        ja: "初期状態でオンになっているスイッチです。",
+      },
     },
     {
       name: "DisabledExample",
-      title: "無効化",
-      description: "無効化されたスイッチの例です。",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "An example of a disabled switch.",
+        ja: "無効化されたスイッチの例です。",
+      },
     },
     {
       name: "ControlledExample",
-      title: "制御されたスイッチ",
-      description: "状態を外部から制御するスイッチです。",
+      title: { en: "Controlled switch", ja: "制御されたスイッチ" },
+      description: {
+        en: "A switch whose state is controlled externally.",
+        ja: "状態を外部から制御するスイッチです。",
+      },
     },
   ],
   tab: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなタブの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple tab example.",
+        ja: "シンプルなタブの使用例です。",
+      },
     },
     {
       name: "VerticalExample",
-      title: "垂直タブ",
-      description: "垂直方向に配置されたタブです。",
+      title: { en: "Vertical tabs", ja: "垂直タブ" },
+      description: {
+        en: "Tabs arranged vertically.",
+        ja: "垂直方向に配置されたタブです。",
+      },
     },
     {
       name: "DisabledTabExample",
-      title: "無効化されたタブ",
-      description: "一部のタブが無効化された例です。",
+      title: { en: "Disabled tabs", ja: "無効化されたタブ" },
+      description: {
+        en: "An example with some tabs disabled.",
+        ja: "一部のタブが無効化された例です。",
+      },
     },
     {
       name: "ControlledExample",
-      title: "制御されたタブ",
-      description: "状態を外部から制御するタブです。",
+      title: { en: "Controlled tabs", ja: "制御されたタブ" },
+      description: {
+        en: "Tabs whose state is controlled externally.",
+        ja: "状態を外部から制御するタブです。",
+      },
     },
   ],
   toast: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description:
-        "ToastRegionをアプリのルートに1回だけ設置し、toast.showで通知を表示します。toast関数はクライアントのイベントハンドラから呼び出してください。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Place ToastRegion once at the root of your app and show notifications with toast.show. Call the toast functions from client event handlers.",
+        ja: "ToastRegionをアプリのルートに1回だけ設置し、toast.showで通知を表示します。toast関数はクライアントのイベントハンドラから呼び出してください。",
+      },
     },
     {
       name: "VariantsExample",
-      title: "バリアント",
-      description:
-        "toast.info、toast.success、toast.warning、toast.dangerで状態に応じた通知を表示できます。",
+      title: { en: "Variants", ja: "バリアント" },
+      description: {
+        en: "Use toast.info, toast.success, toast.warning, and toast.danger to show notifications that match the situation.",
+        ja: "toast.info、toast.success、toast.warning、toast.dangerで状態に応じた通知を表示できます。",
+      },
     },
     {
       name: "TimeoutExample",
-      title: "自動クローズ",
-      description:
-        "timeoutオプションを指定すると自動的に閉じます。ホバーやフォーカス中はタイマーが一時停止します。",
+      title: { en: "Auto close", ja: "自動クローズ" },
+      description: {
+        en: "Specify the timeout option to close the toast automatically. The timer pauses while it is hovered or focused.",
+        ja: "timeoutオプションを指定すると自動的に閉じます。ホバーやフォーカス中はタイマーが一時停止します。",
+      },
     },
   ],
   table: [
     {
       name: "BasicExample",
-      title: "基本的な使い方",
-      description: "シンプルなテーブルの使用例です。",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "A simple table example.",
+        ja: "シンプルなテーブルの使用例です。",
+      },
     },
     {
       name: "StripedExample",
-      title: "縞模様",
-      description:
-        "striped を指定すると、偶数行に背景色が付いて行を目で追いやすくなります。",
+      title: { en: "Striped", ja: "縞模様" },
+      description: {
+        en: "Specify striped to add a background color to even rows, making rows easier to follow.",
+        ja: "striped を指定すると、偶数行に背景色が付いて行を目で追いやすくなります。",
+      },
     },
     {
       name: "WithSelectionExample",
-      title: "行選択",
-      description: "行を選択できるテーブルです。",
+      title: { en: "Row selection", ja: "行選択" },
+      description: {
+        en: "A table with selectable rows.",
+        ja: "行を選択できるテーブルです。",
+      },
     },
     {
       name: "UserTableExample",
-      title: "ユーザーテーブル",
-      description: "実用的なユーザーデータテーブルの例です。",
+      title: { en: "User table", ja: "ユーザーテーブル" },
+      description: {
+        en: "A practical example of a user data table.",
+        ja: "実用的なユーザーデータテーブルの例です。",
+      },
     },
     {
       name: "EmptyStateExample",
-      title: "空の状態",
-      description: "データがない場合の表示例です。",
+      title: { en: "Empty state", ja: "空の状態" },
+      description: {
+        en: "An example of what is shown when there is no data.",
+        ja: "データがない場合の表示例です。",
+      },
     },
   ],
 };

@@ -1,5 +1,8 @@
+"use client";
+
 import { CodeBlock as CoreCodeBlock } from "@ginga-ui/core";
 import { Check, Copy } from "lucide-react";
+import { useDictionary } from "#/i18n/locale-context";
 
 type HighlightedFile = {
   filename: string;
@@ -25,10 +28,11 @@ const renderHighlighted = (html?: string) =>
   html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : undefined;
 
 export function CodeBlock(props: CodeBlockProps) {
+  const { codeBlock } = useDictionary();
   const labels = {
-    copyLabel: "コピーする",
-    copiedLabel: "コピー済み",
-    filesLabel: "ファイル",
+    copyLabel: codeBlock.copy,
+    copiedLabel: codeBlock.copied,
+    filesLabel: codeBlock.files,
     copyIcon: <Copy />,
     copiedIcon: <Check />,
   };

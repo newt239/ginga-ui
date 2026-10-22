@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useLocale } from "#/i18n/locale-context";
+import { localizePath } from "#/i18n/locales";
 
 export function Logo() {
+  const locale = useLocale();
+
   return (
-    <Link href="/" className="docs-logo">
+    <Link href={localizePath("/", locale)} className="docs-logo">
       <Image
         src="/shooting-star.svg"
         alt=""

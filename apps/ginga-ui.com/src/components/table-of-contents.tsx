@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useDictionary } from "#/i18n/locale-context";
 
 type TocItem = {
   id: string;
@@ -26,6 +27,7 @@ const isSameToc = (a: TocItem[], b: TocItem[]) =>
 
 export function TableOfContents() {
   const pathname = usePathname();
+  const { layout } = useDictionary();
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
 
@@ -72,7 +74,7 @@ export function TableOfContents() {
   return (
     <nav className="docs-toc" aria-labelledby="docs-toc-title">
       <h2 id="docs-toc-title" className="docs-toc-title">
-        目次
+        {layout.toc}
       </h2>
       <ul>
         {items.map((item) => (
