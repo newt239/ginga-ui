@@ -1,25 +1,32 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { Button } from "@ginga-ui/core";
+import { useLayoutEffect, useSyncExternalStore } from "react";
+import { SegmentedControl, SegmentedControlItem } from "@ginga-ui/core";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useDictionary } from "#/i18n/locale-context";
 
 type ThemePreference = "system" | "light" | "dark";
 
 const STORAGE_KEY = "ginga-docs-theme";
-const NEXT_PREFERENCE: Record<ThemePreference, ThemePreference> = {
-  system: "light",
-  light: "dark",
-  dark: "system",
-};
-const ICONS: Record<ThemePreference, React.ReactNode> = {
-  system: <Monitor />,
-  light: <Sun />,
-  dark: <Moon />,
-};
+const PREFERENCES: { id: ThemePreference; icon: React.ReactNode }[] = [
+  { id: "light", icon: <Sun /> },
+  { id: "system", icon: <Monitor /> },
+  { id: "dark", icon: <Moon /> },
+];
+
+const isThemePreference = (value: unknown): value is ThemePreference =>
+  value === "system" || value === "light" || value === "dark";
 
 const listeners = new Set<() => void>();
+
+function readStoredPreference(): ThemePreference {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored === "light" || stored === "dark" ? stored : "system";
+  } catch {
+    return "system";
+  }
+}
 
 function readPreference(): ThemePreference {
   const theme = document.documentElement.dataset.theme;
@@ -55,14 +62,28 @@ export function ThemeToggle() {
     () => "system" as const
   );
 
+  useLayoutEffect(() => {
+    writePreference(readStoredPreference());
+  }, []);
+
   return (
-    <Button
-      variant="ghost"
-      className="docs-icon-button"
-      aria-label={`${dictionary.settings.theme}: ${dictionary.settings[preference]}`}
-      onPress={() => writePreference(NEXT_PREFERENCE[preference])}
+    <SegmentedControl
+      size="sm"
+      aria-label={dictionary.settings.theme}
+      value={preference}
+      onChange={(value) => {
+        if (isThemePreference(value)) writePreference(value);
+      }}
     >
-      {ICONS[preference]}
-    </Button>
+      {PREFERENCES.map(({ id, icon }) => (
+        <SegmentedControlItem
+          key={id}
+          id={id}
+          aria-label={dictionary.settings[id]}
+        >
+          {icon}
+        </SegmentedControlItem>
+      ))}
+    </SegmentedControl>
   );
 }
