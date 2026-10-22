@@ -12,14 +12,18 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/[locale]/components/[id]">): Promise<Metadata> {
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}): Promise<Metadata> {
   const { id } = await params;
   return { alternates: alternatesFor(`/components/${id}`) };
 }
 
 export default async function ComponentPage({
   params,
-}: PageProps<"/[locale]/components/[id]">) {
+}: {
+  params: Promise<{ locale: string; id: string }>;
+}) {
   const { locale, id } = await params;
   if (!isLocale(locale)) notFound();
 

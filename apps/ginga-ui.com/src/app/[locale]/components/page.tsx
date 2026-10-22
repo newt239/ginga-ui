@@ -16,7 +16,9 @@ export const metadata = { alternates: alternatesFor("/components") };
 
 export default async function ComponentsPage({
   params,
-}: PageProps<"/[locale]/components">) {
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 

@@ -8,7 +8,9 @@ export const metadata = { alternates: alternatesFor("/theme-generation") };
 
 export default async function ThemeGenerationPage({
   params,
-}: PageProps<"/[locale]/theme-generation">) {
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return locale === "ja" ? <Ja /> : <En />;

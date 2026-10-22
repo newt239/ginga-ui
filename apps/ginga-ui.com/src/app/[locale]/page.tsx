@@ -9,7 +9,11 @@ import styles from "./page.module.css";
 
 export const metadata = { alternates: alternatesFor("/") };
 
-export default async function Home({ params }: PageProps<"/[locale]">) {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
 

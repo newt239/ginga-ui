@@ -8,7 +8,9 @@ export const metadata = { alternates: alternatesFor("/quick-start") };
 
 export default async function QuickStartPage({
   params,
-}: PageProps<"/[locale]/quick-start">) {
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   return locale === "ja" ? <Ja /> : <En />;
