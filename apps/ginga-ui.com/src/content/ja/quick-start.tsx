@@ -89,15 +89,29 @@ yarn add @ginga-ui/core`}
           からインポートして使用します。
         </Paragraph>
         <HighlightedCodeBlock
-          code={`import { Button, Card, Heading } from "@ginga-ui/core";
+          code={`import {
+  Button,
+  Card,
+  Dialog,
+  DialogTitle,
+  DialogTrigger,
+  Heading,
+  Modal,
+} from "@ginga-ui/core";
 
 export default function App() {
   return (
     <Card>
       <Heading level="h2">はじめての Ginga UI</Heading>
-      <Button variant="filled" onPress={() => alert("クリック!")}>
-        クリックしてみる
-      </Button>
+      <DialogTrigger>
+        <Button variant="filled">クリックしてみる</Button>
+        <Modal>
+          <Dialog>
+            <DialogTitle>クリックされました</DialogTitle>
+            <Button slot="close">閉じる</Button>
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
     </Card>
   );
 }`}

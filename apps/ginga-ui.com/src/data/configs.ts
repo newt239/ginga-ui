@@ -88,8 +88,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "PlainExample",
       title: { en: "No variant", ja: "バリアントなし" },
       description: {
-        en: "Without a variant, the dialog uses the default colors.",
-        ja: "variantを指定しない場合は通常の配色で表示されます。",
+        en: "Without a variant, the dialog uses the default colors. This example notifies the user that the session has expired and they must log in again.",
+        ja: "variantを指定しない場合は通常の配色で表示されます。セッションが切れて再ログインが必要になったことを知らせる例です。",
       },
     },
   ],
@@ -349,27 +349,19 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
     {
-      name: "ConfirmationExample",
-      title: { en: "Confirmation dialog", ja: "確認ダイアログ" },
-      description: {
-        en: "A dialog that asks the user for confirmation.",
-        ja: "ユーザーの確認を求めるダイアログです。",
-      },
-    },
-    {
       name: "FormExample",
       title: { en: "With a form", ja: "フォーム付き" },
       description: {
-        en: "An example of a form inside a dialog.",
-        ja: "ダイアログ内にフォームを配置した例です。",
+        en: "An example of a form inside a dialog. Passing a function as children gives you close, which closes the dialog on submit.",
+        ja: "ダイアログ内にフォームを配置した例です。children に関数を渡すと close を受け取れ、送信時にダイアログを閉じられます。",
       },
     },
     {
-      name: "AlertExample",
-      title: { en: "Alert", ja: "アラート" },
+      name: "NoticeExample",
+      title: { en: "Notice", ja: "お知らせ" },
       description: {
-        en: "A simple alert dialog.",
-        ja: "シンプルなアラートダイアログです。",
+        en: "A dialog that shows information to read. For confirmations that interrupt the user and require an immediate answer, use AlertDialog instead.",
+        ja: "読んでもらう情報を表示するダイアログです。作業を中断させて即座に応答を求める確認には AlertDialog を使います。",
       },
     },
   ],

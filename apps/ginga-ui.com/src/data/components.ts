@@ -142,8 +142,8 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "AlertDialog",
     category: "display",
     description: {
-      en: "An alert dialog that requires user confirmation. Used for confirming destructive actions and similar cases.",
-      ja: "ユーザーの確認を必須とするアラートダイアログ。破壊的な操作の確認などに使用。",
+      en: 'A modal dialog with role="alertdialog". Screen readers announce it immediately, and it does not close when clicking outside. Use it only when you must interrupt the user for an urgent answer, such as confirming a destructive action or a session timeout. For forms and regular information, use Dialog.',
+      ja: 'role="alertdialog" のモーダルダイアログ。スクリーンリーダーが即座に読み上げ、外側をクリックしても閉じない。破壊的な操作の確認やセッション切れなど、作業を中断させてでも応答を求める場面に限って使用。フォームや通常の情報表示には Dialog を使う。',
     },
   },
   {
@@ -178,8 +178,8 @@ export const COMPONENTS: ComponentMetadata[] = [
     name: "Dialog",
     category: "display",
     description: {
-      en: "A modal dialog that presents important information or actions that need the user's attention.",
-      ja: "モーダルダイアログ。ユーザーの注意を引く重要な情報や操作を表示。",
+      en: 'A modal dialog with role="dialog". Use it for content the user works with at their own pace, such as forms, details, and notices. For confirmations that interrupt the user and require an immediate answer, use AlertDialog.',
+      ja: 'role="dialog" のモーダルダイアログ。フォームや詳細表示、お知らせなど、ユーザーが自分のペースで扱う内容に使用。作業を中断させて即座の応答を求める確認には AlertDialog を使う。',
     },
   },
   {

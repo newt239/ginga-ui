@@ -84,15 +84,29 @@ yarn add @ginga-ui/core`}
           Import components from <code>@ginga-ui/core</code> and use them.
         </Paragraph>
         <HighlightedCodeBlock
-          code={`import { Button, Card, Heading } from "@ginga-ui/core";
+          code={`import {
+  Button,
+  Card,
+  Dialog,
+  DialogTitle,
+  DialogTrigger,
+  Heading,
+  Modal,
+} from "@ginga-ui/core";
 
 export default function App() {
   return (
     <Card>
       <Heading level="h2">My first Ginga UI app</Heading>
-      <Button variant="filled" onPress={() => alert("Clicked!")}>
-        Click me
-      </Button>
+      <DialogTrigger>
+        <Button variant="filled">Click me</Button>
+        <Modal>
+          <Dialog>
+            <DialogTitle>Clicked!</DialogTitle>
+            <Button slot="close">Close</Button>
+          </Dialog>
+        </Modal>
+      </DialogTrigger>
     </Card>
   );
 }`}
