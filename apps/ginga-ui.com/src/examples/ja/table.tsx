@@ -128,5 +128,12 @@ export function UserTableExample() {
 }
 
 export function EmptyStateExample() {
-  return <Table data={[]} columns={columns} aria-label="空のテーブル" />;
+  return (
+    <Table
+      data={[]}
+      columns={columns}
+      emptyMessage="ファイルがありません"
+      aria-label="空のテーブル"
+    />
+  );
 }

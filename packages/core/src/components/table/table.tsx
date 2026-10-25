@@ -29,6 +29,7 @@ export interface TableProps<T> {
   className?: string;
   showHeader?: boolean;
   striped?: boolean;
+  emptyMessage?: React.ReactNode;
   selectionMode?: "none" | "single" | "multiple";
   onSelectionChange?: (selectedRows: T[]) => void;
   "aria-label": string;
@@ -40,6 +41,7 @@ export const Table = <T extends object>({
   className,
   showHeader = true,
   striped = false,
+  emptyMessage,
   selectionMode = "none",
   onSelectionChange,
   "aria-label": ariaLabel,
@@ -89,7 +91,14 @@ export const Table = <T extends object>({
             ))}
           </AriaTableHeader>
         )}
-        <AriaTableBody className="ginga-table-body">
+        <AriaTableBody
+          className="ginga-table-body"
+          renderEmptyState={
+            emptyMessage === undefined
+              ? undefined
+              : () => <div className="ginga-table-empty">{emptyMessage}</div>
+          }
+        >
           {data.map((row, rowIndex) => (
             <AriaRow key={rowIndex} id={rowIndex} className="ginga-table-row">
               {selectionMode !== "none" && (

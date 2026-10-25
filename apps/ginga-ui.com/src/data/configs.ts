@@ -975,8 +975,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "EmptyStateExample",
       title: { en: "Empty state", ja: "空の状態" },
       description: {
-        en: "An example of what is shown when there is no data.",
-        ja: "データがない場合の表示例です。",
+        en: "Use emptyMessage to set the message shown when there is no data.",
+        ja: "emptyMessage でデータがないときに表示するメッセージを指定できます。",
       },
     },
   ],

@@ -79,3 +79,12 @@ export const WithSelection: Story = {
     "aria-label": "Files with selection",
   },
 };
+
+export const Empty: Story = {
+  args: {
+    data: [],
+    columns: columns,
+    emptyMessage: "No files yet.",
+    "aria-label": "Empty files",
+  },
+};
