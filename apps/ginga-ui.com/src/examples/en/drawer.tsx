@@ -20,9 +20,11 @@ export function BasicExample() {
         <DrawerContent>
           <DrawerTitle>Menu</DrawerTitle>
           <p>A drawer that slides in from the right.</p>
-          <Button slot="close" variant="outline" startIcon={<X />}>
-            Close
-          </Button>
+          <div className={styles.actions}>
+            <Button slot="close" variant="outline" startIcon={<X />}>
+              Close
+            </Button>
+          </div>
         </DrawerContent>
       </Drawer>
     </DialogTrigger>
@@ -39,9 +41,11 @@ export function PlacementsExample() {
             <DrawerContent>
               <DrawerTitle>{placement}</DrawerTitle>
               <p>A drawer that appears from the {placement}.</p>
-              <Button slot="close" variant="outline" startIcon={<X />}>
-                Close
-              </Button>
+              <div className={styles.actions}>
+                <Button slot="close" variant="outline" startIcon={<X />}>
+                  Close
+                </Button>
+              </div>
             </DrawerContent>
           </Drawer>
         </DialogTrigger>
@@ -60,9 +64,11 @@ export function NotDismissableExample() {
         <DrawerContent>
           <DrawerTitle>Confirmation required</DrawerTitle>
           <p>The drawer stays open until you press the close button.</p>
-          <Button slot="close" variant="filled" startIcon={<X />}>
-            Close
-          </Button>
+          <div className={styles.actions}>
+            <Button slot="close" variant="filled" startIcon={<X />}>
+              Close
+            </Button>
+          </div>
         </DrawerContent>
       </Drawer>
     </DialogTrigger>

@@ -20,9 +20,11 @@ export function BasicExample() {
         <DrawerContent>
           <DrawerTitle>メニュー</DrawerTitle>
           <p>右側からスライドインするドロワーです。</p>
-          <Button slot="close" variant="outline" startIcon={<X />}>
-            閉じる
-          </Button>
+          <div className={styles.actions}>
+            <Button slot="close" variant="outline" startIcon={<X />}>
+              閉じる
+            </Button>
+          </div>
         </DrawerContent>
       </Drawer>
     </DialogTrigger>
@@ -39,9 +41,11 @@ export function PlacementsExample() {
             <DrawerContent>
               <DrawerTitle>{placement}</DrawerTitle>
               <p>{placement} から表示されるドロワーです。</p>
-              <Button slot="close" variant="outline" startIcon={<X />}>
-                閉じる
-              </Button>
+              <div className={styles.actions}>
+                <Button slot="close" variant="outline" startIcon={<X />}>
+                  閉じる
+                </Button>
+              </div>
             </DrawerContent>
           </Drawer>
         </DialogTrigger>
@@ -60,9 +64,11 @@ export function NotDismissableExample() {
         <DrawerContent>
           <DrawerTitle>確認が必要です</DrawerTitle>
           <p>閉じるボタンを押すまでドロワーは閉じません。</p>
-          <Button slot="close" variant="filled" startIcon={<X />}>
-            閉じる
-          </Button>
+          <div className={styles.actions}>
+            <Button slot="close" variant="filled" startIcon={<X />}>
+              閉じる
+            </Button>
+          </div>
         </DrawerContent>
       </Drawer>
     </DialogTrigger>
