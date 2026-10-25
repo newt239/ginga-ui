@@ -167,60 +167,63 @@ export function BrowserThemeButton() {
 
         <div>
           <Heading level="h3" id="provider-openai">
-            OpenAI — <code>provider: &quot;openai&quot;</code>
+            OpenAI
           </Heading>
           <ul>
             <li>
-              <code>gpt-6-luna</code> — デフォルト、高速・低コスト
+              <code>gpt-6-luna</code>（デフォルト）
             </li>
             <li>
-              <code>gpt-6.1-sol</code> — バランス型
+              <code>gpt-6.1-sol</code>
             </li>
             <li>
-              <code>gpt-6-astra</code> — 最高品質
+              <code>gpt-6-astra</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-google">
-            Google Gemini — <code>provider: &quot;google&quot;</code>
+            Google Gemini
           </Heading>
           <ul>
             <li>
-              <code>gemini-3.8-flash</code> — デフォルト、高速・低コスト
+              <code>gemini-3.8-flash</code>（デフォルト）
             </li>
             <li>
-              <code>gemini-3.5-flash-lite</code> — 最軽量
+              <code>gemini-3.5-flash-lite</code>
             </li>
             <li>
-              <code>gemini-4-argon</code> — 高品質
+              <code>gemini-4-argon</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-anthropic">
-            Anthropic Claude — <code>provider: &quot;anthropic&quot;</code>
+            Anthropic Claude
           </Heading>
           <ul>
             <li>
-              <code>claude-haiku-5-5</code> — デフォルト、高速・低コスト
+              <code>claude-haiku-5-5</code>（デフォルト）
             </li>
             <li>
-              <code>claude-sonnet-5-5</code> — バランス型
+              <code>claude-sonnet-5-5</code>
             </li>
             <li>
-              <code>claude-opus-5-5</code> — 最高品質
+              <code>claude-opus-5-5</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-browser">
-            Gemini Nano — <code>provider: &quot;browser&quot;</code>
+            Gemini Nano
           </Heading>
           <ul>
             <li>
-              <code>gemini-nano</code> — APIキー不要、ブラウザ内で実行。
-              <code>model</code>
-              の指定は不要です
+              <code>gemini-nano</code>
             </li>
           </ul>
+          <Paragraph>
+            APIキー不要で、ブラウザ内で実行されます。
+            <code>model</code>
+            の指定は不要です。
+          </Paragraph>
         </div>
       </section>
 
