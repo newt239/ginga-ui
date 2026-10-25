@@ -663,8 +663,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "BasicExample",
       title: { en: "Basic usage", ja: "基本的な使い方" },
       description: {
-        en: "Pass the list of questions to items and render a QuestionnaireItem for each. Read the answers from FormData in onSubmit.",
-        ja: "質問の配列を items に渡し、各質問を QuestionnaireItem で描画します。回答は onSubmit で FormData から取り出します。",
+        en: "Pass the list of questions to items and render a QuestionnaireItem for each. Next and Submit stay disabled until required questions are answered. Read the answers from FormData in onSubmit.",
+        ja: "質問の配列を items に渡し、各質問を QuestionnaireItem で描画します。required の質問に回答するまで次へ・送信ボタンは押せません。回答は onSubmit で FormData から取り出します。",
       },
     },
     {

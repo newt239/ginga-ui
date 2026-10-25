@@ -41,9 +41,10 @@ type QuestionnaireContextValue = {
   names: string[];
   activeIndex: number;
   answers: Record<string, Answer>;
-  invalidName: string | null;
   shortcuts?: QuestionnaireShortcuts;
   requiredNames: ReadonlySet<string>;
+  canGoNext: boolean;
+  canSubmit: boolean;
   registerRequired: (name: string, required: boolean) => () => void;
   updateAnswer: (name: string, answer: Partial<Answer>) => void;
   goPrevious: () => void;
@@ -67,9 +68,7 @@ type QuestionnaireItemContextValue = {
   name: string;
   multiple: boolean;
   isActive: boolean;
-  isInvalid: boolean;
   titleId: string;
-  errorId: string;
 };
 
 const QuestionnaireItemContext =
@@ -131,7 +130,6 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
   );
   const [activeIndex, setActiveIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
-  const [invalidName, setInvalidName] = useState<string | null>(null);
   const [focusRequest, setFocusRequest] = useState<{ name: string } | null>(
     null
   );
@@ -159,12 +157,14 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
     [answers, requiredNames]
   );
 
+  const canGoNext = !!activeName && !isUnansweredRequired(activeName);
+  const canSubmit = !names.some(isUnansweredRequired);
+
   const updateAnswer = useCallback((name: string, answer: Partial<Answer>) => {
     setAnswers((current) => ({
       ...current,
       [name]: { ...EMPTY_ANSWER, ...current[name], ...answer },
     }));
-    setInvalidName((current) => (current === name ? null : current));
   }, []);
 
   const moveTo = useCallback(
@@ -172,16 +172,6 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
       const name = names[index];
       if (name === undefined) return;
       setActiveIndex(index);
-      setInvalidName(null);
-      setFocusRequest({ name });
-    },
-    [names]
-  );
-
-  const showError = useCallback(
-    (name: string) => {
-      setActiveIndex(names.indexOf(name));
-      setInvalidName(name);
       setFocusRequest({ name });
     },
     [names]
@@ -192,13 +182,9 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
   }, [activeIndex, moveTo]);
 
   const goNext = useCallback(() => {
-    if (!activeName) return;
-    if (isUnansweredRequired(activeName)) {
-      showError(activeName);
-      return;
-    }
+    if (!canGoNext) return;
     moveTo(activeIndex + 1);
-  }, [activeIndex, activeName, isUnansweredRequired, moveTo, showError]);
+  }, [activeIndex, canGoNext, moveTo]);
 
   const skip = useCallback(() => {
     if (!activeName) return;
@@ -211,10 +197,8 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
   }, [activeIndex, activeName, moveTo, names.length, updateAnswer]);
 
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
-    const unanswered = names.find(isUnansweredRequired);
-    if (unanswered) {
+    if (!canSubmit) {
       event.preventDefault();
-      showError(unanswered);
       return;
     }
     onSubmit?.(event);
@@ -260,9 +244,10 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
         names,
         activeIndex,
         answers,
-        invalidName,
         shortcuts,
         requiredNames,
+        canGoNext,
+        canSubmit,
         registerRequired,
         updateAnswer,
         goPrevious,
@@ -321,11 +306,9 @@ export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
   children,
   ...props
 }) => {
-  const { names, activeIndex, answers, invalidName, registerRequired } =
-    useQuestionnaire();
+  const { names, activeIndex, answers, registerRequired } = useQuestionnaire();
   const id = useId();
   const isActive = names[activeIndex] === name;
-  const isInvalid = invalidName === name;
 
   useEffect(
     () => registerRequired(name, required),
@@ -336,20 +319,15 @@ export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
     name,
     multiple,
     isActive,
-    isInvalid,
     titleId: `${id}-title`,
-    errorId: `${id}-error`,
   };
 
   return (
     <QuestionnaireItemContext.Provider value={itemContext}>
       <fieldset
         hidden={!isActive}
-        aria-describedby={isInvalid ? itemContext.errorId : undefined}
-        aria-invalid={isInvalid || undefined}
         data-questionnaire-item={name}
         data-active={isActive || undefined}
-        data-invalid={isInvalid || undefined}
         data-answered={isAnswered(answers[name]) || undefined}
         className={cn("ginga-questionnaire-item", className)}
         {...props}
@@ -386,7 +364,7 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
   children,
 }) => {
   const { answers, updateAnswer } = useQuestionnaire();
-  const { name, multiple, isInvalid, titleId } = useQuestionnaireItem();
+  const { name, multiple, titleId } = useQuestionnaireItem();
   const answer = answers[name] ?? EMPTY_ANSWER;
 
   let choiceIndex = 0;
@@ -408,7 +386,6 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
       <AriaCheckboxGroup
         name={name}
         aria-labelledby={titleId}
-        isInvalid={isInvalid}
         value={answer.choices}
         onChange={(choices) => updateAnswer(name, { choices })}
         className={groupClassName}
@@ -422,7 +399,6 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
     <AriaRadioGroup
       name={name}
       aria-labelledby={titleId}
-      isInvalid={isInvalid}
       value={answer.choices[0] ?? null}
       onChange={(choice) => updateAnswer(name, { choices: [choice], text: "" })}
       className={groupClassName}
@@ -493,7 +469,7 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
 }) => {
   const { names, activeIndex, answers, updateAnswer, goNext } =
     useQuestionnaire();
-  const { name, multiple, isInvalid } = useQuestionnaireItem();
+  const { name, multiple } = useQuestionnaireItem();
   const text = answers[name]?.text ?? "";
 
   return (
@@ -501,7 +477,6 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
       type="text"
       name={text ? name : undefined}
       value={text}
-      aria-invalid={isInvalid || undefined}
       className={cn("ginga-questionnaire-input", className)}
       onChange={(event) => {
         onChange?.(event);
@@ -522,24 +497,6 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
           event.currentTarget.form?.requestSubmit();
         }
       }}
-      {...props}
-    />
-  );
-};
-
-export type QuestionnaireErrorProps =
-  React.HTMLAttributes<HTMLParagraphElement>;
-
-export const QuestionnaireError: React.FC<QuestionnaireErrorProps> = ({
-  className,
-  ...props
-}) => {
-  const { isInvalid, errorId } = useQuestionnaireItem();
-  if (!isInvalid) return null;
-  return (
-    <p
-      id={errorId}
-      className={cn("ginga-questionnaire-error", className)}
       {...props}
     />
   );
@@ -598,13 +555,15 @@ export const QuestionnaireSkip: React.FC<QuestionnaireNavigationProps> = ({
 };
 
 export const QuestionnaireNext: React.FC<QuestionnaireNavigationProps> = ({
+  disabled,
   onPress,
   ...props
 }) => {
-  const { names, activeIndex, goNext } = useQuestionnaire();
+  const { names, activeIndex, canGoNext, goNext } = useQuestionnaire();
   if (activeIndex >= names.length - 1) return null;
   return (
     <Button
+      disabled={disabled || !canGoNext}
       onPress={(event) => {
         onPress?.(event);
         goNext();
@@ -614,10 +573,11 @@ export const QuestionnaireNext: React.FC<QuestionnaireNavigationProps> = ({
   );
 };
 
-export const QuestionnaireSubmit: React.FC<QuestionnaireNavigationProps> = (
-  props
-) => {
-  const { names, activeIndex } = useQuestionnaire();
+export const QuestionnaireSubmit: React.FC<QuestionnaireNavigationProps> = ({
+  disabled,
+  ...props
+}) => {
+  const { names, activeIndex, canSubmit } = useQuestionnaire();
   if (activeIndex < names.length - 1) return null;
-  return <Button type="submit" {...props} />;
+  return <Button type="submit" disabled={disabled || !canSubmit} {...props} />;
 };

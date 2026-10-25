@@ -3,7 +3,6 @@ import {
   QuestionnaireActions,
   QuestionnaireChoice,
   QuestionnaireChoices,
-  QuestionnaireError,
   QuestionnaireInput,
   QuestionnaireItem,
   QuestionnaireNext,
@@ -101,7 +100,6 @@ const content = (
             />
           )}
         </QuestionnaireChoices>
-        <QuestionnaireError>Please answer this question.</QuestionnaireError>
       </QuestionnaireItem>
     ))}
     <QuestionnaireActions>
