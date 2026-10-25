@@ -102,3 +102,20 @@ export function ControlledExample() {
     </Tabs>
   );
 }
+
+export function FullWidthExample() {
+  return (
+    <Tabs fullWidth>
+      <TabList aria-label="Account">
+        <Tab id="profile">Profile</Tab>
+        <Tab id="security">Security</Tab>
+        <Tab id="billing">Billing</Tab>
+      </TabList>
+      <TabPanel id="profile">Change your name and avatar.</TabPanel>
+      <TabPanel id="security">
+        Set your password and two-factor authentication.
+      </TabPanel>
+      <TabPanel id="billing">Manage your plan and payment methods.</TabPanel>
+    </Tabs>
+  );
+}

@@ -854,6 +854,14 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
     {
+      name: "FullWidthExample",
+      title: { en: "Full width", ja: "全幅" },
+      description: {
+        en: "Specify fullWidth to stretch the tab list to the container width and divide it evenly between tabs.",
+        ja: "fullWidth を指定すると、タブリストがコンテナの幅いっぱいに広がり、各タブが均等に幅を分け合います。",
+      },
+    },
+    {
       name: "DisabledTabExample",
       title: { en: "Disabled tabs", ja: "無効化されたタブ" },
       description: {

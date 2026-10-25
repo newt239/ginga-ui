@@ -71,6 +71,18 @@
   }
 }
 
+.ginga-tabs[data-full-width]:not([data-orientation="vertical"]) {
+  .ginga-tab-list {
+    display: flex;
+    align-self: stretch;
+  }
+
+  .ginga-tab {
+    flex: 1 0 0;
+    justify-content: center;
+  }
+}
+
 .ginga-tab-panel {
   flex: 1;
   min-width: 0;

@@ -95,3 +95,20 @@ export const DisabledTab: Story = {
     </Tabs>
   ),
 };
+
+export const FullWidth: Story = {
+  render: () => (
+    <Tabs fullWidth>
+      <TabList aria-label="Account settings">
+        <Tab id="profile">Profile</Tab>
+        <Tab id="security">Security</Tab>
+        <Tab id="billing">Billing</Tab>
+      </TabList>
+      <TabPanel id="profile">Update your name and avatar.</TabPanel>
+      <TabPanel id="security">
+        Change your password and two-factor settings.
+      </TabPanel>
+      <TabPanel id="billing">Manage your plan and payment methods.</TabPanel>
+    </Tabs>
+  ),
+};

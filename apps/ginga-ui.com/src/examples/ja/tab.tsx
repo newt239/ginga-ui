@@ -99,3 +99,18 @@ export function ControlledExample() {
     </Tabs>
   );
 }
+
+export function FullWidthExample() {
+  return (
+    <Tabs fullWidth>
+      <TabList aria-label="アカウント">
+        <Tab id="profile">プロフィール</Tab>
+        <Tab id="security">セキュリティ</Tab>
+        <Tab id="billing">お支払い</Tab>
+      </TabList>
+      <TabPanel id="profile">名前とアイコンを変更できます。</TabPanel>
+      <TabPanel id="security">パスワードと二段階認証を設定できます。</TabPanel>
+      <TabPanel id="billing">プランと支払い方法を管理できます。</TabPanel>
+    </Tabs>
+  );
+}
