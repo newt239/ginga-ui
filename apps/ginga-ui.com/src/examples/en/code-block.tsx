@@ -1,7 +1,7 @@
 "use client";
 
 import { CodeBlock } from "@ginga-ui/core";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, FileCode, Paintbrush } from "lucide-react";
 
 export function BasicExample() {
   return (
@@ -38,6 +38,32 @@ export const App = () => <p className="message">Hello</p>;`,
         },
         {
           filename: "app.css",
+          code: `.message {
+  color: var(--color-primary);
+}`,
+        },
+      ]}
+      filesLabel="Files"
+      copyLabel="Copy"
+      copiedLabel="Copied"
+    />
+  );
+}
+
+export function FileIconExample() {
+  return (
+    <CodeBlock
+      files={[
+        {
+          filename: "app.tsx",
+          icon: <FileCode />,
+          code: `import "./app.css";
+
+export const App = () => <p className="message">Hello</p>;`,
+        },
+        {
+          filename: "app.css",
+          icon: <Paintbrush />,
           code: `.message {
   color: var(--color-primary);
 }`,

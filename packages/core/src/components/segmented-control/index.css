@@ -54,8 +54,9 @@
 
   &[data-selected] {
     color: var(--color-text);
+    outline: calc(var(--border-width) / 2) solid var(--color-control-border);
+    outline-offset: calc(var(--border-width) / -2);
     background-color: var(--color-background);
-    box-shadow: var(--shadow-sm);
   }
 
   &[data-focus-visible] {

@@ -63,10 +63,6 @@
     outline-offset: var(--focus-ring-offset);
   }
 
-  &[data-invalid] {
-    border-color: var(--color-danger-dark);
-  }
-
   &[data-disabled] {
     color: var(--color-text-muted);
     cursor: not-allowed;
@@ -145,12 +141,6 @@
   color: var(--color-text-muted);
   border: calc(var(--border-width) / 2) solid var(--color-surface-strong);
   border-radius: var(--radius-sm);
-}
-
-.ginga-questionnaire-error {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--color-danger-dark);
 }
 
 .ginga-questionnaire-actions {

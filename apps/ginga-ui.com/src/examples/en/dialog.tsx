@@ -8,15 +8,7 @@ import {
   Input,
   Modal,
 } from "@ginga-ui/core";
-import {
-  Check,
-  Megaphone,
-  PanelTop,
-  Plus,
-  Trash2,
-  UserPlus,
-  X,
-} from "lucide-react";
+import { Check, Megaphone, PanelTop, Plus, UserPlus, X } from "lucide-react";
 
 import styles from "../dialog.module.css";
 
@@ -30,34 +22,9 @@ export function BasicExample() {
         <Dialog>
           <DialogTitle>Welcome</DialogTitle>
           <p>This is a basic dialog.</p>
-          <Button slot="close" variant="outline" startIcon={<X />}>
-            Close
-          </Button>
-        </Dialog>
-      </Modal>
-    </DialogTrigger>
-  );
-}
-
-export function ConfirmationExample() {
-  return (
-    <DialogTrigger>
-      <Button variant="filled" startIcon={<Trash2 />}>
-        Delete account
-      </Button>
-      <Modal>
-        <Dialog>
-          <DialogTitle>Confirm deletion</DialogTitle>
-          <p>
-            Are you sure you want to delete your account? This action cannot be
-            undone.
-          </p>
-          <div className={styles.confirmActions}>
-            <Button slot="close" variant="outline">
-              Cancel
-            </Button>
-            <Button variant="filled" onPress={() => alert("Deleted")}>
-              Delete
+          <div className={styles.actions}>
+            <Button slot="close" variant="outline" startIcon={<X />}>
+              Close
             </Button>
           </div>
         </Dialog>
@@ -74,42 +41,44 @@ export function FormExample() {
       </Button>
       <Modal>
         <Dialog>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Form submitted!");
-            }}
-          >
-            <DialogTitle>Create account</DialogTitle>
-            <div className={styles.formFields}>
-              <Input type="text" aria-label="Name" placeholder="Name" />
-              <Input
-                type="email"
-                aria-label="Email address"
-                placeholder="Email address"
-              />
-              <Input
-                type="password"
-                aria-label="Password"
-                placeholder="Password"
-              />
-            </div>
-            <div className={styles.formActions}>
-              <Button slot="close" variant="outline">
-                Cancel
-              </Button>
-              <Button type="submit" variant="filled" startIcon={<Plus />}>
-                Create
-              </Button>
-            </div>
-          </form>
+          {({ close }) => (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                close();
+              }}
+            >
+              <DialogTitle>Create account</DialogTitle>
+              <div className={styles.formFields}>
+                <Input type="text" aria-label="Name" placeholder="Name" />
+                <Input
+                  type="email"
+                  aria-label="Email address"
+                  placeholder="Email address"
+                />
+                <Input
+                  type="password"
+                  aria-label="Password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className={styles.actions}>
+                <Button slot="close" variant="outline">
+                  Cancel
+                </Button>
+                <Button type="submit" variant="filled" startIcon={<Plus />}>
+                  Create
+                </Button>
+              </div>
+            </form>
+          )}
         </Dialog>
       </Modal>
     </DialogTrigger>
   );
 }
 
-export function AlertExample() {
+export function NoticeExample() {
   return (
     <DialogTrigger>
       <Button variant="outline" startIcon={<Megaphone />}>
@@ -122,9 +91,11 @@ export function AlertExample() {
             System maintenance is scheduled for December 20, 2024, from 2:00 to
             4:00 AM. The service will be unavailable during this time.
           </p>
-          <Button slot="close" variant="filled" startIcon={<Check />}>
-            Got it
-          </Button>
+          <div className={styles.actions}>
+            <Button slot="close" variant="filled" startIcon={<Check />}>
+              Got it
+            </Button>
+          </div>
         </Dialog>
       </Modal>
     </DialogTrigger>

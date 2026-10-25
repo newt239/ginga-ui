@@ -8,7 +8,6 @@ import {
   QuestionnaireActions,
   QuestionnaireChoice,
   QuestionnaireChoices,
-  QuestionnaireError,
   QuestionnaireInput,
   QuestionnaireItem,
   QuestionnaireNext,
@@ -87,7 +86,6 @@ export function BasicExample() {
               placeholder="その他（自由入力）"
             />
           </QuestionnaireChoices>
-          <QuestionnaireError>回答を選択してください。</QuestionnaireError>
         </QuestionnaireItem>
       ))}
       <QuestionnaireActions>
@@ -127,7 +125,6 @@ export function MultipleExample() {
             </QuestionnaireChoice>
           ))}
         </QuestionnaireChoices>
-        <QuestionnaireError>1つ以上選択してください。</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnaireSubmit size="sm">送信</QuestionnaireSubmit>
@@ -185,7 +182,6 @@ export function ShortcutsExample() {
           <QuestionnaireChoice value="casual">カジュアル</QuestionnaireChoice>
           <QuestionnaireChoice value="concise">簡潔</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>回答を選択してください。</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnaireSubmit size="sm">送信</QuestionnaireSubmit>

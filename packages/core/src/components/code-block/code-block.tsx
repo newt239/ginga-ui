@@ -17,12 +17,14 @@ import type { Key } from "react-aria-components";
 export type CodeBlockFile = {
   filename: string;
   code: string;
+  icon?: React.ReactNode;
   content?: React.ReactNode;
 };
 
 export type CodeBlockProps = React.HTMLAttributes<HTMLDivElement> & {
   code?: string;
   filename?: string;
+  filenameIcon?: React.ReactNode;
   files?: CodeBlockFile[];
   filesLabel?: string;
   copyLabel?: string;
@@ -41,9 +43,21 @@ const CodeContent: React.FC<{ file: CodeBlockFile }> = ({ file }) => (
   </div>
 );
 
+const FileLabel: React.FC<{ file: CodeBlockFile }> = ({ file }) => (
+  <>
+    {file.icon && (
+      <span className="ginga-code-block-file-icon" aria-hidden="true">
+        {file.icon}
+      </span>
+    )}
+    <span className="ginga-code-block-file-name">{file.filename}</span>
+  </>
+);
+
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   code = "",
   filename,
+  filenameIcon,
   files,
   filesLabel = "Files",
   copyLabel = "Copy",
@@ -55,7 +69,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   ...props
 }) => {
   const entries: CodeBlockFile[] = files ?? [
-    { filename: filename ?? "", code, content: children },
+    { filename: filename ?? "", code, icon: filenameIcon, content: children },
   ];
   const [selectedKey, setSelectedKey] = useState<Key>(0);
   const [copied, setCopied] = useState(false);
@@ -83,13 +97,26 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     </Button>
   );
 
+  if (!hasTabs && !activeFile?.filename) {
+    return (
+      <div
+        className={cn("ginga-code-block", className)}
+        data-headerless
+        {...props}
+      >
+        {activeFile && <CodeContent file={activeFile} />}
+        {copyButton}
+      </div>
+    );
+  }
+
   if (!hasTabs) {
     return (
       <div className={cn("ginga-code-block", className)} {...props}>
         <div className="ginga-code-block-header">
-          {activeFile?.filename && (
+          {activeFile && (
             <span className="ginga-code-block-filename">
-              {activeFile.filename}
+              <FileLabel file={activeFile} />
             </span>
           )}
           {copyButton}
@@ -119,7 +146,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                 id={index}
                 className="ginga-code-block-tab"
               >
-                {file.filename}
+                <FileLabel file={file} />
               </AriaTab>
             ))}
           </AriaTabList>

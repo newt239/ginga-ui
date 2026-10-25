@@ -73,6 +73,16 @@
   }
 }
 
+.ginga-accordion-content {
+  height: var(--disclosure-panel-height);
+  overflow: clip;
+  transition: height var(--duration) var(--easing);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
 .ginga-accordion-content-inner {
   padding: 0 1.25rem 1.25rem;
   font-size: 1rem;

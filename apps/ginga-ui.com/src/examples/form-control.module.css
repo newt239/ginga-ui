@@ -17,3 +17,13 @@
   flex-direction: column;
   width: 100%;
 }
+
+.submit {
+  align-self: flex-end;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

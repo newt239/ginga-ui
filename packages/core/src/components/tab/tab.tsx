@@ -13,18 +13,21 @@ import type { OmitStrict } from "@ginga-ui/utils";
 
 export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
   orientation?: "horizontal" | "vertical";
+  fullWidth?: boolean;
 };
 
 export const Tabs: React.FC<TabsProps> = ({
   children,
   className,
   orientation = "horizontal",
+  fullWidth = false,
   ...props
 }) => {
   return (
     <AriaTabs
       className={cn("ginga-tabs", className)}
       orientation={orientation}
+      data-full-width={fullWidth || undefined}
       {...props}
     >
       {children}

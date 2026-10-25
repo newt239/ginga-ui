@@ -6,9 +6,9 @@ import styles from "../heading.module.css";
 export function BasicExample() {
   return (
     <div className={styles.basicStack}>
-      <Heading level="h1">見出し1 - 最も大きな見出し</Heading>
-      <Heading level="h2">見出し2 - セクションの見出し</Heading>
-      <Heading level="h3">見出し3 - サブセクションの見出し</Heading>
+      <Heading level="h1">見出し1</Heading>
+      <Heading level="h2">見出し2</Heading>
+      <Heading level="h3">見出し3</Heading>
     </div>
   );
 }

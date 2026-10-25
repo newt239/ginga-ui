@@ -169,59 +169,62 @@ export function BrowserThemeButton() {
 
         <div>
           <Heading level="h3" id="provider-openai">
-            OpenAI — <code>provider: &quot;openai&quot;</code>
+            OpenAI
           </Heading>
           <ul>
             <li>
-              <code>gpt-6-luna</code> — Default, fast and low-cost
+              <code>gpt-6-luna</code> (default)
             </li>
             <li>
-              <code>gpt-6.1-sol</code> — Balanced
+              <code>gpt-6.1-sol</code>
             </li>
             <li>
-              <code>gpt-6-astra</code> — Highest quality
+              <code>gpt-6-astra</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-google">
-            Google Gemini — <code>provider: &quot;google&quot;</code>
+            Google Gemini
           </Heading>
           <ul>
             <li>
-              <code>gemini-3.8-flash</code> — Default, fast and low-cost
+              <code>gemini-3.8-flash</code> (default)
             </li>
             <li>
-              <code>gemini-3.5-flash-lite</code> — Lightest
+              <code>gemini-3.5-flash-lite</code>
             </li>
             <li>
-              <code>gemini-4-argon</code> — High quality
+              <code>gemini-4-argon</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-anthropic">
-            Anthropic Claude — <code>provider: &quot;anthropic&quot;</code>
+            Anthropic Claude
           </Heading>
           <ul>
             <li>
-              <code>claude-haiku-5-5</code> — Default, fast and low-cost
+              <code>claude-haiku-5-5</code> (default)
             </li>
             <li>
-              <code>claude-sonnet-5-5</code> — Balanced
+              <code>claude-sonnet-5-5</code>
             </li>
             <li>
-              <code>claude-opus-5-5</code> — Highest quality
+              <code>claude-opus-5-5</code>
             </li>
           </ul>
 
           <Heading level="h3" id="provider-browser">
-            Gemini Nano — <code>provider: &quot;browser&quot;</code>
+            Gemini Nano
           </Heading>
           <ul>
             <li>
-              <code>gemini-nano</code> — No API key required, runs in the
-              browser. No need to specify <code>model</code>
+              <code>gemini-nano</code>
             </li>
           </ul>
+          <Paragraph>
+            No API key is required, and it runs in the browser. You don&apos;t
+            need to specify <code>model</code>.
+          </Paragraph>
         </div>
       </section>
 

@@ -9,10 +9,10 @@ import {
 } from "@ginga-ui/core";
 import styles from "../alert-dialog.module.css";
 import {
-  Check,
   CircleAlert,
-  FileText,
+  LogIn,
   LogOut,
+  TimerOff,
   Trash2,
   TriangleAlert,
 } from "lucide-react";
@@ -74,22 +74,19 @@ export function WarningExample() {
 export function PlainExample() {
   return (
     <DialogTrigger>
-      <Button variant="light" startIcon={<FileText />}>
-        Accept terms
+      <Button variant="light" startIcon={<TimerOff />}>
+        Simulate session timeout
       </Button>
       <Modal>
         <AlertDialog>
-          <AlertDialogTitle>Terms of service updated</AlertDialogTitle>
+          <AlertDialogTitle>Session expired</AlertDialogTitle>
           <p>
-            Our terms of service have been updated. You must accept them to
+            You have been logged out for your security. Log in again to
             continue.
           </p>
           <div className={styles.actions}>
-            <Button slot="close" variant="outline">
-              Later
-            </Button>
-            <Button slot="close" variant="filled" startIcon={<Check />}>
-              Accept
+            <Button slot="close" variant="filled" startIcon={<LogIn />}>
+              Log in
             </Button>
           </div>
         </AlertDialog>

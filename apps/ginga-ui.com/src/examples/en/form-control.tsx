@@ -1,6 +1,15 @@
 "use client";
 
-import { Button, FormControl, Input } from "@ginga-ui/core";
+import { useState } from "react";
+
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  FormControl,
+  Input,
+  Modal,
+} from "@ginga-ui/core";
 import { Send } from "lucide-react";
 
 import styles from "../form-control.module.css";
@@ -42,23 +51,43 @@ export function MultipleFieldsExample() {
 }
 
 export function FormExample() {
+  const [submitted, setSubmitted] = useState(false);
+
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        alert("Form submitted!");
-      }}
-    >
-      <FormControl title="Full name" htmlFor="name">
-        <Input id="name" required />
-      </FormControl>
-      <FormControl title="Email address" htmlFor="email">
-        <Input id="email" type="email" required />
-      </FormControl>
-      <Button type="submit" variant="filled" startIcon={<Send />}>
-        Submit
-      </Button>
-    </form>
+    <>
+      <form
+        className={styles.form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          setSubmitted(true);
+        }}
+      >
+        <FormControl title="Full name" htmlFor="name">
+          <Input id="name" required />
+        </FormControl>
+        <FormControl title="Email address" htmlFor="email">
+          <Input id="email" type="email" required />
+        </FormControl>
+        <Button
+          type="submit"
+          variant="filled"
+          startIcon={<Send />}
+          className={styles.submit}
+        >
+          Submit
+        </Button>
+      </form>
+      <Modal isOpen={submitted} onOpenChange={setSubmitted}>
+        <Dialog>
+          <DialogTitle>Form submitted</DialogTitle>
+          <p>We received what you entered.</p>
+          <div className={styles.actions}>
+            <Button slot="close" variant="outline">
+              Close
+            </Button>
+          </div>
+        </Dialog>
+      </Modal>
+    </>
   );
 }

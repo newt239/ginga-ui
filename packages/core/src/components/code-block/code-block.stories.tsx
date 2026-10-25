@@ -1,4 +1,4 @@
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, FileCode, Paintbrush, Terminal } from "lucide-react";
 
 import { CodeBlock } from "./code-block";
 
@@ -23,6 +23,18 @@ export const Default: Story = {
 
 export const WithFilename: Story = {
   args: { code: sampleCode, filename: "app.tsx" },
+};
+
+export const Command: Story = {
+  args: {
+    code: "pnpm add @ginga-ui/core",
+    copyIcon: <Copy />,
+    copiedIcon: <Check />,
+  },
+};
+
+export const WithFilenameIcon: Story = {
+  args: { code: "pnpm dev", filename: "Terminal", filenameIcon: <Terminal /> },
 };
 
 export const WithHighlightedChildren: Story = {
@@ -62,6 +74,19 @@ export const MultipleFiles: Story = {
       {
         filename: "app.module.css",
         code: `.container {\n  display: flex;\n  gap: 1rem;\n}`,
+      },
+    ],
+  },
+};
+
+export const MultipleFilesWithIcons: Story = {
+  args: {
+    files: [
+      { filename: "app.tsx", code: sampleCode, icon: <FileCode /> },
+      {
+        filename: "app.module.css",
+        code: `.container {\n  display: flex;\n  gap: 1rem;\n}`,
+        icon: <Paintbrush />,
       },
     ],
   },

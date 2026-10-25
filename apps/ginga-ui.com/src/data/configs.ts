@@ -88,8 +88,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "PlainExample",
       title: { en: "No variant", ja: "バリアントなし" },
       description: {
-        en: "Without a variant, the dialog uses the default colors.",
-        ja: "variantを指定しない場合は通常の配色で表示されます。",
+        en: "Without a variant, the dialog uses the default colors. This example notifies the user that the session has expired and they must log in again.",
+        ja: "variantを指定しない場合は通常の配色で表示されます。セッションが切れて再ログインが必要になったことを知らせる例です。",
       },
     },
   ],
@@ -150,6 +150,14 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "Pass multiple files to files to switch between them with tabs.",
         ja: "files に複数のファイルを渡すと、タブで切り替えて表示できます。",
+      },
+    },
+    {
+      name: "FileIconExample",
+      title: { en: "File icons", ja: "ファイルアイコン" },
+      description: {
+        en: "Use icon on each entry in files, or filenameIcon with filename, to show an icon next to the file name.",
+        ja: "files の各要素の icon、または filename と合わせて filenameIcon を指定すると、ファイル名の横にアイコンを表示できます。",
       },
     },
     {
@@ -341,27 +349,19 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
     {
-      name: "ConfirmationExample",
-      title: { en: "Confirmation dialog", ja: "確認ダイアログ" },
-      description: {
-        en: "A dialog that asks the user for confirmation.",
-        ja: "ユーザーの確認を求めるダイアログです。",
-      },
-    },
-    {
       name: "FormExample",
       title: { en: "With a form", ja: "フォーム付き" },
       description: {
-        en: "An example of a form inside a dialog.",
-        ja: "ダイアログ内にフォームを配置した例です。",
+        en: "An example of a form inside a dialog. Passing a function as children gives you close, which closes the dialog on submit.",
+        ja: "ダイアログ内にフォームを配置した例です。children に関数を渡すと close を受け取れ、送信時にダイアログを閉じられます。",
       },
     },
     {
-      name: "AlertExample",
-      title: { en: "Alert", ja: "アラート" },
+      name: "NoticeExample",
+      title: { en: "Notice", ja: "お知らせ" },
       description: {
-        en: "A simple alert dialog.",
-        ja: "シンプルなアラートダイアログです。",
+        en: "A dialog that shows information to read. For confirmations that interrupt the user and require an immediate answer, use AlertDialog instead.",
+        ja: "読んでもらう情報を表示するダイアログです。作業を中断させて即座に応答を求める確認には AlertDialog を使います。",
       },
     },
   ],
@@ -663,8 +663,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "BasicExample",
       title: { en: "Basic usage", ja: "基本的な使い方" },
       description: {
-        en: "Pass the list of questions to items and render a QuestionnaireItem for each. Read the answers from FormData in onSubmit.",
-        ja: "質問の配列を items に渡し、各質問を QuestionnaireItem で描画します。回答は onSubmit で FormData から取り出します。",
+        en: "Pass the list of questions to items and render a QuestionnaireItem for each. Next and Submit stay disabled until required questions are answered. Read the answers from FormData in onSubmit.",
+        ja: "質問の配列を items に渡し、各質問を QuestionnaireItem で描画します。required の質問に回答するまで次へ・送信ボタンは押せません。回答は onSubmit で FormData から取り出します。",
       },
     },
     {
@@ -854,6 +854,14 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
     {
+      name: "FullWidthExample",
+      title: { en: "Full width", ja: "全幅" },
+      description: {
+        en: "Specify fullWidth to stretch the tab list to the container width and divide it evenly between tabs.",
+        ja: "fullWidth を指定すると、タブリストがコンテナの幅いっぱいに広がり、各タブが均等に幅を分け合います。",
+      },
+    },
+    {
       name: "DisabledTabExample",
       title: { en: "Disabled tabs", ja: "無効化されたタブ" },
       description: {
@@ -967,8 +975,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "EmptyStateExample",
       title: { en: "Empty state", ja: "空の状態" },
       description: {
-        en: "An example of what is shown when there is no data.",
-        ja: "データがない場合の表示例です。",
+        en: "Use emptyMessage to set the message shown when there is no data.",
+        ja: "emptyMessage でデータがないときに表示するメッセージを指定できます。",
       },
     },
   ],

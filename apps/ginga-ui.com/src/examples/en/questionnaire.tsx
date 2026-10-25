@@ -8,7 +8,6 @@ import {
   QuestionnaireActions,
   QuestionnaireChoice,
   QuestionnaireChoices,
-  QuestionnaireError,
   QuestionnaireInput,
   QuestionnaireItem,
   QuestionnaireNext,
@@ -87,7 +86,6 @@ export function BasicExample() {
               placeholder="Something else..."
             />
           </QuestionnaireChoices>
-          <QuestionnaireError>Please choose an answer.</QuestionnaireError>
         </QuestionnaireItem>
       ))}
       <QuestionnaireActions>
@@ -129,7 +127,6 @@ export function MultipleExample() {
             </QuestionnaireChoice>
           ))}
         </QuestionnaireChoices>
-        <QuestionnaireError>Please choose at least one.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnaireSubmit size="sm">Submit</QuestionnaireSubmit>
@@ -187,7 +184,6 @@ export function ShortcutsExample() {
           <QuestionnaireChoice value="casual">Casual</QuestionnaireChoice>
           <QuestionnaireChoice value="concise">Concise</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Please choose an answer.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnaireSubmit size="sm">Submit</QuestionnaireSubmit>

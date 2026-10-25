@@ -9,10 +9,10 @@ import {
 } from "@ginga-ui/core";
 import styles from "../alert-dialog.module.css";
 import {
-  Check,
   CircleAlert,
-  FileText,
+  LogIn,
   LogOut,
+  TimerOff,
   Trash2,
   TriangleAlert,
 } from "lucide-react";
@@ -72,19 +72,18 @@ export function WarningExample() {
 export function PlainExample() {
   return (
     <DialogTrigger>
-      <Button variant="light" startIcon={<FileText />}>
-        利用規約に同意
+      <Button variant="light" startIcon={<TimerOff />}>
+        セッション切れを再現
       </Button>
       <Modal>
         <AlertDialog>
-          <AlertDialogTitle>利用規約の更新</AlertDialogTitle>
-          <p>利用規約が更新されました。続行するには同意が必要です。</p>
+          <AlertDialogTitle>セッションの有効期限切れ</AlertDialogTitle>
+          <p>
+            安全のためログアウトしました。続けるには再度ログインしてください。
+          </p>
           <div className={styles.actions}>
-            <Button slot="close" variant="outline">
-              あとで
-            </Button>
-            <Button slot="close" variant="filled" startIcon={<Check />}>
-              同意する
+            <Button slot="close" variant="filled" startIcon={<LogIn />}>
+              ログイン
             </Button>
           </div>
         </AlertDialog>

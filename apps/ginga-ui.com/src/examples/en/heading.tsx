@@ -6,9 +6,9 @@ import styles from "../heading.module.css";
 export function BasicExample() {
   return (
     <div className={styles.basicStack}>
-      <Heading level="h1">Heading 1 - The largest heading</Heading>
-      <Heading level="h2">Heading 2 - Section heading</Heading>
-      <Heading level="h3">Heading 3 - Subsection heading</Heading>
+      <Heading level="h1">Heading 1</Heading>
+      <Heading level="h2">Heading 2</Heading>
+      <Heading level="h3">Heading 3</Heading>
     </div>
   );
 }

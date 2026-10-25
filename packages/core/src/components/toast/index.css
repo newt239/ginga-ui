@@ -43,9 +43,13 @@
   max-width: 100%;
   padding: 0.875rem 0.5rem 0.875rem 1rem;
   font-family: var(--font-family);
-  outline: var(--border-width) solid transparent;
+  border: var(--border-width) solid
+    color-mix(
+      in srgb,
+      var(--ginga-toast-icon-color, var(--color-surface-strong)) 40%,
+      var(--color-background)
+    );
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-overlay);
   animation: ginga-toast-enter var(--duration) var(--easing);
 
   &[data-variant="info"] {

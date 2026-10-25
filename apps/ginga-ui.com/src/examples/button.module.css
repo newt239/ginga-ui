@@ -23,3 +23,13 @@
   gap: 1rem;
   width: min(100%, 20rem);
 }
+
+.submit {
+  align-self: flex-end;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
