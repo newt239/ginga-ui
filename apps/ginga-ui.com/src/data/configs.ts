@@ -153,6 +153,14 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
     {
+      name: "FileIconExample",
+      title: { en: "File icons", ja: "ファイルアイコン" },
+      description: {
+        en: "Use icon on each entry in files, or filenameIcon with filename, to show an icon next to the file name.",
+        ja: "files の各要素の icon、または filename と合わせて filenameIcon を指定すると、ファイル名の横にアイコンを表示できます。",
+      },
+    },
+    {
       name: "WithIconExample",
       title: { en: "Copy button with icons", ja: "アイコン付きのコピーボタン" },
       description: {
