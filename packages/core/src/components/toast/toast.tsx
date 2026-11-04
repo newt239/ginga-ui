@@ -36,10 +36,9 @@ const defaultQueue = new AriaToastQueue<ToastContentValue>({
   maxVisibleToasts: 5,
 });
 
-const show = (
-  title: string,
-  options: ToastOptions & { variant?: ToastVariant } = {}
-): string => {
+type ShowToastOptions = ToastOptions & { variant?: ToastVariant };
+
+const show = (title: string, options: ShowToastOptions = {}): string => {
   const { description, icon, variant, timeout, onClose } = options;
   return defaultQueue.add(
     { title, description, icon, variant },
@@ -51,7 +50,8 @@ const show = (
 };
 
 export const toast = {
-  show,
+  show: (title: string, options: ShowToastOptions = {}): string =>
+    show(title, options),
   info: (title: string, options: ToastOptions = {}): string =>
     show(title, { ...options, variant: "info" }),
   success: (title: string, options: ToastOptions = {}): string =>

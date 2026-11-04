@@ -45,7 +45,7 @@ export const Table = <T extends object>({
   selectionMode = "none",
   onSelectionChange,
   "aria-label": ariaLabel,
-}: TableProps<T>) => {
+}: TableProps<T>): React.ReactElement => {
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
 
   const handleSelectionChange = (keys: Selection) => {
