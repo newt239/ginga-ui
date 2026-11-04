@@ -1,6 +1,16 @@
 import { z } from "zod";
 
-export const themeVariablesSchema = z.object({
+type ThemeVariablesShape = Record<
+  | "--color-primary"
+  | "--color-secondary"
+  | "--color-background"
+  | "--width-border"
+  | "--size-radius"
+  | "--font-family",
+  z.ZodString
+>;
+
+export const themeVariablesSchema: z.ZodObject<ThemeVariablesShape> = z.object({
   "--color-primary": z.string().describe("Accent color"),
   "--color-secondary": z.string().describe("Main text color"),
   "--color-background": z.string().describe("Background color"),

@@ -31,7 +31,7 @@ const requiredVariables = [
   },
 ] as const;
 
-export const SYSTEM_PROMPT = `
+export const SYSTEM_PROMPT: string = `
 # Instruction
 
 You are a awesome designer and you are thinking about creating a new theme for a website.

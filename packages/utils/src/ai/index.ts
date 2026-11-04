@@ -35,6 +35,11 @@ export type GenerateThemeOptions = {
   onDownloadProgress?: DownloadProgressCallback;
 };
 
+export type GenerateThemeResult = {
+  readonly type: "success" | "error";
+  readonly CSSCode: string;
+};
+
 export class ThemeClient {
   private provider: ThemeProvider;
   private model: string;
@@ -77,7 +82,10 @@ export class ThemeClient {
     }
   }
 
-  async generateTheme(prompt: string, options?: GenerateThemeOptions) {
+  async generateTheme(
+    prompt: string,
+    options?: GenerateThemeOptions
+  ): Promise<GenerateThemeResult> {
     if (options?.maxRetries) {
       this.maxRetries = options.maxRetries;
     }
@@ -146,7 +154,7 @@ export class ThemeClient {
     return { type: "error", CSSCode: "Failed to generate theme" } as const;
   }
 
-  enforceContrast(baseColor: string, targetColor: string) {
+  enforceContrast(baseColor: string, targetColor: string): string {
     let color = chroma(targetColor);
     let contrast = chroma.contrast(color, baseColor);
     let iterations = 0;
@@ -180,7 +188,7 @@ export class ThemeClient {
     return color.hex();
   }
 
-  adaptNewTheme(variables: ThemeVariables) {
+  adaptNewTheme(variables: ThemeVariables): string {
     const primaryColors = generateIntermediateColors(
       variables["--color-background"],
       variables["--color-primary"]

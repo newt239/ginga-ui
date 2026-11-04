@@ -14,7 +14,10 @@ function getClosestLightness(colorObject: chroma.Color) {
   );
 }
 
-export function generateColorsMap(color: string) {
+export function generateColorsMap(color: string): {
+  baseColorIndex: number;
+  colors: chroma.Color[];
+} {
   const colorObject = chroma(color);
   const closestLightness = getClosestLightness(colorObject);
   const baseColorIndex = LIGHTNESS_MAP.findIndex((l) => l === closestLightness);
@@ -38,7 +41,10 @@ export function generateColorsMap(color: string) {
  * @param {string} end - The second color in any Chroma.js compatible format.
  * @returns {string[]} An array of 10 color strings in hexadecimal format.
  */
-export function generateIntermediateColors(start: string, end: string) {
+export function generateIntermediateColors(
+  start: string,
+  end: string
+): string[] {
   // Create a scale using Chroma.js
   const scale = chroma.scale([start, end]).mode("lab");
 
