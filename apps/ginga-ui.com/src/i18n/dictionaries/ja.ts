@@ -45,6 +45,7 @@ export const ja = {
       `Ginga UIが提供する全${count}個のコンポーネントを確認できます。タブでカテゴリを切り替えて、各コンポーネントの詳細ページにアクセスできます。`,
     categoryTabs: "コンポーネントカテゴリ",
     install: "インストール",
+    viewInStorybook: "Storybook で見る",
   },
   themeGenerator: {
     mode: "実行方法",

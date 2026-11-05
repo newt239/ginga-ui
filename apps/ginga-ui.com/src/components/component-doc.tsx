@@ -1,7 +1,8 @@
-import { Heading, Paragraph } from "@ginga-ui/core";
+import { Anchor, Heading, Paragraph } from "@ginga-ui/core";
+import { ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CodeBlock } from "#/components/code-block";
-import { getComponentById } from "#/data/components";
+import { getComponentById, getStorybookUrl } from "#/data/components";
 import { EXAMPLE_CONFIGS } from "#/data/configs";
 import { EXAMPLES } from "#/examples";
 import { getDictionary } from "#/i18n/dictionaries";
@@ -24,13 +25,26 @@ export async function ComponentDoc({ id, locale }: ComponentDocProps) {
     notFound();
   }
 
-  const { components } = getDictionary(locale);
+  const { components, nav } = getDictionary(locale);
   const installCode = `import { ${component.name} } from "@ginga-ui/core";`;
 
   return (
     <article>
       <Heading level="h1">{component.name}</Heading>
       <p className="docs-lead">{component.description[locale]}</p>
+      {component.storybookStoryId && (
+        <p className={styles.storybookLink}>
+          <Anchor
+            href={getStorybookUrl(component.storybookStoryId)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {components.viewInStorybook}
+            <ExternalLink className={styles.externalIcon} aria-hidden="true" />
+            <span className="visually-hidden">{nav.opensInNewTab}</span>
+          </Anchor>
+        </p>
+      )}
 
       <section className="docs-section">
         <Heading level="h2" id="install">

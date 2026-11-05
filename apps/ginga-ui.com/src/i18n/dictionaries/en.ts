@@ -47,6 +47,7 @@ export const en: Dictionary = {
       `Browse all ${count} components that Ginga UI provides. Switch categories with the tabs and open each component's page for details.`,
     categoryTabs: "Component categories",
     install: "Installation",
+    viewInStorybook: "View in Storybook",
   },
   themeGenerator: {
     mode: "Run with",
