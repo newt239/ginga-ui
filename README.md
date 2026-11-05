@@ -3,7 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/%40ginga-ui%2Fcore)](https://www.npmjs.com/package/@ginga-ui/core)
 ![GitHub License](https://img.shields.io/github/license/newt239/ginga-ui)
 [![Codecheck](https://github.com/newt239/ginga-ui/actions/workflows/codecheck.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/codecheck.yaml)
-[![Publish to npm](https://github.com/newt239/ginga-ui/actions/workflows/release.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/publish.yaml)
+[![Publish to npm](https://github.com/newt239/ginga-ui/actions/workflows/release.yaml/badge.svg)](https://github.com/newt239/ginga-ui/actions/workflows/release.yaml)
 
 **Ginga UI** is an UI component library for React. This libarary is using LLM to styling components. Components will design based on the Website contents or user's prompt.
 
@@ -223,24 +223,34 @@ Additionaly, `--color-primary` and `--color-secondary` are generated more varian
 
 ## Components
 
-Usage of components can be found in the [Storybook](https://6756fb8efde357469ac062e5-tlboxkojjq.chromatic.com/).
+See the [documentation](https://ginga-ui.vercel.app/components) for usage and examples of each component. All stories are also available on [Storybook](https://main--6756fb8efde357469ac062e5.chromatic.com/).
 
-- Accordion
-- Anchor
-- Box
-- Button
-- Card
-- Checkbox
-- Dialog
-- FormControl
-- Heading
-- Image
-- Input
-- List
-- Paragraph
-- Radio
-- Select
-- Slider
-- Switch
-- Tab
-- Table
+- [Accordion](https://ginga-ui.vercel.app/components/accordion)
+- [Alert](https://ginga-ui.vercel.app/components/alert)
+- [AlertDialog](https://ginga-ui.vercel.app/components/alert-dialog)
+- [Anchor](https://ginga-ui.vercel.app/components/anchor)
+- [Badge](https://ginga-ui.vercel.app/components/badge)
+- [Box](https://ginga-ui.vercel.app/components/box)
+- [Button](https://ginga-ui.vercel.app/components/button)
+- [Card](https://ginga-ui.vercel.app/components/card)
+- [Checkbox](https://ginga-ui.vercel.app/components/checkbox)
+- [CodeBlock](https://ginga-ui.vercel.app/components/code-block)
+- [Dialog](https://ginga-ui.vercel.app/components/dialog)
+- [Drawer](https://ginga-ui.vercel.app/components/drawer)
+- [FormControl](https://ginga-ui.vercel.app/components/form-control)
+- [Heading](https://ginga-ui.vercel.app/components/heading)
+- [Image](https://ginga-ui.vercel.app/components/image)
+- [Input](https://ginga-ui.vercel.app/components/input)
+- [List](https://ginga-ui.vercel.app/components/list)
+- [Paragraph](https://ginga-ui.vercel.app/components/paragraph)
+- [Popover](https://ginga-ui.vercel.app/components/popover)
+- [Questionnaire](https://ginga-ui.vercel.app/components/questionnaire)
+- [Radio](https://ginga-ui.vercel.app/components/radio)
+- [SegmentedControl](https://ginga-ui.vercel.app/components/segmented-control)
+- [Select](https://ginga-ui.vercel.app/components/select)
+- [Slider](https://ginga-ui.vercel.app/components/slider)
+- [Switch](https://ginga-ui.vercel.app/components/switch)
+- [Tab](https://ginga-ui.vercel.app/components/tab)
+- [Table](https://ginga-ui.vercel.app/components/table)
+- [Toast](https://ginga-ui.vercel.app/components/toast)
+- [Trace](https://ginga-ui.vercel.app/components/trace)
