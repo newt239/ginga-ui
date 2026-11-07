@@ -126,6 +126,14 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         ja: 'variant="button"でボタンのような見た目のリンクになります。buttonVariantとsizeでButtonと同じバリアントとサイズを指定できます。',
       },
     },
+    {
+      name: "RouterLinkExample",
+      title: { en: "Router link", ja: "ルーターのリンク" },
+      description: {
+        en: "Pass a function to render to draw the link with another component such as next/link. Pass the received props, including ref, to an a element.",
+        ja: "render に関数を渡すと、next/link などの別のコンポーネントでリンクを描画できます。受け取った props は ref も含めて a 要素に渡してください。",
+      },
+    },
   ],
   "code-block": [
     {

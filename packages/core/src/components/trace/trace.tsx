@@ -8,15 +8,21 @@ import {
   Disclosure,
   DisclosurePanel,
 } from "react-aria-components";
+import { renderElement } from "../../lib/render-element";
 import "./index.css";
+
+import type { ElementRenderProps } from "../../lib/render-element";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-export type TraceProps = React.ComponentProps<"div">;
+export type TraceProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
-export const Trace: React.FC<TraceProps> = ({ className, ...props }) => (
-  <div className={cn("ginga-trace", className)} {...props} />
-);
+export const Trace: React.FC<TraceProps> = ({ className, render, ...props }) =>
+  renderElement("div", render, {
+    className: cn("ginga-trace", className),
+    ...props,
+  });
 
 export type TraceStatus = "complete" | "running" | "error" | "pending";
 
@@ -35,59 +41,75 @@ const STATUS_LABELS: Record<"ja" | "en", Record<TraceStatus, string>> = {
   },
 };
 
-export type TraceLineProps = React.ComponentProps<"span"> & {
-  status?: TraceStatus;
-  statusLabel?: string;
-};
+export type TraceLineProps = React.ComponentProps<"span"> &
+  ElementRenderProps<"span"> & {
+    status?: TraceStatus;
+    statusLabel?: string;
+  };
 
 export const TraceLine: React.FC<TraceLineProps> = ({
   status,
   statusLabel,
   className,
   children,
+  render,
   ...props
 }) => {
   const { locale } = useLocale();
   const labels = STATUS_LABELS[locale.startsWith("ja") ? "ja" : "en"];
   const label = statusLabel ?? (status ? labels[status] : undefined);
-  return (
-    <span
-      data-status={status}
-      className={cn("ginga-trace-line", className)}
-      {...props}
-    >
-      {label && <VisuallyHidden>{`${label} `}</VisuallyHidden>}
-      {children}
-    </span>
-  );
+  return renderElement("span", render, {
+    "data-status": status,
+    className: cn("ginga-trace-line", className),
+    ...props,
+    children: (
+      <>
+        {label && <VisuallyHidden>{`${label} `}</VisuallyHidden>}
+        {children}
+      </>
+    ),
+  });
 };
 
-export type TraceIconProps = React.ComponentProps<"span">;
+export type TraceIconProps = React.ComponentProps<"span"> &
+  ElementRenderProps<"span">;
 
 export const TraceIcon: React.FC<TraceIconProps> = ({
   className,
+  render,
   ...props
-}) => (
-  <span
-    aria-hidden="true"
-    className={cn("ginga-trace-icon", className)}
-    {...props}
-  />
-);
+}) =>
+  renderElement("span", render, {
+    "aria-hidden": true,
+    className: cn("ginga-trace-icon", className),
+    ...props,
+  });
 
-export type TraceTitleProps = React.ComponentProps<"span">;
+export type TraceTitleProps = React.ComponentProps<"span"> &
+  ElementRenderProps<"span">;
 
 export const TraceTitle: React.FC<TraceTitleProps> = ({
   className,
+  render,
   ...props
-}) => <span className={cn("ginga-trace-title", className)} {...props} />;
+}) =>
+  renderElement("span", render, {
+    className: cn("ginga-trace-title", className),
+    ...props,
+  });
 
-export type TraceDescriptionProps = React.ComponentProps<"span">;
+export type TraceDescriptionProps = React.ComponentProps<"span"> &
+  ElementRenderProps<"span">;
 
 export const TraceDescription: React.FC<TraceDescriptionProps> = ({
   className,
+  render,
   ...props
-}) => <span className={cn("ginga-trace-description", className)} {...props} />;
+}) =>
+  renderElement("span", render, {
+    className: cn("ginga-trace-description", className),
+    ...props,
+  });
 
 export type TraceCollapsibleProps = OmitStrict<
   React.ComponentProps<typeof Disclosure>,

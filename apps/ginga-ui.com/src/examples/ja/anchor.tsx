@@ -1,6 +1,7 @@
 "use client";
 
 import { Anchor } from "@ginga-ui/core";
+import NextLink from "next/link";
 import styles from "../anchor.module.css";
 
 export function BasicExample() {
@@ -46,5 +47,13 @@ export function ButtonVariantExample() {
         Ghost
       </Anchor>
     </div>
+  );
+}
+
+export function RouterLinkExample() {
+  return (
+    <Anchor href="/ja/components" render={(props) => <NextLink {...props} />}>
+      コンポーネント一覧へ
+    </Anchor>
   );
 }

@@ -133,6 +133,7 @@ TypeScriptパスマッピングを使用:
 - `src/`にCSSファイル（distにエクスポート）
 - `packages/core/src/index.ts`から再エクスポート
 - RAC の `className` は関数を受け取りうるため `cn()` に直接渡さず、`composeRenderProps(className, (c) => cn("ginga-xxx", c))` で合成する
+- ルート要素は `render` prop で差し替えられるようにする。`render` は `className` を受け取る要素に渡す。RAC のコンポーネントは `...props` でそのまま渡し、HTML 要素のコンポーネントは `src/lib/render-element.ts` の `renderElement` と `ElementRenderProps` を使う
 - 状態系の props は RAC の `isDisabled` などではなく `disabled` / `required` / `selected` / `readOnly` / `invalid` / `expanded` / `dismissable` で公開する
 - `@ginga-ui/core`の一部としてまとめてビルドされる
 

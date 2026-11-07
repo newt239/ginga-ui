@@ -24,9 +24,18 @@ import {
 } from "react-aria-components";
 import { Button } from "../button";
 import { Input } from "../input";
+import { renderElement } from "../../lib/render-element";
 import "./index.css";
 
+import type { ElementRenderProps } from "../../lib/render-element";
 import type { OmitStrict } from "@ginga-ui/utils";
+import type {
+  CheckboxGroupRenderProps,
+  CheckboxRenderProps,
+  DOMRenderFunction,
+  RadioGroupRenderProps,
+  RadioRenderProps,
+} from "react-aria-components";
 import type { ButtonProps } from "../button";
 import type { InputProps } from "../input";
 
@@ -112,10 +121,11 @@ const shortcutIndex = (key: string, shortcuts: QuestionnaireShortcuts) => {
 const shortcutLabel = (index: number, shortcuts: QuestionnaireShortcuts) =>
   shortcuts === "numbers" ? String(index + 1) : String.fromCharCode(65 + index);
 
-export type QuestionnaireProps = React.ComponentProps<"form"> & {
-  items: readonly { name: string; required?: boolean }[];
-  shortcuts?: QuestionnaireShortcuts;
-};
+export type QuestionnaireProps = React.ComponentProps<"form"> &
+  ElementRenderProps<"form"> & {
+    items: readonly { name: string; required?: boolean }[];
+    shortcuts?: QuestionnaireShortcuts;
+  };
 
 const collectRequiredItemNames = (
   children: React.ReactNode,
@@ -139,6 +149,7 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
   className,
   children,
   ref,
+  render,
   ...props
 }) => {
   const names = useMemo(() => items.map((item) => item.name), [items]);
@@ -284,15 +295,14 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
         skip,
       }}
     >
-      <form
-        ref={formRef}
-        noValidate
-        className={cn("ginga-questionnaire", className)}
-        onSubmit={handleSubmit}
-        {...props}
-      >
-        {children}
-      </form>
+      {renderElement("form", render, {
+        ref: formRef,
+        noValidate: true,
+        className: cn("ginga-questionnaire", className),
+        onSubmit: handleSubmit,
+        ...props,
+        children,
+      })}
     </QuestionnaireContext.Provider>
   );
 };
@@ -300,31 +310,31 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
 export type QuestionnaireProgressProps = OmitStrict<
   React.ComponentProps<"output">,
   "children"
-> & {
-  children: (progress: { current: number; total: number }) => React.ReactNode;
-};
+> &
+  ElementRenderProps<"output"> & {
+    children: (progress: { current: number; total: number }) => React.ReactNode;
+  };
 
 export const QuestionnaireProgress: React.FC<QuestionnaireProgressProps> = ({
   children,
   className,
+  render,
   ...props
 }) => {
   const { names, activeIndex } = useQuestionnaire();
-  return (
-    <output
-      className={cn("ginga-questionnaire-progress", className)}
-      {...props}
-    >
-      {children({ current: activeIndex + 1, total: names.length })}
-    </output>
-  );
+  return renderElement("output", render, {
+    className: cn("ginga-questionnaire-progress", className),
+    ...props,
+    children: children({ current: activeIndex + 1, total: names.length }),
+  });
 };
 
-export type QuestionnaireItemProps = React.ComponentProps<"fieldset"> & {
-  name: string;
-  required?: boolean;
-  multiple?: boolean;
-};
+export type QuestionnaireItemProps = React.ComponentProps<"fieldset"> &
+  ElementRenderProps<"fieldset"> & {
+    name: string;
+    required?: boolean;
+    multiple?: boolean;
+  };
 
 export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
   name,
@@ -332,6 +342,7 @@ export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
   multiple = false,
   className,
   children,
+  render,
   ...props
 }) => {
   const { names, activeIndex, answers, registerRequired } = useQuestionnaire();
@@ -352,44 +363,48 @@ export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
 
   return (
     <QuestionnaireItemContext.Provider value={itemContext}>
-      <fieldset
-        hidden={!isActive}
-        data-questionnaire-item={name}
-        data-active={isActive || undefined}
-        data-answered={isAnswered(answers[name]) || undefined}
-        className={cn("ginga-questionnaire-item", className)}
-        {...props}
-      >
-        {children}
-      </fieldset>
+      {renderElement("fieldset", render, {
+        hidden: !isActive,
+        "data-questionnaire-item": name,
+        "data-active": isActive || undefined,
+        "data-answered": isAnswered(answers[name]) || undefined,
+        className: cn("ginga-questionnaire-item", className),
+        ...props,
+        children,
+      })}
     </QuestionnaireItemContext.Provider>
   );
 };
 
-export type QuestionnaireTitleProps = React.ComponentProps<"legend">;
+export type QuestionnaireTitleProps = React.ComponentProps<"legend"> &
+  ElementRenderProps<"legend">;
 
 export const QuestionnaireTitle: React.FC<QuestionnaireTitleProps> = ({
   className,
+  render,
   ...props
 }) => {
   const { titleId } = useQuestionnaireItem();
-  return (
-    <legend
-      id={titleId}
-      className={cn("ginga-questionnaire-title", className)}
-      {...props}
-    />
-  );
+  return renderElement("legend", render, {
+    id: titleId,
+    className: cn("ginga-questionnaire-title", className),
+    ...props,
+  });
 };
 
 export type QuestionnaireChoicesProps = {
   className?: string;
   children?: React.ReactNode;
+  render?: DOMRenderFunction<
+    "div",
+    CheckboxGroupRenderProps | RadioGroupRenderProps
+  >;
 };
 
 export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
   className,
   children,
+  render,
 }) => {
   const { answers, updateAnswer } = useQuestionnaire();
   const { name, multiple, titleId } = useQuestionnaireItem();
@@ -417,6 +432,7 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
         value={answer.choices}
         onChange={(choices) => updateAnswer(name, { choices })}
         className={groupClassName}
+        render={render}
       >
         {indexedChildren}
       </AriaCheckboxGroup>
@@ -430,6 +446,7 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
       value={answer.choices[0] ?? null}
       onChange={(choice) => updateAnswer(name, { choices: [choice], text: "" })}
       className={groupClassName}
+      render={render}
     >
       {indexedChildren}
     </AriaRadioGroup>
@@ -442,6 +459,7 @@ export type QuestionnaireChoiceProps = {
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
+  render?: DOMRenderFunction<"label", CheckboxRenderProps | RadioRenderProps>;
 };
 
 export const QuestionnaireChoice: React.FC<QuestionnaireChoiceProps> = ({
@@ -450,6 +468,7 @@ export const QuestionnaireChoice: React.FC<QuestionnaireChoiceProps> = ({
   disabled,
   className,
   children,
+  render,
 }) => {
   const { shortcuts } = useQuestionnaire();
   const { multiple } = useQuestionnaireItem();
@@ -461,6 +480,7 @@ export const QuestionnaireChoice: React.FC<QuestionnaireChoiceProps> = ({
       value={value}
       isDisabled={disabled}
       className={cn("ginga-questionnaire-choice", className)}
+      render={render}
     >
       <span
         className="ginga-questionnaire-choice-indicator"
@@ -532,14 +552,18 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
   );
 };
 
-export type QuestionnaireActionsProps = React.ComponentProps<"div">;
+export type QuestionnaireActionsProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
 export const QuestionnaireActions: React.FC<QuestionnaireActionsProps> = ({
   className,
+  render,
   ...props
-}) => (
-  <div className={cn("ginga-questionnaire-actions", className)} {...props} />
-);
+}) =>
+  renderElement("div", render, {
+    className: cn("ginga-questionnaire-actions", className),
+    ...props,
+  });
 
 export type QuestionnaireNavigationProps = OmitStrict<ButtonProps, "type">;
 

@@ -35,6 +35,7 @@ export const Modal: React.FC<ModalProps> = ({
   className,
   style,
   ref,
+  render,
   dismissable,
   overlayClassName,
   ...props
@@ -49,6 +50,7 @@ export const Modal: React.FC<ModalProps> = ({
         ref={ref}
         className={composeRenderProps(className, (c) => cn("ginga-modal", c))}
         style={style}
+        render={render}
       >
         {children}
       </AriaModal>

@@ -21,3 +21,4 @@
 - テーマ生成の検証と補正を作り直しました。生成値は形式と範囲を検証してから CSS に出力し、コントラスト不足は確実に補正します。リトライと `maxRetries` オプションは廃止しました
 - `generateTheme` の失敗時の戻り値を `{ type: "error", message }` に変更しました
 - 未使用の `generateColors` / `generateColorsMap` / `generateIntermediateColors` を削除しました
+- すべてのコンポーネントで `render` を受け取り、`next/link` などの別のコンポーネントでルート要素を描画できるようにしました。`Modal` の `render` は `className` と同じ内側の要素に渡し、`Anchor` の `render` は `href` があるときだけ使います

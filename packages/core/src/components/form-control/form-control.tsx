@@ -11,7 +11,10 @@ import {
   SelectContext,
   TextAreaContext,
 } from "react-aria-components";
+import { renderElement } from "../../lib/render-element";
 import "./index.css";
+
+import type { ElementRenderProps } from "../../lib/render-element";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
@@ -28,17 +31,19 @@ export const useFormControlField = (): FormControlFieldProps | null =>
 export type FormControlProps = OmitStrict<
   React.ComponentProps<"div">,
   "children"
-> & {
-  label: React.ReactNode;
-  htmlFor?: string;
-  children: React.ReactNode;
-};
+> &
+  ElementRenderProps<"div"> & {
+    label: React.ReactNode;
+    htmlFor?: string;
+    children: React.ReactNode;
+  };
 
 export const FormControl: React.FC<FormControlProps> = ({
   label,
   htmlFor,
   className,
   children,
+  render,
   ...props
 }) => {
   const generatedControlId = useId();
@@ -49,29 +54,33 @@ export const FormControl: React.FC<FormControlProps> = ({
     "aria-labelledby": labelId,
   };
 
-  return (
-    <div {...props} className={cn("ginga-form-control", className)}>
-      <Label
-        id={labelId}
-        htmlFor={controlId}
-        className="ginga-form-control-label"
-      >
-        {label}
-      </Label>
-      <div className="ginga-form-control-inner">
-        <FormControlContext.Provider value={fieldProps}>
-          <Provider
-            values={[
-              [InputContext, fieldProps],
-              [TextAreaContext, fieldProps],
-              [SelectContext, { "aria-labelledby": labelId }],
-              [ComboBoxContext, { "aria-labelledby": labelId }],
-            ]}
-          >
-            {children}
-          </Provider>
-        </FormControlContext.Provider>
-      </div>
-    </div>
-  );
+  return renderElement("div", render, {
+    ...props,
+    className: cn("ginga-form-control", className),
+    children: (
+      <>
+        <Label
+          id={labelId}
+          htmlFor={controlId}
+          className="ginga-form-control-label"
+        >
+          {label}
+        </Label>
+        <div className="ginga-form-control-inner">
+          <FormControlContext.Provider value={fieldProps}>
+            <Provider
+              values={[
+                [InputContext, fieldProps],
+                [TextAreaContext, fieldProps],
+                [SelectContext, { "aria-labelledby": labelId }],
+                [ComboBoxContext, { "aria-labelledby": labelId }],
+              ]}
+            >
+              {children}
+            </Provider>
+          </FormControlContext.Provider>
+        </div>
+      </>
+    ),
+  });
 };

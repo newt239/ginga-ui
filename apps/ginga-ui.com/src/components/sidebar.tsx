@@ -23,6 +23,7 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
     { href: "/", label: nav.overview },
     { href: "/quick-start", label: nav.quickStart },
     { href: "/theme-generation", label: nav.themeGeneration },
+    { href: "/custom-rendering", label: nav.customRendering },
     { href: "/components", label: nav.allComponents },
   ].map((link) => ({ ...link, href: localizePath(link.href, locale) }));
 

@@ -10,7 +10,10 @@ import {
   Tabs as AriaTabs,
 } from "react-aria-components";
 import { Button } from "../button";
+import { renderElement } from "../../lib/render-element";
 import "./index.css";
+
+import type { ElementRenderProps } from "../../lib/render-element";
 
 import type { Key } from "react-aria-components";
 
@@ -21,17 +24,18 @@ export type CodeBlockFile = {
   content?: React.ReactNode;
 };
 
-export type CodeBlockProps = React.ComponentProps<"div"> & {
-  code?: string;
-  filename?: string;
-  filenameIcon?: React.ReactNode;
-  files?: CodeBlockFile[];
-  filesLabel?: string;
-  copyLabel?: string;
-  copiedLabel?: string;
-  copyIcon?: React.ReactNode;
-  copiedIcon?: React.ReactNode;
-};
+export type CodeBlockProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div"> & {
+    code?: string;
+    filename?: string;
+    filenameIcon?: React.ReactNode;
+    files?: CodeBlockFile[];
+    filesLabel?: string;
+    copyLabel?: string;
+    copiedLabel?: string;
+    copyIcon?: React.ReactNode;
+    copiedIcon?: React.ReactNode;
+  };
 
 const CodeContent: React.FC<{
   file: CodeBlockFile;
@@ -69,6 +73,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   copiedIcon,
   className,
   children,
+  render,
   ...props
 }) => {
   const entries: CodeBlockFile[] = files ?? [
@@ -113,37 +118,43 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     </Button>
   );
 
+  const rootProps = { className: cn("ginga-code-block", className), ...props };
+
   if (!hasTabs && !activeFile?.filename) {
-    return (
-      <div
-        className={cn("ginga-code-block", className)}
-        data-headerless
-        {...props}
-      >
-        {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
-        {copyButton}
-      </div>
-    );
+    return renderElement("div", render, {
+      "data-headerless": true,
+      ...rootProps,
+      children: (
+        <>
+          {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
+          {copyButton}
+        </>
+      ),
+    });
   }
 
   if (!hasTabs) {
-    return (
-      <div className={cn("ginga-code-block", className)} {...props}>
-        <div className="ginga-code-block-header">
-          {activeFile && (
-            <span className="ginga-code-block-filename">
-              <FileLabel file={activeFile} />
-            </span>
-          )}
-          {copyButton}
-        </div>
-        {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
-      </div>
-    );
+    return renderElement("div", render, {
+      ...rootProps,
+      children: (
+        <>
+          <div className="ginga-code-block-header">
+            {activeFile && (
+              <span className="ginga-code-block-filename">
+                <FileLabel file={activeFile} />
+              </span>
+            )}
+            {copyButton}
+          </div>
+          {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
+        </>
+      ),
+    });
   }
 
-  return (
-    <div className={cn("ginga-code-block", className)} {...props}>
+  return renderElement("div", render, {
+    ...rootProps,
+    children: (
       <AriaTabs
         selectedKey={selectedKey}
         onSelectionChange={(key) => {
@@ -182,6 +193,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           </AriaTabPanel>
         ))}
       </AriaTabs>
-    </div>
-  );
+    ),
+  });
 };

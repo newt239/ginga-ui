@@ -1,45 +1,80 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
+import { renderElement } from "../../lib/render-element";
 import "./index.css";
 
-export type CardProps = React.ComponentProps<"div">;
+import type { ElementRenderProps } from "../../lib/render-element";
 
-export const Card: React.FC<CardProps> = ({ className, ...props }) => (
-  <div className={cn("ginga-card", className)} {...props} />
-);
+export type CardProps = React.ComponentProps<"div"> & ElementRenderProps<"div">;
 
-export type CardHeaderProps = React.ComponentProps<"div">;
+export const Card: React.FC<CardProps> = ({ className, render, ...props }) =>
+  renderElement("div", render, {
+    className: cn("ginga-card", className),
+    ...props,
+  });
+
+export type CardHeaderProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
 export const CardHeader: React.FC<CardHeaderProps> = ({
   className,
+  render,
   ...props
-}) => <div className={cn("ginga-card-header", className)} {...props} />;
+}) =>
+  renderElement("div", render, {
+    className: cn("ginga-card-header", className),
+    ...props,
+  });
 
-export type CardTitleProps = React.ComponentProps<"div">;
+export type CardTitleProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
 export const CardTitle: React.FC<CardTitleProps> = ({
   className,
+  render,
   ...props
-}) => <div className={cn("ginga-card-title", className)} {...props} />;
+}) =>
+  renderElement("div", render, {
+    className: cn("ginga-card-title", className),
+    ...props,
+  });
 
-export type CardDescriptionProps = React.ComponentProps<"p">;
+export type CardDescriptionProps = React.ComponentProps<"p"> &
+  ElementRenderProps<"p">;
 
 export const CardDescription: React.FC<CardDescriptionProps> = ({
   className,
+  render,
   ...props
-}) => <p className={cn("ginga-card-description", className)} {...props} />;
+}) =>
+  renderElement("p", render, {
+    className: cn("ginga-card-description", className),
+    ...props,
+  });
 
-export type CardContentProps = React.ComponentProps<"div">;
+export type CardContentProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
 export const CardContent: React.FC<CardContentProps> = ({
   className,
+  render,
   ...props
-}) => <div className={cn("ginga-card-content", className)} {...props} />;
+}) =>
+  renderElement("div", render, {
+    className: cn("ginga-card-content", className),
+    ...props,
+  });
 
-export type CardFooterProps = React.ComponentProps<"div">;
+export type CardFooterProps = React.ComponentProps<"div"> &
+  ElementRenderProps<"div">;
 
 export const CardFooter: React.FC<CardFooterProps> = ({
   className,
+  render,
   ...props
-}) => <div className={cn("ginga-card-footer", className)} {...props} />;
+}) =>
+  renderElement("div", render, {
+    className: cn("ginga-card-footer", className),
+    ...props,
+  });
