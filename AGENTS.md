@@ -102,7 +102,7 @@ TypeScriptパスマッピングを使用:
    - `provider: "browser"` — Gemini Nano。APIキー不要でブラウザ内でのみ動作するため、Client Component から呼ぶ。`@browser-ai/core` は動的 import して読み込む
 
 2. **テーマ生成フロー**:
-   - LLMの呼び出しは1回のみでリトライしない。検証と補正は `ai/theme.ts` に置き、api.newt239.dev の `src/libs/theme.ts` と同じ方式にそろえる
+   - LLMの呼び出しは1回のみでリトライしない。検証と補正は `ai/theme.ts` に置く
    - 色は OKLCH の `L C H`、寸法は単位なしの数値（範囲付き）、`--font-family` は候補からの選択で受け取り、形式や範囲に合わない値は変数ごとに既定値へ置き換える。生成値をそのまま CSS に連結しない
    - culori でコントラスト比を判定し、文字色（`--color-secondary`）は背景に対して4.5:1、アクセント色（`--color-primary`）は3:1を下回ると、色相を保ったまま明度を二分探索で補正する
    - プライマリ・セカンダリカラーの中間色スケール（0-9）を背景色との OKLCH 補間で生成
