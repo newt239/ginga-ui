@@ -7,11 +7,15 @@ import "./index.css";
 
 import type { ButtonSize, ButtonVariant } from "../button";
 import type { OmitStrict } from "@ginga-ui/utils";
+import type { LinkRenderProps } from "react-aria-components";
 
-export type AnchorProps = OmitStrict<
-  React.ComponentProps<typeof AriaLink>,
-  "isDisabled"
-> & {
+type AriaLinkProps = React.ComponentProps<typeof AriaLink>;
+
+export type AnchorProps = OmitStrict<AriaLinkProps, "isDisabled" | "render"> & {
+  render?: (
+    props: React.ComponentProps<"a"> & { href: string },
+    renderProps: LinkRenderProps
+  ) => React.ReactElement;
   variant?: "default" | "button";
   buttonVariant?: ButtonVariant;
   size?: ButtonSize;
@@ -29,8 +33,18 @@ export const Anchor: React.FC<AnchorProps> = ({
   endIcon,
   className,
   children,
+  render,
   ...props
 }) => {
+  const renderLink: AriaLinkProps["render"] =
+    render &&
+    ((domProps, renderProps) =>
+      "href" in domProps ? (
+        render(domProps, renderProps)
+      ) : (
+        <span {...domProps} />
+      ));
+
   if (variant === "button") {
     return (
       <AriaLink
@@ -38,6 +52,7 @@ export const Anchor: React.FC<AnchorProps> = ({
         data-size={size}
         isDisabled={disabled}
         className={composeRenderProps(className, (c) => cn("ginga-button", c))}
+        render={renderLink}
         {...props}
       >
         {(renderProps) => (
@@ -55,6 +70,7 @@ export const Anchor: React.FC<AnchorProps> = ({
     <AriaLink
       isDisabled={disabled}
       className={composeRenderProps(className, (c) => cn("ginga-anchor", c))}
+      render={renderLink}
       {...props}
     >
       {children}
