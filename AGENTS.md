@@ -86,9 +86,9 @@ TypeScriptパスマッピングを使用:
 ### ビルドシステム
 
 - **バンドラー**: tsdown（Rolldownベース）
-- **出力**: CommonJS（`.cjs`）とESM（`.js`）形式
+- **出力**: ESM（`.js`）のみ。CommonJS は配布しない
 - **型定義**: `dts: true`で生成（`build:fast`は`--no-dts`でスキップ）
-- **CSS処理**: `@tsdown/css`が各コンポーネントのCSSを`dist/index.css`にバンドル。`variables.css`は`onSuccess`フックでdistにコピー
+- **CSS処理**: `@tsdown/css`が各コンポーネントのCSSを`dist/components/<name>/index.css`に出力し、各コンポーネントのJSから import する。`variables.css`は`onSuccess`フックでdistにコピー
 - **クライアントコンポーネント**: Next.js App Routerとの互換性のため、全コンポーネントに`"use client"`バナーを付与
 
 ### テーマ生成システム
@@ -102,12 +102,11 @@ TypeScriptパスマッピングを使用:
    - `provider: "browser"` — Gemini Nano。APIキー不要でブラウザ内でのみ動作するため、Client Component から呼ぶ。`@browser-ai/core` は動的 import して読み込む
 
 2. **テーマ生成フロー**:
-   - LLMがプロンプトに基づいてCSS変数を生成
-   - chroma-jsを使用してコントラスト比（最低3:1）を検証
-   - コントラスト検証に失敗した場合は最大3回リトライ
-   - 最大リトライ回数に達した場合は色を調整してコントラストを強制
-   - プライマリ・セカンダリカラーの中間色スケール（0-9）を生成
-   - `<style>`タグで適用可能なCSSコードを返す
+   - LLMの呼び出しは1回のみでリトライしない。検証と補正は `ai/theme.ts` に置き、api.newt239.dev の `src/libs/theme.ts` と同じ方式にそろえる
+   - 色は OKLCH の `L C H`、寸法は単位なしの数値（範囲付き）、`--font-family` は候補からの選択で受け取り、形式や範囲に合わない値は変数ごとに既定値へ置き換える。生成値をそのまま CSS に連結しない
+   - culori でコントラスト比を判定し、文字色（`--color-secondary`）は背景に対して4.5:1、アクセント色（`--color-primary`）は3:1を下回ると、色相を保ったまま明度を二分探索で補正する
+   - プライマリ・セカンダリカラーの中間色スケール（0-9）を背景色との OKLCH 補間で生成
+   - 成功時は `<style>`タグで適用可能な `CSSCode`、失敗時は `message` を持つ判別 union を返す
    - `getBrowserAIAvailability()` で Gemini Nano が使えるかを判定できる
 
 3. **CSS変数システム**:
@@ -133,6 +132,8 @@ TypeScriptパスマッピングを使用:
 - `src/`ディレクトリにソースコード（通常`component-name.tsx`と`index.ts`）
 - `src/`にCSSファイル（distにエクスポート）
 - `packages/core/src/index.ts`から再エクスポート
+- RAC の `className` は関数を受け取りうるため `cn()` に直接渡さず、`composeRenderProps(className, (c) => cn("ginga-xxx", c))` で合成する
+- 状態系の props は RAC の `isDisabled` などではなく `disabled` / `required` / `selected` / `readOnly` / `invalid` / `expanded` / `dismissable` で公開する
 - `@ginga-ui/core`の一部としてまとめてビルドされる
 
 ### クライアントサイドの安全性
@@ -152,4 +153,4 @@ APIキーはVercel AI SDKが環境変数から読み込みます。クライア�
 - **TypeScript**: strictモード有効、ESNextターゲット
 - **Linting**: oxlint（Rustベースのリンター）、型を考慮したチェック
 - **Formatting**: oxfmt（Rustベースのフォーマッター）
-- **Reactバージョン**: 18以上必須（devDependenciesでは19以上）
+- **Reactバージョン**: 19以上必須。`forwardRef` は使わず ref を props として受け取る
