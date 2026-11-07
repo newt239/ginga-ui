@@ -2,6 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import {
+  composeRenderProps,
   Tab as AriaTab,
   TabList as AriaTabList,
   TabPanel as AriaTabPanel,
@@ -11,13 +12,18 @@ import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-export type TabsProps = React.ComponentProps<typeof AriaTabs> & {
+export type TabsProps = OmitStrict<
+  React.ComponentProps<typeof AriaTabs>,
+  "isDisabled"
+> & {
   orientation?: "horizontal" | "vertical";
   fullWidth?: boolean;
+  disabled?: boolean;
 };
 
 export const Tabs: React.FC<TabsProps> = ({
   children,
+  disabled,
   className,
   orientation = "horizontal",
   fullWidth = false,
@@ -25,7 +31,8 @@ export const Tabs: React.FC<TabsProps> = ({
 }) => {
   return (
     <AriaTabs
-      className={cn("ginga-tabs", className)}
+      isDisabled={disabled}
+      className={composeRenderProps(className, (c) => cn("ginga-tabs", c))}
       orientation={orientation}
       data-full-width={fullWidth || undefined}
       {...props}
@@ -51,7 +58,7 @@ export const Tab: React.FC<TabProps> = ({
   return (
     <AriaTab
       isDisabled={disabled}
-      className={cn("ginga-tab", className)}
+      className={composeRenderProps(className, (c) => cn("ginga-tab", c))}
       {...props}
     >
       {children}
@@ -67,7 +74,10 @@ export const TabList: React.FC<TabListProps> = ({
   ...props
 }) => {
   return (
-    <AriaTabList className={cn("ginga-tab-list", className)} {...props}>
+    <AriaTabList
+      className={composeRenderProps(className, (c) => cn("ginga-tab-list", c))}
+      {...props}
+    >
       {children}
     </AriaTabList>
   );
@@ -81,7 +91,10 @@ export const TabPanel: React.FC<TabPanelProps> = ({
   ...props
 }) => {
   return (
-    <AriaTabPanel className={cn("ginga-tab-panel", className)} {...props}>
+    <AriaTabPanel
+      className={composeRenderProps(className, (c) => cn("ginga-tab-panel", c))}
+      {...props}
+    >
       {children}
     </AriaTabPanel>
   );

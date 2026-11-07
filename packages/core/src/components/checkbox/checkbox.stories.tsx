@@ -43,8 +43,20 @@ export const DisabledSelected: Story = {
   },
 };
 
+export const WithChildren: Story = {
+  args: {
+    children: (
+      <span>
+        <strong>利用規約</strong>に同意する
+      </span>
+    ),
+  },
+};
+
 export const WithoutLabel: Story = {
-  args: {},
+  args: {
+    "aria-label": "ラベルなしのチェックボックス",
+  },
 };
 
 // TODO: must specify the value prop for each Checkbox

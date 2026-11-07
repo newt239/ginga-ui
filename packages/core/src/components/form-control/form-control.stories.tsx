@@ -18,14 +18,14 @@ type Story = StoryObj<typeof FormControl>;
 
 export const Default: Story = {
   args: {
-    title: "フォームコントロール名",
+    label: "フォームコントロール名",
     children: <Input placeholder="プレースホルダーを表示できます" />,
   },
 };
 
 export const WithCustomId: Story = {
   args: {
-    title: "Email",
+    label: "Email",
     htmlFor: "custom-email-id",
     children: (
       <Input id="custom-email-id" type="email" placeholder="Enter your email" />
@@ -52,7 +52,7 @@ export const withOpenAITheme: Story = {
 
     return (
       <>
-        <FormControl title="With OpenAI Generated Theme">
+        <FormControl label="With OpenAI Generated Theme">
           <Input
             placeholder="fantasy theme"
             value={value}
@@ -87,7 +87,7 @@ export const withGeminiTheme: Story = {
 
     return (
       <>
-        <FormControl title="With Gemini Generated Theme">
+        <FormControl label="With Gemini Generated Theme">
           <Input
             placeholder="fairy tale"
             value={value}
@@ -122,7 +122,7 @@ export const withAnthropicTheme: Story = {
 
     return (
       <>
-        <FormControl title="With Anthropic Generated Theme">
+        <FormControl label="With Anthropic Generated Theme">
           <Input
             placeholder="sci-fi theme"
             value={value}

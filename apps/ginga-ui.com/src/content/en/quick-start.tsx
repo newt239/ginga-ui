@@ -12,12 +12,12 @@ export default async function RootLayout({
 }) {
   // Generate a theme on the server (optional)
   const themeClient = new ThemeClient({ provider: "openai" });
-  const { CSSCode } = await themeClient.generateTheme("Modern and clean design");
+  const result = await themeClient.generateTheme("Modern and clean design");
 
   return (
     <html lang="en">
       <body>
-        <style>{CSSCode}</style>
+        {result.type === "success" && <style>{result.CSSCode}</style>}
         {children}
       </body>
     </html>
@@ -29,7 +29,7 @@ const PAGE_EXAMPLE = `import { Heading, Paragraph, Button } from "@ginga-ui/core
 export default function Home() {
   return (
     <main>
-      <Heading level="h1">Welcome to Ginga UI</Heading>
+      <Heading level={1}>Welcome to Ginga UI</Heading>
       <Paragraph>This page uses an AI-generated theme.</Paragraph>
       <Button variant="filled">Get started</Button>
     </main>
@@ -39,14 +39,14 @@ export default function Home() {
 export async function QuickStartContent() {
   return (
     <article>
-      <Heading level="h1">Quick Start</Heading>
+      <Heading level={1}>Quick Start</Heading>
       <Paragraph>
         A short guide to getting started with Ginga UI. You can start using its
         UI components in just three steps.
       </Paragraph>
 
       <section className="docs-section">
-        <Heading level="h2" id="install">
+        <Heading level={2} id="install">
           1. Installation
         </Heading>
         <Paragraph>Install Ginga UI with your package manager.</Paragraph>
@@ -61,7 +61,7 @@ yarn add @ginga-ui/core`}
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="import-variables">
+        <Heading level={2} id="import-variables">
           2. Import CSS variables
         </Heading>
         <Paragraph>
@@ -77,7 +77,7 @@ yarn add @ginga-ui/core`}
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="use-components">
+        <Heading level={2} id="use-components">
           3. Use components
         </Heading>
         <Paragraph>
@@ -97,7 +97,7 @@ yarn add @ginga-ui/core`}
 export default function App() {
   return (
     <Card>
-      <Heading level="h2">My first Ginga UI app</Heading>
+      <Heading level={2}>My first Ginga UI app</Heading>
       <DialogTrigger>
         <Button variant="filled">Click me</Button>
         <Modal>
@@ -115,7 +115,7 @@ export default function App() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="nextjs-example">
+        <Heading level={2} id="nextjs-example">
           Complete example with the Next.js App Router
         </Heading>
         <Paragraph>
@@ -131,7 +131,7 @@ export default function App() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="next-steps">
+        <Heading level={2} id="next-steps">
           Next steps
         </Heading>
         <ul>

@@ -1,4 +1,4 @@
-.ginga-modal {
+.ginga-modal-overlay {
   position: fixed;
   inset: 0;
   z-index: 100;
@@ -16,6 +16,10 @@
   &[data-exiting] {
     animation: ginga-modal-fade var(--duration) var(--easing) reverse;
   }
+}
+
+.ginga-modal {
+  display: contents;
 }
 
 .ginga-dialog {

@@ -3,6 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import {
   Button as AriaButton,
+  composeRenderProps,
   Disclosure,
   DisclosureGroup,
   DisclosurePanel,
@@ -10,35 +11,66 @@ import {
 } from "react-aria-components";
 import "./index.css";
 
-export type AccordionProps = React.ComponentProps<typeof DisclosureGroup>;
+import type { OmitStrict } from "@ginga-ui/utils";
+
+export type AccordionProps = OmitStrict<
+  React.ComponentProps<typeof DisclosureGroup>,
+  "isDisabled"
+> & {
+  disabled?: boolean;
+};
 
 export const Accordion: React.FC<AccordionProps> = ({
   children,
   className,
+  disabled,
   ...props
 }) => {
   return (
-    <DisclosureGroup className={cn("ginga-accordion", className)} {...props}>
+    <DisclosureGroup
+      className={composeRenderProps(className, (c) => cn("ginga-accordion", c))}
+      isDisabled={disabled}
+      {...props}
+    >
       {children}
     </DisclosureGroup>
   );
 };
 
-export type AccordionItemProps = React.ComponentProps<typeof Disclosure>;
+export type AccordionItemProps = OmitStrict<
+  React.ComponentProps<typeof Disclosure>,
+  "isDisabled" | "isExpanded"
+> & {
+  disabled?: boolean;
+  expanded?: boolean;
+};
 
 export const AccordionItem: React.FC<AccordionItemProps> = ({
   children,
   className,
+  disabled,
+  expanded,
   ...props
 }) => {
   return (
-    <Disclosure className={cn("ginga-accordion-item", className)} {...props}>
+    <Disclosure
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-accordion-item", c)
+      )}
+      isDisabled={disabled}
+      isExpanded={expanded}
+      {...props}
+    >
       {children}
     </Disclosure>
   );
 };
 
-export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton> & {
+export type AccordionTriggerProps = OmitStrict<
+  React.ComponentProps<typeof AriaButton>,
+  "isDisabled"
+> & {
+  disabled?: boolean;
   level?: 2 | 3 | 4 | 5 | 6;
   icon?: React.ReactNode;
 };
@@ -46,6 +78,7 @@ export type AccordionTriggerProps = React.ComponentProps<typeof AriaButton> & {
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
   children,
   className,
+  disabled,
   level = 3,
   icon,
   ...props
@@ -54,7 +87,10 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
     <AriaHeading level={level} className="ginga-accordion-heading">
       <AriaButton
         slot="trigger"
-        className={cn("ginga-accordion-trigger", className)}
+        className={composeRenderProps(className, (c) =>
+          cn("ginga-accordion-trigger", c)
+        )}
+        isDisabled={disabled}
         {...props}
       >
         {(renderProps) => (
@@ -87,7 +123,9 @@ export const AccordionContent: React.FC<AccordionContentProps> = ({
 }) => {
   return (
     <DisclosurePanel
-      className={cn("ginga-accordion-content", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-accordion-content", c)
+      )}
       {...props}
     >
       <div className="ginga-accordion-content-inner">{children}</div>

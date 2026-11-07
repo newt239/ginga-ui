@@ -8,7 +8,7 @@ export function BasicExample() {
 }
 
 export function SelectedExample() {
-  return <Checkbox label="Selected by default" selected />;
+  return <Checkbox label="Selected by default" defaultSelected />;
 }
 
 export function DisabledExample() {

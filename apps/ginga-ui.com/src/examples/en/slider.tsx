@@ -1,11 +1,17 @@
 "use client";
 
-import { Slider, SliderOutput, SliderThumb, SliderTrack } from "@ginga-ui/core";
+import {
+  Slider,
+  SliderLabel,
+  SliderOutput,
+  SliderThumb,
+  SliderTrack,
+} from "@ginga-ui/core";
 
 export function BasicExample() {
   return (
     <Slider defaultValue={50}>
-      <div>Volume</div>
+      <SliderLabel>Volume</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -17,7 +23,7 @@ export function BasicExample() {
 export function CustomRangeExample() {
   return (
     <Slider defaultValue={0} minValue={-50} maxValue={50}>
-      <div>Balance</div>
+      <SliderLabel>Balance</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -29,7 +35,7 @@ export function CustomRangeExample() {
 export function RangeExample() {
   return (
     <Slider defaultValue={[20, 80]}>
-      <div>Price range</div>
+      <SliderLabel>Price range</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb index={0} />
@@ -42,7 +48,7 @@ export function RangeExample() {
 export function WithStepsExample() {
   return (
     <Slider defaultValue={50} step={10}>
-      <div>Volume level (steps of 10)</div>
+      <SliderLabel>Volume level (steps of 10)</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -53,8 +59,8 @@ export function WithStepsExample() {
 
 export function DisabledExample() {
   return (
-    <Slider defaultValue={50} isDisabled>
-      <div>Disabled slider</div>
+    <Slider defaultValue={50} disabled>
+      <SliderLabel>Disabled slider</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />

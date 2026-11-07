@@ -1,23 +1,30 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-import { RadioGroup as AriaRadioGroup } from "react-aria-components";
+import {
+  composeRenderProps,
+  RadioGroup as AriaRadioGroup,
+} from "react-aria-components";
 import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
 export type RadioGroupProps = OmitStrict<
   React.ComponentProps<typeof AriaRadioGroup>,
-  "isDisabled" | "isRequired"
+  "isDisabled" | "isRequired" | "isReadOnly" | "isInvalid"
 > & {
   disabled?: boolean;
   required?: boolean;
+  readOnly?: boolean;
+  invalid?: boolean;
 };
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
   children,
   disabled,
   required,
+  readOnly,
+  invalid,
   className,
   ...props
 }) => {
@@ -25,7 +32,11 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     <AriaRadioGroup
       isDisabled={disabled}
       isRequired={required}
-      className={cn("ginga-radio-group", className)}
+      isReadOnly={readOnly}
+      isInvalid={invalid}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-radio-group", c)
+      )}
       {...props}
     >
       {children}

@@ -13,42 +13,42 @@ type Story = StoryObj<typeof Heading>;
 
 export const FirstStory: Story = {
   args: {
-    level: "h1",
+    level: 1,
     children: "Heading 1",
   },
 };
 
 export const SecondStory: Story = {
   args: {
-    level: "h2",
+    level: 2,
     children: "Heading 2",
   },
 };
 
 export const ThirdStory: Story = {
   args: {
-    level: "h3",
+    level: 3,
     children: "Heading 3",
   },
 };
 
 export const FourthStory: Story = {
   args: {
-    level: "h4",
+    level: 4,
     children: "Heading 4",
   },
 };
 
 export const FifthStory: Story = {
   args: {
-    level: "h5",
+    level: 5,
     children: "Heading 5",
   },
 };
 
 export const SixthStory: Story = {
   args: {
-    level: "h6",
+    level: 6,
     children: "Heading 6",
   },
 };

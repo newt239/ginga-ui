@@ -21,7 +21,7 @@ export default async function Home({
 
   return (
     <article>
-      <Heading level="h1" className={styles.title}>
+      <Heading level={1} className={styles.title}>
         Ginga UI
       </Heading>
       <Image

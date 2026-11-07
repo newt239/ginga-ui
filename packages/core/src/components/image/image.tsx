@@ -3,14 +3,17 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+import type { OmitStrict } from "@ginga-ui/utils";
+
+export type ImageProps = OmitStrict<React.ComponentProps<"img">, "alt"> & {
+  alt: string;
   variant?: "default" | "avatar";
 };
 
 export const Image: React.FC<ImageProps> = ({
   className,
   variant = "default",
-  alt = "",
+  alt,
   ...props
 }) => {
   return (

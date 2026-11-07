@@ -16,7 +16,7 @@ import styles from "../form-control.module.css";
 
 export function BasicExample() {
   return (
-    <FormControl className={styles.basicField} title="ユーザー名">
+    <FormControl className={styles.basicField} label="ユーザー名">
       <Input placeholder="ユーザー名を入力" />
     </FormControl>
   );
@@ -26,7 +26,7 @@ export function WithIdExample() {
   return (
     <FormControl
       className={styles.idField}
-      title="メールアドレス"
+      label="メールアドレス"
       htmlFor="email-input"
     >
       <Input id="email-input" type="email" placeholder="example@email.com" />
@@ -37,13 +37,13 @@ export function WithIdExample() {
 export function MultipleFieldsExample() {
   return (
     <div className={styles.fieldList}>
-      <FormControl title="名前">
+      <FormControl label="名前">
         <Input placeholder="山田 太郎" />
       </FormControl>
-      <FormControl title="メールアドレス">
+      <FormControl label="メールアドレス">
         <Input type="email" placeholder="example@email.com" />
       </FormControl>
-      <FormControl title="パスワード">
+      <FormControl label="パスワード">
         <Input type="password" placeholder="8文字以上" />
       </FormControl>
     </div>
@@ -62,10 +62,10 @@ export function FormExample() {
           setSubmitted(true);
         }}
       >
-        <FormControl title="お名前" htmlFor="name">
+        <FormControl label="お名前" htmlFor="name">
           <Input id="name" required />
         </FormControl>
-        <FormControl title="メールアドレス" htmlFor="email">
+        <FormControl label="メールアドレス" htmlFor="email">
           <Input id="email" type="email" required />
         </FormControl>
         <Button

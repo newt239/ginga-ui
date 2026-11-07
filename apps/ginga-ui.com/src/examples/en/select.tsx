@@ -28,7 +28,7 @@ export function DisabledOptionsExample() {
     >
       <SelectItem id="dog">Dog</SelectItem>
       <SelectItem id="cat">Cat</SelectItem>
-      <SelectItem id="hamster" isDisabled>
+      <SelectItem id="hamster" disabled>
         Hamster (out of stock)
       </SelectItem>
       <SelectItem id="parrot">Parrot</SelectItem>

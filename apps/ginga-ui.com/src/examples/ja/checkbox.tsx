@@ -8,7 +8,7 @@ export function BasicExample() {
 }
 
 export function SelectedExample() {
-  return <Checkbox label="デフォルトで選択" selected />;
+  return <Checkbox label="デフォルトで選択" defaultSelected />;
 }
 
 export function DisabledExample() {

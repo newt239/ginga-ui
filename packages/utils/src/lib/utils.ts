@@ -1,13 +1,5 @@
-type ClassName =
-  | string
-  | undefined
-  | null
-  | false
-  | ((...args: never[]) => string);
+type ClassName = string | undefined | null | false;
 
 export function cn(...args: ClassName[]): string {
-  return args
-    .map((arg) => (typeof arg === "function" ? arg() : arg))
-    .filter(Boolean)
-    .join(" ");
+  return args.filter(Boolean).join(" ");
 }

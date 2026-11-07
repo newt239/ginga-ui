@@ -3,11 +3,12 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export interface ListProps extends React.HTMLAttributes<
-  HTMLUListElement | HTMLOListElement
-> {
+import type { OmitStrict } from "@ginga-ui/utils";
+
+export type ListProps = OmitStrict<React.ComponentProps<"ul">, "ref"> & {
   type?: "ordered" | "unordered";
-}
+  ref?: React.Ref<HTMLUListElement & HTMLOListElement>;
+};
 
 export const List: React.FC<ListProps> = ({
   type = "unordered",
@@ -25,7 +26,7 @@ export const List: React.FC<ListProps> = ({
   );
 };
 
-export type ListItemProps = React.HTMLAttributes<HTMLLIElement>;
+export type ListItemProps = React.ComponentProps<"li">;
 
 export const ListItem: React.FC<ListItemProps> = ({ className, ...props }) => {
   return <li className={cn("ginga-list-item", className)} {...props} />;

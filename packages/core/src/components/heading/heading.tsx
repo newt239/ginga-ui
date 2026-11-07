@@ -3,8 +3,10 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export type HeadingProps = React.HTMLAttributes<HTMLHeadingElement> & {
-  level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+
+export type HeadingProps = React.ComponentProps<"h1"> & {
+  level: HeadingLevel;
 };
 
 export const Heading: React.FC<HeadingProps> = ({
@@ -13,14 +15,10 @@ export const Heading: React.FC<HeadingProps> = ({
   children,
   ...props
 }) => {
-  const Component = level;
+  const Component = `h${level}` as const;
   return (
     <Component
-      className={cn(
-        "ginga-heading",
-        `ginga-heading-level-${level.slice(1)}`,
-        className
-      )}
+      className={cn("ginga-heading", `ginga-heading-level-${level}`, className)}
       {...props}
     >
       {children}

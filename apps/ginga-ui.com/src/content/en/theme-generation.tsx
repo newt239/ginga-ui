@@ -15,7 +15,7 @@ const CSS_VARIABLES = [
 export async function ThemeGenerationContent() {
   return (
     <article>
-      <Heading level="h1">Theme Generation</Heading>
+      <Heading level={1}>Theme Generation</Heading>
       <Paragraph>
         The defining feature of Ginga UI is automatic theme generation powered
         by LLMs. Just enter a prompt, and AI generates CSS variables that
@@ -23,7 +23,7 @@ export async function ThemeGenerationContent() {
       </Paragraph>
 
       <section className="docs-section">
-        <Heading level="h2" id="live-demo">
+        <Heading level={2} id="live-demo">
           Live demo
         </Heading>
         <Paragraph>
@@ -38,7 +38,7 @@ export async function ThemeGenerationContent() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="server-side">
+        <Heading level={2} id="server-side">
           Server-side usage
         </Heading>
         <Paragraph>
@@ -46,7 +46,7 @@ export async function ThemeGenerationContent() {
           This keeps your API key private and also improves SEO and performance.
         </Paragraph>
 
-        <Heading level="h3" id="environment-variables">
+        <Heading level={3} id="environment-variables">
           Setting environment variables
         </Heading>
         <Paragraph>
@@ -63,7 +63,7 @@ ANTHROPIC_API_KEY=...`}
           lang="bash"
         />
 
-        <Heading level="h3" id="nextjs-example">
+        <Heading level={3} id="nextjs-example">
           Example with the Next.js App Router
         </Heading>
         <HighlightedCodeBlock
@@ -79,14 +79,14 @@ export default async function RootLayout({
     provider: "openai",
   });
 
-  const { CSSCode } = await themeClient.generateTheme(
+  const result = await themeClient.generateTheme(
     "Mysteries of the universe"
   );
 
   return (
     <html lang="en">
       <body>
-        <style>{CSSCode}</style>
+        {result.type === "success" && <style>{result.CSSCode}</style>}
         {children}
       </body>
     </html>
@@ -97,7 +97,7 @@ export default async function RootLayout({
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="browser">
+        <Heading level={2} id="browser">
           In-browser usage
         </Heading>
         <Paragraph>
@@ -136,13 +136,15 @@ export function BrowserThemeButton() {
 
     const themeClient = new ThemeClient({ provider: "browser" });
 
-    const { CSSCode } = await themeClient.generateTheme("Stillness of the deep sea", {
+    const result = await themeClient.generateTheme("Stillness of the deep sea", {
       onDownloadProgress: (progress) => {
         console.log(\`Downloading: \${Math.round(progress * 100)}%\`);
       },
     });
 
-    setCss(CSSCode);
+    if (result.type === "success") {
+      setCss(result.CSSCode);
+    }
   };
 
   return (
@@ -157,7 +159,7 @@ export function BrowserThemeButton() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="providers">
+        <Heading level={2} id="providers">
           Supported LLM providers
         </Heading>
         <Paragraph>
@@ -168,7 +170,7 @@ export function BrowserThemeButton() {
         </Paragraph>
 
         <div>
-          <Heading level="h3" id="provider-openai">
+          <Heading level={3} id="provider-openai">
             OpenAI
           </Heading>
           <ul>
@@ -183,7 +185,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-google">
+          <Heading level={3} id="provider-google">
             Google Gemini
           </Heading>
           <ul>
@@ -198,7 +200,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-anthropic">
+          <Heading level={3} id="provider-anthropic">
             Anthropic Claude
           </Heading>
           <ul>
@@ -213,7 +215,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-browser">
+          <Heading level={3} id="provider-browser">
             Gemini Nano
           </Heading>
           <ul>
@@ -229,13 +231,15 @@ export function BrowserThemeButton() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="css-variables">
+        <Heading level={2} id="css-variables">
           Generated CSS variables
         </Heading>
         <Paragraph>
-          ThemeClient generates the following CSS variables. Their contrast
-          ratios are verified automatically and adjusted to meet accessibility
-          standards.
+          ThemeClient generates the following CSS variables. Each generated
+          value is checked for format and range, and invalid values fall back to
+          the defaults. The text color is adjusted to at least 4.5:1 and the
+          accent color to at least 3:1 against the background by changing only
+          their lightness.
         </Paragraph>
 
         <div className={styles.tableContainer}>

@@ -1,7 +1,10 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-import { Button as AriaButton } from "react-aria-components";
+import {
+  Button as AriaButton,
+  composeRenderProps,
+} from "react-aria-components";
 import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
@@ -31,14 +34,14 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   variant = "filled",
   size = "md",
-  disabled = false,
+  disabled,
   startIcon,
   endIcon,
   ...props
 }) => {
   return (
     <AriaButton
-      className={cn("ginga-button", className)}
+      className={composeRenderProps(className, (c) => cn("ginga-button", c))}
       data-variant={variant}
       data-size={size}
       isDisabled={disabled}

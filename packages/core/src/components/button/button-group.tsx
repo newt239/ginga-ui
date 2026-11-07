@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-import { Group } from "react-aria-components";
+import { composeRenderProps, Group } from "react-aria-components";
 import "./index.css";
 
 export type ButtonGroupProps = React.ComponentProps<typeof Group>;
@@ -12,7 +12,12 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({
   ...props
 }) => {
   return (
-    <Group className={cn("ginga-button-group", className)} {...props}>
+    <Group
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-button-group", c)
+      )}
+      {...props}
+    >
       {children}
     </Group>
   );

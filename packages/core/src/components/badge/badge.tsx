@@ -3,7 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> & {
+export type BadgeProps = React.ComponentProps<"span"> & {
   variant?: "primary" | "secondary" | "info" | "success" | "warning" | "danger";
 };
 

@@ -22,10 +22,14 @@ jobs:
       - name: Type check
         run: pnpm exec tsc --noEmit
       - name: Oxlint
-        run: pnpm run lint
+        run: pnpm exec oxlint --type-aware --deny-warnings
       - name: Oxfmt
-        run: pnpm run format
+        run: pnpm exec oxfmt --check .
       - name: Stylelint
-        run: pnpm run stylelint
+        run: pnpm exec stylelint "./**/*.css"
       - name: Knip
         run: pnpm run knip
+      - name: Test
+        run: pnpm test
+      - name: Build
+        run: pnpm build

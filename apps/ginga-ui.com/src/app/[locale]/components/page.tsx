@@ -26,7 +26,7 @@ export default async function ComponentsPage({
 
   return (
     <article>
-      <Heading level="h1">{nav.allComponents}</Heading>
+      <Heading level={1}>{nav.allComponents}</Heading>
       <p className="docs-lead">{components.lead(COMPONENTS.length)}</p>
 
       <Tabs className={styles.tabs}>

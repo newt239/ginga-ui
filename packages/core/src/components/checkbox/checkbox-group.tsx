@@ -1,19 +1,42 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-import { CheckboxGroup as AriaCheckboxGroup } from "react-aria-components";
+import {
+  CheckboxGroup as AriaCheckboxGroup,
+  composeRenderProps,
+} from "react-aria-components";
 import "./index.css";
 
-export type CheckboxGroupProps = React.ComponentProps<typeof AriaCheckboxGroup>;
+import type { OmitStrict } from "@ginga-ui/utils";
+
+export type CheckboxGroupProps = OmitStrict<
+  React.ComponentProps<typeof AriaCheckboxGroup>,
+  "isDisabled" | "isRequired" | "isReadOnly" | "isInvalid"
+> & {
+  disabled?: boolean;
+  required?: boolean;
+  readOnly?: boolean;
+  invalid?: boolean;
+};
 
 export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({
   children,
   className,
+  disabled,
+  required,
+  readOnly,
+  invalid,
   ...props
 }) => {
   return (
     <AriaCheckboxGroup
-      className={cn("ginga-checkbox-group", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-checkbox-group", c)
+      )}
+      isDisabled={disabled}
+      isRequired={required}
+      isReadOnly={readOnly}
+      isInvalid={invalid}
       {...props}
     >
       {children}

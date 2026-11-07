@@ -16,7 +16,7 @@ import styles from "../form-control.module.css";
 
 export function BasicExample() {
   return (
-    <FormControl className={styles.basicField} title="Username">
+    <FormControl className={styles.basicField} label="Username">
       <Input placeholder="Enter your username" />
     </FormControl>
   );
@@ -26,7 +26,7 @@ export function WithIdExample() {
   return (
     <FormControl
       className={styles.idField}
-      title="Email address"
+      label="Email address"
       htmlFor="email-input"
     >
       <Input id="email-input" type="email" placeholder="example@email.com" />
@@ -37,13 +37,13 @@ export function WithIdExample() {
 export function MultipleFieldsExample() {
   return (
     <div className={styles.fieldList}>
-      <FormControl title="Name">
+      <FormControl label="Name">
         <Input placeholder="John Smith" />
       </FormControl>
-      <FormControl title="Email address">
+      <FormControl label="Email address">
         <Input type="email" placeholder="example@email.com" />
       </FormControl>
-      <FormControl title="Password">
+      <FormControl label="Password">
         <Input type="password" placeholder="At least 8 characters" />
       </FormControl>
     </div>
@@ -62,10 +62,10 @@ export function FormExample() {
           setSubmitted(true);
         }}
       >
-        <FormControl title="Full name" htmlFor="name">
+        <FormControl label="Full name" htmlFor="name">
           <Input id="name" required />
         </FormControl>
-        <FormControl title="Email address" htmlFor="email">
+        <FormControl label="Email address" htmlFor="email">
           <Input id="email" type="email" required />
         </FormControl>
         <Button

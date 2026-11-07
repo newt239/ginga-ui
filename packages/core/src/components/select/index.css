@@ -52,6 +52,20 @@
   }
 }
 
+.ginga-select[data-invalid] .ginga-select-button {
+  border-color: var(--color-danger);
+}
+
+.ginga-select-description {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.ginga-select-error {
+  font-size: 0.875rem;
+  color: var(--color-danger-dark);
+}
+
 .ginga-select-value {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -101,8 +115,9 @@
   max-height: 20rem;
   padding: 0.25rem;
   overflow-y: auto;
-  outline: var(--border-width) solid transparent;
+  outline: none;
   background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-control-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-overlay);
 
