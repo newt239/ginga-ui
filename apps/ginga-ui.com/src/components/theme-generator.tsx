@@ -11,7 +11,11 @@ import {
   Select,
   SelectItem,
 } from "@ginga-ui/core";
-import type { BrowserAIAvailability, ThemeProvider } from "@ginga-ui/utils";
+import type {
+  BrowserAIAvailability,
+  GenerateThemeResult,
+  ThemeProvider,
+} from "@ginga-ui/utils";
 import { CircleAlert, Info, Sparkles, TriangleAlert } from "lucide-react";
 import { useDictionary } from "#/i18n/locale-context";
 import { formatThemeApiError } from "#/lib/theme-api-error";
@@ -30,11 +34,7 @@ const MODELS: Record<ServerThemeProvider, string[]> = {
 
 const FREE_PROMPT_MAX_LENGTH = 200;
 
-type GenerateResult = {
-  type: "success" | "error";
-  CSSCode: string;
-  remaining?: number;
-};
+type GenerateResult = GenerateThemeResult & { remaining?: number };
 
 type FreeQuota = { model: string; limit: number; remaining: number };
 
@@ -163,7 +163,7 @@ export function ThemeGenerator() {
           styleEl.textContent = result.CSSCode;
         }
       } else {
-        setError(result.CSSCode);
+        setError(result.message);
       }
     } catch (e) {
       setError(e instanceof Error ? e.message : t.errors.generationFailed);
@@ -255,7 +255,7 @@ export function ThemeGenerator() {
           </Select>
 
           <FormControl
-            title={t.apiKey}
+            label={t.apiKey}
             htmlFor="api-key-input"
             className={styles.field}
           >
@@ -292,7 +292,7 @@ export function ThemeGenerator() {
       )}
 
       <FormControl
-        title={t.prompt}
+        label={t.prompt}
         htmlFor="theme-prompt-input"
         className={styles.field}
       >

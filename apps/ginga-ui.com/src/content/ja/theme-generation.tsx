@@ -15,14 +15,14 @@ const CSS_VARIABLES = [
 export async function ThemeGenerationContent() {
   return (
     <article>
-      <Heading level="h1">テーマ生成</Heading>
+      <Heading level={1}>テーマ生成</Heading>
       <Paragraph>
         Ginga
         UIの最大の特徴は、LLMを活用した自動テーマ生成機能です。プロンプトを入力するだけで、AIがCSS変数を生成してサイト全体のデザインを変更できます。
       </Paragraph>
 
       <section className="docs-section">
-        <Heading level="h2" id="live-demo">
+        <Heading level={2} id="live-demo">
           ライブデモ
         </Heading>
         <Paragraph>
@@ -33,14 +33,14 @@ export async function ThemeGenerationContent() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="server-side">
+        <Heading level={2} id="server-side">
           サーバーサイドでの使用
         </Heading>
         <Paragraph>
           本番環境では、サーバーサイドでテーマを生成することを強く推奨します。これによりAPIキーが露出せず、SEOやパフォーマンスも向上します。
         </Paragraph>
 
-        <Heading level="h3" id="environment-variables">
+        <Heading level={3} id="environment-variables">
           環境変数の設定
         </Heading>
         <Paragraph>
@@ -56,7 +56,7 @@ ANTHROPIC_API_KEY=...`}
           lang="bash"
         />
 
-        <Heading level="h3" id="nextjs-example">
+        <Heading level={3} id="nextjs-example">
           Next.js App Routerでの実装例
         </Heading>
         <HighlightedCodeBlock
@@ -72,14 +72,14 @@ export default async function RootLayout({
     provider: "openai",
   });
 
-  const { CSSCode } = await themeClient.generateTheme(
+  const result = await themeClient.generateTheme(
     "宇宙の神秘"
   );
 
   return (
     <html lang="ja">
       <body>
-        <style>{CSSCode}</style>
+        {result.type === "success" && <style>{result.CSSCode}</style>}
         {children}
       </body>
     </html>
@@ -90,7 +90,7 @@ export default async function RootLayout({
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="browser">
+        <Heading level={2} id="browser">
           ブラウザ内での使用
         </Heading>
         <Paragraph>
@@ -131,13 +131,15 @@ export function BrowserThemeButton() {
 
     const themeClient = new ThemeClient({ provider: "browser" });
 
-    const { CSSCode } = await themeClient.generateTheme("深海の静けさ", {
+    const result = await themeClient.generateTheme("深海の静けさ", {
       onDownloadProgress: (progress) => {
         console.log(\`ダウンロード中: \${Math.round(progress * 100)}%\`);
       },
     });
 
-    setCss(CSSCode);
+    if (result.type === "success") {
+      setCss(result.CSSCode);
+    }
   };
 
   return (
@@ -152,7 +154,7 @@ export function BrowserThemeButton() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="providers">
+        <Heading level={2} id="providers">
           サポートされているLLMプロバイダー
         </Heading>
         <Paragraph>
@@ -166,7 +168,7 @@ export function BrowserThemeButton() {
         </Paragraph>
 
         <div>
-          <Heading level="h3" id="provider-openai">
+          <Heading level={3} id="provider-openai">
             OpenAI
           </Heading>
           <ul>
@@ -181,7 +183,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-google">
+          <Heading level={3} id="provider-google">
             Google Gemini
           </Heading>
           <ul>
@@ -196,7 +198,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-anthropic">
+          <Heading level={3} id="provider-anthropic">
             Anthropic Claude
           </Heading>
           <ul>
@@ -211,7 +213,7 @@ export function BrowserThemeButton() {
             </li>
           </ul>
 
-          <Heading level="h3" id="provider-browser">
+          <Heading level={3} id="provider-browser">
             Gemini Nano
           </Heading>
           <ul>
@@ -228,11 +230,11 @@ export function BrowserThemeButton() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="css-variables">
+        <Heading level={2} id="css-variables">
           生成されるCSS変数
         </Heading>
         <Paragraph>
-          ThemeClientは以下のCSS変数を生成します。これらは自動的にコントラスト比が検証され、アクセシビリティ基準を満たすように調整されます。
+          ThemeClientは以下のCSS変数を生成します。生成された値は形式と範囲が検証され、不正な値は既定値に置き換えられます。文字色は背景色に対して4.5:1以上、アクセント色は3:1以上のコントラスト比になるよう、色相を保ったまま明度が補正されます。
         </Paragraph>
 
         <div className={styles.tableContainer}>

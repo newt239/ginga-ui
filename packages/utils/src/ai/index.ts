@@ -1,15 +1,19 @@
-import { anthropic, createAnthropic } from "@ai-sdk/anthropic";
-import { createGoogleGenerativeAI, google } from "@ai-sdk/google";
-import { createOpenAI, openai } from "@ai-sdk/openai";
 import { generateText, Output } from "ai";
-import chroma from "chroma-js";
 
-import { generateIntermediateColors } from "../lib/color";
-
-import { SYSTEM_PROMPT } from "./const";
-import { themeVariablesSchema, type ThemeVariables } from "./schema";
+import { themeVariablesSchema } from "./schema";
+import {
+  buildSystemPrompt,
+  buildThemeCSS,
+  checkConstraints,
+  repairConstraints,
+  THEME_CONSTRAINTS,
+  THEME_VARIABLES,
+  validateThemeValues,
+} from "./theme";
 
 export * from "./browser";
+export * from "./theme";
+export type { ThemeVariables } from "./schema";
 
 export const DEFAULT_MODELS = {
   openai: "gpt-6-luna",
@@ -31,20 +35,27 @@ export type ThemeClientConstructorProps = {
 export type DownloadProgressCallback = (progress: number) => void;
 
 export type GenerateThemeOptions = {
-  maxRetries?: number;
   onDownloadProgress?: DownloadProgressCallback;
 };
 
-export type GenerateThemeResult = {
-  readonly type: "success" | "error";
-  readonly CSSCode: string;
-};
+export type GenerateThemeResult =
+  | {
+      readonly type: "success";
+      readonly CSSCode: string;
+      readonly variables: Readonly<Record<string, string>>;
+      readonly violations: readonly string[];
+    }
+  | {
+      readonly type: "error";
+      readonly message: string;
+    };
+
+const SYSTEM_PROMPT = buildSystemPrompt(THEME_VARIABLES, THEME_CONSTRAINTS);
 
 export class ThemeClient {
   private provider: ThemeProvider;
   private model: string;
   private apiKey?: string;
-  private maxRetries: number = 3;
 
   constructor({ provider, model, apiKey }: ThemeClientConstructorProps) {
     if (!PROVIDERS.includes(provider)) {
@@ -59,18 +70,26 @@ export class ThemeClient {
     onDownloadProgress?: DownloadProgressCallback
   ) {
     switch (this.provider) {
-      case "openai":
+      case "openai": {
+        const { createOpenAI, openai } = await import("@ai-sdk/openai");
         return this.apiKey
           ? createOpenAI({ apiKey: this.apiKey })(this.model)
           : openai(this.model);
-      case "google":
+      }
+      case "google": {
+        const { createGoogleGenerativeAI, google } =
+          await import("@ai-sdk/google");
         return this.apiKey
           ? createGoogleGenerativeAI({ apiKey: this.apiKey })(this.model)
           : google(this.model);
-      case "anthropic":
+      }
+      case "anthropic": {
+        const { createAnthropic, anthropic } =
+          await import("@ai-sdk/anthropic");
         return this.apiKey
           ? createAnthropic({ apiKey: this.apiKey })(this.model)
           : anthropic(this.model);
+      }
       case "browser": {
         const { browserAI } = await import("@browser-ai/core");
         const model = browserAI("text");
@@ -86,146 +105,31 @@ export class ThemeClient {
     prompt: string,
     options?: GenerateThemeOptions
   ): Promise<GenerateThemeResult> {
-    if (options?.maxRetries) {
-      this.maxRetries = options.maxRetries;
-    }
-
-    let model;
     try {
-      model = await this.getLanguageModel(options?.onDownloadProgress);
-    } catch (e) {
-      const errorMessage =
-        e instanceof Error ? e.message : "Failed to prepare language model";
-      return { type: "error", CSSCode: errorMessage } as const;
-    }
-
-    for (let i = 0; i < this.maxRetries; i++) {
-      try {
-        const { output: object } = await generateText({
-          model,
-          output: Output.object({ schema: themeVariablesSchema }),
-          system: SYSTEM_PROMPT,
-          prompt,
-        });
-
-        const isPrimaryColorValid =
-          chroma.contrast(
-            object["--color-background"],
-            object["--color-primary"]
-          ) > 3;
-        const isSecondaryColorValid =
-          chroma.contrast(
-            object["--color-background"],
-            object["--color-secondary"]
-          ) > 3;
-
-        if (isPrimaryColorValid && isSecondaryColorValid) {
-          const CSSCode = this.adaptNewTheme(object);
-          return { type: "success", CSSCode } as const;
-        }
-
-        // 最後のリトライでコントラストを強制
-        if (i === this.maxRetries - 1) {
-          const enforcedVariables = {
-            ...object,
-            "--color-primary": this.enforceContrast(
-              object["--color-background"],
-              object["--color-primary"]
-            ),
-            "--color-secondary": this.enforceContrast(
-              object["--color-background"],
-              object["--color-secondary"]
-            ),
-          };
-
-          const CSSCode = this.adaptNewTheme(enforcedVariables);
-          return { type: "success", CSSCode } as const;
-        }
-      } catch (e) {
-        console.error(`Retry ${i + 1}/${this.maxRetries} failed:`, e);
-        if (i === this.maxRetries - 1) {
-          const errorMessage =
-            e instanceof Error ? e.message : "Failed to generate theme";
-          return { type: "error", CSSCode: errorMessage } as const;
-        }
-      }
-    }
-
-    return { type: "error", CSSCode: "Failed to generate theme" } as const;
-  }
-
-  enforceContrast(baseColor: string, targetColor: string): string {
-    let color = chroma(targetColor);
-    let contrast = chroma.contrast(color, baseColor);
-    let iterations = 0;
-    const maxIterations = 100;
-
-    while (contrast < 3 && iterations < maxIterations) {
-      if (chroma(baseColor).luminance() > 0.5) {
-        color = color.darken(0.1);
-      } else {
-        color = color.brighten(0.1);
-      }
-
-      const newContrast = chroma.contrast(color, baseColor);
-
-      // コントラストが改善していない場合は打ち切り
-      if (newContrast <= contrast) {
-        console.warn(`Contrast improvement stopped at: ${contrast}`);
-        break;
-      }
-
-      contrast = newContrast;
-      iterations++;
-    }
-
-    if (iterations >= maxIterations) {
-      console.warn(
-        `Max iterations reached: baseColor=${baseColor}, targetColor=${targetColor}`
-      );
-    }
-
-    return color.hex();
-  }
-
-  adaptNewTheme(variables: ThemeVariables): string {
-    const primaryColors = generateIntermediateColors(
-      variables["--color-background"],
-      variables["--color-primary"]
-    ).map((c, i) => ({ key: `--color-primary-${i}`, value: c }));
-
-    const secondaryColors = generateIntermediateColors(
-      variables["--color-background"],
-      variables["--color-secondary"]
-    ).map((c, i) => ({ key: `--color-secondary-${i}`, value: c }));
-
-    const colorScheme =
-      chroma(variables["--color-background"]).luminance() < 0.18
-        ? "dark"
-        : "light";
-
-    const allVariables = {
-      "color-scheme": colorScheme,
-      ...variables,
-      ...Object.fromEntries(primaryColors.map((c) => [c.key, c.value])),
-      ...Object.fromEntries(secondaryColors.map((c) => [c.key, c.value])),
-    };
-
-    // ブラウザ環境でCSS変数を設定
-    if (typeof window !== "undefined") {
-      const root = window.document.documentElement;
-      Object.entries(allVariables).forEach(([key, value]) => {
-        root.style.setProperty(key, value);
+      const model = await this.getLanguageModel(options?.onDownloadProgress);
+      const { output } = await generateText({
+        model,
+        output: Output.object({ schema: themeVariablesSchema }),
+        system: SYSTEM_PROMPT,
+        prompt,
       });
+      const values = validateThemeValues(THEME_VARIABLES, output);
+      const violations = checkConstraints(THEME_CONSTRAINTS, values);
+      const variables =
+        violations.length === 0
+          ? values
+          : repairConstraints(THEME_CONSTRAINTS, values);
+      return {
+        type: "success",
+        CSSCode: buildThemeCSS(THEME_VARIABLES, variables),
+        variables,
+        violations,
+      };
+    } catch (e) {
+      return {
+        type: "error",
+        message: e instanceof Error ? e.message : "Failed to generate theme",
+      };
     }
-
-    // CSSコードを生成
-    let CSSCode = ":root {\n";
-    Object.entries(allVariables).forEach(([key, value]) => {
-      CSSCode += `  ${key}: ${value};\n`;
-    });
-    CSSCode += "}";
-
-    return CSSCode;
   }
 }

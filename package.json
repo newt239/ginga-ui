@@ -40,7 +40,8 @@
     "knip": "knip",
     "docs": "pnpm --prefix apps/ginga-ui.com dev",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",
@@ -49,7 +50,7 @@
     "@storybook/react": "10.6.3",
     "@storybook/react-vite": "10.6.3",
     "@tsdown/css": "0.23.2",
-    "@types/chroma-js": "3.1.3",
+    "@types/culori": "4.0.1",
     "@types/node": "26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
@@ -66,7 +67,8 @@
     "tsdown": "0.23.2",
     "turbo": "2.11.10",
     "typescript": "7.0.2",
-    "vite": "8.3.5"
+    "vite": "8.3.5",
+    "vitest": "5.0.4"
   },
   "devEngines": {
     "runtime": {

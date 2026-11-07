@@ -52,7 +52,11 @@ async function generateWithFreeQuota(prompt: string) {
 
   const client = new ThemeClient({ provider: "openai", model: FREE_MODEL });
   const result = await client.generateTheme(prompt);
-  await recordFreeGenerationResult(id, result.type, result.CSSCode);
+  await recordFreeGenerationResult(
+    id,
+    result.type,
+    result.type === "success" ? result.CSSCode : result.message
+  );
   const remaining = await getRemainingFreeQuota();
 
   return NextResponse.json({ ...result, remaining });

@@ -12,12 +12,12 @@ export default async function RootLayout({
 }) {
   // サーバーサイドでテーマを生成（オプション）
   const themeClient = new ThemeClient({ provider: "openai" });
-  const { CSSCode } = await themeClient.generateTheme("モダンでクリーンなデザイン");
+  const result = await themeClient.generateTheme("モダンでクリーンなデザイン");
 
   return (
     <html lang="ja">
       <body>
-        <style>{CSSCode}</style>
+        {result.type === "success" && <style>{result.CSSCode}</style>}
         {children}
       </body>
     </html>
@@ -29,7 +29,7 @@ const PAGE_EXAMPLE = `import { Heading, Paragraph, Button } from "@ginga-ui/core
 export default function Home() {
   return (
     <main>
-      <Heading level="h1">Welcome to Ginga UI</Heading>
+      <Heading level={1}>Welcome to Ginga UI</Heading>
       <Paragraph>AIで生成されたテーマを使用しています。</Paragraph>
       <Button variant="filled">はじめる</Button>
     </main>
@@ -39,14 +39,14 @@ export default function Home() {
 export async function QuickStartContent() {
   return (
     <article>
-      <Heading level="h1">クイックスタート</Heading>
+      <Heading level={1}>クイックスタート</Heading>
       <Paragraph>
         Ginga
         UIを使い始めるための簡単なガイドです。わずか3ステップで、美しいUIコンポーネントを使い始められます。
       </Paragraph>
 
       <section className="docs-section">
-        <Heading level="h2" id="install">
+        <Heading level={2} id="install">
           1. インストール
         </Heading>
         <Paragraph>
@@ -63,7 +63,7 @@ yarn add @ginga-ui/core`}
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="import-variables">
+        <Heading level={2} id="import-variables">
           2. CSS変数のインポート
         </Heading>
         <Paragraph>
@@ -80,7 +80,7 @@ yarn add @ginga-ui/core`}
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="use-components">
+        <Heading level={2} id="use-components">
           3. コンポーネントを使う
         </Heading>
         <Paragraph>
@@ -102,7 +102,7 @@ yarn add @ginga-ui/core`}
 export default function App() {
   return (
     <Card>
-      <Heading level="h2">はじめての Ginga UI</Heading>
+      <Heading level={2}>はじめての Ginga UI</Heading>
       <DialogTrigger>
         <Button variant="filled">クリックしてみる</Button>
         <Modal>
@@ -120,7 +120,7 @@ export default function App() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="nextjs-example">
+        <Heading level={2} id="nextjs-example">
           Next.js App Routerでの完全な例
         </Heading>
         <Paragraph>
@@ -136,7 +136,7 @@ export default function App() {
       </section>
 
       <section className="docs-section">
-        <Heading level="h2" id="next-steps">
+        <Heading level={2} id="next-steps">
           次のステップ
         </Heading>
         <ul>
