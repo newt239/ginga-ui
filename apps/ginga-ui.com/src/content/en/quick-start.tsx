@@ -36,6 +36,17 @@ export default function Home() {
   );
 }`;
 
+const RENDER_EXAMPLE = `import { Anchor } from "@ginga-ui/core";
+import NextLink from "next/link";
+
+export function DocsLink() {
+  return (
+    <Anchor href="/docs" render={(props) => <NextLink {...props} />}>
+      Docs
+    </Anchor>
+  );
+}`;
+
 export async function QuickStartContent() {
   return (
     <article>
@@ -128,6 +139,28 @@ export default function App() {
             { filename: "app/page.tsx", code: PAGE_EXAMPLE, lang: "tsx" },
           ]}
         />
+      </section>
+
+      <section className="docs-section">
+        <Heading level={2} id="render">
+          Replacing the rendered element
+        </Heading>
+        <Paragraph>
+          Every component accepts <code>render</code>. Pass a function to draw
+          the element with another component such as <code>next/link</code>{" "}
+          while keeping its styles and behavior.
+        </Paragraph>
+        <HighlightedCodeBlock code={RENDER_EXAMPLE} lang="tsx" />
+        <ul>
+          <li>
+            Render the same kind of element as the default, such as an{" "}
+            <code>a</code> element for <code>Anchor</code> or a{" "}
+            <code>button</code> element for <code>Button</code>
+          </li>
+          <li>
+            Pass all received props, including <code>ref</code>, to the element
+          </li>
+        </ul>
       </section>
 
       <section className="docs-section">

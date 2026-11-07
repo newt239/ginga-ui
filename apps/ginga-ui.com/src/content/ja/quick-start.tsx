@@ -36,6 +36,17 @@ export default function Home() {
   );
 }`;
 
+const RENDER_EXAMPLE = `import { Anchor } from "@ginga-ui/core";
+import NextLink from "next/link";
+
+export function DocsLink() {
+  return (
+    <Anchor href="/docs" render={(props) => <NextLink {...props} />}>
+      ドキュメント
+    </Anchor>
+  );
+}`;
+
 export async function QuickStartContent() {
   return (
     <article>
@@ -133,6 +144,37 @@ export default function App() {
             { filename: "app/page.tsx", code: PAGE_EXAMPLE, lang: "tsx" },
           ]}
         />
+      </section>
+
+      <section className="docs-section">
+        <Heading level={2} id="render">
+          描画する要素を差し替える
+        </Heading>
+        <Paragraph>
+          すべてのコンポーネントは
+          <code>render</code>
+          を受け取ります。関数を渡すと、スタイルや挙動はそのままに、
+          <code>next/link</code>
+          などの別のコンポーネントで要素を描画できます。
+        </Paragraph>
+        <HighlightedCodeBlock code={RENDER_EXAMPLE} lang="tsx" />
+        <ul>
+          <li>
+            既定と同じ種類の要素を描画してください。たとえば
+            <code>Anchor</code>
+            なら
+            <code>a</code>
+            要素、
+            <code>Button</code>
+            なら
+            <code>button</code>
+            要素です
+          </li>
+          <li>
+            受け取った props は<code>ref</code>
+            も含めてすべて要素に渡してください
+          </li>
+        </ul>
       </section>
 
       <section className="docs-section">
