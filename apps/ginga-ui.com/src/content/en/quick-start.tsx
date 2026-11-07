@@ -151,16 +151,10 @@ export default function App() {
           while keeping its styles and behavior.
         </Paragraph>
         <HighlightedCodeBlock code={RENDER_EXAMPLE} lang="tsx" />
-        <ul>
-          <li>
-            Render the same kind of element as the default, such as an{" "}
-            <code>a</code> element for <code>Anchor</code> or a{" "}
-            <code>button</code> element for <code>Button</code>
-          </li>
-          <li>
-            Pass all received props, including <code>ref</code>, to the element
-          </li>
-        </ul>
+        <Paragraph>
+          See <Anchor href="/custom-rendering">Custom rendering</Anchor> for the
+          requirements and which element is replaced.
+        </Paragraph>
       </section>
 
       <section className="docs-section">

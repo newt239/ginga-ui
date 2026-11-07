@@ -18,6 +18,7 @@ export const en: Dictionary = {
     overview: "Overview",
     quickStart: "Quick start",
     themeGeneration: "Theme generation",
+    customRendering: "Custom rendering",
     allComponents: "All components",
     resources: "Resources",
     opensInNewTab: " (opens in a new tab)",

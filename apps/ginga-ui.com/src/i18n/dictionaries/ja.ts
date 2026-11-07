@@ -16,6 +16,7 @@ export const ja = {
     overview: "概要",
     quickStart: "クイックスタート",
     themeGeneration: "テーマ生成",
+    customRendering: "要素の差し替え",
     allComponents: "全コンポーネント",
     resources: "リソース",
     opensInNewTab: "（新しいタブで開く）",

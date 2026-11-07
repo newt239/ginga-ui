@@ -158,23 +158,11 @@ export default function App() {
           などの別のコンポーネントで要素を描画できます。
         </Paragraph>
         <HighlightedCodeBlock code={RENDER_EXAMPLE} lang="tsx" />
-        <ul>
-          <li>
-            既定と同じ種類の要素を描画してください。たとえば
-            <code>Anchor</code>
-            なら
-            <code>a</code>
-            要素、
-            <code>Button</code>
-            なら
-            <code>button</code>
-            要素です
-          </li>
-          <li>
-            受け取った props は<code>ref</code>
-            も含めてすべて要素に渡してください
-          </li>
-        </ul>
+        <Paragraph>
+          守るべき点や、差し替わる要素の詳細は
+          <Anchor href="/ja/custom-rendering">要素の差し替え</Anchor>
+          を参照してください。
+        </Paragraph>
       </section>
 
       <section className="docs-section">
