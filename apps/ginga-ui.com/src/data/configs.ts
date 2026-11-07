@@ -389,8 +389,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         ja: "外側クリックで閉じない",
       },
       description: {
-        en: "Pass false to dismissable to keep the drawer open without dimming the background, so the page stays interactive. It does not close when clicking outside; close it with the close button or the Esc key. While it is open, the page keeps its width and gains padding equal to the drawer's width, so you can scroll to reveal content hidden beneath the drawer.",
-        ja: "dismissable に false を渡すと、背景を暗くせずにドロワーを開いたままページを操作できます。外側をクリックしても閉じず、閉じるボタンか Esc キーで閉じます。開いている間はページの幅を保ったままドロワーの幅だけ余白が付くので、スクロールすればドロワーの下に隠れた部分も表示できます。",
+        en: "Pass false to dismissable to keep the drawer open when clicking outside or pressing the Esc key. It closes only with the close button. To allow the Esc key, pass isKeyboardDismissDisabled={false}.",
+        ja: "dismissable に false を渡すと、外側をクリックしても Esc キーを押してもドロワーは閉じず、閉じるボタンでのみ閉じます。Esc キーで閉じられるようにするには isKeyboardDismissDisabled={false} を渡します。",
       },
     },
   ],

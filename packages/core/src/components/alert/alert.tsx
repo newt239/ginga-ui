@@ -6,7 +6,7 @@ import "./index.css";
 
 export type StatusVariant = "info" | "success" | "warning" | "danger";
 
-export type AlertProps = React.HTMLAttributes<HTMLDivElement> & {
+export type AlertProps = React.ComponentProps<"div"> & {
   variant?: StatusVariant;
   icon?: React.ReactNode;
 };
@@ -34,7 +34,7 @@ export const Alert: React.FC<AlertProps> = ({
   );
 };
 
-export type AlertTitleProps = React.HTMLAttributes<HTMLDivElement>;
+export type AlertTitleProps = React.ComponentProps<"div">;
 
 export const AlertTitle: React.FC<AlertTitleProps> = ({
   className,
@@ -43,7 +43,7 @@ export const AlertTitle: React.FC<AlertTitleProps> = ({
   return <div className={cn("ginga-alert-title", className)} {...props} />;
 };
 
-export type AlertDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
+export type AlertDescriptionProps = React.ComponentProps<"p">;
 
 export const AlertDescription: React.FC<AlertDescriptionProps> = ({
   className,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { isValidElement } from "react";
 
 import { Checkbox } from "../checkbox";
 import { cn } from "@ginga-ui/utils";
@@ -11,86 +11,135 @@ import {
   Table as AriaTable,
   TableBody as AriaTableBody,
   TableHeader as AriaTableHeader,
+  composeRenderProps,
 } from "react-aria-components";
 import "./index.css";
 
-import type { Selection } from "react-aria-components";
+import type { OmitStrict } from "@ginga-ui/utils";
+import type { Key, Selection } from "react-aria-components";
 
 export interface TableColumn<T> {
   key: string;
-  header: string;
+  header: React.ReactNode;
   accessor: keyof T | ((row: T) => React.ReactNode);
   isRowHeader?: boolean;
+  allowsSorting?: boolean;
 }
 
-export interface TableProps<T> {
+export type TableProps<T> = OmitStrict<
+  React.ComponentProps<typeof AriaTable>,
+  "children" | "onSelectionChange" | "aria-label"
+> & {
   data: T[];
   columns: TableColumn<T>[];
-  className?: string;
+  getRowKey?: (row: T, index: number) => Key;
   showHeader?: boolean;
   striped?: boolean;
   emptyMessage?: React.ReactNode;
-  selectionMode?: "none" | "single" | "multiple";
-  onSelectionChange?: (selectedRows: T[]) => void;
+  onSelectionChange?: (selectedRows: T[], keys: Selection) => void;
   "aria-label": string;
-}
+};
+
+const resolveRowKey = <T extends object>(
+  row: T,
+  index: number,
+  getRowKey?: (row: T, index: number) => Key
+): Key => {
+  if (getRowKey) return getRowKey(row, index);
+  if ("id" in row) {
+    const { id } = row;
+    if (typeof id === "string" || typeof id === "number") return id;
+  }
+  return index;
+};
+
+const toCellContent = (value: unknown): React.ReactNode => {
+  if (value === null || value === undefined) return null;
+  if (
+    typeof value === "string" ||
+    typeof value === "number" ||
+    isValidElement(value)
+  ) {
+    return value;
+  }
+  return String(value);
+};
 
 export const Table = <T extends object>({
   data,
   columns,
+  getRowKey,
   className,
   showHeader = true,
   striped = false,
   emptyMessage,
   selectionMode = "none",
   onSelectionChange,
-  "aria-label": ariaLabel,
+  ...props
 }: TableProps<T>): React.ReactElement => {
-  const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set());
+  const rows = data.map((row, index) => ({
+    row,
+    key: resolveRowKey(row, index, getRowKey),
+  }));
+  const hasRowHeader = columns.some((column) => column.isRowHeader);
 
   const handleSelectionChange = (keys: Selection) => {
-    setSelectedKeys(keys);
     onSelectionChange?.(
-      keys === "all" ? data : data.filter((_, index) => keys.has(index))
+      keys === "all"
+        ? data
+        : rows.filter(({ key }) => keys.has(key)).map(({ row }) => row),
+      keys
     );
   };
 
-  const renderCell = (row: T, column: TableColumn<T>) => {
-    const value =
-      typeof column.accessor === "function"
-        ? column.accessor(row)
-        : row[column.accessor];
-    return value as React.ReactNode;
-  };
+  const renderCell = (row: T, column: TableColumn<T>) =>
+    typeof column.accessor === "function"
+      ? column.accessor(row)
+      : toCellContent(row[column.accessor]);
 
   return (
     <div className="ginga-table-container">
       <AriaTable
-        className={cn("ginga-table", className)}
-        aria-label={ariaLabel}
+        className={composeRenderProps(className, (c) => cn("ginga-table", c))}
         data-striped={striped || undefined}
         selectionMode={selectionMode}
-        selectedKeys={selectedKeys}
         onSelectionChange={handleSelectionChange}
+        {...props}
       >
-        {showHeader && (
-          <AriaTableHeader className="ginga-table-header">
-            {selectionMode !== "none" && (
-              <AriaColumn className="ginga-table-column ginga-table-selection">
-                {selectionMode === "multiple" && <Checkbox slot="selection" />}
-              </AriaColumn>
-            )}
-            {columns.map((column) => (
-              <AriaColumn
-                key={column.key}
-                className="ginga-table-column"
-                isRowHeader={column.isRowHeader}
-              >
-                {column.header}
-              </AriaColumn>
-            ))}
-          </AriaTableHeader>
-        )}
+        <AriaTableHeader
+          className={cn(
+            "ginga-table-header",
+            !showHeader && "ginga-table-header-hidden"
+          )}
+        >
+          {selectionMode !== "none" && (
+            <AriaColumn className="ginga-table-column ginga-table-selection">
+              {selectionMode === "multiple" && <Checkbox slot="selection" />}
+            </AriaColumn>
+          )}
+          {columns.map((column, index) => (
+            <AriaColumn
+              key={column.key}
+              id={column.key}
+              className="ginga-table-column"
+              isRowHeader={column.isRowHeader || (!hasRowHeader && index === 0)}
+              allowsSorting={column.allowsSorting}
+            >
+              {({ allowsSorting, sortDirection }) => (
+                <>
+                  {column.header}
+                  {allowsSorting && (
+                    <span
+                      className="ginga-table-sort-indicator"
+                      data-direction={sortDirection}
+                      aria-hidden="true"
+                    />
+                  )}
+                </>
+              )}
+            </AriaColumn>
+          ))}
+        </AriaTableHeader>
         <AriaTableBody
           className="ginga-table-body"
           renderEmptyState={
@@ -99,8 +148,8 @@ export const Table = <T extends object>({
               : () => <div className="ginga-table-empty">{emptyMessage}</div>
           }
         >
-          {data.map((row, rowIndex) => (
-            <AriaRow key={rowIndex} id={rowIndex} className="ginga-table-row">
+          {rows.map(({ row, key }) => (
+            <AriaRow key={key} id={key} className="ginga-table-row">
               {selectionMode !== "none" && (
                 <AriaCell className="ginga-table-cell ginga-table-selection">
                   <Checkbox slot="selection" />

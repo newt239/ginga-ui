@@ -34,7 +34,7 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <TraceLine>
+        <TraceLine status="complete">
           <TraceIcon>
             <CircleCheck />
           </TraceIcon>

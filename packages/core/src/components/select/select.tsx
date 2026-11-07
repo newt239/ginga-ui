@@ -4,6 +4,8 @@ import { createContext, useContext } from "react";
 
 import { cn } from "@ginga-ui/utils";
 import {
+  composeRenderProps,
+  FieldError as AriaFieldError,
   Label as AriaLabel,
   ListBox as AriaListBox,
   ListBoxItem as AriaListBoxItem,
@@ -11,19 +13,26 @@ import {
   Select as AriaSelect,
   Button as AriaButton,
   SelectValue as AriaSelectValue,
+  Text as AriaText,
 } from "react-aria-components";
 
 import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
+import type { ValidationResult } from "react-aria-components";
 
 export type SelectProps = OmitStrict<
   React.ComponentProps<typeof AriaSelect>,
-  "isDisabled" | "isRequired" | "children"
+  "isDisabled" | "isRequired" | "isInvalid" | "children"
 > & {
   label: string;
   disabled?: boolean;
   required?: boolean;
+  invalid?: boolean;
+  description?: React.ReactNode;
+  errorMessage?:
+    | React.ReactNode
+    | ((validation: ValidationResult) => React.ReactNode);
   children?: React.ReactNode;
   icon?: React.ReactNode;
   checkIcon?: React.ReactNode;
@@ -37,6 +46,9 @@ export const Select: React.FC<SelectProps> = ({
   label,
   disabled,
   required,
+  invalid,
+  description,
+  errorMessage,
   icon,
   checkIcon,
   ...props
@@ -45,7 +57,8 @@ export const Select: React.FC<SelectProps> = ({
     <AriaSelect
       isDisabled={disabled}
       isRequired={required}
-      className={cn("ginga-select", className)}
+      isInvalid={invalid}
+      className={composeRenderProps(className, (c) => cn("ginga-select", c))}
       {...props}
     >
       <AriaLabel className="ginga-select-label">{label}</AriaLabel>
@@ -55,6 +68,14 @@ export const Select: React.FC<SelectProps> = ({
           {icon}
         </span>
       </AriaButton>
+      {description && (
+        <AriaText slot="description" className="ginga-select-description">
+          {description}
+        </AriaText>
+      )}
+      <AriaFieldError className="ginga-select-error">
+        {errorMessage}
+      </AriaFieldError>
       <AriaPopover className="ginga-select-popover">
         <SelectCheckIconContext.Provider value={checkIcon}>
           <AriaListBox className="ginga-select-listbox">{children}</AriaListBox>
@@ -66,10 +87,16 @@ export const Select: React.FC<SelectProps> = ({
 
 Select.displayName = "Select";
 
-export type SelectItemProps = React.ComponentProps<typeof AriaListBoxItem>;
+export type SelectItemProps = OmitStrict<
+  React.ComponentProps<typeof AriaListBoxItem>,
+  "isDisabled"
+> & {
+  disabled?: boolean;
+};
 
 export const SelectItem: React.FC<SelectItemProps> = ({
   children,
+  disabled,
   className,
   textValue,
   ...props
@@ -77,7 +104,10 @@ export const SelectItem: React.FC<SelectItemProps> = ({
   const checkIcon = useContext(SelectCheckIconContext);
   return (
     <AriaListBoxItem
-      className={cn("ginga-select-item", className)}
+      isDisabled={disabled}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-select-item", c)
+      )}
       textValue={
         textValue ?? (typeof children === "string" ? children : undefined)
       }

@@ -29,6 +29,20 @@ export const Basic: Story = {
   ),
 };
 
+export const Dismissable: Story = {
+  render: () => (
+    <DialogTrigger>
+      <Button>Open Dialog</Button>
+      <Modal dismissable>
+        <Dialog>
+          <DialogTitle>Dismissable</DialogTitle>
+          <p>Click outside the dialog or press Esc to close it.</p>
+        </Dialog>
+      </Modal>
+    </DialogTrigger>
+  ),
+};
+
 export const SignUpForm: Story = {
   render: () => (
     <DialogTrigger>

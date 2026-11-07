@@ -1,7 +1,7 @@
 import { cn } from "@ginga-ui/utils";
 import "./index.css";
 
-export type BoxProps = React.HTMLAttributes<HTMLDivElement>;
+export type BoxProps = React.ComponentProps<"div">;
 
 export const Box: React.FC<BoxProps> = ({ children, className, ...props }) => {
   return (

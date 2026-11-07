@@ -2,6 +2,7 @@
 
 import { cn } from "@ginga-ui/utils";
 import {
+  composeRenderProps,
   ToggleButton as AriaToggleButton,
   ToggleButtonGroup as AriaToggleButtonGroup,
 } from "react-aria-components";
@@ -50,7 +51,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       }}
       isDisabled={disabled}
       data-size={size}
-      className={cn("ginga-segmented-control", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-segmented-control", c)
+      )}
       {...props}
     />
   );
@@ -72,7 +75,9 @@ export const SegmentedControlItem: React.FC<SegmentedControlItemProps> = ({
   return (
     <AriaToggleButton
       isDisabled={disabled}
-      className={cn("ginga-segmented-control-item", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-segmented-control-item", c)
+      )}
       {...props}
     />
   );

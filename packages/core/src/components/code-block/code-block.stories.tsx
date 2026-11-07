@@ -63,6 +63,20 @@ export const WithHighlightedChildren: Story = {
   },
 };
 
+export const ChildrenOnly: Story = {
+  args: {
+    filename: "app.tsx",
+    children: (
+      <pre>
+        <code>
+          <span style={{ color: "#c678dd" }}>export const</span>
+          <span> App = () =&gt; null;</span>
+        </code>
+      </pre>
+    ),
+  },
+};
+
 export const CustomLabels: Story = {
   args: { code: sampleCode, copyLabel: "コピー", copiedLabel: "コピー完了!" },
 };

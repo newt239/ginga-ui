@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cn } from "@ginga-ui/utils";
 import {
@@ -21,7 +21,7 @@ export type CodeBlockFile = {
   content?: React.ReactNode;
 };
 
-export type CodeBlockProps = React.HTMLAttributes<HTMLDivElement> & {
+export type CodeBlockProps = React.ComponentProps<"div"> & {
   code?: string;
   filename?: string;
   filenameIcon?: React.ReactNode;
@@ -33,8 +33,11 @@ export type CodeBlockProps = React.HTMLAttributes<HTMLDivElement> & {
   copiedIcon?: React.ReactNode;
 };
 
-const CodeContent: React.FC<{ file: CodeBlockFile }> = ({ file }) => (
-  <div className="ginga-code-block-content">
+const CodeContent: React.FC<{
+  file: CodeBlockFile;
+  ref?: React.Ref<HTMLDivElement>;
+}> = ({ file, ref }) => (
+  <div ref={ref} className="ginga-code-block-content">
     {file.content ?? (
       <pre>
         <code>{file.code}</code>
@@ -73,17 +76,30 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   ];
   const [selectedKey, setSelectedKey] = useState<Key>(0);
   const [copied, setCopied] = useState(false);
-  const activeFile = entries[Number(selectedKey)] ?? entries[0];
+  const contentRef = useRef<HTMLDivElement>(null);
+  const copiedTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const activeIndex = entries[Number(selectedKey)] ? Number(selectedKey) : 0;
+  const activeFile = entries[activeIndex];
   const hasTabs = entries.length > 1;
+  const canCopy = Boolean(activeFile?.code || activeFile?.content);
+
+  useEffect(() => () => clearTimeout(copiedTimerRef.current), []);
 
   const handleCopy = async () => {
-    if (!navigator?.clipboard?.writeText || !activeFile) return;
-    await navigator.clipboard.writeText(activeFile.code);
+    const text = activeFile?.code || contentRef.current?.textContent || "";
+    if (!text || !navigator?.clipboard?.writeText) return;
+    clearTimeout(copiedTimerRef.current);
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      setCopied(false);
+      return;
+    }
     setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    copiedTimerRef.current = setTimeout(() => setCopied(false), 2000);
   };
 
-  const copyButton = (
+  const copyButton = canCopy && (
     <Button
       variant="ghost"
       size="sm"
@@ -104,7 +120,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         data-headerless
         {...props}
       >
-        {activeFile && <CodeContent file={activeFile} />}
+        {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
         {copyButton}
       </div>
     );
@@ -121,7 +137,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           )}
           {copyButton}
         </div>
-        {activeFile && <CodeContent file={activeFile} />}
+        {activeFile && <CodeContent ref={contentRef} file={activeFile} />}
       </div>
     );
   }
@@ -132,6 +148,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         selectedKey={selectedKey}
         onSelectionChange={(key) => {
           setSelectedKey(key);
+          clearTimeout(copiedTimerRef.current);
           setCopied(false);
         }}
       >
@@ -158,7 +175,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             id={index}
             className="ginga-code-block-tab-panel"
           >
-            <CodeContent file={file} />
+            <CodeContent
+              ref={index === activeIndex ? contentRef : undefined}
+              file={file}
+            />
           </AriaTabPanel>
         ))}
       </AriaTabs>

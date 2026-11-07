@@ -2,88 +2,104 @@
 
 import { cn } from "@ginga-ui/utils";
 import {
+  composeRenderProps,
+  Label as AriaLabel,
   Slider as AriaSlider,
+  SliderFill as AriaSliderFill,
   SliderOutput as AriaSliderOutput,
   SliderThumb as AriaSliderThumb,
   SliderTrack as AriaSliderTrack,
 } from "react-aria-components";
 import "./index.css";
 
-export type SliderProps = React.ComponentProps<typeof AriaSlider>;
+import type { OmitStrict } from "@ginga-ui/utils";
+
+export type SliderProps = OmitStrict<
+  React.ComponentProps<typeof AriaSlider>,
+  "isDisabled"
+> & {
+  disabled?: boolean;
+};
 
 export const Slider: React.FC<SliderProps> = ({
-  children,
+  disabled,
   className,
   ...props
 }) => {
   return (
-    <AriaSlider className={cn("ginga-slider", className)} {...props}>
-      {children}
-    </AriaSlider>
+    <AriaSlider
+      isDisabled={disabled}
+      className={composeRenderProps(className, (c) => cn("ginga-slider", c))}
+      {...props}
+    />
   );
 };
 
-export type SliderOutputProps = React.HTMLAttributes<HTMLDivElement> &
-  React.ComponentProps<typeof AriaSliderOutput>;
+export type SliderLabelProps = React.ComponentProps<typeof AriaLabel>;
+
+export const SliderLabel: React.FC<SliderLabelProps> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <AriaLabel className={cn("ginga-slider-label", className)} {...props} />
+  );
+};
+
+export type SliderOutputProps = React.ComponentProps<typeof AriaSliderOutput>;
 
 export const SliderOutput: React.FC<SliderOutputProps> = ({
-  children,
   className,
   ...props
 }) => {
   return (
     <AriaSliderOutput
-      className={cn("ginga-slider-output", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-slider-output", c)
+      )}
       {...props}
-    >
-      {children}
-    </AriaSliderOutput>
+    />
   );
 };
 
-export type AriaSliderTrackProps = React.HTMLAttributes<HTMLDivElement> &
-  React.ComponentProps<typeof AriaSliderTrack>;
+export type SliderTrackProps = React.ComponentProps<typeof AriaSliderTrack>;
 
-export const SliderTrack: React.FC<AriaSliderTrackProps> = ({
+export const SliderTrack: React.FC<SliderTrackProps> = ({
   children,
   className,
   ...props
 }) => {
   return (
-    <AriaSliderTrack className={cn("ginga-slider-track", className)} {...props}>
-      {(renderProps) => {
-        const { state } = renderProps;
-        const isRange = state.values.length > 1;
-        const start = isRange ? state.getThumbPercent(0) : 0;
-        const end = state.getThumbPercent(isRange ? 1 : 0);
-        return (
-          <>
-            <span
-              className="ginga-slider-fill"
-              style={{
-                left: `${start * 100}%`,
-                width: `${(end - start) * 100}%`,
-              }}
-            />
-            {typeof children === "function" ? children(renderProps) : children}
-          </>
-        );
-      }}
+    <AriaSliderTrack
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-slider-track", c)
+      )}
+      {...props}
+    >
+      {composeRenderProps(children, (resolvedChildren) => (
+        <>
+          <span className="ginga-slider-rail">
+            <AriaSliderFill className="ginga-slider-fill" />
+          </span>
+          {resolvedChildren}
+        </>
+      ))}
     </AriaSliderTrack>
   );
 };
 
-export type SliderThumbProps = React.HTMLAttributes<HTMLDivElement> &
-  React.ComponentProps<typeof AriaSliderThumb>;
+export type SliderThumbProps = React.ComponentProps<typeof AriaSliderThumb>;
 
 export const SliderThumb: React.FC<SliderThumbProps> = ({
-  children,
   className,
   ...props
 }) => {
   return (
-    <AriaSliderThumb className={cn("ginga-slider-thumb", className)} {...props}>
-      {children}
-    </AriaSliderThumb>
+    <AriaSliderThumb
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-slider-thumb", c)
+      )}
+      {...props}
+    />
   );
 };

@@ -30,7 +30,7 @@ export async function ComponentDoc({ id, locale }: ComponentDocProps) {
 
   return (
     <article>
-      <Heading level="h1">{component.name}</Heading>
+      <Heading level={1}>{component.name}</Heading>
       <p className="docs-lead">{component.description[locale]}</p>
       {component.storybookStoryId && (
         <p className={styles.storybookLink}>
@@ -47,7 +47,7 @@ export async function ComponentDoc({ id, locale }: ComponentDocProps) {
       )}
 
       <section className="docs-section">
-        <Heading level="h2" id="install">
+        <Heading level={2} id="install">
           {components.install}
         </Heading>
         <CodeBlock
@@ -104,7 +104,7 @@ async function Example({ id, name, locale, children }: ExampleProps) {
     <section className={styles.exampleSection}>
       {config ? (
         <>
-          <Heading level="h2" id={toKebabCase(name)}>
+          <Heading level={2} id={toKebabCase(name)}>
             {config.title[locale]}
           </Heading>
           <Paragraph>{config.description[locale]}</Paragraph>

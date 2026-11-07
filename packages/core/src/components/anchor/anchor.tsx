@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
-import { Link as AriaLink } from "react-aria-components";
+import { Link as AriaLink, composeRenderProps } from "react-aria-components";
 import "../button/index.css";
 import "./index.css";
 
@@ -37,7 +37,7 @@ export const Anchor: React.FC<AnchorProps> = ({
         data-variant={buttonVariant}
         data-size={size}
         isDisabled={disabled}
-        className={cn("ginga-button", className)}
+        className={composeRenderProps(className, (c) => cn("ginga-button", c))}
         {...props}
       >
         {(renderProps) => (
@@ -54,7 +54,7 @@ export const Anchor: React.FC<AnchorProps> = ({
   return (
     <AriaLink
       isDisabled={disabled}
-      className={cn("ginga-anchor", className)}
+      className={composeRenderProps(className, (c) => cn("ginga-anchor", c))}
       {...props}
     >
       {children}

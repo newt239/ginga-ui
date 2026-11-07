@@ -1,11 +1,17 @@
 "use client";
 
-import { Slider, SliderOutput, SliderThumb, SliderTrack } from "@ginga-ui/core";
+import {
+  Slider,
+  SliderLabel,
+  SliderOutput,
+  SliderThumb,
+  SliderTrack,
+} from "@ginga-ui/core";
 
 export function BasicExample() {
   return (
     <Slider defaultValue={50}>
-      <div>音量</div>
+      <SliderLabel>音量</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -17,7 +23,7 @@ export function BasicExample() {
 export function CustomRangeExample() {
   return (
     <Slider defaultValue={0} minValue={-50} maxValue={50}>
-      <div>バランス</div>
+      <SliderLabel>バランス</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -29,7 +35,7 @@ export function CustomRangeExample() {
 export function RangeExample() {
   return (
     <Slider defaultValue={[20, 80]}>
-      <div>価格帯</div>
+      <SliderLabel>価格帯</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb index={0} />
@@ -42,7 +48,7 @@ export function RangeExample() {
 export function WithStepsExample() {
   return (
     <Slider defaultValue={50} step={10}>
-      <div>音量レベル(10刻み)</div>
+      <SliderLabel>音量レベル(10刻み)</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -53,8 +59,8 @@ export function WithStepsExample() {
 
 export function DisabledExample() {
   return (
-    <Slider defaultValue={50} isDisabled>
-      <div>無効化されたスライダー</div>
+    <Slider defaultValue={50} disabled>
+      <SliderLabel>無効化されたスライダー</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />

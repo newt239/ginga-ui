@@ -38,7 +38,7 @@ export const WithDisabledOptions: Story = {
     >
       <SelectItem id="dog">Dog</SelectItem>
       <SelectItem id="cat">Cat</SelectItem>
-      <SelectItem id="hamster" isDisabled>
+      <SelectItem id="hamster" disabled>
         Hamster (Out of Stock)
       </SelectItem>
       <SelectItem id="parrot">Parrot</SelectItem>

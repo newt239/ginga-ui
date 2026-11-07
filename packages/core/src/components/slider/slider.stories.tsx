@@ -1,4 +1,10 @@
-import { Slider, SliderOutput, SliderThumb, SliderTrack } from "./index";
+import {
+  Slider,
+  SliderLabel,
+  SliderOutput,
+  SliderThumb,
+  SliderTrack,
+} from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -24,7 +30,7 @@ type Story = StoryObj<typeof Slider>;
 export const Default: Story = {
   render: () => (
     <Slider defaultValue={50}>
-      <div>音量</div>
+      <SliderLabel>音量</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -45,7 +51,7 @@ export const Default: Story = {
 export const CustomRange: Story = {
   render: () => (
     <Slider defaultValue={0} minValue={-50} maxValue={50}>
-      <div>バランス</div>
+      <SliderLabel>バランス</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -64,8 +70,8 @@ export const CustomRange: Story = {
 // 無効状態の例
 export const Disabled: Story = {
   render: () => (
-    <Slider defaultValue={50} isDisabled>
-      <div>音量</div>
+    <Slider defaultValue={50} disabled>
+      <SliderLabel>音量</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />
@@ -85,7 +91,7 @@ export const Disabled: Story = {
 export const WithSteps: Story = {
   render: () => (
     <Slider defaultValue={50} step={10}>
-      <div>音量レベル</div>
+      <SliderLabel>音量レベル</SliderLabel>
       <SliderOutput />
       <SliderTrack>
         <SliderThumb />

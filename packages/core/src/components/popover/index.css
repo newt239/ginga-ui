@@ -1,7 +1,10 @@
 .ginga-popover {
   z-index: 50;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   min-width: 8rem;
+  outline: none;
   background-color: var(--color-background);
   border: var(--border-width) solid var(--color-control-border);
   border-radius: var(--radius-md);
@@ -10,6 +13,11 @@
     transform var(--duration) var(--easing);
 
   @starting-style {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  &[data-exiting] {
     opacity: 0;
     transform: scale(0.95);
   }
@@ -24,21 +32,39 @@
     stroke-width: var(--border-width);
   }
 
-  &[data-placement="bottom"] svg {
-    transform: rotate(180deg);
+  &[data-placement="top"] {
+    margin-top: calc(var(--border-width) * -1);
   }
 
-  &[data-placement="left"] svg {
-    transform: rotate(-90deg);
+  &[data-placement="bottom"] {
+    margin-bottom: calc(var(--border-width) * -1);
+
+    svg {
+      transform: rotate(180deg);
+    }
   }
 
-  &[data-placement="right"] svg {
-    transform: rotate(90deg);
+  &[data-placement="left"] {
+    margin-left: calc(var(--border-width) * -1);
+
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &[data-placement="right"] {
+    margin-right: calc(var(--border-width) * -1);
+
+    svg {
+      transform: rotate(90deg);
+    }
   }
 }
 
 .ginga-popover-dialog {
+  min-height: 0;
   padding: 1rem 1.25rem;
+  overflow: auto;
   font-family: var(--font-family);
   font-size: 0.875rem;
   line-height: 1.75;

@@ -8,6 +8,12 @@
   line-height: 1.5;
   color: var(--color-text-muted);
 
+  --color-trace-dimmed: color-mix(
+    in oklab,
+    var(--color-text) 62%,
+    var(--color-background)
+  );
+
   & > a,
   & .ginga-trace-content-inner > a {
     display: flex;
@@ -39,7 +45,7 @@
   }
 
   &[data-status="pending"] {
-    opacity: 0.6;
+    color: var(--color-trace-dimmed);
   }
 }
 
@@ -79,8 +85,7 @@
 
 .ginga-trace-description {
   flex-shrink: 0;
-  color: var(--color-text-muted);
-  opacity: 0.8;
+  color: var(--color-trace-dimmed);
 }
 
 .ginga-trace-collapsible {
@@ -149,6 +154,12 @@
 
   to {
     background-position: -100% 0;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .ginga-trace {
+    --color-trace-dimmed: var(--color-text-muted);
   }
 }
 

@@ -3,6 +3,7 @@
 import { cn } from "@ginga-ui/utils";
 import {
   Button as AriaButton,
+  composeRenderProps,
   Text as AriaText,
   UNSTABLE_Toast as AriaToast,
   UNSTABLE_ToastContent as AriaToastContent,
@@ -78,13 +79,15 @@ export const ToastRegion: React.FC<ToastRegionProps> = ({
   queue = defaultQueue,
   placement = "bottom-right",
   closeIcon,
-  closeLabel = "閉じる",
+  closeLabel,
   ...props
 }) => {
   return (
     <AriaToastRegion
       queue={queue}
-      className={cn("ginga-toast-region", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-toast-region", c)
+      )}
       data-placement={placement}
       {...props}
     >

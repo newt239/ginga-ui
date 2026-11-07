@@ -9,12 +9,14 @@ import {
   useEffect,
   useId,
   useMemo,
-  useRef,
   useState,
 } from "react";
+import { flushSync } from "react-dom";
 
 import { cn } from "@ginga-ui/utils";
+import { useObjectRef } from "react-aria";
 import {
+  composeRenderProps,
   Checkbox as AriaCheckbox,
   CheckboxGroup as AriaCheckboxGroup,
   Radio as AriaRadio,
@@ -110,9 +112,24 @@ const shortcutIndex = (key: string, shortcuts: QuestionnaireShortcuts) => {
 const shortcutLabel = (index: number, shortcuts: QuestionnaireShortcuts) =>
   shortcuts === "numbers" ? String(index + 1) : String.fromCharCode(65 + index);
 
-export type QuestionnaireProps = React.FormHTMLAttributes<HTMLFormElement> & {
-  items: readonly { name: string }[];
+export type QuestionnaireProps = React.ComponentProps<"form"> & {
+  items: readonly { name: string; required?: boolean }[];
   shortcuts?: QuestionnaireShortcuts;
+};
+
+const collectRequiredItemNames = (
+  children: React.ReactNode,
+  names: Set<string>
+) => {
+  Children.forEach(children, (child) => {
+    if (!isValidElement<{ children?: React.ReactNode }>(child)) return;
+    if (child.type === QuestionnaireItem) {
+      const { name, required } = child.props as QuestionnaireItemProps;
+      if (required) names.add(name);
+    }
+    collectRequiredItemNames(child.props.children, names);
+  });
+  return names;
 };
 
 export const Questionnaire: React.FC<QuestionnaireProps> = ({
@@ -121,13 +138,22 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
   onSubmit,
   className,
   children,
+  ref,
   ...props
 }) => {
   const names = useMemo(() => items.map((item) => item.name), [items]);
-  const formRef = useRef<HTMLFormElement>(null);
-  const [requiredNames, setRequiredNames] = useState<ReadonlySet<string>>(
-    () => new Set()
-  );
+  const formRef = useObjectRef(ref);
+  const [registeredRequiredNames, setRegisteredRequiredNames] = useState<
+    ReadonlySet<string>
+  >(() => new Set());
+  const requiredNames = useMemo<ReadonlySet<string>>(() => {
+    const declared = collectRequiredItemNames(
+      children,
+      new Set(items.filter((item) => item.required).map((item) => item.name))
+    );
+    for (const name of registeredRequiredNames) declared.add(name);
+    return declared;
+  }, [children, items, registeredRequiredNames]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [focusRequest, setFocusRequest] = useState<{ name: string } | null>(
@@ -138,13 +164,15 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
 
   useEffect(() => {
     if (focusRequest) focusAnswerControl(formRef.current, focusRequest.name);
-  }, [focusRequest]);
+  }, [focusRequest, formRef]);
 
   const registerRequired = useCallback((name: string, required: boolean) => {
     if (!required) return () => {};
-    setRequiredNames((current) => new Set(current).add(name));
+    setRegisteredRequiredNames((current) =>
+      current.has(name) ? current : new Set(current).add(name)
+    );
     return () => {
-      setRequiredNames((current) => {
+      setRegisteredRequiredNames((current) => {
         const next = new Set(current);
         next.delete(name);
         return next;
@@ -188,13 +216,14 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
 
   const skip = useCallback(() => {
     if (!activeName) return;
-    updateAnswer(activeName, EMPTY_ANSWER);
     if (activeIndex >= names.length - 1) {
+      flushSync(() => updateAnswer(activeName, EMPTY_ANSWER));
       formRef.current?.requestSubmit();
       return;
     }
+    updateAnswer(activeName, EMPTY_ANSWER);
     moveTo(activeIndex + 1);
-  }, [activeIndex, activeName, moveTo, names.length, updateAnswer]);
+  }, [activeIndex, activeName, formRef, moveTo, names.length, updateAnswer]);
 
   const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
     if (!canSubmit) {
@@ -236,7 +265,7 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
 
     form.addEventListener("keydown", handleKeyDown);
     return () => form.removeEventListener("keydown", handleKeyDown);
-  }, [activeName, shortcuts]);
+  }, [activeName, formRef, shortcuts]);
 
   return (
     <QuestionnaireContext.Provider
@@ -269,7 +298,7 @@ export const Questionnaire: React.FC<QuestionnaireProps> = ({
 };
 
 export type QuestionnaireProgressProps = OmitStrict<
-  React.OutputHTMLAttributes<HTMLOutputElement>,
+  React.ComponentProps<"output">,
   "children"
 > & {
   children: (progress: { current: number; total: number }) => React.ReactNode;
@@ -291,12 +320,11 @@ export const QuestionnaireProgress: React.FC<QuestionnaireProgressProps> = ({
   );
 };
 
-export type QuestionnaireItemProps =
-  React.FieldsetHTMLAttributes<HTMLFieldSetElement> & {
-    name: string;
-    required?: boolean;
-    multiple?: boolean;
-  };
+export type QuestionnaireItemProps = React.ComponentProps<"fieldset"> & {
+  name: string;
+  required?: boolean;
+  multiple?: boolean;
+};
 
 export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
   name,
@@ -338,7 +366,7 @@ export const QuestionnaireItem: React.FC<QuestionnaireItemProps> = ({
   );
 };
 
-export type QuestionnaireTitleProps = React.HTMLAttributes<HTMLLegendElement>;
+export type QuestionnaireTitleProps = React.ComponentProps<"legend">;
 
 export const QuestionnaireTitle: React.FC<QuestionnaireTitleProps> = ({
   className,
@@ -477,7 +505,9 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
       type="text"
       name={text ? name : undefined}
       value={text}
-      className={cn("ginga-questionnaire-input", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-questionnaire-input", c)
+      )}
       onChange={(event) => {
         onChange?.(event);
         updateAnswer(
@@ -502,7 +532,7 @@ export const QuestionnaireInput: React.FC<QuestionnaireInputProps> = ({
   );
 };
 
-export type QuestionnaireActionsProps = React.HTMLAttributes<HTMLDivElement>;
+export type QuestionnaireActionsProps = React.ComponentProps<"div">;
 
 export const QuestionnaireActions: React.FC<QuestionnaireActionsProps> = ({
   className,
@@ -524,7 +554,9 @@ export const QuestionnairePrevious: React.FC<QuestionnaireNavigationProps> = ({
   return (
     <Button
       variant={variant}
-      className={cn("ginga-questionnaire-previous", className)}
+      className={composeRenderProps(className, (c) =>
+        cn("ginga-questionnaire-previous", c)
+      )}
       onPress={(event) => {
         onPress?.(event);
         goPrevious();

@@ -6,8 +6,12 @@ import {
   DialogTrigger as AriaDialogTrigger,
   Heading as AriaHeading,
   Modal as AriaModal,
+  ModalOverlay as AriaModalOverlay,
+  composeRenderProps,
 } from "react-aria-components";
 import "./index.css";
+
+import type { OmitStrict } from "@ginga-ui/utils";
 
 export type DialogTriggerProps = React.ComponentProps<typeof AriaDialogTrigger>;
 
@@ -18,17 +22,37 @@ export const DialogTrigger: React.FC<DialogTriggerProps> = ({
   return <AriaDialogTrigger {...props}>{children}</AriaDialogTrigger>;
 };
 
-export type ModalProps = React.ComponentProps<typeof AriaModal>;
+export type ModalProps = OmitStrict<
+  React.ComponentProps<typeof AriaModalOverlay>,
+  "isDismissable"
+> & {
+  dismissable?: boolean;
+  overlayClassName?: string;
+};
 
 export const Modal: React.FC<ModalProps> = ({
   children,
   className,
+  style,
+  ref,
+  dismissable,
+  overlayClassName,
   ...props
 }) => {
   return (
-    <AriaModal className={cn("ginga-modal", className)} {...props}>
-      {children}
-    </AriaModal>
+    <AriaModalOverlay
+      className={cn("ginga-modal-overlay", overlayClassName)}
+      isDismissable={dismissable}
+      {...props}
+    >
+      <AriaModal
+        ref={ref}
+        className={composeRenderProps(className, (c) => cn("ginga-modal", c))}
+        style={style}
+      >
+        {children}
+      </AriaModal>
+    </AriaModalOverlay>
   );
 };
 
