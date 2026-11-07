@@ -30,12 +30,10 @@
     "*.css"
   ],
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
     "./package.json": "./package.json",
@@ -57,9 +55,11 @@
   },
   "devDependencies": {
     "lucide-react": "1.61.0",
-    "react": "19.3.1"
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=19",
+    "react-dom": ">=19"
   }
 }
