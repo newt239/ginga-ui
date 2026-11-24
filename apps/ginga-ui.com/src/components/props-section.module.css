@@ -1,0 +1,19 @@
+.tableContainer {
+  margin: 1rem 0;
+  overflow-x: auto;
+
+  & table {
+    min-width: 40rem;
+  }
+}
+
+.name {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.type {
+  overflow-wrap: anywhere;
+}

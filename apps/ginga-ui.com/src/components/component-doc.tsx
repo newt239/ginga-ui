@@ -2,6 +2,7 @@ import { Anchor, Heading, Paragraph } from "@ginga-ui/core";
 import { ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { CodeBlock } from "#/components/code-block";
+import { PropsSection } from "#/components/props-section";
 import { getComponentById, getStorybookUrl } from "#/data/components";
 import { EXAMPLE_CONFIGS } from "#/data/configs";
 import { EXAMPLES } from "#/examples";
@@ -66,6 +67,8 @@ export async function ComponentDoc({ id, locale }: ComponentDocProps) {
           </Example>
         );
       })}
+
+      <PropsSection id={id} locale={locale} />
     </article>
   );
 }
