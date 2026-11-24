@@ -1226,8 +1226,17 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
           name: "label",
           type: "string",
           description: {
-            en: "Label shown above the field.",
-            ja: "入力欄の上に表示するラベル。",
+            en: "Label of the field. It is read by screen readers and is visually hidden unless showLabel is set. Use aria-label instead when omitted.",
+            ja: "入力欄のラベル。スクリーンリーダーで読み上げられ、showLabel を指定しない限り画面には表示されません。省略する場合は aria-label を指定してください。",
+          },
+        },
+        {
+          name: "showLabel",
+          type: "boolean",
+          defaultValue: "false",
+          description: {
+            en: "Shows the label above the field.",
+            ja: "入力欄の上にラベルを表示します。",
           },
         },
         {

@@ -4,28 +4,35 @@ import { SearchField } from "@ginga-ui/core";
 import { Search, X } from "lucide-react";
 
 export function BasicExample() {
-  return <SearchField label="Search" placeholder="Enter keywords" />;
+  return (
+    <SearchField
+      label="Search"
+      placeholder="Enter keywords"
+      icon={<Search />}
+    />
+  );
+}
+
+export function ShowLabelExample() {
+  return (
+    <SearchField
+      label="Search"
+      showLabel
+      placeholder="Enter keywords"
+      description="Press Enter to search and Esc to clear"
+      onSubmit={(value) => console.log("Search:", value)}
+    />
+  );
 }
 
 export function IconExample() {
   return (
     <SearchField
-      aria-label="Search"
+      label="Search components"
       placeholder="Search components"
+      defaultValue="Ginga UI"
       icon={<Search />}
       clearIcon={<X />}
-    />
-  );
-}
-
-export function SubmitExample() {
-  return (
-    <SearchField
-      label="Search"
-      placeholder="Enter keywords"
-      description="Press Enter to search and Esc to clear"
-      icon={<Search />}
-      onSubmit={(value) => console.log("Search:", value)}
     />
   );
 }

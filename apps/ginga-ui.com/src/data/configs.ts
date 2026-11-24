@@ -783,24 +783,24 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "BasicExample",
       title: { en: "Basic usage", ja: "基本的な使い方" },
       description: {
-        en: "A search input with a clear button that appears when there is a value.",
-        ja: "値があるときにクリアボタンが表示される検索入力です。",
+        en: "The label is read by screen readers but not shown. A clear button appears when there is a value.",
+        ja: "label はスクリーンリーダーで読み上げられますが、画面には表示されません。値があるときはクリアボタンが表示されます。",
+      },
+    },
+    {
+      name: "ShowLabelExample",
+      title: { en: "Showing the label", ja: "ラベルの表示" },
+      description: {
+        en: "Pass showLabel to show the label above the field. onSubmit is called when Enter is pressed.",
+        ja: "showLabel を指定すると入力欄の上にラベルを表示します。Enter を押すと onSubmit が呼ばれます。",
       },
     },
     {
       name: "IconExample",
       title: { en: "Icons", ja: "アイコン" },
       description: {
-        en: "Use icon for a leading icon and clearIcon for the clear button. Give it an aria-label when there is no label.",
-        ja: "icon で先頭のアイコンを、clearIcon でクリアボタンのアイコンを指定します。label がない場合は aria-label を指定してください。",
-      },
-    },
-    {
-      name: "SubmitExample",
-      title: { en: "Submitting", ja: "送信" },
-      description: {
-        en: "onSubmit is called when Enter is pressed.",
-        ja: "Enter を押すと onSubmit が呼ばれます。",
+        en: "Use icon for a leading icon and clearIcon for the clear button.",
+        ja: "icon で先頭のアイコンを、clearIcon でクリアボタンのアイコンを指定します。",
       },
     },
     {

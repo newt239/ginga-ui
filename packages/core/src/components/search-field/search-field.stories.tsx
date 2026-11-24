@@ -17,22 +17,24 @@ export const Default: Story = {
   args: {
     label: "検索",
     placeholder: "キーワードを入力",
-    defaultValue: "Ginga UI",
+    icon: <Search />,
   },
 };
 
 export const WithIcons: Story = {
   args: {
-    "aria-label": "検索",
+    label: "コンポーネントを検索",
     placeholder: "コンポーネントを検索",
     icon: <Search />,
     clearIcon: <X />,
+    defaultValue: "Ginga UI",
   },
 };
 
-export const WithDescription: Story = {
+export const ShowLabel: Story = {
   args: {
     label: "検索",
+    showLabel: true,
     placeholder: "キーワードを入力",
     description: "Enter で検索、Esc でクリアします",
     icon: <Search />,

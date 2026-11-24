@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@ginga-ui/utils";
+import { VisuallyHidden } from "react-aria";
 import {
   Button as AriaButton,
   composeRenderProps,
@@ -21,6 +22,7 @@ export type SearchFieldProps = OmitStrict<
   "isDisabled" | "isRequired" | "isInvalid" | "isReadOnly" | "children"
 > & {
   label?: string;
+  showLabel?: boolean;
   placeholder?: string;
   disabled?: boolean;
   required?: boolean;
@@ -37,6 +39,7 @@ export type SearchFieldProps = OmitStrict<
 export const SearchField: React.FC<SearchFieldProps> = ({
   className,
   label,
+  showLabel = false,
   placeholder,
   disabled,
   required,
@@ -59,9 +62,14 @@ export const SearchField: React.FC<SearchFieldProps> = ({
       )}
       {...props}
     >
-      {label && (
-        <AriaLabel className="ginga-search-field-label">{label}</AriaLabel>
-      )}
+      {label &&
+        (showLabel ? (
+          <AriaLabel className="ginga-search-field-label">{label}</AriaLabel>
+        ) : (
+          <VisuallyHidden>
+            <AriaLabel>{label}</AriaLabel>
+          </VisuallyHidden>
+        ))}
       <div className="ginga-search-field-field">
         {icon && (
           <span className="ginga-search-field-icon" aria-hidden="true">
