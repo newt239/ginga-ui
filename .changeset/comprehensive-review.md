@@ -33,3 +33,4 @@
 - `@ginga-ui/utils` が依存する `ai` と `@ai-sdk/anthropic` / `@ai-sdk/google` / `@ai-sdk/openai` を更新しました
 - `Tooltip`・`Menu`・`ComboBox`・`NumberField`・`SearchField` を追加しました
 - `FormControl` の中に `NumberField` と `SearchField` を置くと、ラベルが関連付けられるようにしました
+- `Popover` の矢印が枠線の内側にずれて小さく見えていたのを修正し、内容の先頭と末尾の要素の余白を詰めました
