@@ -60,14 +60,15 @@ function PropsGroup({
         <PropsTable
           rows={doc.props.map((prop) => ({
             ...prop,
-            description: prop.description[locale],
+            description: prop.required
+              ? components.propRequired(prop.description[locale])
+              : prop.description[locale],
           }))}
           labels={{
             name: components.propName,
             type: components.propType,
             defaultValue: components.propDefault,
             description: components.propDescription,
-            required: components.propRequired,
             table: components.propsTableLabel(doc.name),
           }}
         />

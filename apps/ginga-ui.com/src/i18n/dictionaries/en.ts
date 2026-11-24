@@ -54,7 +54,7 @@ export const en: Dictionary = {
     propType: "Type",
     propDefault: "Default",
     propDescription: "Description",
-    propRequired: "Required",
+    propRequired: (description: string) => `Required. ${description}`,
     propsTableLabel: (name: string) => `${name} props`,
     inheritsAria: (hasOwnProps: boolean) =>
       `${hasOwnProps ? "Also accepts" : "Accepts"} the props of React Aria's {link}.`,

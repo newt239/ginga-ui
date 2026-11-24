@@ -52,7 +52,7 @@ export const ja = {
     propType: "型",
     propDefault: "既定値",
     propDescription: "説明",
-    propRequired: "必須",
+    propRequired: (description: string) => `必須のpropsです。${description}`,
     propsTableLabel: (name: string) => `${name} の props`,
     inheritsAria: (hasOwnProps: boolean) =>
       `${hasOwnProps ? "上記に加えて、" : ""}React Aria の {link} の props を受け取ります。`,

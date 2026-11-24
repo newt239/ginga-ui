@@ -18,7 +18,6 @@ type PropsTableProps = {
     type: string;
     defaultValue: string;
     description: string;
-    required: string;
     table: string;
   };
 };
@@ -50,14 +49,7 @@ export function PropsTable({ rows, labels }: PropsTableProps) {
           {
             key: "description",
             header: labels.description,
-            accessor: (row) =>
-              row.required ? (
-                <>
-                  <strong>{labels.required}</strong> {row.description}
-                </>
-              ) : (
-                row.description
-              ),
+            accessor: "description",
           },
         ]}
         striped
