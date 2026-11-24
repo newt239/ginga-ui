@@ -12,6 +12,11 @@
     align-items: flex-start;
 
     .ginga-tab-list {
+      --ginga-tab-indicator-shadow: calc(var(--ginga-tab-indicator-width) * -1)
+        0 0;
+      --ginga-tab-baseline-shadow: calc(var(--ginga-tab-baseline-width) * -1) 0
+        0;
+
       flex-direction: column;
       align-items: stretch;
     }
@@ -19,26 +24,27 @@
 }
 
 .ginga-tab-list {
+  --ginga-tab-baseline-width: var(--border-width);
+  --ginga-tab-indicator-width: var(--border-width);
+  --ginga-tab-indicator-shadow: 0 calc(var(--ginga-tab-indicator-width) * -1) 0;
+  --ginga-tab-baseline-shadow: 0 calc(var(--ginga-tab-baseline-width) * -1) 0;
+
   box-sizing: border-box;
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
-  gap: 0.25rem;
-  align-self: flex-start;
+  align-self: stretch;
   max-width: 100%;
-  padding: 0.25rem;
   overflow-x: auto;
   overscroll-behavior-x: contain;
-  outline: var(--border-width) solid transparent;
   scrollbar-width: thin;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-md);
+  box-shadow: inset var(--ginga-tab-baseline-shadow) var(--color-surface-strong);
 }
 
 .ginga-tab {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  min-height: 2.25rem;
+  min-height: 2.5rem;
   padding: 0 1rem;
   font-size: 0.875rem;
   font-weight: 700;
@@ -46,17 +52,17 @@
   white-space: nowrap;
   cursor: pointer;
   outline: none;
-  border-radius: var(--radius-sm);
   transition: var(--transition);
 
   &[data-hovered] {
     color: var(--color-text);
-    background-color: var(--color-surface-hover);
+    box-shadow: inset var(--ginga-tab-indicator-shadow)
+      var(--color-control-border);
   }
 
   &[data-selected] {
-    color: var(--color-on-accent);
-    background-color: var(--color-accent);
+    color: var(--color-text);
+    box-shadow: inset var(--ginga-tab-indicator-shadow) var(--color-accent);
   }
 
   &[data-focus-visible] {
@@ -67,16 +73,12 @@
   &[data-disabled] {
     color: var(--color-text-muted);
     cursor: not-allowed;
+    box-shadow: none;
     opacity: 0.6;
   }
 }
 
 .ginga-tabs[data-full-width]:not([data-orientation="vertical"]) {
-  .ginga-tab-list {
-    display: flex;
-    align-self: stretch;
-  }
-
   .ginga-tab {
     flex: 1 0 0;
     justify-content: center;
@@ -97,7 +99,12 @@
 
 @media (forced-colors: active) {
   .ginga-tab[data-selected] {
-    color: highlighttext;
-    background-color: highlight;
+    color: highlight;
+    border-block-end: var(--ginga-tab-indicator-width) solid highlight;
+  }
+
+  .ginga-tabs[data-orientation="vertical"] .ginga-tab[data-selected] {
+    border-block-end: none;
+    border-inline-end: var(--ginga-tab-indicator-width) solid highlight;
   }
 }
