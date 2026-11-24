@@ -11,6 +11,7 @@ import * as enButton from "./en/button";
 import * as enCard from "./en/card";
 import * as enCheckbox from "./en/checkbox";
 import * as enCodeBlock from "./en/code-block";
+import * as enComboBox from "./en/combo-box";
 import * as enDialog from "./en/dialog";
 import * as enDrawer from "./en/drawer";
 import * as enFormControl from "./en/form-control";
@@ -18,10 +19,13 @@ import * as enHeading from "./en/heading";
 import * as enImage from "./en/image";
 import * as enInput from "./en/input";
 import * as enList from "./en/list";
+import * as enMenu from "./en/menu";
+import * as enNumberField from "./en/number-field";
 import * as enParagraph from "./en/paragraph";
 import * as enPopover from "./en/popover";
 import * as enQuestionnaire from "./en/questionnaire";
 import * as enRadio from "./en/radio";
+import * as enSearchField from "./en/search-field";
 import * as enSegmentedControl from "./en/segmented-control";
 import * as enSelect from "./en/select";
 import * as enSlider from "./en/slider";
@@ -29,6 +33,7 @@ import * as enSwitch from "./en/switch";
 import * as enTab from "./en/tab";
 import * as enTable from "./en/table";
 import * as enToast from "./en/toast";
+import * as enTooltip from "./en/tooltip";
 import * as enTrace from "./en/trace";
 import * as jaAccordion from "./ja/accordion";
 import * as jaAlert from "./ja/alert";
@@ -40,6 +45,7 @@ import * as jaButton from "./ja/button";
 import * as jaCard from "./ja/card";
 import * as jaCheckbox from "./ja/checkbox";
 import * as jaCodeBlock from "./ja/code-block";
+import * as jaComboBox from "./ja/combo-box";
 import * as jaDialog from "./ja/dialog";
 import * as jaDrawer from "./ja/drawer";
 import * as jaFormControl from "./ja/form-control";
@@ -47,10 +53,13 @@ import * as jaHeading from "./ja/heading";
 import * as jaImage from "./ja/image";
 import * as jaInput from "./ja/input";
 import * as jaList from "./ja/list";
+import * as jaMenu from "./ja/menu";
+import * as jaNumberField from "./ja/number-field";
 import * as jaParagraph from "./ja/paragraph";
 import * as jaPopover from "./ja/popover";
 import * as jaQuestionnaire from "./ja/questionnaire";
 import * as jaRadio from "./ja/radio";
+import * as jaSearchField from "./ja/search-field";
 import * as jaSegmentedControl from "./ja/segmented-control";
 import * as jaSelect from "./ja/select";
 import * as jaSlider from "./ja/slider";
@@ -58,6 +67,7 @@ import * as jaSwitch from "./ja/switch";
 import * as jaTab from "./ja/tab";
 import * as jaTable from "./ja/table";
 import * as jaToast from "./ja/toast";
+import * as jaTooltip from "./ja/tooltip";
 import * as jaTrace from "./ja/trace";
 
 type ExampleModule = Record<string, ComponentType>;
@@ -74,6 +84,7 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     card: enCard,
     checkbox: enCheckbox,
     "code-block": enCodeBlock,
+    "combo-box": enComboBox,
     dialog: enDialog,
     drawer: enDrawer,
     "form-control": enFormControl,
@@ -81,10 +92,13 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     image: enImage,
     input: enInput,
     list: enList,
+    menu: enMenu,
+    "number-field": enNumberField,
     paragraph: enParagraph,
     popover: enPopover,
     questionnaire: enQuestionnaire,
     radio: enRadio,
+    "search-field": enSearchField,
     "segmented-control": enSegmentedControl,
     select: enSelect,
     slider: enSlider,
@@ -92,6 +106,7 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     tab: enTab,
     table: enTable,
     toast: enToast,
+    tooltip: enTooltip,
     trace: enTrace,
   },
   ja: {
@@ -105,6 +120,7 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     card: jaCard,
     checkbox: jaCheckbox,
     "code-block": jaCodeBlock,
+    "combo-box": jaComboBox,
     dialog: jaDialog,
     drawer: jaDrawer,
     "form-control": jaFormControl,
@@ -112,10 +128,13 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     image: jaImage,
     input: jaInput,
     list: jaList,
+    menu: jaMenu,
+    "number-field": jaNumberField,
     paragraph: jaParagraph,
     popover: jaPopover,
     questionnaire: jaQuestionnaire,
     radio: jaRadio,
+    "search-field": jaSearchField,
     "segmented-control": jaSegmentedControl,
     select: jaSelect,
     slider: jaSlider,
@@ -123,6 +142,7 @@ export const EXAMPLES: Record<Locale, Record<string, ExampleModule>> = {
     tab: jaTab,
     table: jaTable,
     toast: jaToast,
+    tooltip: jaTooltip,
     trace: jaTrace,
   },
 };

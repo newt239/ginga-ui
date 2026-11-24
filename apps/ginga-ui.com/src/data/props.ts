@@ -310,7 +310,6 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
     htmlOnly("Card", "div"),
     htmlOnly("CardHeader", "div"),
     htmlOnly("CardTitle", "div"),
-    htmlOnly("CardDescription", "p"),
     htmlOnly("CardContent", "div"),
     htmlOnly("CardFooter", "div"),
   ],
@@ -385,6 +384,89 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
           "Shows the group as invalid.",
           "入力内容が不正な状態として表示します。"
         ),
+      ],
+    },
+  ],
+  "combo-box": [
+    {
+      name: "ComboBox",
+      inherits: aria("ComboBox"),
+      props: [
+        {
+          name: "label",
+          type: "string",
+          description: {
+            en: "Label shown above the combo box.",
+            ja: "コンボボックスの上に表示するラベル。",
+          },
+        },
+        {
+          name: "placeholder",
+          type: "string",
+          description: {
+            en: "Placeholder text of the input.",
+            ja: "入力欄のプレースホルダー。",
+          },
+        },
+        {
+          name: "description",
+          type: "ReactNode",
+          description: {
+            en: "Help text shown below the combo box.",
+            ja: "コンボボックスの下に表示する補足説明。",
+          },
+        },
+        {
+          name: "errorMessage",
+          type: "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          description: {
+            en: "Error message shown when the value is invalid.",
+            ja: "値が不正なときに表示するエラーメッセージ。",
+          },
+        },
+        disabled("Disables the combo box.", "コンボボックスを無効にします。"),
+        required("Requires a value.", "入力を必須にします。"),
+        readOnly(
+          "Makes the combo box read-only.",
+          "コンボボックスを読み取り専用にします。"
+        ),
+        invalid(
+          "Shows the combo box as invalid.",
+          "入力内容が不正な状態として表示します。"
+        ),
+        {
+          name: "children",
+          type: "ReactNode",
+          description: {
+            en: "ComboBoxItem elements.",
+            ja: "ComboBoxItem を並べます。",
+          },
+        },
+        icon(
+          "Icon shown in the button that opens the list. A chevron is drawn when omitted.",
+          "候補を開くボタンのアイコン。省略すると山形の記号を表示します。"
+        ),
+        icon(
+          "Icon shown next to the selected item.",
+          "選択中の項目の横に表示するアイコン。",
+          "checkIcon"
+        ),
+      ],
+    },
+    {
+      name: "ComboBoxItem",
+      inherits: aria("ListBoxItem", "ListBox"),
+      props: [
+        disabled("Disables the item.", "項目を無効にします。"),
+        {
+          name: "textValue",
+          type: "string",
+          defaultValue: `children (string only)`,
+          description: {
+            en: "Text used for filtering and screen readers. Required when children is not a string.",
+            ja: "絞り込みやスクリーンリーダーに使うテキスト。children が文字列でない場合は指定します。",
+          },
+        },
       ],
     },
   ],
@@ -679,6 +761,167 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
     },
     htmlOnly("ListItem", "li"),
   ],
+  menu: [
+    {
+      name: "MenuTrigger",
+      inherits: aria("MenuTrigger", "Menu"),
+      props: [],
+    },
+    {
+      name: "Menu",
+      inherits: aria("Menu"),
+      props: [
+        {
+          name: "children",
+          type: "ReactNode",
+          description: {
+            en: "MenuItem, MenuSection, MenuSeparator, and SubmenuTrigger elements.",
+            ja: "MenuItem・MenuSection・MenuSeparator・SubmenuTrigger を並べます。",
+          },
+        },
+        {
+          name: "placement",
+          type: "Placement",
+          defaultValue: `"bottom start"`,
+          description: {
+            en: "Position of the menu relative to the trigger.",
+            ja: "トリガーに対するメニューの表示位置。",
+          },
+        },
+        {
+          name: "offset",
+          type: "number",
+          description: {
+            en: "Distance from the trigger in pixels.",
+            ja: "トリガーからの距離（px）。",
+          },
+        },
+        icon(
+          "Icon shown next to selected items. A check mark is drawn when omitted. Inherited by submenus.",
+          "選択中の項目の横に表示するアイコン。省略するとチェックの記号を表示します。サブメニューにも引き継がれます。",
+          "checkIcon"
+        ),
+        icon(
+          "Icon shown at the end of items that open a submenu. A chevron is drawn when omitted. Inherited by submenus.",
+          "サブメニューを開く項目の末尾に表示するアイコン。省略すると山形の記号を表示します。サブメニューにも引き継がれます。",
+          "submenuIcon"
+        ),
+      ],
+    },
+    {
+      name: "MenuItem",
+      inherits: aria("MenuItem", "Menu"),
+      props: [
+        disabled("Disables the item.", "項目を無効にします。"),
+        icon(
+          "Icon shown before the label.",
+          "ラベルの前に表示するアイコン。",
+          "startIcon"
+        ),
+        {
+          name: "shortcut",
+          type: "string",
+          description: {
+            en: "Keyboard shortcut shown at the end of the item. It is only displayed, not registered.",
+            ja: "項目の末尾に表示するキーボードショートカット。表示のみで、キー操作は登録されません。",
+          },
+        },
+        {
+          name: "textValue",
+          type: "string",
+          defaultValue: `children (string only)`,
+          description: {
+            en: "Text used for type-to-select and screen readers. Required when children is not a string.",
+            ja: "文字入力による選択やスクリーンリーダーに使うテキスト。children が文字列でない場合は指定します。",
+          },
+        },
+      ],
+    },
+    {
+      name: "MenuSection",
+      inherits: aria("MenuSection", "Menu"),
+      props: [
+        {
+          name: "title",
+          type: "ReactNode",
+          description: {
+            en: "Heading shown at the top of the section.",
+            ja: "セクションの先頭に表示する見出し。",
+          },
+        },
+      ],
+    },
+    {
+      name: "MenuSeparator",
+      inherits: aria("Separator", "Menu"),
+      props: [],
+    },
+    {
+      name: "SubmenuTrigger",
+      inherits: aria("SubmenuTrigger", "Menu"),
+      props: [],
+    },
+  ],
+  "number-field": [
+    {
+      name: "NumberField",
+      inherits: aria("NumberField"),
+      props: [
+        {
+          name: "label",
+          type: "string",
+          description: {
+            en: "Label shown above the field.",
+            ja: "入力欄の上に表示するラベル。",
+          },
+        },
+        {
+          name: "placeholder",
+          type: "string",
+          description: {
+            en: "Placeholder text of the input.",
+            ja: "入力欄のプレースホルダー。",
+          },
+        },
+        {
+          name: "description",
+          type: "ReactNode",
+          description: {
+            en: "Help text shown below the field.",
+            ja: "入力欄の下に表示する補足説明。",
+          },
+        },
+        {
+          name: "errorMessage",
+          type: "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          description: {
+            en: "Error message shown when the value is invalid.",
+            ja: "値が不正なときに表示するエラーメッセージ。",
+          },
+        },
+        disabled("Disables the field.", "入力欄を無効にします。"),
+        required("Requires a value.", "入力を必須にします。"),
+        readOnly(
+          "Makes the field read-only.",
+          "入力欄を読み取り専用にします。"
+        ),
+        invalid(
+          "Shows the field as invalid.",
+          "入力内容が不正な状態として表示します。"
+        ),
+        icon(
+          "Icon of the decrement button. A minus sign is drawn when omitted.",
+          "減らすボタンのアイコン。省略するとマイナス記号を表示します。",
+          "decrementIcon"
+        ),
+        icon(
+          "Icon of the increment button. A plus sign is drawn when omitted.",
+          "増やすボタンのアイコン。省略するとプラス記号を表示します。",
+          "incrementIcon"
+        ),
+      ],
+    },
+  ],
   paragraph: [htmlOnly("Paragraph", "p")],
   popover: [
     {
@@ -971,6 +1214,71 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
       inherits: aria("Radio", "RadioGroup"),
       props: [
         disabled("Disables the radio button.", "ラジオボタンを無効にします。"),
+      ],
+    },
+  ],
+  "search-field": [
+    {
+      name: "SearchField",
+      inherits: aria("SearchField"),
+      props: [
+        {
+          name: "label",
+          type: "string",
+          description: {
+            en: "Label of the field. It is read by screen readers and is visually hidden unless showLabel is set. Use aria-label instead when omitted.",
+            ja: "入力欄のラベル。スクリーンリーダーで読み上げられ、showLabel を指定しない限り画面には表示されません。省略する場合は aria-label を指定してください。",
+          },
+        },
+        {
+          name: "showLabel",
+          type: "boolean",
+          defaultValue: "false",
+          description: {
+            en: "Shows the label above the field.",
+            ja: "入力欄の上にラベルを表示します。",
+          },
+        },
+        {
+          name: "placeholder",
+          type: "string",
+          description: {
+            en: "Placeholder text of the input.",
+            ja: "入力欄のプレースホルダー。",
+          },
+        },
+        {
+          name: "description",
+          type: "ReactNode",
+          description: {
+            en: "Help text shown below the field.",
+            ja: "入力欄の下に表示する補足説明。",
+          },
+        },
+        {
+          name: "errorMessage",
+          type: "ReactNode | ((validation: ValidationResult) => ReactNode)",
+          description: {
+            en: "Error message shown when the value is invalid.",
+            ja: "値が不正なときに表示するエラーメッセージ。",
+          },
+        },
+        disabled("Disables the field.", "入力欄を無効にします。"),
+        required("Requires a value.", "入力を必須にします。"),
+        readOnly(
+          "Makes the field read-only.",
+          "入力欄を読み取り専用にします。"
+        ),
+        invalid(
+          "Shows the field as invalid.",
+          "入力内容が不正な状態として表示します。"
+        ),
+        icon("Icon shown before the input.", "入力欄の前に表示するアイコン。"),
+        icon(
+          "Icon of the clear button. A cross is drawn when omitted.",
+          "クリアボタンのアイコン。省略するとバツ印を表示します。",
+          "clearIcon"
+        ),
       ],
     },
   ],
@@ -1419,6 +1727,59 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
           description: {
             en: "Called when the toast closes.",
             ja: "トーストが閉じたときに呼ばれます。",
+          },
+        },
+      ],
+    },
+  ],
+  tooltip: [
+    {
+      name: "TooltipTrigger",
+      inherits: aria("TooltipTrigger", "Tooltip"),
+      props: [
+        disabled(
+          "Stops the tooltip from opening.",
+          "ツールチップを表示しないようにします。"
+        ),
+      ],
+    },
+    {
+      name: "Tooltip",
+      inherits: aria("Tooltip"),
+      props: [
+        {
+          name: "children",
+          type: "ReactNode",
+          description: {
+            en: "Content of the tooltip.",
+            ja: "ツールチップの内容。",
+          },
+        },
+        {
+          name: "showArrow",
+          type: "boolean",
+          defaultValue: `true`,
+          description: {
+            en: "Shows an arrow pointing at the trigger. The offset grows by half the arrow size.",
+            ja: "トリガーを指す矢印を表示します。表示すると offset に矢印の半分の大きさが加わります。",
+          },
+        },
+        {
+          name: "placement",
+          type: "Placement",
+          defaultValue: `"top"`,
+          description: {
+            en: "Position of the tooltip relative to the trigger.",
+            ja: "トリガーに対するツールチップの表示位置。",
+          },
+        },
+        {
+          name: "offset",
+          type: "number",
+          defaultValue: `6`,
+          description: {
+            en: "Distance from the trigger in pixels.",
+            ja: "トリガーからの距離（px）。",
           },
         },
       ],

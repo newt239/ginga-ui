@@ -12,6 +12,34 @@
   border-radius: var(--radius-lg);
 }
 
+.ginga-card:is(a[href]) {
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+
+  & .ginga-card-title {
+    text-decoration-line: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 0.25rem;
+  }
+
+  &:hover .ginga-card-title {
+    text-decoration-style: solid;
+  }
+
+  &:focus-visible {
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+}
+
+@media (prefers-contrast: more) {
+  .ginga-card:is(a[href]) .ginga-card-title {
+    text-decoration-thickness: 0.125rem;
+    text-decoration-style: solid;
+  }
+}
+
 .ginga-card-header {
   display: flex;
   flex-direction: column;
@@ -23,14 +51,6 @@
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.01em;
-}
-
-.ginga-card-description {
-  padding: 0;
-  margin: 0;
-  font-size: 0.875rem;
-  line-height: 1.75;
-  color: var(--color-text-muted);
 }
 
 .ginga-card-content {

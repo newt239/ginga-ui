@@ -99,6 +99,36 @@ export const COMPONENTS: ComponentMetadata[] = [
     },
   },
   {
+    id: "combo-box",
+    name: "ComboBox",
+    category: "forms",
+    storybookStoryId: "forms-combobox--basic",
+    description: {
+      en: "A text input that filters a dropdown list of options as you type.",
+      ja: "入力した文字で候補を絞り込んで選べるテキスト入力。",
+    },
+  },
+  {
+    id: "number-field",
+    name: "NumberField",
+    category: "forms",
+    storybookStoryId: "forms-numberfield--default",
+    description: {
+      en: "A numeric input with increment and decrement buttons. Supports ranges, steps, and number formatting.",
+      ja: "増減ボタン付きの数値入力。範囲・刻み幅・数値の書式を指定できる。",
+    },
+  },
+  {
+    id: "search-field",
+    name: "SearchField",
+    category: "forms",
+    storybookStoryId: "forms-searchfield--default",
+    description: {
+      en: "A search input with a clear button. Esc clears the value and Enter submits it.",
+      ja: "クリアボタン付きの検索入力。Esc で消去、Enter で送信できる。",
+    },
+  },
+  {
     id: "slider",
     name: "Slider",
     category: "forms",
@@ -238,6 +268,26 @@ export const COMPONENTS: ComponentMetadata[] = [
     description: {
       en: "A popover anchored to a trigger element. Placement and arrow display are customizable.",
       ja: "トリガー要素に紐づけて表示されるポップオーバー。配置方向と矢印表示をカスタマイズ可能。",
+    },
+  },
+  {
+    id: "menu",
+    name: "Menu",
+    category: "display",
+    storybookStoryId: "display-menu--basic",
+    description: {
+      en: "A dropdown list of actions opened from a button. Supports sections, submenus, and selection.",
+      ja: "ボタンから開く操作の一覧。セクション・サブメニュー・選択状態に対応。",
+    },
+  },
+  {
+    id: "tooltip",
+    name: "Tooltip",
+    category: "display",
+    storybookStoryId: "display-tooltip--basic",
+    description: {
+      en: "A short label shown on hover or focus. Useful for describing icon-only buttons.",
+      ja: "ホバーやフォーカスで表示される短いラベル。アイコンだけのボタンの説明に使う。",
     },
   },
   {

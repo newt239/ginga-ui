@@ -16,7 +16,7 @@
 .example {
   margin-top: 1rem;
   overflow: hidden;
-  border: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border: var(--border-width) solid var(--color-surface-strong);
   border-radius: var(--radius-lg);
 }
 
@@ -31,6 +31,10 @@
 
   & > * {
     max-width: 100%;
+  }
+
+  &[data-align="start"] {
+    align-items: flex-start;
   }
 }
 

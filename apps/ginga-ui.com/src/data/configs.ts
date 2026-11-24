@@ -135,6 +135,32 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
   ],
+  "combo-box": [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Place ComboBoxItem elements inside. Typing filters the options.",
+        ja: "ComboBoxItem を並べます。入力した文字で候補が絞り込まれます。",
+      },
+    },
+    {
+      name: "ValidationExample",
+      title: { en: "Validation", ja: "バリデーション" },
+      description: {
+        en: "Use description for help text and errorMessage for the message shown when the value is invalid.",
+        ja: "description で補足説明を、errorMessage で不正な値のときのメッセージを表示します。",
+      },
+    },
+    {
+      name: "DisabledExample",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "Pass disabled to disable the whole combo box.",
+        ja: "disabled を指定するとコンボボックス全体が無効になります。",
+      },
+    },
+  ],
   "code-block": [
     {
       name: "BasicExample",
@@ -530,6 +556,40 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       },
     },
   ],
+  menu: [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Put a Button and a Menu inside MenuTrigger. Use onAction to handle the chosen item.",
+        ja: "MenuTrigger の中に Button と Menu を置きます。選ばれた項目は onAction で受け取ります。",
+      },
+    },
+    {
+      name: "SectionExample",
+      title: { en: "Sections", ja: "セクション" },
+      description: {
+        en: "Group items with MenuSection and separate them with MenuSeparator.",
+        ja: "MenuSection で項目をまとめ、MenuSeparator で区切ります。",
+      },
+    },
+    {
+      name: "SubmenuExample",
+      title: { en: "Submenu", ja: "サブメニュー" },
+      description: {
+        en: "Put a MenuItem and a nested Menu inside SubmenuTrigger.",
+        ja: "SubmenuTrigger の中に MenuItem と入れ子の Menu を置きます。",
+      },
+    },
+    {
+      name: "SelectionExample",
+      title: { en: "Selection", ja: "選択" },
+      description: {
+        en: "Set selectionMode to show a check next to the selected items.",
+        ja: "selectionMode を指定すると、選択中の項目にチェックが付きます。",
+      },
+    },
+  ],
   list: [
     {
       name: "UnorderedExample",
@@ -561,6 +621,40 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "A list that combines ordered and unordered lists.",
         ja: "順序付きと順序なしを組み合わせたリストです。",
+      },
+    },
+  ],
+  "number-field": [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Limit the range with minValue and maxValue. The arrow keys also change the value.",
+        ja: "minValue と maxValue で範囲を制限します。矢印キーでも値を増減できます。",
+      },
+    },
+    {
+      name: "IconExample",
+      title: { en: "Icons", ja: "アイコン" },
+      description: {
+        en: "Pass icons to decrementIcon and incrementIcon to replace the default signs.",
+        ja: "decrementIcon と incrementIcon にアイコンを渡すと既定の記号を置き換えます。",
+      },
+    },
+    {
+      name: "FormatExample",
+      title: { en: "Formatting", ja: "書式" },
+      description: {
+        en: "Use formatOptions to format the value, for example as currency. step sets the increment.",
+        ja: "formatOptions で通貨などの書式を指定します。step で増減の刻み幅を指定します。",
+      },
+    },
+    {
+      name: "DisabledExample",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "Pass disabled to disable the field.",
+        ja: "disabled を指定すると入力欄が無効になります。",
       },
     },
   ],
@@ -681,6 +775,40 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "Specify shortcuts to select choices with letter or number keys.",
         ja: "shortcuts を指定すると、英字または数字のキーで選択肢を選べます。",
+      },
+    },
+  ],
+  "search-field": [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "The label is read by screen readers but not shown. A clear button appears when there is a value.",
+        ja: "label はスクリーンリーダーで読み上げられますが、画面には表示されません。値があるときはクリアボタンが表示されます。",
+      },
+    },
+    {
+      name: "ShowLabelExample",
+      title: { en: "Showing the label", ja: "ラベルの表示" },
+      description: {
+        en: "Pass showLabel to show the label above the field. onSubmit is called when Enter is pressed.",
+        ja: "showLabel を指定すると入力欄の上にラベルを表示します。Enter を押すと onSubmit が呼ばれます。",
+      },
+    },
+    {
+      name: "IconExample",
+      title: { en: "Icons", ja: "アイコン" },
+      description: {
+        en: "Use icon for a leading icon and clearIcon for the clear button.",
+        ja: "icon で先頭のアイコンを、clearIcon でクリアボタンのアイコンを指定します。",
+      },
+    },
+    {
+      name: "DisabledExample",
+      title: { en: "Disabled", ja: "無効化" },
+      description: {
+        en: "Pass disabled to disable the field.",
+        ja: "disabled を指定すると入力欄が無効になります。",
       },
     },
   ],
@@ -893,6 +1021,32 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "Specify the timeout option to close the toast automatically. The timer pauses while it is hovered or focused.",
         ja: "timeoutオプションを指定すると自動的に閉じます。ホバーやフォーカス中はタイマーが一時停止します。",
+      },
+    },
+  ],
+  tooltip: [
+    {
+      name: "BasicExample",
+      title: { en: "Basic usage", ja: "基本的な使い方" },
+      description: {
+        en: "Put the trigger element and a Tooltip inside TooltipTrigger. It appears on hover or keyboard focus.",
+        ja: "TooltipTrigger の中にトリガー要素と Tooltip を置きます。ホバーまたはキーボードフォーカスで表示されます。",
+      },
+    },
+    {
+      name: "PlacementsExample",
+      title: { en: "Placement", ja: "表示位置" },
+      description: {
+        en: "Use placement to set the position. The default is top.",
+        ja: "placement で表示位置を指定します。既定値は top です。",
+      },
+    },
+    {
+      name: "WithoutArrowExample",
+      title: { en: "Without arrow", ja: "矢印なし" },
+      description: {
+        en: "Pass false to showArrow to hide the arrow.",
+        ja: "showArrow に false を渡すと矢印を非表示にできます。",
       },
     },
   ],

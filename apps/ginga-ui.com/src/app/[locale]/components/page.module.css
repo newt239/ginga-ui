@@ -27,31 +27,30 @@
   &:hover {
     background-color: var(--color-surface-hover);
   }
+
+  &:hover .cardTitle {
+    text-decoration-style: solid;
+  }
 }
 
 .cardTitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.4;
-}
-
-.cardArrow {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: var(--color-text-muted);
-  transition: var(--transition);
-
-  .card:hover & {
-    color: var(--color-accent);
-    transform: translateX(0.25rem);
-  }
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 0.25rem;
 }
 
 .cardDescription {
   font-size: 0.875rem;
   line-height: 1.75;
   color: var(--color-text-muted);
+}
+
+@media (prefers-contrast: more) {
+  .cardTitle {
+    text-decoration-thickness: 0.125rem;
+    text-decoration-style: solid;
+  }
 }

@@ -83,6 +83,8 @@ type ExampleProps = {
   children: React.ReactNode;
 };
 
+const TOP_ALIGNED_EXAMPLE_IDS = new Set(["tab"]);
+
 async function Example({ id, name, locale, children }: ExampleProps) {
   const config = EXAMPLE_CONFIGS[id]?.find((c) => c.name === name);
   const source = await getExampleSource(locale, id, name);
@@ -115,7 +117,11 @@ async function Example({ id, name, locale, children }: ExampleProps) {
       ) : null}
 
       <div className={styles.example}>
-        <div className={styles.examplePreview} data-toc-ignore>
+        <div
+          className={styles.examplePreview}
+          data-align={TOP_ALIGNED_EXAMPLE_IDS.has(id) ? "start" : undefined}
+          data-toc-ignore
+        >
           {children}
         </div>
         <CodeBlock files={files} variant="attached" />

@@ -1,5 +1,5 @@
 .attached {
-  border-top: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border-top: var(--border-width) solid var(--color-surface-strong);
   border-radius: 0;
 
   & :global(.ginga-code-block-content) {

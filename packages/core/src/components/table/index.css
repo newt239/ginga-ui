@@ -4,6 +4,8 @@
   width: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
+  border: var(--border-width) solid var(--color-surface-strong);
+  border-radius: var(--radius-md);
 }
 
 .ginga-table {
@@ -11,8 +13,7 @@
   font-family: var(--font-family);
   font-size: 0.875rem;
   color: var(--color-text);
-  border-spacing: 0;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 
 .ginga-table-column {
@@ -20,18 +21,11 @@
   font-weight: 700;
   vertical-align: middle;
   color: var(--color-text);
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
   outline: none;
-  background-color: var(--color-surface-strong);
-
-  &:first-child {
-    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-  }
-
-  &:last-child {
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  }
+  background-color: var(--color-surface-hover);
+  border-block-end: var(--border-width) solid var(--color-surface-strong);
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
@@ -78,6 +72,11 @@
 
 .ginga-table-row {
   outline: none;
+  border-block-end: var(--border-width) solid var(--color-surface-strong);
+
+  &:last-child {
+    border-block-end: none;
+  }
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);
@@ -104,14 +103,6 @@
   outline: none;
   background-color: var(--ginga-table-row-background, transparent);
   transition: background-color var(--duration) var(--easing);
-
-  &:first-child {
-    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
-  }
-
-  &:last-child {
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  }
 
   &[data-focus-visible] {
     outline: var(--focus-ring-width) solid var(--color-focus);

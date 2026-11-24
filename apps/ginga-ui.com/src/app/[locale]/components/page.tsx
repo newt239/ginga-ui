@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Heading, Tab, TabList, TabPanel, Tabs } from "@ginga-ui/core";
-import { ArrowRight } from "lucide-react";
 import {
   COMPONENTS,
   getComponentsByCategory,
@@ -47,13 +46,7 @@ export default async function ComponentsPage({
                     href={localizePath(`/components/${component.id}`, locale)}
                     className={styles.card}
                   >
-                    <span className={styles.cardTitle}>
-                      {component.name}
-                      <ArrowRight
-                        className={styles.cardArrow}
-                        aria-hidden="true"
-                      />
-                    </span>
+                    <span className={styles.cardTitle}>{component.name}</span>
                     <span className={styles.cardDescription}>
                       {component.description[locale]}
                     </span>

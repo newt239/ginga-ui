@@ -177,7 +177,6 @@ export async function CustomRenderingContent() {
               },
               { key: "target", header: "差し替わる要素", accessor: "target" },
             ]}
-            striped
             aria-label="render で差し替わる要素の一覧"
           />
         </div>

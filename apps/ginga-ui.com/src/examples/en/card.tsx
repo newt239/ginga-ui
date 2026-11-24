@@ -3,7 +3,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -16,7 +15,6 @@ export function BasicExample() {
     <Card className={styles.basicCard}>
       <CardHeader>
         <CardTitle>Card title</CardTitle>
-        <CardDescription>The card description appears here.</CardDescription>
       </CardHeader>
       <CardContent>
         The main content of the card. Use it to group related information.
@@ -30,7 +28,6 @@ export function WithFooterExample() {
     <Card className={styles.withFooterCard}>
       <CardHeader>
         <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy a new project in one click</CardDescription>
       </CardHeader>
       <CardContent>
         Enter a project name and choose your deployment settings. You can
@@ -50,7 +47,6 @@ export function MultipleCardsExample() {
       <Card className={styles.plan}>
         <CardHeader>
           <CardTitle>Free</CardTitle>
-          <CardDescription>Great for personal use</CardDescription>
         </CardHeader>
         <CardContent>
           <div className={styles.planPrice}>$0</div>
@@ -68,7 +64,6 @@ export function MultipleCardsExample() {
       <Card className={styles.plan}>
         <CardHeader>
           <CardTitle>Pro</CardTitle>
-          <CardDescription>For teams</CardDescription>
         </CardHeader>
         <CardContent>
           <div className={styles.planPrice}>$20/month</div>
