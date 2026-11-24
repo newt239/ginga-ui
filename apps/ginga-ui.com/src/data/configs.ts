@@ -461,14 +461,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         ja: "適切な見出し階層を持つページ構造の例です。",
       },
     },
-    {
-      name: "CustomStyleExample",
-      title: { en: "Custom style", ja: "カスタムスタイル" },
-      description: {
-        en: "A heading with custom styles applied.",
-        ja: "カスタムスタイルを適用した見出しです。",
-      },
-    },
   ],
   image: [
     {
@@ -595,14 +587,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       description: {
         en: "An example of a paragraph containing long text.",
         ja: "長い文章を含む段落の例です。",
-      },
-    },
-    {
-      name: "CustomStyleExample",
-      title: { en: "Custom style", ja: "カスタムスタイル" },
-      description: {
-        en: "A paragraph with custom styles applied.",
-        ja: "カスタムスタイルを適用した段落です。",
       },
     },
   ],

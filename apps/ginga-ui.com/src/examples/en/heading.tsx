@@ -43,19 +43,3 @@ export function PageStructureExample() {
     </article>
   );
 }
-
-export function CustomStyleExample() {
-  return (
-    <div className={styles.customStack}>
-      <Heading level={2} className={styles.accentHeading}>
-        Heading in the primary color
-      </Heading>
-      <Heading level={3} className={styles.centeredHeading}>
-        Centered heading
-      </Heading>
-      <Heading level={2} className={styles.underlinedHeading}>
-        Underlined heading
-      </Heading>
-    </div>
-  );
-}

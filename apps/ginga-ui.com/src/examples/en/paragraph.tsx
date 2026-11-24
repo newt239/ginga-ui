@@ -43,23 +43,3 @@ export function LongTextExample() {
     </Paragraph>
   );
 }
-
-export function CustomStyleExample() {
-  return (
-    <div className={styles.customStack}>
-      <Paragraph className={styles.largeParagraph}>
-        A paragraph with a larger font size.
-      </Paragraph>
-      <Paragraph className={styles.accentParagraph}>
-        Text in the primary color.
-      </Paragraph>
-      <Paragraph className={styles.centeredParagraph}>
-        A centered paragraph.
-      </Paragraph>
-      <Paragraph className={styles.highlightedParagraph}>
-        A paragraph with a background color. Use it to highlight important
-        information.
-      </Paragraph>
-    </div>
-  );
-}

@@ -43,19 +43,3 @@ export function PageStructureExample() {
     </article>
   );
 }
-
-export function CustomStyleExample() {
-  return (
-    <div className={styles.customStack}>
-      <Heading level={2} className={styles.accentHeading}>
-        プライマリカラーの見出し
-      </Heading>
-      <Heading level={3} className={styles.centeredHeading}>
-        中央揃えの見出し
-      </Heading>
-      <Heading level={2} className={styles.underlinedHeading}>
-        下線付き見出し
-      </Heading>
-    </div>
-  );
-}
