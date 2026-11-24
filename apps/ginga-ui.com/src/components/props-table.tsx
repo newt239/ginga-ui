@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Table } from "@ginga-ui/core";
+import { Table } from "@ginga-ui/core";
 import styles from "./props-section.module.css";
 
 type PropsTableRow = {
@@ -33,14 +33,7 @@ export function PropsTable({ rows, labels }: PropsTableProps) {
           {
             key: "name",
             header: labels.name,
-            accessor: (row) => (
-              <span className={styles.name}>
-                <code>{row.name}</code>
-                {row.required && (
-                  <Badge variant="danger">{labels.required}</Badge>
-                )}
-              </span>
-            ),
+            accessor: (row) => <code>{row.name}</code>,
             isRowHeader: true,
           },
           {
@@ -57,7 +50,14 @@ export function PropsTable({ rows, labels }: PropsTableProps) {
           {
             key: "description",
             header: labels.description,
-            accessor: "description",
+            accessor: (row) =>
+              row.required ? (
+                <>
+                  <strong>{labels.required}</strong> {row.description}
+                </>
+              ) : (
+                row.description
+              ),
           },
         ]}
         striped
