@@ -4,6 +4,8 @@
   width: 100%;
   overflow-x: auto;
   overscroll-behavior-x: contain;
+  border: var(--border-width) solid var(--color-surface-strong);
+  border-radius: var(--radius-md);
 }
 
 .ginga-table {
@@ -18,10 +20,11 @@
   padding: 0.75rem 1rem;
   font-weight: 700;
   vertical-align: middle;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   text-align: start;
   white-space: nowrap;
   outline: none;
+  background-color: var(--color-surface-hover);
   border-block-end: var(--border-width) solid var(--color-surface-strong);
 
   &[data-focus-visible] {
