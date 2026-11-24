@@ -45,12 +45,13 @@
   align-items: flex-start;
   padding: 0.75rem 1rem;
   cursor: pointer;
-  border: var(--border-width) solid var(--color-surface-strong);
+  border: var(--border-width) solid var(--color-control-border);
   border-radius: var(--radius-md);
   transition: var(--transition);
 
   &[data-hovered] {
     background-color: var(--color-surface);
+    border-color: var(--color-text);
   }
 
   &[data-selected] {
@@ -66,7 +67,8 @@
   &[data-disabled] {
     color: var(--color-text-muted);
     cursor: not-allowed;
-    background-color: var(--color-surface);
+    background-color: var(--color-surface-strong);
+    border-color: var(--color-surface-strong);
   }
 }
 
