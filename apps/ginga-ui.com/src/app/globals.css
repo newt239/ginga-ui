@@ -347,7 +347,7 @@ body {
   margin: 0 0 1em;
   font-size: 1.125rem;
   line-height: 1.8;
-  color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .docs-section {

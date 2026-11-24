@@ -32,9 +32,7 @@ export async function ComponentDoc({ id, locale }: ComponentDocProps) {
   return (
     <article>
       <Heading level={1}>{component.name}</Heading>
-      <p className={`docs-lead ${styles.lead}`}>
-        {component.description[locale]}
-      </p>
+      <p className="docs-lead">{component.description[locale]}</p>
       {component.storybookStoryId && (
         <p className={styles.storybookLink}>
           <Anchor
