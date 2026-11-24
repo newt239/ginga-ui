@@ -7,7 +7,9 @@ import {
   ComboBoxContext,
   InputContext,
   Label,
+  NumberFieldContext,
   Provider,
+  SearchFieldContext,
   SelectContext,
   TextAreaContext,
 } from "react-aria-components";
@@ -74,6 +76,8 @@ export const FormControl: React.FC<FormControlProps> = ({
                 [TextAreaContext, fieldProps],
                 [SelectContext, { "aria-labelledby": labelId }],
                 [ComboBoxContext, { "aria-labelledby": labelId }],
+                [NumberFieldContext, { "aria-labelledby": labelId }],
+                [SearchFieldContext, { "aria-labelledby": labelId }],
               ]}
             >
               {children}
