@@ -22,7 +22,11 @@
   align-items: center;
   justify-content: space-between;
   min-height: var(--size-control-md);
-  padding: 0.5rem 0.75rem 0.5rem 0.875rem;
+  padding-block: max(
+    0rem,
+    calc((var(--size-control-md) - 1.5rem) / 2 - var(--border-width))
+  );
+  padding-inline: 0.875rem 0.75rem;
   font-family: var(--font-family);
   font-size: 1rem;
   line-height: 1.5;
