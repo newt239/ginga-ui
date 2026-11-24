@@ -165,7 +165,6 @@ export async function CustomRenderingContent() {
               },
               { key: "target", header: "Replaced element", accessor: "target" },
             ]}
-            striped
             aria-label="Elements replaced by render"
           />
         </div>

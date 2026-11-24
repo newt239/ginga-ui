@@ -52,7 +52,6 @@ export function PropsTable({ rows, labels }: PropsTableProps) {
             accessor: "description",
           },
         ]}
-        striped
         aria-label={labels.table}
       />
     </div>

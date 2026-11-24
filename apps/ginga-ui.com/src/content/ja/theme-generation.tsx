@@ -252,7 +252,6 @@ export function BrowserThemeButton() {
               },
               { key: "description", header: "説明", accessor: "description" },
             ]}
-            striped
             aria-label="CSS 変数の一覧"
           />
         </div>

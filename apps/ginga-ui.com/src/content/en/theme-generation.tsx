@@ -261,7 +261,6 @@ export function BrowserThemeButton() {
                 accessor: "description",
               },
             ]}
-            striped
             aria-label="List of CSS variables"
           />
         </div>
