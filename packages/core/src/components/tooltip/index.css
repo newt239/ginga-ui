@@ -1,0 +1,41 @@
+.ginga-tooltip {
+  z-index: 60;
+  box-sizing: border-box;
+  max-width: 20rem;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-background);
+  overflow-wrap: anywhere;
+  background-color: var(--color-text);
+  border-radius: var(--radius-sm);
+  transition: opacity var(--duration) var(--easing);
+
+  @starting-style {
+    opacity: 0;
+  }
+
+  &[data-exiting] {
+    opacity: 0;
+  }
+}
+
+.ginga-tooltip-arrow {
+  svg {
+    display: block;
+    fill: var(--color-text);
+  }
+
+  &[data-placement="bottom"] svg {
+    transform: rotate(180deg);
+  }
+
+  &[data-placement="left"] svg {
+    transform: rotate(-90deg);
+  }
+
+  &[data-placement="right"] svg {
+    transform: rotate(90deg);
+  }
+}
