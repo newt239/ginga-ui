@@ -22,3 +22,4 @@
 - `generateTheme` の失敗時の戻り値を `{ type: "error", message }` に変更しました
 - 未使用の `generateColors` / `generateColorsMap` / `generateIntermediateColors` を削除しました
 - すべてのコンポーネントで `render` を受け取り、`next/link` などの別のコンポーネントでルート要素を描画できるようにしました。`Modal` の `render` は `className` と同じ内側の要素に渡し、`Anchor` の `render` は `href` があるときだけ使います
+- `SegmentedControl` のスタイルを他のフォーム部品に合わせて作り直しました。枠線付きの外枠と、選択中の項目をアクセント色で塗る表示になり、切り替え時に選択中の背景が横へスライドします。`size="lg"` を追加しました

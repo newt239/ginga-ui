@@ -721,8 +721,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "SizeExample",
       title: { en: "Size", ja: "サイズ" },
       description: {
-        en: "Two sizes are available: sm and md.",
-        ja: "sm と md の2種類のサイズを指定できます。",
+        en: "Three sizes are available: sm, md, and lg.",
+        ja: "sm・md・lg の3種類のサイズを指定できます。",
       },
     },
     {

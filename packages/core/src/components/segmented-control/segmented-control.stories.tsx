@@ -47,3 +47,45 @@ export const Icons: Story = {
     ),
   },
 };
+
+export const Sizes: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+      {(["sm", "md", "lg"] as const).map((size) => (
+        <SegmentedControl
+          key={size}
+          aria-label={`Size ${size}`}
+          defaultValue="week"
+          size={size}
+        >
+          <SegmentedControlItem id="day">Day</SegmentedControlItem>
+          <SegmentedControlItem id="week">Week</SegmentedControlItem>
+          <SegmentedControlItem id="month">Month</SegmentedControlItem>
+        </SegmentedControl>
+      ))}
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Default.args,
+    disabled: true,
+  },
+};
+
+export const DisabledItem: Story = {
+  args: {
+    "aria-label": "Time range",
+    defaultValue: "week",
+    children: (
+      <>
+        <SegmentedControlItem id="day">Day</SegmentedControlItem>
+        <SegmentedControlItem id="week">Week</SegmentedControlItem>
+        <SegmentedControlItem id="month" disabled>
+          Month
+        </SegmentedControlItem>
+      </>
+    ),
+  },
+};
