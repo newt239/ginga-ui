@@ -6,11 +6,14 @@ import {
   ToggleButton as AriaToggleButton,
   ToggleButtonGroup as AriaToggleButtonGroup,
 } from "react-aria-components";
+import { useCallback } from "react";
+import { setRef } from "../../lib/set-ref";
+import { observeSelectionIndicator } from "./observe-selection-indicator";
 import "./index.css";
 
 import type { OmitStrict } from "@ginga-ui/utils";
 
-export type SegmentedControlSize = "sm" | "md";
+export type SegmentedControlSize = "sm" | "md" | "lg";
 
 export type SegmentedControlProps = OmitStrict<
   React.ComponentProps<typeof AriaToggleButtonGroup>,
@@ -35,8 +38,21 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   disabled,
   size = "md",
   className,
+  ref,
   ...props
 }) => {
+  const mergedRef = useCallback(
+    (node: HTMLDivElement) => {
+      const stopObserving = observeSelectionIndicator(node);
+      const cleanupRef = setRef(ref, node);
+      return () => {
+        stopObserving();
+        cleanupRef();
+      };
+    },
+    [ref]
+  );
+
   return (
     <AriaToggleButtonGroup
       selectionMode="single"
@@ -51,6 +67,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       }}
       isDisabled={disabled}
       data-size={size}
+      ref={mergedRef}
       className={composeRenderProps(className, (c) =>
         cn("ginga-segmented-control", c)
       )}

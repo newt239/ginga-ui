@@ -2,6 +2,7 @@
 
 import { useLayoutEffect, useSyncExternalStore } from "react";
 import { SegmentedControl, SegmentedControlItem } from "@ginga-ui/core";
+import type { SegmentedControlSize } from "@ginga-ui/core";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useDictionary } from "#/i18n/locale-context";
 
@@ -54,7 +55,11 @@ function subscribe(listener: () => void) {
   return () => listeners.delete(listener);
 }
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  size?: SegmentedControlSize;
+};
+
+export function ThemeToggle({ size = "sm" }: ThemeToggleProps) {
   const dictionary = useDictionary();
   const preference = useSyncExternalStore(
     subscribe,
@@ -68,7 +73,7 @@ export function ThemeToggle() {
 
   return (
     <SegmentedControl
-      size="sm"
+      size={size}
       aria-label={dictionary.settings.theme}
       value={preference}
       onChange={(value) => {

@@ -2,20 +2,32 @@
   display: flex;
   gap: 0.25rem;
   align-items: center;
+
+  &[data-orientation="vertical"] {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+    align-self: stretch;
+
+    .language {
+      justify-content: center;
+    }
+  }
 }
 
 .language {
+  box-sizing: border-box;
   display: inline-flex;
   gap: 0.375rem;
   align-items: center;
-  min-height: var(--size-control-md);
-  padding: 0 0.75rem;
+  min-height: var(--size-control-sm);
+  padding: 0 0.625rem;
   font-size: 0.875rem;
   font-weight: 700;
   color: var(--color-text);
   white-space: nowrap;
   text-decoration: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: var(--transition);
 
   &:hover {

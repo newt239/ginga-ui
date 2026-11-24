@@ -2,7 +2,11 @@
   box-sizing: border-box;
   width: 100%;
   min-height: var(--size-control-md);
-  padding: 0.5rem 0.875rem;
+  padding: max(
+      0rem,
+      calc((var(--size-control-md) - 1.5rem) / 2 - var(--border-width))
+    )
+    0.875rem;
   margin: 0;
   font-family: var(--font-family);
   font-size: 1rem;

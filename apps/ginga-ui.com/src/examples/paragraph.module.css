@@ -9,28 +9,3 @@
 .longParagraph {
   width: 100%;
 }
-
-.customStack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.largeParagraph {
-  font-size: 1.125rem;
-}
-
-.accentParagraph {
-  color: var(--color-accent);
-}
-
-.centeredParagraph {
-  text-align: center;
-}
-
-.highlightedParagraph {
-  padding: 1rem;
-  background-color: var(--color-accent-subtle);
-  border-radius: var(--radius-md);
-}

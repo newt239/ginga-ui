@@ -461,14 +461,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         ja: "適切な見出し階層を持つページ構造の例です。",
       },
     },
-    {
-      name: "CustomStyleExample",
-      title: { en: "Custom style", ja: "カスタムスタイル" },
-      description: {
-        en: "A heading with custom styles applied.",
-        ja: "カスタムスタイルを適用した見出しです。",
-      },
-    },
   ],
   image: [
     {
@@ -597,14 +589,6 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
         ja: "長い文章を含む段落の例です。",
       },
     },
-    {
-      name: "CustomStyleExample",
-      title: { en: "Custom style", ja: "カスタムスタイル" },
-      description: {
-        en: "A paragraph with custom styles applied.",
-        ja: "カスタムスタイルを適用した段落です。",
-      },
-    },
   ],
   popover: [
     {
@@ -721,8 +705,8 @@ export const EXAMPLE_CONFIGS: Record<string, ExampleConfig[]> = {
       name: "SizeExample",
       title: { en: "Size", ja: "サイズ" },
       description: {
-        en: "Two sizes are available: sm and md.",
-        ja: "sm と md の2種類のサイズを指定できます。",
+        en: "Three sizes are available: sm, md, and lg.",
+        ja: "sm・md・lg の3種類のサイズを指定できます。",
       },
     },
     {

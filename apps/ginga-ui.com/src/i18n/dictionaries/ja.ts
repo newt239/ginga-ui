@@ -47,6 +47,19 @@ export const ja = {
     categoryTabs: "コンポーネントカテゴリ",
     install: "インストール",
     viewInStorybook: "Storybook で見る",
+    props: "Props",
+    propName: "名前",
+    propType: "型",
+    propDefault: "既定値",
+    propDescription: "説明",
+    propRequired: (description: string) => `必須のpropsです。${description}`,
+    propsTableLabel: (name: string) => `${name} の props`,
+    inheritsAria: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "上記に加えて、" : ""}React Aria の {link} の props を受け取ります。`,
+    inheritsHtml: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "上記に加えて、" : ""}HTML の {link} 要素の属性を受け取ります。`,
+    inheritsGinga: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "上記に加えて、" : ""}{link} の props を受け取ります。`,
   },
   themeGenerator: {
     mode: "実行方法",

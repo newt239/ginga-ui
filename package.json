@@ -45,37 +45,37 @@
   },
   "devDependencies": {
     "@changesets/cli": "3.0.3",
-    "@storybook/addon-links": "10.6.3",
-    "@storybook/builder-vite": "10.6.3",
-    "@storybook/react": "10.6.3",
-    "@storybook/react-vite": "10.6.3",
-    "@tsdown/css": "0.23.2",
+    "@storybook/addon-links": "10.6.7",
+    "@storybook/builder-vite": "10.6.7",
+    "@storybook/react": "10.6.7",
+    "@storybook/react-vite": "10.6.7",
+    "@tsdown/css": "0.23.7",
     "@types/culori": "4.0.1",
-    "@types/node": "26.6.5",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "chromatic": "18.13.3",
-    "knip": "6.43.0",
-    "oxfmt": "0.74.0",
-    "oxlint": "1.89.0",
-    "oxlint-tsgolint": "7.0.2005",
+    "chromatic": "18.14.5",
+    "knip": "6.45.1",
+    "oxfmt": "0.79.0",
+    "oxlint": "1.94.0",
+    "oxlint-tsgolint": "7.0.2007",
     "react": "19.3.1",
-    "storybook": "10.6.3",
-    "stylelint": "17.16.0",
-    "stylelint-config-recess-order": "7.9.0",
-    "stylelint-config-standard": "40.0.0",
-    "tsdown": "0.23.2",
-    "turbo": "2.11.10",
+    "storybook": "10.6.7",
+    "stylelint": "18.0.0",
+    "stylelint-config-recess-order": "7.10.0",
+    "stylelint-config-standard": "41.0.0",
+    "tsdown": "0.23.7",
+    "turbo": "2.11.11",
     "typescript": "7.0.2",
-    "vite": "8.3.5",
-    "vitest": "5.0.4"
+    "vite": "8.3.8",
+    "vitest": "5.1.0"
   },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": "24.21.0",
+      "version": "26.13.1",
       "onFail": "download"
     }
   },
-  "packageManager": "pnpm@12.13.0"
+  "packageManager": "pnpm@12.23.0"
 }

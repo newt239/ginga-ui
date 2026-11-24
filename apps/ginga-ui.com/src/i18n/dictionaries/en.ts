@@ -49,6 +49,19 @@ export const en: Dictionary = {
     categoryTabs: "Component categories",
     install: "Installation",
     viewInStorybook: "View in Storybook",
+    props: "Props",
+    propName: "Name",
+    propType: "Type",
+    propDefault: "Default",
+    propDescription: "Description",
+    propRequired: (description: string) => `Required. ${description}`,
+    propsTableLabel: (name: string) => `${name} props`,
+    inheritsAria: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "Also accepts" : "Accepts"} the props of React Aria's {link}.`,
+    inheritsHtml: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "Also accepts" : "Accepts"} the attributes of the HTML {link} element.`,
+    inheritsGinga: (hasOwnProps: boolean) =>
+      `${hasOwnProps ? "Also accepts" : "Accepts"} the props of {link}.`,
   },
   themeGenerator: {
     mode: "Run with",

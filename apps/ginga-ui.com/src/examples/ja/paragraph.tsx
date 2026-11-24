@@ -40,22 +40,3 @@ export function LongTextExample() {
     </Paragraph>
   );
 }
-
-export function CustomStyleExample() {
-  return (
-    <div className={styles.customStack}>
-      <Paragraph className={styles.largeParagraph}>
-        大きめのフォントサイズの段落です。
-      </Paragraph>
-      <Paragraph className={styles.accentParagraph}>
-        プライマリカラーのテキストです。
-      </Paragraph>
-      <Paragraph className={styles.centeredParagraph}>
-        中央揃えの段落です。
-      </Paragraph>
-      <Paragraph className={styles.highlightedParagraph}>
-        背景色を持つ段落です。重要な情報を強調表示できます。
-      </Paragraph>
-    </div>
-  );
-}

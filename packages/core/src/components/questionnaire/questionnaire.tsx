@@ -95,6 +95,11 @@ const useQuestionnaireItem = () => {
 
 const ChoiceIndexContext = createContext<number>(-1);
 
+const isChoiceElement = (
+  child: React.ReactNode
+): child is React.ReactElement<QuestionnaireChoiceProps> =>
+  isValidElement(child) && child.type === QuestionnaireChoice;
+
 const focusAnswerControl = (form: HTMLFormElement | null, name: string) => {
   const item = form?.querySelector<HTMLElement>(
     `[data-questionnaire-item="${CSS.escape(name)}"]`
@@ -410,13 +415,14 @@ export const QuestionnaireChoices: React.FC<QuestionnaireChoicesProps> = ({
   const { name, multiple, titleId } = useQuestionnaireItem();
   const answer = answers[name] ?? EMPTY_ANSWER;
 
-  let choiceIndex = 0;
-  const indexedChildren = Children.map(children, (child) => {
-    if (!isValidElement(child) || child.type !== QuestionnaireChoice) {
-      return child;
-    }
+  const childArray = Children.toArray(children);
+  const indexedChildren = childArray.map((child, position) => {
+    if (!isChoiceElement(child)) return child;
     return (
-      <ChoiceIndexContext.Provider value={choiceIndex++}>
+      <ChoiceIndexContext.Provider
+        key={child.key}
+        value={childArray.slice(0, position).filter(isChoiceElement).length}
+      >
         {child}
       </ChoiceIndexContext.Provider>
     );

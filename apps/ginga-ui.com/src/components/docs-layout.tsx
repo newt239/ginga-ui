@@ -30,7 +30,7 @@ export function DocsLayout({ locale, children }: DocsLayoutProps) {
       <aside className="docs-sidebar">
         <div className="docs-sidebar-header">
           <Logo />
-          <SiteSettings />
+          <SiteSettings orientation="vertical" />
         </div>
         <SidebarNav />
       </aside>

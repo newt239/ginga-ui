@@ -9,6 +9,8 @@ import {
 } from "@ginga-ui/core";
 import { LayoutGrid, List, Rows3 } from "lucide-react";
 
+import styles from "../segmented-control.module.css";
+
 export function BasicExample() {
   return (
     <SegmentedControl aria-label="表示期間" defaultValue="week">
@@ -37,10 +39,20 @@ export function IconExample() {
 
 export function SizeExample() {
   return (
-    <SegmentedControl aria-label="並び順" defaultValue="new" size="sm">
-      <SegmentedControlItem id="new">新着順</SegmentedControlItem>
-      <SegmentedControlItem id="popular">人気順</SegmentedControlItem>
-    </SegmentedControl>
+    <div className={styles.sizeRow}>
+      <SegmentedControl aria-label="並び順" defaultValue="new" size="sm">
+        <SegmentedControlItem id="new">新着順</SegmentedControlItem>
+        <SegmentedControlItem id="popular">人気順</SegmentedControlItem>
+      </SegmentedControl>
+      <SegmentedControl aria-label="並び順" defaultValue="new" size="md">
+        <SegmentedControlItem id="new">新着順</SegmentedControlItem>
+        <SegmentedControlItem id="popular">人気順</SegmentedControlItem>
+      </SegmentedControl>
+      <SegmentedControl aria-label="並び順" defaultValue="new" size="lg">
+        <SegmentedControlItem id="new">新着順</SegmentedControlItem>
+        <SegmentedControlItem id="popular">人気順</SegmentedControlItem>
+      </SegmentedControl>
+    </div>
   );
 }
 

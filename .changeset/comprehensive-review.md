@@ -22,3 +22,9 @@
 - `generateTheme` の失敗時の戻り値を `{ type: "error", message }` に変更しました
 - 未使用の `generateColors` / `generateColorsMap` / `generateIntermediateColors` を削除しました
 - すべてのコンポーネントで `render` を受け取り、`next/link` などの別のコンポーネントでルート要素を描画できるようにしました。`Modal` の `render` は `className` と同じ内側の要素に渡し、`Anchor` の `render` は `href` があるときだけ使います
+- `SegmentedControl` のスタイルを他のフォーム部品に合わせて作り直しました。枠線付きの外枠と、選択中の項目をアクセント色で塗る表示になり、切り替え時に選択中の背景が横へスライドします。`size="lg"` を追加しました
+- `Input` と `Select` の高さが `Button` より 4px 高くなっていたのを、`--size-control-md` にそろえました
+- フォーム部品の枠線色 `--color-control-border` にプライマリ色を混ぜるのをやめ、文字色と背景色から作る無彩色にしました
+- `Questionnaire` の選択肢の枠線を `Input` と同じ色にし、ホバー時と無効時の見た目も `Input` にそろえました
+- ネストした `List` の上下のマージンが崩れていたのを修正しました
+- `@ginga-ui/utils` が依存する `ai` と `@ai-sdk/anthropic` / `@ai-sdk/google` / `@ai-sdk/openai` を更新しました

@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogTitle,
   DialogTrigger,
+  FormControl,
   Input,
   Modal,
 } from "@ginga-ui/core";
@@ -50,17 +51,15 @@ export function FormExample() {
             >
               <DialogTitle>アカウント作成</DialogTitle>
               <div className={styles.formFields}>
-                <Input type="text" aria-label="名前" placeholder="名前" />
-                <Input
-                  type="email"
-                  aria-label="メールアドレス"
-                  placeholder="メールアドレス"
-                />
-                <Input
-                  type="password"
-                  aria-label="パスワード"
-                  placeholder="パスワード"
-                />
+                <FormControl label="名前">
+                  <Input type="text" autoComplete="name" />
+                </FormControl>
+                <FormControl label="メールアドレス">
+                  <Input type="email" autoComplete="email" />
+                </FormControl>
+                <FormControl label="パスワード">
+                  <Input type="password" autoComplete="new-password" />
+                </FormControl>
               </div>
               <div className={styles.actions}>
                 <Button slot="close" variant="outline">

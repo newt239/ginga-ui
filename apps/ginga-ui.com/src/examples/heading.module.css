@@ -13,23 +13,3 @@
 .article {
   width: 100%;
 }
-
-.customStack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.accentHeading {
-  color: var(--color-accent);
-}
-
-.centeredHeading {
-  text-align: center;
-}
-
-.underlinedHeading {
-  padding-bottom: 0.5rem;
-  border-bottom: var(--border-width) solid var(--color-accent);
-}

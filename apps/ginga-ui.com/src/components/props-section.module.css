@@ -1,0 +1,12 @@
+.tableContainer {
+  margin: 1rem 0;
+  overflow-x: auto;
+
+  & table {
+    min-width: 40rem;
+  }
+}
+
+.type {
+  overflow-wrap: anywhere;
+}
