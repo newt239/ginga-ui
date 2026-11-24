@@ -26,3 +26,4 @@
 - `Input` と `Select` の高さが `Button` より 4px 高くなっていたのを、`--size-control-md` にそろえました
 - フォーム部品の枠線色 `--color-control-border` にプライマリ色を混ぜるのをやめ、文字色と背景色から作る無彩色にしました
 - `Questionnaire` の選択肢の枠線を `Input` と同じ色にし、ホバー時と無効時の見た目も `Input` にそろえました
+- `@ginga-ui/utils` が依存する `ai` と `@ai-sdk/anthropic` / `@ai-sdk/google` / `@ai-sdk/openai` を更新しました
