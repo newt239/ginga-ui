@@ -31,3 +31,5 @@
 - `Questionnaire` の選択肢の枠線を `Input` と同じ色にし、ホバー時と無効時の見た目も `Input` にそろえました
 - ネストした `List` の上下のマージンが崩れていたのを修正しました
 - `@ginga-ui/utils` が依存する `ai` と `@ai-sdk/anthropic` / `@ai-sdk/google` / `@ai-sdk/openai` を更新しました
+- `Tooltip`・`Menu`・`ComboBox`・`NumberField`・`SearchField` を追加しました
+- `FormControl` の中に `NumberField` と `SearchField` を置くと、ラベルが関連付けられるようにしました
