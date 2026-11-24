@@ -32,6 +32,10 @@
   & > * {
     max-width: 100%;
   }
+
+  &[data-align="start"] {
+    align-items: flex-start;
+  }
 }
 
 @media (width < 40rem) {
