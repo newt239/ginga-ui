@@ -16,7 +16,7 @@
   align-items: center;
   min-height: 2.75rem;
   padding: 0.375rem 0.5rem;
-  border-bottom: calc(var(--border-width) / 2) solid var(--color-surface-strong);
+  border-bottom: var(--border-width) solid var(--color-surface-strong);
 }
 
 .ginga-code-block-filename {
