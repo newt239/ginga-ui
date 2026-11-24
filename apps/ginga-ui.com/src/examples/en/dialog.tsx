@@ -5,6 +5,7 @@ import {
   Dialog,
   DialogTitle,
   DialogTrigger,
+  FormControl,
   Input,
   Modal,
 } from "@ginga-ui/core";
@@ -50,17 +51,15 @@ export function FormExample() {
             >
               <DialogTitle>Create account</DialogTitle>
               <div className={styles.formFields}>
-                <Input type="text" aria-label="Name" placeholder="Name" />
-                <Input
-                  type="email"
-                  aria-label="Email address"
-                  placeholder="Email address"
-                />
-                <Input
-                  type="password"
-                  aria-label="Password"
-                  placeholder="Password"
-                />
+                <FormControl label="Name">
+                  <Input type="text" autoComplete="name" />
+                </FormControl>
+                <FormControl label="Email address">
+                  <Input type="email" autoComplete="email" />
+                </FormControl>
+                <FormControl label="Password">
+                  <Input type="password" autoComplete="new-password" />
+                </FormControl>
               </div>
               <div className={styles.actions}>
                 <Button slot="close" variant="outline">
