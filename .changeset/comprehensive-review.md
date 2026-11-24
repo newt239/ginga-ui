@@ -34,3 +34,4 @@
 - `Tooltip`・`Menu`・`ComboBox`・`NumberField`・`SearchField` を追加しました
 - `FormControl` の中に `NumberField` と `SearchField` を置くと、ラベルが関連付けられるようにしました
 - `Popover` の矢印が枠線の内側にずれて小さく見えていたのを修正し、内容の先頭と末尾の要素の余白を詰めました
+- `Table` を、見出し行と各行の間に区切り線を引く一般的な表示に変えました。見出しの塗りと行の角丸をなくし、見出しの文字色を控えめにしました
