@@ -13,6 +13,10 @@
   &[data-type="unordered"] {
     list-style-type: disc;
   }
+
+  & & {
+    margin: 0.25rem 0 0;
+  }
 }
 
 .ginga-list-item {
