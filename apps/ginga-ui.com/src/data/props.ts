@@ -2,7 +2,7 @@ import type { Locale } from "#/i18n/locales";
 
 type Text = Record<Locale, string>;
 
-export type PropDoc = {
+type PropDoc = {
   name: string;
   type: string;
   defaultValue?: string;
