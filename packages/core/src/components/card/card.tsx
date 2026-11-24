@@ -40,19 +40,6 @@ export const CardTitle: React.FC<CardTitleProps> = ({
     ...props,
   });
 
-export type CardDescriptionProps = React.ComponentProps<"p"> &
-  ElementRenderProps<"p">;
-
-export const CardDescription: React.FC<CardDescriptionProps> = ({
-  className,
-  render,
-  ...props
-}) =>
-  renderElement("p", render, {
-    className: cn("ginga-card-description", className),
-    ...props,
-  });
-
 export type CardContentProps = React.ComponentProps<"div"> &
   ElementRenderProps<"div">;
 

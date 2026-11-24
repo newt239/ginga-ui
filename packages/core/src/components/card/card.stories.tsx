@@ -1,12 +1,5 @@
 import { Button } from "../button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./index";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./index";
 
 import type { Meta, StoryObj } from "@storybook/react";
 
@@ -16,7 +9,6 @@ const meta: Meta<typeof Card> = {
     <Card>
       <CardHeader>
         <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
         Lorem Ipsum is simply dummy text of the printing and typesetting

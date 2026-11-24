@@ -310,7 +310,6 @@ export const COMPONENT_PROPS: Record<string, ComponentPropsDoc[]> = {
     htmlOnly("Card", "div"),
     htmlOnly("CardHeader", "div"),
     htmlOnly("CardTitle", "div"),
-    htmlOnly("CardDescription", "p"),
     htmlOnly("CardContent", "div"),
     htmlOnly("CardFooter", "div"),
   ],
