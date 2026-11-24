@@ -30,24 +30,9 @@
 }
 
 .cardTitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.4;
-}
-
-.cardArrow {
-  width: 1.125rem;
-  height: 1.125rem;
-  color: var(--color-text-muted);
-  transition: var(--transition);
-
-  .card:hover & {
-    color: var(--color-accent);
-    transform: translateX(0.25rem);
-  }
 }
 
 .cardDescription {
