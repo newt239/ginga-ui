@@ -2,28 +2,10 @@
   "name": "ginga-ui",
   "version": "0.17.0",
   "private": true,
-  "description": "brand-new UI component library for web",
-  "keywords": [
-    "component",
-    "library",
-    "react",
-    "ui"
-  ],
-  "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "bugs": {
-    "url": "https://github.com/newt239/ginga-ui/issues"
-  },
-  "author": {
-    "name": "newt239",
-    "email": "ysti2019.win2020.st@gmail.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/newt239/ginga-ui.git"
   },
-  "files": [
-    "dist"
-  ],
   "type": "module",
   "scripts": {
     "changeset-version": "changeset version && node scripts/sync-root-version.ts",
