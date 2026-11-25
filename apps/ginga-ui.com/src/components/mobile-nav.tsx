@@ -11,6 +11,7 @@ import {
 import { Menu, X } from "lucide-react";
 import { useDictionary } from "#/i18n/locale-context";
 import { SidebarNav } from "./sidebar";
+import { SiteSettings } from "./site-settings";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,7 @@ export function MobileNav() {
               <X />
             </Button>
           </div>
+          <SiteSettings orientation="vertical" />
           <SidebarNav onNavigate={() => setIsOpen(false)} />
         </DrawerContent>
       </Drawer>
