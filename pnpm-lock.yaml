@@ -203,9 +203,6 @@ importers:
       '@tsdown/css':
         specifier: 0.23.7
         version: 0.23.7(jiti@2.7.0)(postcss@8.5.33)(tsdown@0.23.7)(yaml@2.9.1)
-      '@types/culori':
-        specifier: 4.0.1
-        version: 4.0.1
       '@types/node':
         specifier: 26.6.6
         version: 26.6.6
@@ -330,6 +327,9 @@ importers:
       '@browser-ai/core':
         specifier: 3.0.4
         version: 3.0.4(ai@7.0.173(zod@4.6.7))
+      '@types/culori':
+        specifier: 4.0.1
+        version: 4.0.1
       ai:
         specifier: 7.0.173
         version: 7.0.173(zod@4.6.7)

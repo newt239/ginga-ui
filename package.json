@@ -48,7 +48,6 @@
     "@storybook/react": "10.6.7",
     "@storybook/react-vite": "10.6.7",
     "@tsdown/css": "0.23.7",
-    "@types/culori": "4.0.1",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",

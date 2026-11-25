@@ -49,6 +49,7 @@
     "@ai-sdk/google": "4.0.121",
     "@ai-sdk/openai": "4.0.118",
     "@browser-ai/core": "3.0.4",
+    "@types/culori": "4.0.1",
     "ai": "7.0.173",
     "culori": "4.0.2",
     "zod": "4.6.7"
