@@ -1,6 +1,6 @@
 {
   "name": "ginga-ui",
-  "version": "1.0.0",
+  "version": "0.17.0",
   "private": true,
   "description": "brand-new UI component library for web",
   "keywords": [
@@ -28,7 +28,7 @@
   "scripts": {
     "setup": "corepack enable pnpm",
     "preinstall": "npx only-allow pnpm",
-    "changeset-version": "changeset version",
+    "changeset-version": "changeset version && node scripts/sync-root-version.ts",
     "changeset-publish": "changeset publish",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.turbo' -o -name 'dist' -o -name 'pnpm-lock.yaml' \\) -prune -exec rm -rf {} +",
     "dev": "turbo run dev --filter=./packages/**",
