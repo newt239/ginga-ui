@@ -62,7 +62,11 @@ const toCellContent = (value: unknown): React.ReactNode => {
   ) {
     return value;
   }
-  return String(value);
+  if (typeof value === "boolean" || typeof value === "bigint") {
+    return String(value);
+  }
+  if (value instanceof Date) return value.toISOString();
+  return JSON.stringify(value);
 };
 
 export const Table = <T extends object>({

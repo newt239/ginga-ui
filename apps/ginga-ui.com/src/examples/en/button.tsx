@@ -96,7 +96,8 @@ export function FormExample() {
         onSubmit={(e) => {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
-          setSubmittedName(String(formData.get("name") ?? ""));
+          const name = formData.get("name");
+          setSubmittedName(typeof name === "string" ? name : "");
         }}
         className={styles.form}
       >

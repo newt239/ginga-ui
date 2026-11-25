@@ -63,7 +63,10 @@ export function BasicExample() {
         const answers = new FormData(event.currentTarget);
         setResult(
           questions
-            .map(({ name }) => `${name}: ${answers.get(name)}`)
+            .map(({ name }) => {
+              const answer = answers.get(name);
+              return `${name}: ${typeof answer === "string" ? answer : ""}`;
+            })
             .join(", ")
         );
       }}
