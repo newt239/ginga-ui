@@ -122,12 +122,6 @@ body {
   }
 }
 
-.docs-header-actions {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-}
-
 .docs-nav {
   display: flex;
   flex-direction: column;

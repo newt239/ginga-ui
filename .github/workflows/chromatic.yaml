@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: read
 jobs:
   chromatic-deployment:
     name: Deploy Storybook to chromatic
@@ -18,10 +20,9 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: "package.json"
-          registry-url: "https://registry.npmjs.org"
           cache: pnpm
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
       - name: Publish to Chromatic
         uses: chromaui/action@5bcadb5104b09e360e210c54f95a7437c2d82bab # v18.13.3
         with:

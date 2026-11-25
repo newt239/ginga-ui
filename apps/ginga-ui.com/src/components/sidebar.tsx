@@ -73,6 +73,7 @@ export function SidebarNav({ onNavigate }: SidebarNavProps) {
       <section aria-labelledby={`${idPrefix}-resources`}>
         <h2 id={`${idPrefix}-resources`}>{nav.resources}</h2>
         <ul>
+          {renderLink(localizePath("/changelog", locale), nav.changelog)}
           <li>
             <a
               href="https://github.com/newt239/ginga-ui"

@@ -22,10 +22,7 @@ export function DocsLayout({ locale, children }: DocsLayoutProps) {
       </a>
       <header className="docs-mobile-header">
         <Logo />
-        <div className="docs-header-actions">
-          <SiteSettings />
-          <MobileNav />
-        </div>
+        <MobileNav />
       </header>
       <aside className="docs-sidebar">
         <div className="docs-sidebar-header">

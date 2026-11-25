@@ -15,7 +15,9 @@ export function Providers({ locale, children }: ProvidersProps) {
   const router = useRouter();
   return (
     <LocaleProvider value={locale}>
-      <RouterProvider navigate={router.push}>{children}</RouterProvider>
+      <RouterProvider navigate={(href) => router.push(href)}>
+        {children}
+      </RouterProvider>
     </LocaleProvider>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Languages } from "lucide-react";
 import { useLocale } from "#/i18n/locale-context";
@@ -13,7 +12,7 @@ export function LanguageSwitcher() {
   const target = locale === "ja" ? "en" : "ja";
 
   return (
-    <Link
+    <a
       href={localizePath(pathname, target)}
       hrefLang={target}
       lang={target}
@@ -21,6 +20,6 @@ export function LanguageSwitcher() {
     >
       <Languages aria-hidden="true" />
       {LOCALE_LABELS[target]}
-    </Link>
+    </a>
   );
 }

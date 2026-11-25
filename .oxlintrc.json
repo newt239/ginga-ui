@@ -1,13 +1,17 @@
 {
-  "ignorePatterns": [
-    "node_modules/",
-    ".next/",
-    "public/",
-    "playwright-report/"
-  ],
+  "ignorePatterns": ["node_modules/", ".next/", "public/"],
   "env": {
-    "es2022": true,
-    "node": true
+    "browser": true,
+    "node": true,
+    "es2024": true
   },
-  "plugins": ["eslint", "oxc", "react", "import", "jsx-a11y", "unicorn"]
+  "plugins": [
+    "eslint",
+    "typescript",
+    "oxc",
+    "react",
+    "import",
+    "jsx-a11y",
+    "unicorn"
+  ]
 }

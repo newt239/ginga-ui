@@ -1,35 +1,16 @@
 {
   "name": "ginga-ui",
-  "version": "1.0.0",
+  "version": "0.17.0",
   "private": true,
-  "description": "brand-new UI component library for web",
-  "keywords": [
-    "component",
-    "library",
-    "react",
-    "ui"
-  ],
-  "homepage": "https://github.com/newt239/ginga-ui#readme",
-  "bugs": {
-    "url": "https://github.com/newt239/ginga-ui/issues"
-  },
-  "author": {
-    "name": "newt239",
-    "email": "ysti2019.win2020.st@gmail.com"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/newt239/ginga-ui.git"
   },
-  "files": [
-    "dist"
-  ],
   "type": "module",
   "scripts": {
-    "setup": "corepack enable pnpm",
-    "preinstall": "npx only-allow pnpm",
-    "changeset-version": "changeset version",
+    "changeset-version": "changeset version && node scripts/sync-root-version.ts",
     "changeset-publish": "changeset publish",
+    "changelog": "node scripts/generate-changelog.ts",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.turbo' -o -name 'dist' -o -name 'pnpm-lock.yaml' \\) -prune -exec rm -rf {} +",
     "dev": "turbo run dev --filter=./packages/**",
     "build": "turbo run build --filter=./packages/**",
@@ -50,7 +31,6 @@
     "@storybook/react": "10.6.7",
     "@storybook/react-vite": "10.6.7",
     "@tsdown/css": "0.23.7",
-    "@types/culori": "4.0.1",
     "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
