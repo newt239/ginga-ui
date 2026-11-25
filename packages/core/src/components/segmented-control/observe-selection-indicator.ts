@@ -1,4 +1,6 @@
-export const observeSelectionIndicator = (element: HTMLElement) => {
+export const observeSelectionIndicator = (
+  element: HTMLElement
+): (() => void) => {
   const update = () => {
     const selected = element.querySelector<HTMLElement>(
       ":scope > [data-selected]"
