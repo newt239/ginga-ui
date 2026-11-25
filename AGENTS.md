@@ -35,7 +35,7 @@ Ginga UIは、LLMを活用したテーマ生成機能を持つReact UIコンポ�
 ### パッケージ管理
 
 - **パッケージマネージャー**: pnpm（`packageManager`フィールドで必須指定）
-- **セットアップ**: `pnpm setup`（corepackを有効化）
+- **Node / pnpm のバージョン**: pnpm が `packageManager` と `devEngines.runtime` を参照し、指定バージョンで実行する。未取得の場合は自動でダウンロードされるため、corepack やバージョンマネージャーは不要
 - **インストール**: `pnpm install`
 
 ### ビルド
