@@ -1,6 +1,6 @@
 {
   "name": "@ginga-ui/utils",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "private": false,
   "description": "LLM-based theme generation and shared utilities for Ginga UI",
   "keywords": [

@@ -1,5 +1,13 @@
 # ginga-ui.com
 
+## 0.17.1
+
+### Patch Changes
+
+- Updated dependencies [4fb9e8a]
+  - @ginga-ui/core@0.17.1
+  - @ginga-ui/utils@0.17.1
+
 ## 0.14.0
 
 ### Patch Changes
