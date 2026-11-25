@@ -21,6 +21,7 @@ export const en: Dictionary = {
     customRendering: "Custom rendering",
     allComponents: "All components",
     resources: "Resources",
+    changelog: "Changelog",
     opensInNewTab: " (opens in a new tab)",
     logoCredit: "Logo:",
     openMenu: "Open menu",
@@ -38,6 +39,10 @@ export const en: Dictionary = {
     copy: "Copy",
     copied: "Copied",
     files: "Files",
+  },
+  changelog: {
+    title: "Changelog",
+    lead: "Changes to `@ginga-ui/core` and `@ginga-ui/utils`, listed by version. Both packages are always released with the same version.",
   },
   home: {
     eyecatchAlt:

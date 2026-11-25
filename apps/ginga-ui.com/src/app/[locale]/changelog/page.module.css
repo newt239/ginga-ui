@@ -1,0 +1,27 @@
+.release {
+  margin-top: 3rem;
+}
+
+.releaseHeader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+
+  & h2 {
+    margin: 0;
+  }
+}
+
+.date {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.group {
+  margin-top: 1.5rem;
+
+  & h3 {
+    margin: 0 0 0.5rem;
+  }
+}

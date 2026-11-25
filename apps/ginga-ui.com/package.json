@@ -2,6 +2,7 @@
   "name": "ginga-ui.com",
   "version": "0.14.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

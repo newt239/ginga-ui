@@ -19,6 +19,7 @@ export const ja = {
     customRendering: "要素の差し替え",
     allComponents: "全コンポーネント",
     resources: "リソース",
+    changelog: "変更履歴",
     opensInNewTab: "（新しいタブで開く）",
     logoCredit: "ロゴ:",
     openMenu: "メニューを開く",
@@ -36,6 +37,10 @@ export const ja = {
     copy: "コピーする",
     copied: "コピー済み",
     files: "ファイル",
+  },
+  changelog: {
+    title: "変更履歴",
+    lead: "`@ginga-ui/core` と `@ginga-ui/utils` の変更をバージョンごとにまとめています。両パッケージは常に同じバージョンで公開されます。",
   },
   home: {
     eyecatchAlt:

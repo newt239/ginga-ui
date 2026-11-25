@@ -28,6 +28,7 @@
   "scripts": {
     "changeset-version": "changeset version && node scripts/sync-root-version.ts",
     "changeset-publish": "changeset publish",
+    "changelog": "node scripts/generate-changelog.ts",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.turbo' -o -name 'dist' -o -name 'pnpm-lock.yaml' \\) -prune -exec rm -rf {} +",
     "dev": "turbo run dev --filter=./packages/**",
     "build": "turbo run build --filter=./packages/**",
