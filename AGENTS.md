@@ -123,7 +123,7 @@ TypeScriptパスマッピングを使用:
 - **バージョン統一**: `@ginga-ui/core`・`@ginga-ui/utils`・`ginga-ui.com` は Changesets の `fixed` 設定（`.changeset/config.json`）でグループ化しており、常に同一バージョンで一緒に更新される。いずれか1つのパッケージのみを変更した場合でも、グループ内の全パッケージのバージョンが揃って更新される
 - 利用者向けの変更履歴は `apps/ginga-ui.com/src/data/changelog.ts` に日本語と英語で書く。ドキュメントサイトの `/changelog` はここから描画され、ルートの `CHANGELOG.md` は `pnpm changelog` で日本語版から生成する。リリース時は版を追加してから `pnpm changelog` を実行する
 - ルートの `package.json` の version は `pnpm changeset-version` の実行時に `scripts/sync-root-version.ts` が `@ginga-ui/core` に揃える
-- `ginga-ui.com` は `private: true` のため `fixed` グループに含めてもnpmへは公開されず、バージョン番号のみがグループに合わせて更新される
+- `ginga-ui.com` は `private: true` のため `fixed` グループに含めてもnpmへは公開されず、バージョン番号のみがグループに合わせて更新される。Changesets 3 は private パッケージの version を既定で更新しないため、`.changeset/config.json` の `privatePackages.version` を `true` にしている
 
 ## 重要なパターン
 
