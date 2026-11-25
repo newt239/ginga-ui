@@ -26,6 +26,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
       - name: Type check
         run: pnpm exec tsc --noEmit
       - name: Oxlint
@@ -38,5 +40,3 @@ jobs:
         run: pnpm run knip
       - name: Test
         run: pnpm test
-      - name: Build
-        run: pnpm build
